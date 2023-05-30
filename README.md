@@ -1,7 +1,7 @@
 # Metamath-lamp Guide
 
 This is the
-[**Metamath-lamp Guide**](docs/guide.md#metamath-lamp-guide) repository.
+[**Metamath-lamp Guide**](docs/index.md#metamath-lamp-guide) repository.
 
 [Metamath-lamp](https://github.com/expln/metamath-lamp)
 ("Lite Assistant for [Metamath](https://us.metamath.org))
@@ -13,7 +13,7 @@ users can use this proof assistant without installing anything;
 you can simply run it directly using your web browser.
 
 Please go to the
-[**Metamath-lamp Guide**](docs/guide.md#metamath-lamp-guide) to learn more about Metamath-lamp.
+[**Metamath-lamp Guide**](docs/index.md#metamath-lamp-guide) to learn more about Metamath-lamp.
 This guide, primarily authored by [David A. Wheeler](https://dwheeler.com),
 will help you learn how to use this tool.
 
