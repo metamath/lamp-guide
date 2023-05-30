@@ -1,4 +1,4 @@
-# Metamath-lamp Guide
+# Metamath-lamp Guide: User Guide (Tutorial) and Reference Manual
 
 Metamath-lamp (Lite Assistant for Metamath Proofs) is
 a proof assistant for creating formal
