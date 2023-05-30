@@ -29,7 +29,7 @@ You can see and contribute to the Metamath-lamp code by going to the
 
 Here's a simple screenshot of metamath-lamp in action.
 
-![Screenshot of metamath-lamp showing 2 + 2 = 4](./metamath-lamp-example.png)
+![Screenshot of metamath-lamp showing 2 + 2 = 4](./docs/metamath-lamp-example.png)
 
 ## License
 
