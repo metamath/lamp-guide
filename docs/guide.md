@@ -1720,3 +1720,4 @@ SPDX-License-Identifier: (MIT OR CC-BY-4.0)
 
 This guide was written by David A. Wheeler (@david-a-wheeler)
 and reviewed by Igor Ieskov (@expln).
+* This line should trigger an error
