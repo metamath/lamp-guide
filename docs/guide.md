@@ -1546,7 +1546,7 @@ and how many attempts it's made so far. Press the circled "X" to
 stop its attempts to find a proof.
 
 Proving bottom-up can take a long time,
-depending the problem and the speed of the computer.
+depending on the problem and the speed of the computer.
 The options selected here will affect whether or not it *can* find a proof,
 and the time it takes to do it,
 Therefore, selecting the *right* options for your circumstance
@@ -1591,7 +1591,7 @@ This setting does not affect other levels (depths) of the proof.
 
 Search depth: How deep the search is to go.
 Use of a single axiom or theorem is depth 1,
-a statement that uses requires a depth 1 search on a depth 1 search
+a statement that requires a depth 1 search on a depth 1 search
 is depth 2, and so on.
 The default search depth value is 4. Larger numbers enable more automation
 but generally take exponentially more time.
@@ -1660,7 +1660,7 @@ certain functions of the mmj2 tool:
   proof of that given statement, and selecting just those statements to be
   used as root statements at the "first level".
   This can quite similar to mmj2 if you also uncheck "allow new statements",
-  which will prevent the use of any other statements in the database.
+  which will prevent the introduction of new statements.
 * In mmj2 you can state that a specific axiom or theorem
   must be used as the justification. You can do the same by
   selecting it as the "Label".
