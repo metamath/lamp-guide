@@ -11,16 +11,22 @@ More information on metamath-lamp is available at the
 [metamath-lamp source code repository](https://github.com/expln/metamath-lamp).
 
 This is a guide for metamath-lamp, including both a
-user guide (tutorial) and a reference guide.
-We'll begin with a "quick start"
-(a brief introduction on how to start and use metamath-lamp).
-This will be followed by a user guide / tutorial,
-which is primarily a sequence of worked examples showing how to use
-the metamath-lamp tool
-(starting with a proof that two plus two equals four).
-The rest of this guide is a reference guide,
-explaining the various parts of the user interface.
-We conclude with how to get or share more information.
+user guide (tutorial) and a reference guide. This includes:
+
+* [Quick start](#quickstart) -
+  a brief introduction on how to start and use metamath-lamp.
+* [Sample Screenshot](#sample-screenshot)
+* [User guide (tutorial)](#user-guide-tutorial) -
+  this user guide is primarily
+  which is primarily a sequence of worked examples showing how to use
+  the metamath-lamp tool, including proofs that
+  [2 + 2 = 4 (2p2e4)](proof-2--2--4) and that
+  [the reciprocal of the cotangent is tangent (reccot)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
+* [Reference guide](#reference-guide) - this walks through the
+  user interface, explaining its various parts.
+* [Help, feedback, and contributions](#help-feedback-and-contributions)
+* [Licensing](#licensing)
+* [Authors and Reviewers](#authors-and-reviewers)
 
 Metamath-lamp is a new proof assistant for creating Metamath proofs.
 As a result, it currently lacks some functionality, such as
@@ -35,6 +41,9 @@ Note that metamath-lamp changes over time, so some of this guide
 may not exactly match what you see. If you see a difference, please
 let us know so we can fix this guide. We try to make this guide
 match the tool it's describing.
+
+You can get the latest version of this *Metamath-lamp guide* at
+&lt;[https://lamp-guide.metamath.org/](https://lamp-guide.metamath.org/)&gt;.
 
 ## Quickstart
 
@@ -75,6 +84,21 @@ On a touchscreen (like a smartphone), a quick touch and release on a UI
 control is the same as a left click.
 Metamath-lamp has some actions that are quickly accessed using Alt+left click
 (hold down the Alt aka Opt key, and while holding it use left click).
+
+## Sample Screenshot
+
+Here's a sample screenshot to give you an idea of what
+using metamath-lamp looks like (proving that 2 + 2 = 4):
+
+![Screenshot of 2 + 2 = 4](./metamath-lamp-example.png)
+
+You can start using metamath-lamp immediately by visiting the
+[main Metamath-lamp web site](https://expln.github.io/lamp/latest/index.html).
+You can even start using metamath-lamp preloaded with a proof state,
+for example, that
+[2 + 2 = 4](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbeyJ0eXAiOiJXZWIiLCJmaWxlTmFtZSI6IiIsInVybCI6Imh0dHBzOi8vdXMubWV0YW1hdGgub3JnL21ldGFtYXRoL3NldC5tbSIsInJlYWRJbnN0ciI6IlN0b3BCZWZvcmUiLCJsYWJlbCI6IjJwMmU0In1dLCJkZXNjciI6IlByb3ZlIHRoYXQgMiArIDIgPSA0LiIsInZhcnNUZXh0IjoiIiwiZGlzalRleHQiOiIiLCJzdG10cyI6W3sibGFiZWwiOiI5IiwidHlwIjoicCIsImNvbnQiOiJ8LSAxIGUuIENDIiwianN0ZlRleHQiOiI6IGF4LTFjbiJ9LHsibGFiZWwiOiI4IiwidHlwIjoicCIsImNvbnQiOiJ8LSAyIGUuIENDIiwianN0ZlRleHQiOiI6IDJjbiJ9LHsibGFiZWwiOiI1IiwidHlwIjoicCIsImNvbnQiOiJ8LSAyID0gKCAxICsgMSApIiwianN0ZlRleHQiOiI6IGRmLTIifSx7ImxhYmVsIjoiNiIsInR5cCI6InAiLCJjb250IjoifC0gKCAyICsgMiApID0gKCAyICsgKCAxICsgMSApICkiLCJqc3RmVGV4dCI6IjUgOiBvdmVxMmkifSx7ImxhYmVsIjoiMiIsInR5cCI6InAiLCJjb250IjoifC0gMyA9ICggMiArIDEgKSIsImpzdGZUZXh0IjoiOiBkZi0zIn0seyJsYWJlbCI6IjEiLCJ0eXAiOiJwIiwiY29udCI6InwtIDQgPSAoIDMgKyAxICkiLCJqc3RmVGV4dCI6IjogZGYtNCJ9LHsibGFiZWwiOiIzIiwidHlwIjoicCIsImNvbnQiOiJ8LSAoIDMgKyAxICkgPSAoICggMiArIDEgKSArIDEgKSIsImpzdGZUZXh0IjoiMiA6IG92ZXExaSJ9LHsibGFiZWwiOiI0IiwidHlwIjoicCIsImNvbnQiOiJ8LSA0ID0gKCAoIDIgKyAxICkgKyAxICkiLCJqc3RmVGV4dCI6IjEgMyA6IGVxdHJpIn0seyJsYWJlbCI6IjciLCJ0eXAiOiJwIiwiY29udCI6InwtICggKCAyICsgMSApICsgMSApID0gKCAyICsgKCAxICsgMSApICkiLCJqc3RmVGV4dCI6IjggOSA5IDogYWRkYXNzaSJ9LHsibGFiZWwiOiIycDJlNCIsInR5cCI6InAiLCJjb250IjoifC0gKCAyICsgMiApID0gNCIsImpzdGZUZXh0IjoiNyA0IDYgOiAzZXF0cjRyaSJ9XX0=)
+or
+[the tangent is equal to the reciprocal of the cotangent]( https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbeyJ0eXAiOiJXZWIiLCJmaWxlTmFtZSI6IiIsInVybCI6Imh0dHBzOi8vdXMubWV0YW1hdGgub3JnL21ldGFtYXRoL3NldC5tbSIsInJlYWRJbnN0ciI6IlN0b3BCZWZvcmUiLCJsYWJlbCI6InJlY2NvdCJ9XSwiZGVzY3IiOiJQcm92ZSB0aGF0IHRoZSB0YW5nZW50IGlzIGVxdWFsIHRvIHRoZSByZWNpcHJvY2FsIG9mIHRoZSBjb3RhbmdlbnQuIiwidmFyc1RleHQiOiIiLCJkaXNqVGV4dCI6IiIsInN0bXRzIjpbeyJsYWJlbCI6IjgiLCJ0eXAiOiJwIiwiY29udCI6InwtICggQSBlLiBDQyAtPiAoIHNpbiBgIEEgKSBlLiBDQyApIiwianN0ZlRleHQiOiI6IHNpbmNsIn0seyJsYWJlbCI6IjciLCJ0eXAiOiJwIiwiY29udCI6InwtICggQSBlLiBDQyAtPiAoIGNvcyBgIEEgKSBlLiBDQyApIiwianN0ZlRleHQiOiI6IGNvc2NsIn0seyJsYWJlbCI6IjEiLCJ0eXAiOiJwIiwiY29udCI6InwtICggKCAoICggY29zIGAgQSApIGUuIENDIC9cXCAoIGNvcyBgIEEgKSA9Lz0gMCApIC9cXCAoICggc2luIGAgQSApIGUuIENDIC9cXCAoIHNpbiBgIEEgKSA9Lz0gMCApICkgLT4gKCAxIC8gKCAoIGNvcyBgIEEgKSAvICggc2luIGAgQSApICkgKSA9ICggKCBzaW4gYCBBICkgLyAoIGNvcyBgIEEgKSApICkiLCJqc3RmVGV4dCI6IjogcmVjZGl2In0seyJsYWJlbCI6IjkiLCJ0eXAiOiJwIiwiY29udCI6InwtICggKCAoIEEgZS4gQ0MgL1xcICggY29zIGAgQSApID0vPSAwICkgL1xcICggKCBzaW4gYCBBICkgZS4gQ0MgL1xcICggc2luIGAgQSApID0vPSAwICkgKSAtPiAoIDEgLyAoICggY29zIGAgQSApIC8gKCBzaW4gYCBBICkgKSApID0gKCAoIHNpbiBgIEEgKSAvICggY29zIGAgQSApICkgKSIsImpzdGZUZXh0IjoiNyAxIDogc3lsYW5sMSJ9LHsibGFiZWwiOiIxMCIsInR5cCI6InAiLCJjb250IjoifC0gKCAoICggQSBlLiBDQyAvXFwgKCBjb3MgYCBBICkgPS89IDAgKSAvXFwgKCBBIGUuIENDIC9cXCAoIHNpbiBgIEEgKSA9Lz0gMCApICkgLT4gKCAxIC8gKCAoIGNvcyBgIEEgKSAvICggc2luIGAgQSApICkgKSA9ICggKCBzaW4gYCBBICkgLyAoIGNvcyBgIEEgKSApICkiLCJqc3RmVGV4dCI6IjggOSA6IHN5bGFucjEifSx7ImxhYmVsIjoiMTEiLCJ0eXAiOiJwIiwiY29udCI6InwtICggKCBBIGUuIENDIC9cXCAoIHNpbiBgIEEgKSA9Lz0gMCAvXFwgKCBjb3MgYCBBICkgPS89IDAgKSAtPiAoIDEgLyAoICggY29zIGAgQSApIC8gKCBzaW4gYCBBICkgKSApID0gKCAoIHNpbiBgIEEgKSAvICggY29zIGAgQSApICkgKSIsImpzdGZUZXh0IjoiMTAgOiB1dW4yMTMxcDEifSx7ImxhYmVsIjoiMyIsInR5cCI6InAiLCJjb250IjoifC0gKCAoIEEgZS4gQ0MgL1xcICggc2luIGAgQSApID0vPSAwICkgLT4gKCBjb3QgYCBBICkgPSAoICggY29zIGAgQSApIC8gKCBzaW4gYCBBICkgKSApIiwianN0ZlRleHQiOiI6IGNvdHZhbCJ9LHsibGFiZWwiOiI1IiwidHlwIjoicCIsImNvbnQiOiJ8LSAoICggQSBlLiBDQyAvXFwgKCBzaW4gYCBBICkgPS89IDAgL1xcICggY29zIGAgQSApID0vPSAwICkgLT4gKCBjb3QgYCBBICkgPSAoICggY29zIGAgQSApIC8gKCBzaW4gYCBBICkgKSApIiwianN0ZlRleHQiOiIzIDogM2FkYW50MyJ9LHsibGFiZWwiOiI2IiwidHlwIjoicCIsImNvbnQiOiJ8LSAoICggQSBlLiBDQyAvXFwgKCBzaW4gYCBBICkgPS89IDAgL1xcICggY29zIGAgQSApID0vPSAwICkgLT4gKCAxIC8gKCBjb3QgYCBBICkgKSA9ICggMSAvICggKCBjb3MgYCBBICkgLyAoIHNpbiBgIEEgKSApICkgKSIsImpzdGZUZXh0IjoiNSA6IG92ZXEyZCJ9LHsibGFiZWwiOiIyIiwidHlwIjoicCIsImNvbnQiOiJ8LSAoICggQSBlLiBDQyAvXFwgKCBjb3MgYCBBICkgPS89IDAgKSAtPiAoIHRhbiBgIEEgKSA9ICggKCBzaW4gYCBBICkgLyAoIGNvcyBgIEEgKSApICkiLCJqc3RmVGV4dCI6IjogdGFudmFsIn0seyJsYWJlbCI6IjQiLCJ0eXAiOiJwIiwiY29udCI6InwtICggKCBBIGUuIENDIC9cXCAoIHNpbiBgIEEgKSA9Lz0gMCAvXFwgKCBjb3MgYCBBICkgPS89IDAgKSAtPiAoIHRhbiBgIEEgKSA9ICggKCBzaW4gYCBBICkgLyAoIGNvcyBgIEEgKSApICkiLCJqc3RmVGV4dCI6IjIgOiAzYWRhbnQyIn0seyJsYWJlbCI6InJlY2NvdCIsInR5cCI6InAiLCJjb250IjoifC0gKCAoIEEgZS4gQ0MgL1xcICggc2luIGAgQSApID0vPSAwIC9cXCAoIGNvcyBgIEEgKSA9Lz0gMCApIC0-ICggdGFuIGAgQSApID0gKCAxIC8gKCBjb3QgYCBBICkgKSApIiwianN0ZlRleHQiOiIxMSA2IDQgOiAzZXF0cjRyZCJ9XX0=).
 
 ## User guide (tutorial)
 
@@ -1066,10 +1090,15 @@ Try to create your own proof, consulting the known proof when you get stuck.
 
 You can use "import to JSON" to load worked examples of metamath-lamp.
 
-For example, we have completed examples of:
+For example, we have completed examples of these proofs available in
+JSON format:
 
-* [2p2e4](https://raw.githubusercontent.com/expln/metamath-lamp/master/docs/2p2e4.lamp.json)
-* [reccot](https://raw.githubusercontent.com/expln/metamath-lamp/master/docs/reccot.lamp.json).
+* [2p2e4](./2p2e4.lamp.json)
+* [reccot](./reccot.lamp.json)
+
+You can also generate a URL that includes the proof state, and share that
+URL with anyone.
+When anyone views that URL, they will load that same state.
 
 ### Notes about Metamath databases
 
@@ -1140,7 +1169,9 @@ The rest of this guide is a reference guide,
 where we will walk through various portions of the metamath-lamp
 user interface to help you understand how to use it.
 
-## Loading source Metamath databases to create the proof context
+## Reference guide
+
+### Loading source Metamath databases to create the proof context
 
 Before creating a mathematical proof using metamath-lamp, you must
 first load at least one Metamath database and decide how much of those
@@ -1191,7 +1222,7 @@ Once you've selected all sources, select "Apply changes" to process these
 source databases. After it's applied, the source selection section
 is hidden and you can start creating a proof with the proof editor.
 
-## Main tabs: Settings and Editor
+### Main tabs: Settings and Editor
 
 Once you've loaded the context,
 at the top there is a tab bar with two tabs, "Settings" and "Editor".
@@ -1200,13 +1231,13 @@ The "Editor" tab is the main view that lets you see and edit a proof.
 The "Settings" tab lets you change the editor configuration to your liking,
 We'll cover the Settings tab later; let's focus on the Editor tab.
 
-## Editor tab
+### Editor tab
 
 The Editor tab lets you edit a proof; it starts empty.
 You will create a list of statements in the editor that will eventually
 result in a proof.
 
-### Fundamental proof information
+#### Fundamental proof information
 
 At the top is fundamental proof information,
 specifically fields for its description, variables, and disjoints.
@@ -1214,7 +1245,7 @@ You don't *need* to fill in a description or variable list to begin a proof.
 In many cases you won't need to specify disjoints for a proof, but sometimes
 you do. Here is information on these fields.
 
-#### Description
+##### Description
 
 This field can't be edited with a simple left-click;
 you must use alt+left click.
@@ -1223,7 +1254,7 @@ you must use alt+left click.
 the generated final (compressed) proof. That is an idea that is
 being considered.
 
-#### Variables
+##### Variables
 
 This section shows a list of work variables and local variables,
 one variable per line.
@@ -1260,7 +1291,7 @@ is exported as part of the proof.
 If you don't want to export the local variable, you can replace the
 local variables with global variables before generating a proof.
 
-#### Disjoints
+##### Disjoints
 
 The disjoints field
 presents a list of disjoint variables, one disjoint expression per line.
@@ -1285,7 +1316,7 @@ variable `x` must not occur in the wff `ph`.
 
 For more information, see the Metamath book.
 
-### How to state the goal and hypotheses
+#### How to state the goal and hypotheses
 
 To prove something, you must first tell the system what to prove and
 any special hypotheses to use. To do that:
@@ -1305,7 +1336,7 @@ any special hypotheses to use. To do that:
 You're now ready to create a proof. Let's first look at the editor command's
 tab bar.
 
-### Editor command tab bar
+#### Editor command tab bar
 
 The Editor tab has another tab bar with a variety of icons for commands.
 You can hover over an icon to see what the command does. Here are their
@@ -1328,7 +1359,7 @@ icons and meanings:
 Under the editor command tab bar is basic information about the proof
 (such as its description).
 
-### Basic information about the proof
+#### Basic information about the proof
 
 The basic information about the proof are the proof's description,
 variables, and disjoints. Click on the *section name* to edit this
@@ -1361,7 +1392,7 @@ Omitted, since description is currently not generated as a comment:
 Under the basic information about the proof
 are a list of statements in the proof.
 
-### List of statements in the proof
+#### List of statements in the proof
 
 The list of statements (aka steps) of the proof follows the basic information
 about the proof.
@@ -1438,7 +1469,7 @@ Each statement is presented in the following left-to-right order:
   by using Alt+left click ("alt" is sometimes labelled "opt").
   For more about selecting parts of a statement, see the next section.
 
-### Selecting parts of a statement
+#### Selecting parts of a statement
 
 What we've shown so far is enough to create any proof.
 However, it's very common when creating a proof to want to copy
@@ -1469,7 +1500,7 @@ You can use the selector dialogue as follows:
 * Edit: Start editing with the current text selected.
 * Close: Close this statement part selection dialogue box.
 
-### Search patterns
+#### Search patterns
 
 The "magnifying glass" icon enables you to search for a statement
 that matches a given pattern.
@@ -1499,7 +1530,7 @@ Therefore, a search for `0 ->` will match the conclusion
 because the conclusion has a `0` constant which is later followed by a
 `->` constant.
 
-### Replacement
+#### Replacement
 
 Select the icon "A with arrow icon under it"
 (apply a substitution) to substitute
@@ -1522,7 +1553,7 @@ When you press "Find Substitution" the tool will determine if it
 can apply this substitution (that is, if the results are valid types
 everywhere). If it is, you may select "Apply" to apply it.
 
-### Proving bottom-up
+#### Proving bottom-up
 
 If you select one statement and then select unify, you'll enter a
 "proving bottom-up" dialogue.
@@ -1552,7 +1583,7 @@ and the time it takes to do it,
 Therefore, selecting the *right* options for your circumstance
 in the proving bottom-up dialogue box can be very important.
 
-### Proving bottom-up dialogue box options
+#### Proving bottom-up dialogue box options
 
 This dialogue has the following options:
 
@@ -1665,7 +1696,7 @@ certain functions of the mmj2 tool:
   must be used as the justification. You can do the same by
   selecting it as the "Label".
 
-## Settings
+### Settings
 
 The "Settings" tab lets you configure metamath-lamp to your liking.
 
@@ -1695,19 +1726,28 @@ is the
 You can find a lot of general information about Metamath at the
 [Metamath home page](https://us.metamath.org/index.html).
 
-We'd love feedback and contributions on the metamath-lamp tool.
-For tool feedback on changes you'd like to see, please file an issue at the
+If you have feedback (issues) or contributions (pull requests)
+for this guide, please do that via the
+[Metamath-lamp guide repository](https://github.com/metamath/lamp-guide/).
+
+For feedback or proposed changes to the Metamath-lamp
+tool itself, please file issues or create pull requests against the
 [metamath-lamp source code repository](https://github.com/expln/metamath-lamp).
-If you'd like to make contributions to its code and/or documentations,
-please propose them as pull requests to the same
-[metamath-lamp source code repository](https://github.com/expln/metamath-lamp).
+
+If you're making a contribution to a Metamath database, such as a new
+proof, please contribute those as changes to the database's repository.
+For example, for `set.mm`, propose changes to the
+[set.mm repository](https://github.com/metamath/set.mm).
+If it's your first time, you should contact the mailing list; they
+would be *delighted* to help you complete that process.
+
 Thank you for your time.
 
-### Licensing
+## Licensing
 
 You may use, modify, and share this guide under the terms of *either*
 the [MIT license](./LICENSE.txt) or the
-[Creative Commons Attribution 4.0 International (CC-BY-4.0) license)[LICENSE-CC-BY-4.0.md].
+[Creative Commons Attribution 4.0 International (CC-BY-4.0) license](LICENSE-CC-BY-4.0.md).
 
 In short, this guide is licensed using the
 [SPDX license expression](https://github.com/david-a-wheeler/spdx-tutorial):
@@ -1716,7 +1756,11 @@ In short, this guide is licensed using the
 SPDX-License-Identifier: (MIT OR CC-BY-4.0)
 ~~~~
 
-### Authors and Reviewers
+Metamath-lamp is iicensed separately (in its case under the MIT license).
 
-This guide was written by David A. Wheeler (@david-a-wheeler)
-and reviewed by Igor Ieskov (@expln).
+## Authors and Reviewers
+
+This guide was written by
+[David A. Wheeler](https://dwheeler.com)
+([@david-a-wheeler](https://github.com/david-a-wheeler))
+and reviewed by Igor Ieskov ([@expln](https://github.com/expln).
