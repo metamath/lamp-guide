@@ -46,8 +46,8 @@ jobs:
       - name: Lint Markdown
         # In the future maybe use the "slim" version is smaller/faster, see:
         # https://github.com/marketplace/actions/super-linter
-        # uses: super-linter/super-linter:slim-v5
-        uses: github/super-linter@v4
+        # uses: github/super-linter@v4
+        uses: super-linter/super-linter/slim@v5
         env:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: master
