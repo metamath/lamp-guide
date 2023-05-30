@@ -1,0 +1,6 @@
+# Default state for all rules
+default: true
+
+MD013: false # line-length
+MD033: false # no-inline-html Inline HTML; need this to control formatting
+MD040: false # fenced-code-language Fenced code blocks should have a language specified - too many kinds of tags

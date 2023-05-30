@@ -123,7 +123,7 @@ The set.mm database has strict definitions where parenthesis
 must be used and where they must not be used.
 For example, set.mm requires that infix functions like "+"
 be surrounded by parentheses.
-This is very easy to understand once you have 
+This is very easy to understand once you have
 some experience with Metamath proofs in set.mm,
 and it eliminates ambiguity.
 We will explain the rules in more detail later.
@@ -150,7 +150,7 @@ In this case, the conventional name for this goal would be
 
 So let's rename this goal statement to `2p2e4`:
 
-> Left click the label of the first statement 
+> Left click the label of the first statement
 > (you have to click directly on the number "1"
 > to the left of the first statement).
 > Change the name of the statement from "1" to "2p2e4" and press Enter (Return).
@@ -362,7 +362,7 @@ means we have proven our goal.
 Metamath-lamp automatically unified all the statements,
 and was able to complete the rest of the proof given what we had provided.
 
-If you are new to Metamath and not familiar with formal systems, 
+If you are new to Metamath and not familiar with formal systems,
 you may probably not understand how the program knows when to
 mark a statement with a green checkmark meaning it is proved.
 The short answer is that the green checkmark means that
@@ -709,7 +709,7 @@ When using set.mm or iset.mm, you'll see work variables of certain forms:
   This can't be an expression (class variables are used in this case).
   Set variables can show up immediately after quantifiers; requiring them
   to be a variable ensures that they are syntactically valid.
-  
+
 In work variables the number will increase from 1 as needed to keep
 different work variables distinct..
 
@@ -1067,6 +1067,7 @@ Try to create your own proof, consulting the known proof when you get stuck.
 You can use "import to JSON" to load worked examples of metamath-lamp.
 
 For example, we have completed examples of:
+
 * [2p2e4](https://raw.githubusercontent.com/expln/metamath-lamp/master/docs/2p2e4.lamp.json)
 * [reccot](https://raw.githubusercontent.com/expln/metamath-lamp/master/docs/reccot.lamp.json).
 
@@ -1248,7 +1249,7 @@ An example would be:
 .loc1 class width
 ~~~~
 
-Notice the ".". The period suppresses automatic deletion of 
+Notice the ".". The period suppresses automatic deletion of
 the line; without it, if the variable is unused then entry will disappear.
 
 Once local variable is defined, you can use its name instead of the
