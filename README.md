@@ -33,4 +33,13 @@ Here's a simple screenshot of metamath-lamp in action.
 
 ## License
 
-It's licensed under the [MIT license](./LICENSE.txt).
+You may use, modify, and share this guide under the terms of *either*
+the [MIT license](./LICENSE.txt) or the
+[Creative Commons Attribution 4.0 International (CC-BY-4.0) license)[LICENSE-CC-BY-4.0.md].
+
+In short, this guide is licensed using the
+[SPDX license expression](https://github.com/david-a-wheeler/spdx-tutorial):
+
+~~~~
+SPDX-License-Identifier: (MIT OR CC-BY-4.0)
+~~~~
