@@ -1702,6 +1702,19 @@ please propose them as pull requests to the same
 [metamath-lamp source code repository](https://github.com/expln/metamath-lamp).
 Thank you for your time.
 
+### Licensing
+
+You may use, modify, and share this guide under the terms of *either*
+the [MIT license](./LICENSE.txt) or the
+[Creative Commons Attribution 4.0 International (CC-BY-4.0) license)[LICENSE-CC-BY-4.0.md].
+
+In short, this guide is licensed using the
+[SPDX license expression](https://github.com/david-a-wheeler/spdx-tutorial):
+
+~~~~
+SPDX-License-Identifier: (MIT OR CC-BY-4.0)
+~~~~
+
 ### Authors and Reviewers
 
 This guide was written by David A. Wheeler (@david-a-wheeler)
