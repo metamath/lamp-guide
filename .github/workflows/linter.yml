@@ -44,10 +44,10 @@ jobs:
       # Run Linter against new Markdown files #
       #########################################
       - name: Lint Markdown
-        # uses: github/super-linter@v4
-        # The "slim" version is smaller/faster, see:
+        # In the future maybe use the "slim" version is smaller/faster, see:
         # https://github.com/marketplace/actions/super-linter
-        uses: super-linter/super-linter:slim-v5
+        # uses: super-linter/super-linter:slim-v5
+        uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: master
