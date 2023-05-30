@@ -119,8 +119,7 @@ blank. We do need to tell metamath-lamp our goal.
 Be sure to surround each symbol by at least one space (the first
 and last symbols can start and end the statement).
 
-The set.mm database has strict definitions where parenthesis
-must be used and where they must not be used.
+The set.mm database has strict rules about parentheses.
 For example, set.mm requires that infix functions like "+"
 be surrounded by parentheses.
 This is very easy to understand once you have
