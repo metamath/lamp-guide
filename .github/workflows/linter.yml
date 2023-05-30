@@ -50,8 +50,8 @@ jobs:
         uses: super-linter/super-linter/slim@v5
         env:
           VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: master
+          DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_MARKDOWN: true
           MARKDOWN_CONFIG_FILE: .markdown-lint.yml
-          FILTER_REGEX_INCLUDE: docs/*
+          FILTER_REGEX_EXCLUDE: .*LICENSE-CC-BY-4.0.md
