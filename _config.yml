@@ -1,0 +1,4 @@
+# Configure generation of web page(s) on https://lamp-guide.metamath.org
+# https://stackoverflow.com/questions/46375765/how-do-you-remove-header-on-github-pages
+name: Metamath-lamp Guide
+title: null
