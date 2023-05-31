@@ -22,7 +22,7 @@ user guide (tutorial) and a reference guide. This includes:
   the metamath-lamp tool, including proofs that
   [2 + 2 = 4 (2p2e4)](proof-2--2--4) and that
   [the reciprocal of the cotangent is tangent (reccot)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
-* [Reference guide](#reference-guide) - this walks through the
+* [Reference manual](#reference-manual) - this walks through the
   user interface, explaining its various parts.
 * [Help, feedback, and contributions](#help-feedback-and-contributions)
 * [Licensing](#licensing)
@@ -1164,11 +1164,20 @@ We'd love to see more people creating proofs and getting them
 into metamath databases! There's a lot to learn, but we would be
 delighted to help.
 
-The rest of this guide is a reference guide,
-where we will walk through various portions of the metamath-lamp
-user interface to help you understand how to use it.
+## Reference manual
 
-## Reference guide
+THis is the reference manual portion of this guide.
+In this portion
+we will walk through various portions of the metamath-lamp
+user interface to help you understand how to use it.
+That includes some capabilities that might not be obvious.
+
+Here we will discuss:
+
+* [Loading source Metamath databases to create the proof context](#loading-source-metamath-databases-to-create-the-proof-context)
+* [Main tabs: Settings and Editor)[#main-tabs-settings-and-editor)
+* [Editor tab](#editor-tab)
+* [Settings tab](#settings-tab)
 
 ### Loading source Metamath databases to create the proof context
 
@@ -1226,15 +1235,18 @@ is hidden and you can start creating a proof with the proof editor.
 Once you've loaded the context,
 at the top there is a tab bar with two tabs, "Settings" and "Editor".
 
-The "Editor" tab is the main view that lets you see and edit a proof.
-The "Settings" tab lets you change the editor configuration to your liking,
+The "[Editor tab](#editor-tab)" is the main view that lets you see
+and edit a proof.
+The "[Settings tab](#settings-tab)" lets you change the
+editor configuration to your liking,
 We'll cover the Settings tab later; let's focus on the Editor tab.
 
 ### Editor tab
 
 The Editor tab lets you edit a proof; it starts empty.
 You will create a list of statements in the editor that will eventually
-result in a proof.
+result in a proof. This tab contains most of the tool capabilities,
+so there's a lot to discuss here.
 
 #### Fundamental proof information
 
@@ -1695,7 +1707,7 @@ certain functions of the mmj2 tool:
   must be used as the justification. You can do the same by
   selecting it as the "Label".
 
-### Settings
+### Settings tab
 
 The "Settings" tab lets you configure metamath-lamp to your liking.
 
@@ -1711,8 +1723,6 @@ The choice is yours.
 
 Most of the other settings should be fairly obvious, and in most
 cases you won't want to change them.
-
-TODO
 
 ## Help, feedback, and contributions
 
