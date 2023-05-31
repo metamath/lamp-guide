@@ -6,12 +6,10 @@ mathematical proofs in the [Metamath system](https://us.metamath.org/).
 Unlike most other Metamath proof systems,
 such as mmj2 or metamath-exe (the first Metamath proof assistant),
 users can use this proof assistant without installing anything.
-You can instead simply run it directly using your web browser!
-More information on metamath-lamp is available at the
-[metamath-lamp source code repository](https://github.com/expln/metamath-lamp).
+You can instead simply [run metamath-lamp directly using your web browser](**[main Metamath-lamp web site](https://expln.github.io/lamp/latest/index.html)!
 
 This is a guide for metamath-lamp, including both a
-user guide (tutorial) and a reference guide. This includes:
+user guide (tutorial) and a reference guide. It includes:
 
 * [Quick start](#quickstart) -
   a brief introduction on how to start and use metamath-lamp.
