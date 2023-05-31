@@ -1166,7 +1166,7 @@ delighted to help.
 
 ## Reference manual
 
-THis is the reference manual portion of this guide.
+This is the reference manual portion of this guide.
 In this portion
 we will walk through various portions of the metamath-lamp
 user interface to help you understand how to use it.
@@ -1175,7 +1175,7 @@ That includes some capabilities that might not be obvious.
 Here we will discuss:
 
 * [Loading source Metamath databases to create the proof context](#loading-source-metamath-databases-to-create-the-proof-context)
-* [Main tabs: Settings and Editor)[#main-tabs-settings-and-editor)
+* [Main tabs: Settings and Editor](#main-tabs-settings-and-editor)
 * [Editor tab](#editor-tab)
 * [Settings tab](#settings-tab)
 
@@ -1235,11 +1235,15 @@ is hidden and you can start creating a proof with the proof editor.
 Once you've loaded the context,
 at the top there is a tab bar with two tabs, "Settings" and "Editor".
 
-The "[Editor tab](#editor-tab)" is the main view that lets you see
-and edit a proof.
-The "[Settings tab](#settings-tab)" lets you change the
-editor configuration to your liking,
-We'll cover the Settings tab later; let's focus on the Editor tab.
+* The "[Editor tab](#editor-tab)" is the main view that lets you see
+  and edit a proof.
+* The "[Settings tab](#settings-tab)" lets you change the
+  editor configuration to your liking,
+
+CLick on the name of the tab that you wish to see,
+and that tab will be displayed below it.
+We'll cover the [Settings tab](#settings-tab) later;
+let's first focus on the Editor tab.
 
 ### Editor tab
 
