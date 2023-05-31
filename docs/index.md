@@ -1597,7 +1597,7 @@ Therefore, selecting the *right* options for your circumstance
 in the proving bottom-up dialogue box can be very important.
 So first, let's understand what it does
 
-#### How bottom-up proving works
+##### How bottom-up proving works
 
 We can imagine the search space growing as a tree from the bottom,
 starting with the statement we wish to prove.
@@ -1638,7 +1638,10 @@ This figure illustrates the situation:
 
 ![Bottom-up proving with the "length" setting compare the lengths of a statement and its supporting statement](bottom-up-length.png)
 
-#### Proving bottom-up dialogue box options
+Now that we understand how bottom-up proving works,
+let's review its dialogue box options.
+
+##### Proving bottom-up dialogue box options
 
 This dialogue has the following options:
 
