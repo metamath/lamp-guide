@@ -134,7 +134,11 @@ would simply reuse that existing proof.
 For this example we'll leave the proof description, variables, and disjoints
 blank. We do need to tell metamath-lamp our goal.
 
-> In the Editor select "+"  (add new statement). Enter
+> In the Editor select the icon "+" (add new statement).
+> Don't try to select the similar icon "+" with circles behind it;
+> that would try to create a duplicate, and since there are no statements
+> to duplicate the tool will not let you do it.
+> Enter
 > `|- ( 2 + 2 ) = 4`
 > and press Enter (Return) to save the result.
 
@@ -176,11 +180,59 @@ So let's rename this goal statement to `2p2e4`:
 > to the left of the first statement).
 > Change the name of the statement from "1" to "2p2e4" and press Enter (Return).
 
+#### Interlude: Brief review of metamath-lamp user interface
+
+Let's look at the display we have so far
+(your screen may look somewhat different):
+
+![Metamath-lamp display with just the 2p2e4 goal](2p2e4_goal.png)
+
+The top line summarizes the context - we loaded the `set.mm` database
+(classical logic and ZFC set theory) and stopped reading the database before
+`2p2e4`.
+
+The next line is a tab bar, letting you select between *Settings* and
+*Editor*.
+If you want to change the configuration of the tool, use *Settings*.
+Normally you''l be in the *Editor* tab (which lets you edit proofs),
+so we'll focus on that.
+
+Below the word "Editor" is an icon bar that shows different icons;
+each icon represents an actions you can do in the editor.
+We've already used one, the "+" symbol that represents adding a statement.
+The reference manual section
+[Editor command tab bar](#editor-command-tab-bar) discusses the
+icons and actions in more detail.
+You can hover over an icon to see what the command does.
+
+Here are key icons and meanings:
+
+* Box: Select or deselect all current statements.
+* Up and Down: Move the selected statements up or down in their list.
+* "+": Add a statement (which you then type in).
+* Trash can: Delete the selected statement(s).
+* Duplicated "+": Copy the selected statement.
+* Merge: Merge the selected statements (they must be similar).
+* Magnifying glass: search for a statement pattern in the current context.
+* A arrow: Apply a substitution to all selected statements.
+* Network: Unify. If no statements are selected, it will attempt to unify
+  all statements to create a proof. If a statement is selected, it will
+  open a dialogue to start a bottom-up search for a proof.
+
+Under the editor command tab bar is basic information about the proof
+(such as its description) and statements for the proof.
+We see one statement already, with the id `2p2e4`.
+Every statement has a box on its far left, which lets you select
+(or deselect) the statement to choose what to act on.
+
+Now that we've had a brief introduction to the metamath-lamp
+user interface, let's decide how to use it to create our proof.
+
 #### Deciding on a proof strategy for 2p2e4
 
 Now we need to figure out how to prove this goal.
 
-Metamath-lamp can actually do some things automatically. However, we will
+Metamath-lamp can do some things automatically. However, we will
 *intentionally* avoid some of those automations to see how to
 prove something in cases where the automations can't do enough.
 
