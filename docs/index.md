@@ -205,7 +205,7 @@ The reference manual section
 icons and actions in more detail.
 You can hover over an icon to see what the command does.
 
-Here are key icons and meanings:
+Here are some key icons and their meanings:
 
 * Box: Select or deselect all current statements.
 * Up and Down: Move the selected statements up or down in their list.
@@ -213,7 +213,7 @@ Here are key icons and meanings:
 * Trash can: Delete the selected statement(s).
 * Duplicated "+": Copy the selected statement.
 * Merge: Merge the selected statements (they must be similar).
-* Magnifying glass: search for a statement pattern in the current context.
+* Magnifying glass: Search for a statement pattern in the current context.
 * A arrow: Apply a substitution to all selected statements.
 * Network: Unify. If no statements are selected, it will attempt to unify
   all statements to create a proof. If a statement is selected, it will
@@ -1413,7 +1413,7 @@ icons and meanings:
 * Trash can: Delete the selected statement(s).
 * Duplicated "+": Copy the selected statement.
 * Merge: Merge the selected statements (they must be similar).
-* Magnifying glass: search for a statement pattern in the current context.
+* Magnifying glass: Search for a statement pattern in the current context.
   The selected pattern one (if any) will be added as a new statement.
   See below for more about search patterns.
 * A arrow: Apply a substitution to all selected statements.
