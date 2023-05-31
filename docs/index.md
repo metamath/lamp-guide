@@ -1595,6 +1595,48 @@ The options selected here will affect whether or not it *can* find a proof,
 and the time it takes to do it,
 Therefore, selecting the *right* options for your circumstance
 in the proving bottom-up dialogue box can be very important.
+So first, let's understand what it does
+
+#### How bottom-up proving works
+
+We can imagine the search space growing as a tree from the bottom,
+starting with the statement we wish to prove.
+All the statements we used to directly try to prove the current goal
+are considered "depth 1". If those won't work directly, we can try each
+depth 1 statement and then retry with many more statements, and so on.
+The following figure illustrates this
+
+<!-- We may need to set some CSS, specifically
+img { max-width: 100%; height: auto; }
+https://imagekit.io/blog/how-to-resize-image-in-html/
+-->
+
+<a href=="bottom-up-root-statements.png"><img src="bottom-up-root-statements.png"></a>
+
+The "search depth" defines the maximum depth of the search.
+For example, the following figure shows the search space if
+the search depth is 2; the prover will stop searching once these
+options are exhausted:
+
+<a href=="bottom-up-depth.png"><img src="bottom-up-depth.png"></a>
+
+The "label" setting tells the prover to *only* use the given label
+at the first level; it has no effect on other levels:
+
+<a href=="bottom-up-label.png"><img src="bottom-up-label.png"></a>
+
+The "length" setting restricts which statements are considered based
+on their length. This setting is ignored on the first level.
+Let's assume that statement A is derived from statement B and the
+"length" option is set to "Less".
+The prover will only consider statement B if the length of statement B
+is less than the length of statement A.
+This heuristic can speed searches. The rationale is that
+a supporting statement is more likely to be useful if it is
+*simpler*, not more complicated, than the statement it supports.
+This figure illustrates the situation:
+
+<a href=="bottom-up-length.png"><img src="bottom-up-length.png"></a>
 
 #### Proving bottom-up dialogue box options
 
