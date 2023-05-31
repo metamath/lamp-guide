@@ -246,6 +246,7 @@ In many cases we can prove a statement by identifying definitions of
 what we want to prove, finding their expansions, and repeatedly
 expanding and simplifying the
 results to show that what we want to prove is correct.
+Let's take that approach.
 
 #### Expanding the meaning of 4
 
