@@ -30,13 +30,21 @@ h3:before {
     counter-increment: h3counter;
 }
 
+h4 {
+    counter-reset: h5counter;
+}
 h4:before {
     content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) ".\0000a0\0000a0";
     counter-increment: h4counter;
 }
 
+h5:before {
+    content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) "." counter(h5counter) ".\0000a0\0000a0";
+    counter-increment: h5counter;
+}
+
 /* Use class "nocount" to suppress the heading number */
-h2.nocount:before, h3.nocount:before, h4.nocount:before {
+h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {
     content: none;
     counter-increment: none;
 }
