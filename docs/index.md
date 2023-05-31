@@ -11,7 +11,7 @@ You can instead simply [run metamath-lamp directly using your web browser](**[ma
 This is a guide for metamath-lamp, including both a
 user guide (tutorial) and a reference guide. It includes:
 
-* [Quick start](#quickstart) -
+* [Quick start](#quick-start) -
   a brief introduction on how to start and use metamath-lamp.
 * [Sample Screenshot](#sample-screenshot)
 * [User guide (tutorial)](#user-guide-tutorial) -
@@ -43,7 +43,7 @@ match the tool it's describing.
 You can get the latest version of this *Metamath-lamp guide* at
 &lt;[https://lamp-guide.metamath.org/](https://lamp-guide.metamath.org/)&gt;.
 
-## Quickstart
+## Quick start
 
 You don't need to install anything to run metamath-lamp.
 To start metamath-lamp,
@@ -53,21 +53,21 @@ or some other metamath-lamp web site.
 
 To use metamath-lamp, do the following:
 
-* Load the proof context (the databases you'll use and their scope).
-* Set the fundamental proof information where desired (its
-  description, variables, and disjoints).
-* Add the goal ("qed") and any hypotheses to the list of statements.
-  Set their ids to what you want them to be in the final database.
-* Now create the proof.
-  To do this, you add other statements and repeatedly unify them
-  until the goal is completely proven.
-  You can create the proof backwards from the goal,
-  forwards towards the goal, or in whatever other order makes sense to you.
-* Copy the compressed proof of the goal into the clipboard.
-  You can do this by selecting the green checkmark next to the goal
-  to show the compressed proof, then press copy.
-  You'd typically copy that compressed proof into a Metamath database
-  (text file).
+1. Load the proof context (the databases you'll use and their scope).
+2. Set the fundamental proof information where desired (its
+   description, variables, and disjoints).
+3. Add the goal ("qed") and any hypotheses to the list of statements.
+   Set their ids to what you want them to be in the final database.
+4. Now create the proof.
+   To do this, you add other statements and repeatedly unify them
+   until the goal is completely proven.
+   You can create the proof backwards from the goal,
+   forwards towards the goal, or in whatever other order makes sense to you.
+5. Copy the compressed proof of the goal into the clipboard.
+   You can do this by selecting the green checkmark next to the goal
+   to show the compressed proof, then press copy.
+   You'd typically copy that compressed proof into a Metamath database
+   (text file).
 
 Throughout metamath-lamp there are various tooltips.
 So if you hover over an iteractive item,
