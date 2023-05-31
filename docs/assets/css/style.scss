@@ -48,3 +48,12 @@ h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {
     content: none;
     counter-increment: none;
 }
+
+/* Avoid orphins at bottom of page when printing.
+   Firefox 115 doesn't support this but it will do no harm there.
+   https://stackoverflow.com/questions/34808650/orphan-css-how-avoid-headers-h1-h2-on-bottom-page
+   https://caniuse.com/?search=break-after
+*/
+h1, h2, h3, h4, h5 {
+    break-after: avoid-page;
+}
