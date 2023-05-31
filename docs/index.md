@@ -1606,24 +1606,24 @@ are considered "depth 1". If those won't work directly, we can try each
 depth 1 statement and then retry with many more statements, and so on.
 The following figure illustrates this
 
-<!-- We may need to set some CSS, specifically
+<!-- In the future we may need to set some CSS, specifically
 img { max-width: 100%; height: auto; }
 https://imagekit.io/blog/how-to-resize-image-in-html/
 -->
 
-<a href=="bottom-up-root-statements.png"><img src="bottom-up-root-statements.png"></a>
+![Bottom-up proving starting up from the statement to prove](bottom-up-root-statements.png)
 
 The "search depth" defines the maximum depth of the search.
 For example, the following figure shows the search space if
 the search depth is 2; the prover will stop searching once these
 options are exhausted:
 
-<a href=="bottom-up-depth.png"><img src="bottom-up-depth.png"></a>
+![Bottom-up proving is limited by search depth](bottom-up-depth.png)
 
 The "label" setting tells the prover to *only* use the given label
 at the first level; it has no effect on other levels:
 
-<a href=="bottom-up-label.png"><img src="bottom-up-label.png"></a>
+![Bottom-up proving will only use the selected label if specified](bottom-up-label.png)
 
 The "length" setting restricts which statements are considered based
 on their length. This setting is ignored on the first level.
@@ -1636,7 +1636,7 @@ a supporting statement is more likely to be useful if it is
 *simpler*, not more complicated, than the statement it supports.
 This figure illustrates the situation:
 
-<a href=="bottom-up-length.png"><img src="bottom-up-length.png"></a>
+![Bottom-up proving with the "length" setting compare the lengths of a statement and its supporting statement](bottom-up-length.png)
 
 #### Proving bottom-up dialogue box options
 
