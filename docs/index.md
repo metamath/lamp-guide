@@ -1790,6 +1790,8 @@ For feedback or proposed changes to the Metamath-lamp
 tool itself, please file issues or create pull requests against the
 [metamath-lamp source code repository](https://github.com/expln/metamath-lamp).
 
+As noted earlier, you can [run metamath-lamp directly using your web browser](https://expln.github.io/lamp/latest/index.html). If you want to be on the bleeding edge, you can use the [development version of metamath-lamp (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
+
 If you're making a contribution to a Metamath database, such as a new
 proof, please contribute those as changes to the database's repository.
 For example, for `set.mm`, propose changes to the
