@@ -1845,11 +1845,20 @@ that shows the proof of that theorem:
 
 ![In explorer, expand a label to show its proof](explorer-expand-label.png)
 
+Many capabiliities are available in a displayed proof.
+
 Again, you can use the text selector to copy useful portions of any statement.
+
 You can also "show types", which shows the proof that a given expression
 has the given correct types.
 Metamath proofs include proofs of the types of each expression;
 you can decide whether or not to see this.
+
+Clicking on a use of a hypothesis step id will move the display to
+that step.
+Clicking on a reference will show a tab proving that reference.
+At the beginning of the statement is a small "+" (reveal/hide),
+where you can reveal or hide a visualization of that step.
 
 ## Help, feedback, and contributions
 
