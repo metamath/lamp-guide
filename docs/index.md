@@ -1831,6 +1831,14 @@ cases you won't want to change them.
 ## Future directions
 
 There are many ways the metamath-lamp tool could be expanded.
+Proposals are listed in its
+[issues](https://github.com/expln/metamath-lamp/issues)
+and proposed changes are listed in its
+[pull requests](https://github.com/expln/metamath-lamp/pulls).
+You can follow
+[commits in its `develop` branch](https://github.com/expln/metamath-lamp/commits/develop) and even try out the
+[development version of metamath-lamp (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
+
 In this section we'll cover some potential future directions.
 
 A future version is likely to have an "explorer" tab to let you explore
