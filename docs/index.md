@@ -22,6 +22,8 @@ user guide (tutorial) and a reference guide. It includes:
   [the reciprocal of the cotangent is tangent (reccot)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
 * [Reference manual](#reference-manual) - this walks through the
   user interface, explaining its various parts.
+* [Future directions](#future-directions) - a discussion of
+  likely future directions.
 * [Help, feedback, and contributions](#help-feedback-and-contributions)
 * [Licensing](#licensing)
 * [Authors and Reviewers](#authors-and-reviewers)
@@ -1825,6 +1827,29 @@ The choice is yours.
 
 Most of the other settings should be fairly obvious, and in most
 cases you won't want to change them.
+
+## Future directions
+
+There are many ways the metamath-lamp tool could be expanded.
+In this section we'll cover some potential future directions.
+
+A future version is likely to have an "explorer" tab to let you explore
+the contents of a database. Clicking on that tab
+lets you see the various axioms and theorems in the loaded database(s).
+Next to the name of each axiom or theorem
+you can expand/hide the description.
+You can use the text selector to copy useful portions of any statement.
+
+If you select the name of a theorem, a new tab will be created
+that shows the proof of that theorem:
+
+![In explorer, expand a label to show its proof](explorer-expand-label.png)
+
+Again, you can use the text selector to copy useful portions of any statement.
+You can also "show types", which shows the proof that a given expression
+has the given correct types.
+Metamath proofs include proofs of the types of each expression;
+you can decide whether or not to see this.
 
 ## Help, feedback, and contributions
 
