@@ -1414,6 +1414,8 @@ icons and meanings:
 * Trash can: Delete the selected statement(s).
 * Duplicated "+": Copy the selected statement.
 * Merge: Merge the selected statements (they must be similar).
+  Before clicking this button select only one statement;
+  the other similar one will be detected by metamath-lamp.
 * Magnifying glass: Search for a statement pattern in the current context.
   The selected pattern one (if any) will be added as a new statement.
   See below for more about search patterns.
