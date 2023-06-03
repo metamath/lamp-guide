@@ -1476,8 +1476,8 @@ After discussing the list of statements in the proof we'll discuss
 [selecting parts of a statement](#selecting-parts-of-a-statement),
 followed by detailed discussions about some specific commands
 (how to [specify search patterns](#search-patterns),
-[replacement](#replacemetn), and
-[proving bottom-up](#proving-bottom--up)).
+[replacement](#replacement), and
+[proving bottom-up](#proving-bottom-up)).
 
 #### List of statements in the proof
 

@@ -4,4 +4,4 @@ all: lint
 
 lint:
 	markdownlint --config .github/linters/.markdown-lint.yml \
-	  docs/*.md README.md
+	  docs/index.md README.md
