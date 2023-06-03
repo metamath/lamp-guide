@@ -1310,7 +1310,7 @@ so there's a lot to discuss here. We'll cover:
 * [Fundamental proof information](#fundamental-proof-information) -
   this is the region under the editor icon bar for the
   description, variables, and disjoints.
-* [How to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses] -
+* [How to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses) -
   a summary of how to do this.
 * [Editor command icon bar](#editor-command-icon-bar) - the bar with icons
   representing commands to modify the proof
