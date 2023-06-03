@@ -1901,21 +1901,24 @@ Thank you for your time.
 ## Licensing
 
 You may use, modify, and share this guide under the terms of *either*
-the [MIT license](./LICENSE.txt) or the
-[Creative Commons Attribution 4.0 International (CC-BY-4.0) license](LICENSE-CC-BY-4.0.md).
+the [MIT license](./LICENSE.txt) *or* the
+[Creative Commons Attribution 4.0 International (CC-BY-4.0) license](LICENSE-CC-BY-4.0.md), at your choice.
 
-In short, this guide is licensed using the
+In short, the license of this guide can be expressed using this
 [SPDX license expression](https://github.com/david-a-wheeler/spdx-tutorial):
 
 ~~~~
 SPDX-License-Identifier: (MIT OR CC-BY-4.0)
 ~~~~
 
-Metamath-lamp is iicensed separately (in its case under the MIT license).
+We welcome contributions!
+Contributions back to this guide must be contributed under the same terms.
+
+Metamath-lamp is iicensed separately (it is released under the MIT license).
 
 ## Authors and Reviewers
 
 This guide was written by
 [David A. Wheeler](https://dwheeler.com)
 ([@david-a-wheeler](https://github.com/david-a-wheeler))
-and reviewed by Igor Ieskov ([@expln](https://github.com/expln).
+and reviewed by Igor Ieskov ([@expln](https://github.com/expln)).
