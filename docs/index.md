@@ -193,21 +193,23 @@ The top line summarizes the context - we loaded the `set.mm` database
 (classical logic and ZFC set theory) and stopped reading the database before
 `2p2e4`.
 
-The next line is a tab bar, letting you select between *Settings* and
+The next line is the tab bar,
+letting you select between *Settings* and
 *Editor*.
 If you want to change the configuration of the tool, use *Settings*.
 Normally you''l be in the *Editor* tab (which lets you edit proofs),
 so we'll focus on that.
 
-Below the word "Editor" is an icon bar that shows different icons;
-each icon represents an actions you can do in the editor.
-We've already used one, the "+" symbol that represents adding a statement.
+Below the word "Editor" is the editor command icon bar.
+The editor command icon bar shows many different icons;
+each icon represents a command you can use to modify a proof.
+We've already used one, the "+" icon that represents adding a statement.
 The reference manual section
-[Editor command tab bar](#editor-command-tab-bar) discusses the
-icons and actions in more detail.
-You can hover over an icon to see what the command does.
+[Editor command icon bar](#editor-command-icon-bar) discusses each
+icon and the command each performs in more detail.
+You can hover over an icon to see what the command is.
 
-Here are some key icons and their meanings:
+Here are some key icons and the commands they perform:
 
 * Box: Select or deselect all current statements.
 * Up and Down: Move the selected statements up or down in their list.
@@ -221,7 +223,7 @@ Here are some key icons and their meanings:
   all statements to create a proof. If a statement is selected, it will
   open a dialogue to start a bottom-up search for a proof.
 
-Under the editor command tab bar is basic information about the proof
+Under the editor command icon bar is basic information about the proof
 (such as its description) and statements for the proof.
 We see one statement already, with the id `2p2e4`.
 Every statement has a box on its far left, which lets you select
@@ -1303,7 +1305,20 @@ let's first focus on the Editor tab.
 The Editor tab lets you edit a proof; it starts empty.
 You will create a list of statements in the editor that will eventually
 result in a proof. This tab contains most of the tool capabilities,
-so there's a lot to discuss here.
+so there's a lot to discuss here. We'll cover:
+
+* [Fundamental proof information](#fundamental-proof-information) -
+  this is the region under the editor icon bar for the
+  description, variables, and disjoints.
+* [How to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses] -
+  a summary of how to do this.
+* [Editor command icon bar](#editor-command-icon-bar) - the bar with icons
+  representing commands to modify the proof
+* [List of statements in the proof](#list-of-statements-in-the-proof)
+* [Selecting parts of a statement](#selecting-parts-of-a-statement)
+* [Search patterns](#search-patterns)
+* [Replacement](#replacement)
+* [Proving bottom-up](#proving-bottom-up)
 
 #### Fundamental proof information
 
@@ -1313,6 +1328,11 @@ You don't *need* to fill in a description or variable list to begin a proof.
 In many cases you won't need to specify disjoints for a proof, but sometimes
 you do. Here is information on these fields.
 
+Note: Click on the *field name* to edit the field.
+You can also select the editable field text, but the description
+field is odd - by default, you have to use Alt+left click to edit it,
+while just left click selects part of its text.
+
 ##### Description
 
 This field can't be edited with a simple left-click;
@@ -1321,6 +1341,20 @@ you must use alt+left click.
 *Warning*: At this time the desciption is *not* copied into
 the generated final (compressed) proof. That is an idea that is
 being considered.
+
+<!--
+Omitted, since description is currently not generated as a comment:
+
+  in the final Metamath database just before the proof.
+  If you are following the conventions of `set.mm`, the first sentence
+  should be an English description of what is proved. Surround
+  Metamath statements with backquotes (so they can be typographically formatted)
+  and precede references to another with an isolated "~".
+  Conventionally this includes, at its end, a statement like
+  "(Contributed by NAME, DD-MMM-YYYY)" where DD-MMM-YYYY is the date
+  the proof was completed and MMM is the 3-letter English name
+  of the month.
+-->
 
 ##### Variables
 
@@ -1389,7 +1423,7 @@ For more information, see the Metamath book.
 To prove something, you must first tell the system what to prove and
 any special hypotheses to use. To do that:
 
-* Under the "Editor" tab", press the "+" in the editor command tab bar
+* Under the "Editor" tab", press the "+" in the editor command icon bar
   to create a new statement. Enter the goal of the proof.
   Typically the goal will begin with the symbol "|-" which means
   "it is true that".
@@ -1401,66 +1435,43 @@ any special hypotheses to use. To do that:
   (the box on the left) and selecting the up and down icons.
   You generally want the goal last.
 
-You're now ready to create a proof. Let's first look at the editor command's
-tab bar.
+You're now ready to create a proof.
 
-#### Editor command tab bar
+Let's now look at the editor command icon bar in more detail.
 
-The Editor tab has another tab bar with a variety of icons for commands.
-You can hover over an icon to see what the command does. Here are their
-icons and meanings:
+#### Editor command icon bar
+
+The Editor tab icon bar is a bar containing icons;
+each icon represents a command that can be performed to modify the proof.
+You can hover over an icon to see what the command does.
+Here are their icons and meanings:
 
 * Box: Select or deselect all current statements.
-* Up and Down: Move the selected statements up or down in their list.
+* Up: Move the selected statements up in the list.
+* Down: Move the selected statements down in the list.
 * "+": Add a statement (which you then type in).
 * Trash can: Delete the selected statement(s).
 * Duplicated "+": Copy the selected statement.
-* Merge: Merge the selected statements (they must be similar).
+* Merge: Merge the selected statement to a similar statement.
   Before clicking this button select only one statement;
   the other similar one will be detected by metamath-lamp.
 * Magnifying glass: Search for a statement pattern in the current context.
   The selected pattern one (if any) will be added as a new statement.
-  See below for more about search patterns.
-* A arrow: Apply a substitution to all selected statements.
+  See [search patterns](#search-patterns) for more about search patterns.
+* A with arrow: Apply a replacement (substitution) to all statements.
+  See [replacement](#replacement) for more information.
 * Network: Unify. If no statements are selected, it will attempt to unify
   all statements to create a proof. If a statement is selected, it will
-  open a dialogue to start a bottom-up search for a proof.
+  open a dialogue to start a bottom-up search for a proof; see
+  [proving bottom-up](#proving-bottom-up) for more about that.
 
-Under the editor command tab bar is basic information about the proof
-(such as its description).
-
-#### Basic information about the proof
-
-The basic information about the proof are the proof's description,
-variables, and disjoints. Click on the *section name* to edit this
-information. You can also select the editable fields, but
-description is odd - by default, you have to use Alt+left click to edit it,
-while just left click selects part of its text.
-
-Here's some about those fields:
-
-* Description: The description of the proof.
-  Note: This description is *not* currently generated as a comment to be
-  inserted into a database.
-* Variables: A list of variables.
-* Disjoints; A list of variables that are disjoint.
-
-<!--
-Omitted, since description is currently not generated as a comment:
-
-  in the final Metamath database just before the proof.
-  If you are following the conventions of `set.mm`, the first sentence
-  should be an English description of what is proved. Surround
-  Metamath statements with backquotes (so they can be typographically formatted)
-  and precede references to another with an isolated "~".
-  Conventionally this includes, at its end, a statement like
-  "(Contributed by NAME, DD-MMM-YYYY)" where DD-MMM-YYYY is the date
-  the proof was completed and MMM is the 3-letter English name
-  of the month.
--->
-
-Under the basic information about the proof
-are a list of statements in the proof.
+Under the editor command icon bar is the
+[fundamental proof information](#fundamental-proof-information)
+as we've already discussed.
+Below the editor command icon bar is the list of statements in the proof,
+which we'll discuss next, followed by information on
+[selecting parts of a statement](#selecting-parts-of-a-statement)
+and detailed discussions about some specific commands.
 
 #### List of statements in the proof
 
