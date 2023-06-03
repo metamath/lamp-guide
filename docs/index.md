@@ -1914,7 +1914,7 @@ SPDX-License-Identifier: (MIT OR CC-BY-4.0)
 We welcome contributions!
 Contributions back to this guide must be contributed under the same terms.
 
-Metamath-lamp is iicensed separately (it is released under the MIT license).
+Metamath-lamp is licensed separately (it is released under the MIT license).
 
 ## Authors and Reviewers
 
