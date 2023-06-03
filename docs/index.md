@@ -218,7 +218,8 @@ Here are some key icons and the commands they perform:
 * Duplicated "+": Copy the selected statement.
 * Merge: Merge the selected statements (they must be similar).
 * Magnifying glass: Search for a statement pattern in the current context.
-* A arrow: Apply a substitution to all selected statements.
+* A with arrow: Apply a replacement (aka substitution)
+  to all selected statements.
 * Network: Unify. If no statements are selected, it will attempt to unify
   all statements to create a proof. If a statement is selected, it will
   open a dialogue to start a bottom-up search for a proof.
@@ -804,7 +805,7 @@ into a Metamath database, so in most cases you should change work variables
 to something else before exporting a proof.
 
 As we'll see in a moment, we'll use the
-icon "A with an arrow under it" (apply a substitution) to replace
+icon "A with arrow" (apply a replacement) to replace
 the work variables with symbols or expressions so we can complete
 the proof.
 
@@ -819,7 +820,7 @@ That means that we need to replace all instances of <tt>&amp;C1</tt>
 with the value `A`. This process of replacing values is called
 applying a substitution.
 
-> Select the icon "A with an arrow under it" (apply a substitution).
+> Select the icon "A with arrow" (apply a replacement).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
 > enter `A` - once that's done, press "Find Substitution".
 > The system will check if this is valid; in this case, it could that
@@ -844,7 +845,7 @@ Let's exploit that.
 We again have a work variable, and we already know what its value
 should be, so let's deal with that now.
 
-> Select the icon "A with an arrow under it" (apply a substitution).
+> Select the icon "A with arrow" (apply a replacement).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
 > enter `A` - once that's done, press "Find Substitution".
 > It will show you that you can change <tt>&amp;C1</tt> to `A` - press
@@ -1027,7 +1028,7 @@ they will work with this expansion of the reciprocal of the cotangent.
 
 Let's replace the work variable <tt>&amp;C1</tt>:
 
-> Press on the icon "A with arrow under it" to apply a substitution.
+> Press on the icon "A with arrow" to apply a replacement.
 > In "Replace what" enter <tt>&amp;C1</tt> and
 > in "Replace with" enter <tt>( cos ` A )</tt> ... once you're done. press
 > "Find Substitution". It will determine that there is 1 valid substitution;
@@ -1035,7 +1036,7 @@ Let's replace the work variable <tt>&amp;C1</tt>:
 
 Let's replace the work variable <tt>&amp;C2</tt>:
 
-> Press on the icon "A with arrow under it" to apply a substitution.
+> Press on the icon "A with arrow" to apply a replacement.
 > In "Replace what" enter <tt>&amp;C2</tt> and
 > in "Replace with" enter <tt>( sin ` A )</tt> ... once you're done. press
 > "Find Substitution". It will determine that there is 1 valid substitution;
@@ -1064,7 +1065,7 @@ and, if it exists, add it.
 > <tt>e. CC -> cos e. CC</tt> and search.
 > You'll see a list including `coscl` - select `coscl` and press
 > "Choose Selected".
-> This has a work variable; press on the "A with arrow" (apply substitution)
+> This has a work variable; press on the "A with arrow" (apply replacement)
 > and substitute <tt>&amp;C1</tt> with `A` (remember to select
 > "Find Substitution" and then "Apply").
 > We now have <tt>|- ( A e. CC -> ( cos ` A ) e. CC )</tt> as a
@@ -1458,7 +1459,7 @@ Here are their icons and meanings:
 * Magnifying glass: Search for a statement pattern in the current context.
   The selected pattern one (if any) will be added as a new statement.
   See [search patterns](#search-patterns) for more about search patterns.
-* A with arrow: Apply a replacement (substitution) to all statements.
+* A with arrow: Apply a replacement (aka substitution) to all statements.
   See [replacement](#replacement) for more information.
 * Network: Unify. If no statements are selected, it will attempt to unify
   all statements to create a proof. If a statement is selected, it will
@@ -1613,10 +1614,11 @@ because the conclusion has a `0` constant which is later followed by a
 
 #### Replacement
 
-Select the icon "A with arrow icon under it"
-(apply a substitution) to substitute
-expressions in one or more statements.
-The substitutions will be applied to all statements.
+Select the icon "A with arrow" icon
+(apply a replacement) to replace one
+expressions with another in proof statements.
+
+The replacements will be applied to all statements.
 
 After you select this icon
 you'll be presented with a simple dialogue box to describe the
