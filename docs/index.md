@@ -1312,7 +1312,8 @@ so there's a lot to discuss here. We'll cover:
   description, variables, and disjoints.
 * [How to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses) -
   a summary of how to do this.
-* [Editor command icon bar](#editor-command-icon-bar) - the bar with icons
+* [Editor command icon bar](#editor-command-icon-bar) -
+  this is the topmost area in the editor tab, a bar with icons
   representing commands to modify the proof
 * [List of statements in the proof](#list-of-statements-in-the-proof)
 * [Selecting parts of a statement](#selecting-parts-of-a-statement)
@@ -1322,7 +1323,8 @@ so there's a lot to discuss here. We'll cover:
 
 #### Fundamental proof information
 
-At the top is fundamental proof information,
+Just under the [editor command icon bar](#editor-command-icon-bar)
+is fundamental proof information,
 specifically fields for its description, variables, and disjoints.
 You don't *need* to fill in a description or variable list to begin a proof.
 In many cases you won't need to specify disjoints for a proof, but sometimes
@@ -1423,7 +1425,8 @@ For more information, see the Metamath book.
 To prove something, you must first tell the system what to prove and
 any special hypotheses to use. To do that:
 
-* Under the "Editor" tab", press the "+" in the editor command icon bar
+* Under the "Editor" tab", press the "+" in the
+  [editor command icon bar](#editor-command-icon-bar)
   to create a new statement. Enter the goal of the proof.
   Typically the goal will begin with the symbol "|-" which means
   "it is true that".
@@ -1441,7 +1444,9 @@ Let's now look at the editor command icon bar in more detail.
 
 #### Editor command icon bar
 
-The Editor tab icon bar is a bar containing icons;
+At the top of the editor tab is the
+*editor command icon bar*.
+This is a bar containing icons, where
 each icon represents a command that can be performed to modify the proof.
 You can hover over an icon to see what the command does.
 Here are their icons and meanings:
