@@ -11,22 +11,20 @@ You can instead simply **[run metamath-lamp directly using your web browser usin
 This is a guide for metamath-lamp, including both a
 user guide (tutorial) and a reference guide. It includes:
 
-* [Quick start](#quick-start) -
-  a brief introduction on how to start and use metamath-lamp.
-* [Sample Screenshot](#sample-screenshot)
-* [User guide (tutorial)](#user-guide-tutorial) -
-  this user guide is primarily
-  which is primarily a sequence of worked examples showing how to use
-  the metamath-lamp tool, including proofs that
-  [2 + 2 = 4 (2p2e4)](proof-2--2--4) and that
-  [the reciprocal of the cotangent is tangent (reccot)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
-* [Reference manual](#reference-manual) - this walks through the
-  user interface, explaining its various parts.
-* [Future directions](#future-directions) - a discussion of
-  likely future directions.
-* [Help, feedback, and contributions](#help-feedback-and-contributions)
-* [Licensing](#licensing)
-* [Authors and Reviewers](#authors-and-reviewers)
+1. [Quick start](#quick-start)
+   briefly introduces how to start and use metamath-lamp.
+2. [Sample Screenshot](#sample-screenshot)
+3. [User guide (tutorial)](#user-guide-tutorial)
+   shows how to use the metamath-lamp tool, primarily via examples, e.g.,
+   that [2 + 2 = 4 (`2p2e4`)](proof-2--2--4) and the
+   [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
+4. [Reference manual](#reference-manual) explains each part of the
+   user interface, e.g., the [Editor tab](#editor-tab).
+5. [Future directions](#future-directions) discusses
+   likely future directions.
+6. [Help, feedback, and contributions](#help-feedback-and-contributions)
+7. [Licensing](#licensing)
+8. [Authors and Reviewers](#authors-and-reviewers)
 
 Metamath-lamp is a new proof assistant for creating Metamath proofs.
 As a result, it currently lacks some functionality, such as
