@@ -679,7 +679,7 @@ It illustrates several symbols in the set.mm database:
   <tt>/&#92;</tt> represents "or".
 * `=/=` represents "not equal to".
 * `->` represents "implies". The left-hand-side of an implication is called
-  the "antecedent"; the right-hand-side of an implication is called the
+  the antecedent; the right-hand-side of an implication is called the
   consequent.
 * `/` represents complex number division.
 * The form <tt>( FUNCTION &#96; ARGUMENT )</tt>
