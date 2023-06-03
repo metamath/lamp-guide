@@ -206,7 +206,7 @@ each icon represents a command you can use to modify a proof.
 We've already used one, the "+" icon that represents adding a statement.
 The reference manual section
 [Editor command icon bar](#editor-command-icon-bar) discusses each
-icon and the command each performs in more detail.
+icon and the command it performs in more detail.
 You can hover over an icon to see what the command is.
 
 Here are some key icons and the commands they perform:
@@ -1469,10 +1469,15 @@ Here are their icons and meanings:
 Under the editor command icon bar is the
 [fundamental proof information](#fundamental-proof-information)
 as we've already discussed.
-Below the editor command icon bar is the list of statements in the proof,
-which we'll discuss next, followed by information on
-[selecting parts of a statement](#selecting-parts-of-a-statement)
-and detailed discussions about some specific commands.
+Below the fundamental proof information is the
+[list of statements in the proof](#list-of-statements-in-the-proof),
+which we'll discuss next.
+After discussing the list of statements in the proof we'll discuss
+[selecting parts of a statement](#selecting-parts-of-a-statement),
+followed by detailed discussions about some specific commands
+(how to [specify search patterns](#search-patterns),
+[replacement](#replacemetn), and
+[proving bottom-up](#proving-bottom--up)).
 
 #### List of statements in the proof
 
