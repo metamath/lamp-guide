@@ -1910,7 +1910,7 @@ in your display. Axiom `ax-mp` is called *modus ponens~ and is well-known.
 It has two hypotheses:
 
 * `|- ph` - that is, "when `ph` is true", and
-* `|- ( ph -> ps )` - that is, "when `ph` implies `ps`"` 
+* `|- ( ph -> ps )` - that is, "when `ph` implies `ps`"
 
 Using axiom `ax-mp`, whenever those two hypothese are true, you
 can prove "`ps` is true". Note that `ph` and `ps` are variables over
