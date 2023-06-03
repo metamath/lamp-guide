@@ -1857,18 +1857,78 @@ You can follow
 [development version of metamath-lamp (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
 
 In this section we'll cover some potential future directions.
-
 A future version is likely to have an "explorer" tab to let you explore
-the contents of a database. Clicking on that tab
-lets you see the various axioms and theorems in the loaded database(s).
-Next to the name of each axiom or theorem
-you can expand/hide the description.
-You can use the text selector to copy useful portions of any statement.
+the contents of a database.
+Below is draft text describing this feature, which may give you glimpse.
 
-If you select the name of a theorem, a new tab will be created
-that shows the proof of that theorem:
+### Tutorial: A tour using the Explorer tab
+
+The tab bar lets you switch between tabs, and those tabs always include
+ "Settings", "Editor", and "Explorer".
+The explorer tab lets us view the assertions (axioms and theorems)
+in the current loaded context.  Let's try out the Explorer tab.
+
+#### Loading a context for the explorer
+
+You need to have a context loaded before the explorer tab is useful.
+For our purposes we'll use the `set.mm` database.
+If you're continuing the tutorial, you've done that.
+
+However, if you're starting at this point, first load `set.mm` as the context:
+
+> Make sure we are loading from the web the file "set.mm:latest",
+> You can change the scope or not, your choice.
+> Then press "Apply changes" to apply this change.
+
+#### Trying out the explorer tab
+
+Let's try out the explorer tab:
+
+> Click on "Explorer" in the tab bar.
+
+The explorer view lets you see the various assertions
+(axioms and theorems) in the loaded database(s).
+The top of the explorer view lets you select what to view;
+by default all assertions are included.
+There are typically many assertions, so this is a paged view.
+
+After that begin the list of assertions (theorems and axioms).
+Each assertion shows its count, the type of assertion
+(theorem or axiom), and the assertion id in bold.
+The rest of the display shows a list of 0 or more hypotheses,
+each prefixed with large black circle "&#x2B24;".
+The final line of an assertion states what can be concluded
+via this assertion when its hypotheses are true.
+
+You can use the text selector to copy useful portions of any statement.
+Next to the name of each axiom or theorem is a ">" symbol which lets you
+can expand or hide its description.
+
+![Axiom ax-5 in the explorer tab](ax-5-explorer.png)
+Let's look at axiom `ax-mp`, which is probably assertion number 5
+in your display. Axiom `ax-mp` is called *modus ponens~ and is well-known.
+It has two hypotheses:
+
+* `|- ph` - that is, "when `ph` is true", and
+* `|- ( ph -> ps )` - that is, "when `ph` implies `ps`"` 
+
+Using axiom `ax-mp`, whenever those two hypothese are true, you
+can prove "`ps` is true". Note that `ph` and `ps` are variables over
+any well-formed formula (wff) expression, that is, anything that
+is true or false. This axiom can apply to many circumstances.
+
+If you select the id (name) of a theorem, a new tab will be created
+that shows details the proof of that theorem:
 
 ![In explorer, expand a label to show its proof](explorer-expand-label.png)
+
+Let's try that out next.
+
+#### Viewing proof of mp2
+
+In the explorer view, scroll down to theorem `mp2`, and click on the
+*name* mp2. This will create a *new* tab that shows details about the
+proof of `mp2`.
 
 Many capabiliities are available in a displayed proof.
 
@@ -1879,11 +1939,162 @@ has the given correct types.
 Metamath proofs include proofs of the types of each expression;
 you can decide whether or not to see this.
 
-Clicking on a use of a hypothesis step id will move the display to
-that step.
-Clicking on a reference will show a tab proving that reference.
+Clicking on a use of a hypothesis step id will move the display to that step.
+
 At the beginning of the statement is a small "+" (reveal/hide),
 where you can reveal or hide a visualization of that step.
+Try that out; the visualizations can make it easier to understand
+how metamath proofs work.
+
+Clicking on a reference to an assertino will show an inidivual assertion tab
+of that assertion (creating the tab if necessary). That tab will provide
+detailed information about the assertion.
+
+#### Gaining an understanding on set.mm's beginnings
+
+You can use the explorer to gain many insights into a database
+(and mathematics in general).
+In this section we'll walk through the first few assertions
+of `set.mm` to gain some understanding of it.
+If you're already familiar with `set.mm`, you can skip this section.
+
+Let's go back to the explorer tab:
+
+> Click on the "Explorer" text in the tab bar, and scroll to the top.
+
+Let's gain a brief understading of the first theorems and axioms.
+We are entering the foundations of the foundations - the very basement -
+of the "typical" mathematics of classical logic and ZFC set theory.
+
+The first theorem we have is `a1ii`.
+It has two hypotheses and one conclusion, and
+all the statements begin with `|-` meaning "this is true".
+Theorem `a1ii` can be interpreted as saying that if some `ph` is true,
+and some `ps` is true, then that `ph` is true.
+This simply lets us restate truths; this is only useful in
+special technical situations, but it's hard to argue with the conclusion.
+
+Theorem `idi` is similar; it says that if some `ph` is true, then that
+`ph` is true.
+This also lets us restate truths; this is again only useful in
+special technical situations, but it's hard to argue with the conclusion.
+This theorem was contributed by Alan Sare, which you can see by clicking
+on the ">" next to the name. The names of people who formalized and
+proposed various statements are included in their dscription.
+
+Assertion 3 is our first axiom, but it's not an assertion of truth (`|-`),
+it's an assertion that something is a well-formed formula (`wff`).
+It says `wff -. ph`, that is, if some `ph` is a wff
+(an expression that is true or false), then
+`-. ph` is also a wff.
+The sequence `-.` represents "logical not", and this axiom
+allows us to use the sequence `-. ph` as a wff where `ph` is a wff.
+
+Assertion 4 is a similar axiom, stating that
+`( ph -> ps )` is a well-formed formula (`wff`).
+Notice the parentheses; since they are part of the only axiom allowing
+the use of `->`, the parentheses required in this case.
+
+Assrtion 5 is axiom `ax-mp`, aka modus ponens.
+If `ph` is true, and `ph` implies `ps`, then `ps` is true.
+
+The next 3 axioms define the axioms of propositional logic, that is,
+the fundamental rules for determining if something is true or false
+given other values that are true or false.
+These are the same as, for example, those of Margaris.
+
+Axiom `ax-1` is also called "Simp" or the "principle of simplification".
+It asserts that `|- ( ph -> ( ps -> ph ) )`.
+If you open the description you'll see that this formalization was
+contributed by "NM". "NM" stands for Norman Megill, the original
+creator of the Metamath system. As you can see, we try to give credit
+to those who take the time to formalize mathematics; we hope you'll
+eventually create proofs and get credit too!
+
+Axiom `ax-2` is also called "Frege".
+It asserts that
+`|- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )`
+This looks more complex than it is; it really just
+"distributes" an antecedent over two consequents.
+
+Axiom `ax-3` is also called "Transp".
+It asserts that
+`|- ( ( -. ph -> -. ps ) -> ( ps -> ph ) )`.
+
+Theorem `mp2` then proves a claim
+(a double modus ponens) using only previously-accepted assertions.
+
+There are many more theorems of course. We should briefly point out one,
+`syl`. The theorem `syl` proves that if `( ph -> ps )` and
+`( ps -> ch )`, then `( ph -> ch )`. This is one of the most
+commonly-used theorems in the entire `set.mm` database.
+
+These are very basic beginnings.
+What's extraordinary is that you can build up, assertion by assertion,
+to eventually completely prove complex mathematical ideas.
+
+### Reference Manual addition: Explorer tab
+
+The explorer view lets you see the various assertions
+(axioms and theorems) in the loaded database(s).
+
+The top of the explorer view lets you select what to view;
+by default all assertions are included.
+You can select the assertion type (axioms, theorems or all),
+text that must be included in the label, or a pattern that must
+be in the conclusion (see [search patterns](#search-patterns)).
+The crossed-out funnel symbol erases all search criteria,
+once again showing all assertions.
+
+There are typically many assertions, so this is a paged view.
+Click on "<" and ">" to see the previous and next page, the page number
+to see a page, or enter the page number.
+
+After that begin the list of assertions (theorems and axioms).
+Each assertion shows its count, the type of assertion
+(theorem or axiom), and the assertion id in bold.
+The rest of the display shows a list of 0 or more hypotheses,
+each prefixed with large black circle "&#x2B24;".
+The final line of an assertion states what can be concluded
+via this assertion when its hypotheses are true.
+
+You can use the text selector to copy useful portions of any statement.
+Next to the name of each axiom or theorem is a ">" symbol which lets you
+can expand or hide its description.
+
+If you select the id (name) of an assertion, you will be brought
+to an individual assertion tab specific to that assertion.
+This tab will be dynamically created if it doesn't exist already.
+
+### Reference Manual addition: Individual Assertion tab
+
+The tab bar shows all the opened dynamically-created
+individual assertions.
+You can click on the "x"
+after any dynamically-created tab to remove the tab.
+
+Each individual assertion tab displays
+information about one assertion, including its description and proof.
+
+Again, you can use the text selector to copy useful portions of any statement.
+
+If it's a theorem, you can select
+"show types", which shows the proof that a given expression
+has the given correct types.
+If it's an axiom, types are always shown (axioms are accepted as givens
+so there's nothing else to prove).
+Metamath proofs include proofs of the types of each expression;
+you can decide whether or not to see this.
+
+Clicking on a use of a hypothesis step id will show
+the individual assertion tab for that id (creating the tab if necessary).
+
+At the beginning of the statement is a small "+" (reveal/hide),
+where you can reveal or hide a visualization of that step.
+
+Clicking on a reference to an assertino will show an inidivual assertion tab
+of that assertion (creating the tab if necessary). That tab will provide
+detailed information about the assertion.
 
 ## Help, feedback, and contributions
 
