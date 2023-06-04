@@ -2107,18 +2107,22 @@ You can use the text selector to copy useful portions of any statement.
 Next to the name of each axiom or theorem is a ">" symbol which lets you
 expand or hide its description.
 
-![Axiom ax-5 in the explorer tab](ax-5-explorer.png)
 Let's look at axiom `ax-mp`, which is probably assertion number 5
-in your display. Axiom `ax-mp` is called *modus ponens~ and is well-known.
-It has two hypotheses:
+in your display. Axiom `ax-mp` is called *modus ponens* and is well-known.
+Here is what it looks like in the explorer display:
+
+![Axiom ax-5 in the explorer tab](ax-5-explorer.png)
+
+Modus ponens has two hypotheses:
 
 * `|- ph` - that is, "when `ph` is true", and
 * `|- ( ph -> ps )` - that is, "when `ph` implies `ps`"
 
-Using axiom `ax-mp`, whenever those two hypothese are true, you
+Using axiom `ax-mp`, whenever those two hypotheses are true, you
 can prove "`ps` is true". Note that `ph` and `ps` are variables over
 any well-formed formula (wff) expression, that is, anything that
-is true or false. This axiom can apply to many circumstances.
+is true or false; it's not limited to being replaced by just another variable.
+The axiom modus ponens can apply to many circumstances.
 
 If you select the id (name) of a theorem, a new tab will be created
 that shows details the proof of that theorem:
