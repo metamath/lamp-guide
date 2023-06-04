@@ -16,8 +16,9 @@ user guide (tutorial) and a reference guide. It includes:
 2. [Sample Screenshot](#sample-screenshot)
 3. [User guide (tutorial)](#user-guide-tutorial)
    shows how to use the metamath-lamp tool, primarily via examples, e.g.,
-   that [2 + 2 = 4 (`2p2e4`)](proof-2--2--4) and the
-   [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
+   that [2 + 2 = 4 (`2p2e4`)](proof-2--2--4), the
+   [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot), and the
+   [principle of the syllogism (`syl`)](~proof-principle-of-the-syllogism-syl).
 4. [Reference manual](#reference-manual) explains each part of the
    user interface, e.g., the [Editor tab](#editor-tab).
 5. [Future directions](#future-directions) discusses
@@ -1132,6 +1133,201 @@ steps that aren't instantly proved.
 If there are intermediate statements you need to prove to lead to the goal,
 just apply the same process - repeatedly work to prove those
 intermediate statements.
+
+### Proof: Principle of the syllogism (syl)
+
+<!-- Put exlorer tutorial text before this section, once that applies. -->
+
+Let's prove something more basic.
+Let's prove that if phi implies psi, and psi implies chi, then
+psi implies chi. In short, let's prove that implication is transitive.
+
+Russell and Whitehead call this claim "the principle of the syllogism";
+others sometimes call this law a "hypothetical syllogism".
+In set.mm the proof of this claim is labelled
+[`syl`](https://us.metamath.org/mpeuni/syl.html).
+
+This proof involves using hypotheses, so that means we'll
+learn how to create hypotheses in metamath-lamp.
+
+#### Setting up the context and statement
+
+Let's again load the `set.mm` database, and stop before `syl`:
+
+> Select Source type "Web", Alias "set.mm:latest"; after confirmation this
+> loads the given database.
+> Now under scope select "Stop before" and enter the label `syl`.
+> Finally, apply changes to the context.
+
+Now let's add the conclusion:
+
+> In the Editor select the icon "+" (add new statement).
+> Enter
+> `|- ( ph -> ch )`
+> and press Enter (Return).
+> Click on the statement id, change it to `syl`, and press Enter.
+
+However, this statement isn't always true; it's only true when
+*other* statements are true. Those other statements are termed
+"hypotheses"; let's add them.
+
+> In the Editor select the icon "+" (add new statement).
+> Enter
+> `|- ( ph -> ps )`
+> and press Enter.
+> By default metamath-lamp presumes a new statement is provable statement
+> (a "**P**" type), but this is a hypothesis instead.
+> Use Alt+left click to select the **P** on that line.
+> Note: on some keyboards "Alt" is labelled "Opt" or "Option".
+> On the drop-down select "**H**" (hypothesis).
+> Click on the label and rename it to `syl.1`.
+
+We now have a hypothesis! Let's add the other one:
+
+> In the Editor select the icon "+" (add new statement).
+> Enter
+> `|- ( ps -> ch )`
+> and press Enter.
+> Use Alt+left click to select the **P** on that line.
+> On the drop-down select "**H**" (hypothesis).
+> Click on the label and rename it to `syl.2`.
+
+Let's put these in a reasonable order.
+
+> Select the `syl.1` statement using the checkbox to its left,
+> and repeatedly use the "Up" icon to move it to the top.
+> Unselect it using its checkbox.
+> Select the `syl.2` statement, and repeatedly use the "Up" icon
+> so the statements are ordered as `syl.1`, `syl.2`, and finally `syl`.
+
+#### Easy proof of syl
+
+Let's prove `syl` the easy way.
+Metamath-lamp's bottom-up proof tool can't automatically prove all
+proofs, but it *is* able to find some proofs automtically, especially
+when it can use many theorems that have already been proved.
+
+> Select just goal `syl`, and click on the network icon (unify).
+> Click on "Prove". The tool will soon reply with some options,
+> including one that uses `imim2i` and `ax-mp` that *completely*
+> proves the claim. Select that one (using the checkbox on its left)
+> and clcik on "Apply selected".
+
+Notice that metamath-lamp has added an intermediate statement
+(with id "1") to help us prove this :
+
+`|- ( ( ph -> ps ) -> ( ph -> ch ) )`
+
+Also, note that this new statement *and* the final goal
+`syl` have green checkmarks.
+The most important thing is that our final goal has a green checkmark,
+meaning it's fully proved!
+You can left-click on its green checkmark to get as final proof
+that could be used in a final database.
+
+#### Hard mode: Proving syl using only axioms
+
+If you thought that was too easy, let's make it more challenging.
+Let's prove `syl` using *only* axioms.
+Most people wouldn't create proofs with only axioms, but doing this
+will help us illustrate ways you can use metamath-lamp.
+In particular, we'll show you how to work backwards from a statement.
+
+Let's change the context so it only includes the axioms
+modus ponens (`ax-mp`) and the propositional logic axioms
+`ax-1`, `ax-2`, and `ax-3`, not anything after them:
+
+> Select at the top the context bar showing "Loaded:..." text.
+> Change its scope to "stop after" label `ax-3`.
+> Click "Apply changes".
+
+We now see an error after id 1, saying
+"*The label 'imim2i' doesn't refer to any assertion.*"
+Click on the **P** to reveal the specific reference that it was using
+to justify this statement, and indeed, it was using `imim2i` combined with
+`syl.2` to prove this statement.
+In our new context we don't have `imim2i`. We can sliminate this justification
+by clcking on trash can next to it,
+click on **P** to hide the now-empty justification.
+
+Let's unify and see what happens:
+
+> Click on unify.
+
+The final `syl` step has a symbol "~"; this means that this particular
+statement is justified, but that it depends on something else transitively
+that isn't justified.
+You can click on the **P** marker after `syl` to see that `syl` depends
+on two other statements, `syl.1` and `1`, and uses `ax-mp` with
+those hypotheses to justify this step.
+This is a perfectly fine use of `ax-mp`, and `syl.1` is a hypothesis
+(so it's assumed true for its purposes).
+However, this justification depends on `1` which isn't currently proven.
+Click on the **P** marker after `syl` to hide these details.
+
+Let's work on proving statement `1`.
+Let's try backwards proof.
+
+> Select statement 1 by clicking the checkbox to its left.
+> Click on "unify" to start a backwards proof.
+> Click on "Prove".
+
+The bottom-up prover will show us some options.
+It shows several ways to apply `ax-mp` (modus ponens), including
+cases where a hypothesis is directly used as one of the claims.
+Sometimes it's not clear which alternative (if any) is worth trying,
+in which case, you may need to try out different approaches to see
+if they lead anywhere.
+In this situation the direct applications of the hypothesis don't
+don't look to me like they're going to lead to a proof.
+So I'm going to select the option with a wff metavariable &amp;W1
+because that seems more promising.
+
+> Click on the option that includes &amp;W1 and use "Apply Selected".
+
+We now have these statements:
+
+~~~~
+3  P  |- ( &W1 -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
+2  P  |- &W1
+~~~~
+
+Statement 3 looks suspiciously like axiom `ax-2`, which states:
+
+~~~~
+( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
+~~~~
+
+Unfortunately, metamath-lamp's current unifier doesn't notice that
+these can be unified, so the bottom-up prover won't help us here.
+(The tool `mmj2` *can* unify this statement
+with `ax-2`, so in this case good on mmj2.)
+
+We can help metamath-lamp along, however. We just need to replace the
+work variable "&amp;W1" with the expression
+`( ph -> ( ps -> ch ) )`.
+
+> Select "replace", in "Replace what" use the value &amp;W1 and in
+> "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
+> Then press unify.
+
+We're getting close! Step 3 is proven, using ax-2.
+However, step 2 is not yet, so the whole proof isn't done.
+Select step 2, and do a bottom-up proof of it as well.
+
+> Select step 2, press "unify", and press "prove".
+> At the top it will show a use of `ac-mp` that proves all steps;
+> select it and "apply selected".
+
+Congratulations! We now have a proof of `syl` by *only* using
+axioms directly.
+
+Creating this proof by only using axioms let us try out some features
+of metamath-lamp. That said, most of the time you won't want
+to limit yourself to just axioms. Proofs are shorter, clearer, and
+easier to understand if you create theorems of more basic
+claims, and slowly build up from those simpler theorems
+to more complex claims.
 
 ### Creating your own examples from existing proofs
 
