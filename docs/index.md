@@ -1944,9 +1944,9 @@ Clicking on a use of a hypothesis step id will move the display to that step.
 At the beginning of the statement is a small "+" (reveal/hide),
 where you can reveal or hide a visualization of that step.
 Try that out; the visualizations can make it easier to understand
-how metamath proofs work.
+how Metamath proofs work.
 
-Clicking on a reference to an assertino will show an inidivual assertion tab
+Clicking on a reference to an assertion will show an individual assertion tab
 of that assertion (creating the tab if necessary). That tab will provide
 detailed information about the assertion.
 
@@ -1992,8 +1992,8 @@ allows us to use the sequence `-. ph` as a wff where `ph` is a wff.
 
 Assertion 4 is a similar axiom, stating that
 `( ph -> ps )` is a well-formed formula (`wff`).
-Notice the parentheses; since they are part of the only axiom allowing
-the use of `->`, the parentheses required in this case.
+Notice the parentheses; since they are specified as part of the axiom allowing
+the use of `->`, the parentheses are required when using `->`.
 
 Assrtion 5 is axiom `ax-mp`, aka modus ponens.
 If `ph` is true, and `ph` implies `ps`, then `ps` is true.
@@ -2092,7 +2092,7 @@ the individual assertion tab for that id (creating the tab if necessary).
 At the beginning of the statement is a small "+" (reveal/hide),
 where you can reveal or hide a visualization of that step.
 
-Clicking on a reference to an assertino will show an inidivual assertion tab
+Clicking on a reference to an assertion will show an individual assertion tab
 of that assertion (creating the tab if necessary). That tab will provide
 detailed information about the assertion.
 
