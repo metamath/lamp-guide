@@ -1300,11 +1300,13 @@ Statement 3 looks suspiciously like axiom `ax-2`, which states:
 
 Unfortunately, metamath-lamp's current unifier doesn't notice that
 these can be unified, so the bottom-up prover won't help us here.
-(The tool `mmj2` *can* unify this statement
-with `ax-2`, so in this case good on mmj2.)
+The tool `mmj2` *can* unify this statement
+with `ax-2`, so in this case good on mmj2.
+There are some
+[discussions about this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77)).
 
 We can help metamath-lamp along, however. We just need to replace the
-work variable "&amp;W1" with the expression
+work variable "&amp;W1" with the expression required by `ax-2`, namely,
 `( ph -> ( ps -> ch ) )`.
 
 > Select "replace", in "Replace what" use the value &amp;W1 and in
