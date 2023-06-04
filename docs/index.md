@@ -1902,7 +1902,7 @@ via this assertion when its hypotheses are true.
 
 You can use the text selector to copy useful portions of any statement.
 Next to the name of each axiom or theorem is a ">" symbol which lets you
-can expand or hide its description.
+expand or hide its description.
 
 ![Axiom ax-5 in the explorer tab](ax-5-explorer.png)
 Let's look at axiom `ax-mp`, which is probably assertion number 5
@@ -2060,7 +2060,7 @@ via this assertion when its hypotheses are true.
 
 You can use the text selector to copy useful portions of any statement.
 Next to the name of each axiom or theorem is a ">" symbol which lets you
-can expand or hide its description.
+expand or hide its description.
 
 If you select the id (name) of an assertion, you will be brought
 to an individual assertion tab specific to that assertion.
