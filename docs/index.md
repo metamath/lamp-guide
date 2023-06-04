@@ -1347,6 +1347,8 @@ JSON format:
 
 * [2p2e4](./2p2e4.lamp.json)
 * [reccot](./reccot.lamp.json)
+* [syl (easy version)](./syl-easy.lamp.json)
+* [syl (axioms only)](./syl-axiom-only.lamp.json)
 
 You can also generate a URL that includes the proof state, and share that
 URL with anyone.
