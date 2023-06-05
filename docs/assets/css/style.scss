@@ -49,6 +49,41 @@ h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {
     counter-increment: none;
 }
 
+/* Number headers in the TOC using the same approach */
+.toc {
+    counter-reset: h2countertoc;
+}
+
+.toc > ul > li { /* h2 */
+    counter-reset: h3countertoc;
+}
+.toc > ul > li:before {
+    content: counter(h2countertoc) ".\0000a0\0000a0";
+    counter-increment: h2countertoc;
+}
+
+.toc > ul > li > ul > li { /* h3 */
+    counter-reset: h4counter;
+}
+.toc > ul > li > ul > li:before {
+    content: counter(h2countertoc) "." counter(h3countertoc) ".\0000a0\0000a0";
+    counter-increment: h3countertoc;
+}
+
+.toc > ul > li > ul > li > ul > li { /* h4 */
+    counter-reset: h5counter;
+}
+.toc > ul > li > ul > li > ul > li:before {
+    content: counter(h2countertoc) "." counter(h3countertoc) "." countertoc(h4counter) ".\0000a0\0000a0";
+    counter-increment: h4countertoc;
+}
+
+.toc > ul > li > ul > li > ul > li > ul > li:before { /* h5 */
+    content: counter(h2countertoc) "." counter(h3countertoc) "." countertoc(h4counter) "." counter(h5countertoc) ".\0000a0\0000a0";
+    counter-increment: h5countertoc;
+}
+
+
 /* Avoid orphins at bottom of page when printing.
    Firefox 115 doesn't support this but it will do no harm there.
    https://stackoverflow.com/questions/34808650/orphan-css-how-avoid-headers-h1-h2-on-bottom-page
