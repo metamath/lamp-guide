@@ -1180,6 +1180,8 @@ However, this statement isn't always true; it's only true when
 > Use Alt+left click to select the **P** on that line.
 > Note: on some keyboards "Alt" is labelled "Opt" or "Option".
 > On the drop-down select "**H**" (hypothesis).
+> Notice that changing a statement into a hypothesis
+> automatically moves it above the goal.
 > Click on the label and rename it to `syl.1`.
 
 We now have a hypothesis! Let's add the other one:
@@ -1190,15 +1192,15 @@ We now have a hypothesis! Let's add the other one:
 > and press Enter.
 > Use Alt+left click to select the **P** on that line.
 > On the drop-down select "**H**" (hypothesis).
+> Again, this change causes the statement to be automatically moved
+> above the goal.
 > Click on the label and rename it to `syl.2`.
 
-Let's put these in a reasonable order.
-
-> Select the `syl.1` statement using the checkbox to its left,
-> and repeatedly use the "Up" icon to move it to the top.
-> Unselect it using its checkbox.
-> Select the `syl.2` statement, and repeatedly use the "Up" icon
-> so the statements are ordered as `syl.1`, `syl.2`, and finally `syl`.
+Notice that it's already ordered in a reasonable way.
+If you ever wanted to change the order of statements, you can select
+the statement(s) to move using the left-hand-side check box, then
+move them up and down using the "up" and "down" icons.
+However, there's no need to reorder these statements.
 
 #### Easy proof of syl
 
@@ -1211,18 +1213,18 @@ when it can use many theorems that have already been proved.
 > Click on "Prove". The tool will soon reply with some options,
 > including one that uses `imim2i` and `ax-mp` that *completely*
 > proves the claim. Select that one (using the checkbox on its left)
-> and clcik on "Apply selected".
+> and click on "Apply selected".
 
 Notice that metamath-lamp has added an intermediate statement
-(with id "1") to help us prove this :
+(with id "1") to prove this :
 
 `|- ( ( ph -> ps ) -> ( ph -> ch ) )`
 
 Also, note that this new statement *and* the final goal
 `syl` have green checkmarks.
 The most important thing is that our final goal has a green checkmark,
-meaning it's fully proved!
-You can left-click on its green checkmark to get as final proof
+meaning the goal is fully proved!
+You can left-click on its green checkmark to get a final proof
 that could be used in a final database.
 
 #### Hard mode: Proving syl using only axioms
@@ -1233,7 +1235,9 @@ Most people wouldn't create proofs with only axioms, but doing this
 will help us illustrate ways you can use metamath-lamp.
 In particular, we'll show you how to work backwards from a statement.
 
-Let's change the context so it only includes the axioms
+We'll start with our current state, including the intermediate step
+that metamath-lamp found.
+Now change the context so it only includes the axioms
 modus ponens (`ax-mp`) and the propositional logic axioms
 `ax-1`, `ax-2`, and `ax-3`, not anything after them:
 
@@ -1243,27 +1247,35 @@ modus ponens (`ax-mp`) and the propositional logic axioms
 
 We now see an error after id 1, saying
 "*The label 'imim2i' doesn't refer to any assertion.*"
-Click on the **P** to reveal the specific reference that it was using
-to justify this statement, and indeed, it was using `imim2i` combined with
-`syl.2` to prove this statement.
-In our new context we don't have `imim2i`. We can sliminate this justification
-by clcking on trash can next to it,
-click on **P** to hide the now-empty justification.
+
+> Click on the **P** of step 1 to reveal the specific reference that
+> it was using (erroneously) to justify this statement.
+
+It says `syl.2 : imim2i` which means that our claimed justification for
+step 1 was to use assertion `imim2i` with `syl.2` as its hypothesis.
+In our modified context we can't use `imim2i`, in fact, we can't use any
+assertion after `ax-3`.
+Let's eliminate this justification:
+
+> Under step 1 is its justification; click on the
+> on the trash can next to it to delete the justification.
+> Then click on **P** to hide the now-empty justification.
 
 Let's unify and see what happens:
 
 > Click on unify.
 
 The final `syl` step has a symbol "~"; this means that this particular
-statement is justified, but that it depends on something else transitively
-that isn't justified.
+statement is justified, but it depends on something else that
+is not transitively justified.
 You can click on the **P** marker after `syl` to see that `syl` depends
 on two other statements, `syl.1` and `1`, and uses `ax-mp` with
 those hypotheses to justify this step.
 This is a perfectly fine use of `ax-mp`, and `syl.1` is a hypothesis
 (so it's assumed true for its purposes).
 However, this justification depends on `1` which isn't currently proven.
-Click on the **P** marker after `syl` to hide these details.
+If you looked at this,
+click again on the **P** marker after `syl` to hide these details.
 
 Let's work on proving statement `1`.
 Let's try backwards proof.
@@ -1309,12 +1321,13 @@ We can help metamath-lamp along, however. We just need to replace the
 work variable "&amp;W1" with the expression required by `ax-2`, namely,
 `( ph -> ( ps -> ch ) )`.
 
-> Select "replace", in "Replace what" use the value &amp;W1 and in
+> Select the icon "A with arrow" (that is, "replace").
+> In "Replace what" use the value &amp;W1 and in
 > "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
 > Then press unify.
 
 We're getting close! Step 3 is proven, using ax-2.
-However, step 2 is not yet, so the whole proof isn't done.
+However, step 2 is not yet proven, so the whole proof isn't done.
 Select step 2, and do a bottom-up proof of it as well.
 
 > Select step 2, press "unify", and press "prove".
@@ -1329,7 +1342,7 @@ of metamath-lamp. That said, most of the time you won't want
 to limit yourself to just axioms. Proofs are shorter, clearer, and
 easier to understand if you create theorems of more basic
 claims, and slowly build up from those simpler theorems
-to more complex claims.
+to more complex claims. It's also much easier to create each proof.
 
 ### Creating your own examples from existing proofs
 
