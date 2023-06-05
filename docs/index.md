@@ -1862,6 +1862,17 @@ You can follow
 [development version of metamath-lamp (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
 
 In this section we'll cover some potential future directions.
+
+One small but important expected change is support for a "long click".
+Holding down the left mouse button or touch for a longer time
+(e.g., 500 milliseconds) is a "long click", and is considered the same
+as alt+left click. This small change means that smartphones will be
+able to access all of metamath-lamp's functionality.
+
+Another expected change is that the first created step will be
+specially marked as a "goal". Goals will be treated somewhat differently
+from other statements, to make the default behavior more convenient.
+
 A future version is likely to have an "explorer" tab to let you explore
 the contents of a database.
 Below is draft text describing this feature, which may give you glimpse.
