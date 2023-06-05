@@ -2388,6 +2388,7 @@ Here is the detailed table of contents (ToC). We put this ToC
 near the end of the document so that readers using small screens won't
 need to scroll through it just to see the early content.
 
+1. Table of contents
 {:toc}
 
 ## Authors and Reviewers
