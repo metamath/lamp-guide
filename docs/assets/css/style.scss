@@ -7,6 +7,8 @@
   We use single colon before "before" even though it's technically not correct:
   https://css-tricks.com/to-double-colon-or-not-do-double-colon/
 
+  We presume that there's one h1 (the title).
+
   This CSS creates numbered headings for headers 2..6, and can also
   insert them into a TOC if desired. Heading numbers can be suppressed.
 
@@ -56,7 +58,8 @@ h5:before {
    * text-to-ignore
    {:toc}
 */
-h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {
+h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before,
+h6.nocount:before.{
     content: none;
     counter-increment: none;
 }
@@ -105,7 +108,7 @@ h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {
 #markdown-toc > li > ul > li > ul > li > ul > li > ul > li { /* h6 */
     list-style-type: none;
 }
-#markdown-toc > li > ul > li > ul > li > ul > li:not(.nocount):before { /* h5 */
+#markdown-toc > li > ul > li > ul > li > ul > li> ul > li:not(.nocount):before { /* h6 */
     content: counter(h2countertoc) "." counter(h3countertoc) "." counter(h4countertoc) "." counter(h5countertoc) "." counter(h6countertoc) ".\0000a0\0000a0";
     counter-increment: h6countertoc;
 }
@@ -115,6 +118,6 @@ h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {
    https://stackoverflow.com/questions/34808650/orphan-css-how-avoid-headers-h1-h2-on-bottom-page
    https://caniuse.com/?search=break-after
 */
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
     break-after: avoid-page;
 }
