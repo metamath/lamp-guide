@@ -26,7 +26,8 @@ user guide (tutorial) and a reference guide. It includes:
    likely future directions.
 6. [Help, feedback, and contributions](#help-feedback-and-contributions)
 7. [Licensing](#licensing)
-8. [Authors and Reviewers](#authors-and-reviewers)
+8. [Detailed table of contents](#detailed-table-of-contents)
+9. [Authors and Reviewers](#authors-and-reviewers)
 
 Metamath-lamp is a new proof assistant for creating Metamath proofs.
 As a result, it currently lacks some functionality, such as
@@ -2380,6 +2381,14 @@ We welcome contributions!
 Contributions back to this guide must be contributed under the same terms.
 
 Metamath-lamp is licensed separately (it is released under the MIT license).
+
+## Detailed table of contents
+
+Here is the detailed table of contents (ToC). We put this ToC
+near the end of the document so that readers using small screens won't
+need to scroll through it just to see the early content.
+
+{:toc}
 
 ## Authors and Reviewers
 
