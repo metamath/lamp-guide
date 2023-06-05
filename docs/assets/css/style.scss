@@ -50,35 +50,35 @@ h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {
 }
 
 /* Number headers in the TOC using the same approach */
-.tocdiv {
+#markdown-toc {
     counter-reset: h2countertoc;
 }
 
-.tocdiv > ul > li { /* h2 */
+#markdown-toc > li { /* h2 */
     counter-reset: h3countertoc;
 }
-.tocdiv > ul > li:before {
+#markdown-toc > li:before {
     content: counter(h2countertoc) ".\0000a0\0000a0";
     counter-increment: h2countertoc;
 }
 
-.tocdiv > ul > li > ul > li { /* h3 */
+#markdown-toc > li > ul > li { /* h3 */
     counter-reset: h4counter;
 }
-.tocdiv > ul > li > ul > li:before {
+#markdown-toc > li > ul > li:before {
     content: counter(h2countertoc) "." counter(h3countertoc) ".\0000a0\0000a0";
     counter-increment: h3countertoc;
 }
 
-.tocdiv > ul > li > ul > li > ul > li { /* h4 */
+#markdown-toc > li > ul > li > ul > li { /* h4 */
     counter-reset: h5counter;
 }
-.tocdiv > ul > li > ul > li > ul > li:before {
+#markdown-toc > li > ul > li > ul > li:before {
     content: counter(h2countertoc) "." counter(h3countertoc) "." countertoc(h4counter) ".\0000a0\0000a0";
     counter-increment: h4countertoc;
 }
 
-.tocdiv > ul > li > ul > li > ul > li > ul > li:before { /* h5 */
+#markdown-toc > li > ul > li > ul > li > ul > li:before { /* h5 */
     content: counter(h2countertoc) "." counter(h3countertoc) "." countertoc(h4counter) "." counter(h5countertoc) ".\0000a0\0000a0";
     counter-increment: h5countertoc;
 }
