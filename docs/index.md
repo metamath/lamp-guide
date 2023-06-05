@@ -1208,7 +1208,7 @@ However, there's no need to reorder these statements.
 
 Let's prove `syl` the easy way.
 Metamath-lamp's bottom-up proof tool can't automatically prove all
-proofs, but it *is* able to find some proofs automtically, especially
+proofs, but it *is* able to find some proofs automatically, especially
 when it can use many theorems that have already been proved.
 
 > Select just goal `syl`, and click on the network icon (unify).
@@ -1317,7 +1317,7 @@ these can be unified, so the bottom-up prover won't help us here.
 The tool `mmj2` *can* unify this statement
 with `ax-2`, so in this case good on mmj2.
 There are some
-[discussions about this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77)).
+[discussions about this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77).
 
 We can help metamath-lamp along, however. We just need to replace the
 work variable "&amp;W1" with the expression required by `ax-2`, namely,
