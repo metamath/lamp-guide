@@ -2388,10 +2388,8 @@ Here is the detailed table of contents (ToC). We put this ToC
 near the end of the document so that readers using small screens won't
 need to scroll through it just to see the early content.
 
-<div class="tocdiv">
-- Table of contents
+* Table of contents
 {:toc}
-</div>
 
 ## Authors and Reviewers
 
