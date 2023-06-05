@@ -64,7 +64,7 @@ h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {
 }
 
 #markdown-toc > li > ul > li { /* h3 */
-    counter-reset: h4counter;
+    counter-reset: h4countertoc;
     list-style-type: none;
 }
 #markdown-toc > li > ul > li:before { /* h3 */
