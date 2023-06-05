@@ -4,7 +4,14 @@
 /* See:
   https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
   https://2ality.com/2012/01/numbering-headingshtml.html
- */
+  We use single colon before "before" even though it's technically not correct:
+  https://css-tricks.com/to-double-colon-or-not-do-double-colon/
+
+  This CSS creates numbered headings for headers 2..6, and can also
+  insert them into a TOC if desired. Heading numbers can be suppressed.
+
+  CSS by David A. Wheeler
+*/
 @import "{{ site.theme }}";
 
 body {
@@ -43,7 +50,12 @@ h5:before {
     counter-increment: h5counter;
 }
 
-/* Use class "nocount" to suppress the heading number */
+/* Use class "nocount" to suppress the heading number.
+   Use class "no_toc" to suppress TOC entry, e.g., append a line `{:.no_toc}`
+   In kramdown markdown generator, to create a Table of contents, use this:
+   * text-to-ignore
+   {:toc}
+*/
 h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {
     content: none;
     counter-increment: none;
@@ -58,16 +70,16 @@ h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {
     counter-reset: h3countertoc;
     list-style-type: none;
 }
-#markdown-toc > li:before { /* h2 */
+#markdown-toc > li:not(.nocount):before { /* h2 */
     content: counter(h2countertoc) ".\0000a0\0000a0";
     counter-increment: h2countertoc;
-}
+} 
 
 #markdown-toc > li > ul > li { /* h3 */
     counter-reset: h4countertoc;
     list-style-type: none;
 }
-#markdown-toc > li > ul > li:before { /* h3 */
+#markdown-toc > li > ul > li:not(.nocount):before { /* h3 */
     content: counter(h2countertoc) "." counter(h3countertoc) ".\0000a0\0000a0";
     counter-increment: h3countertoc;
 }
@@ -76,22 +88,30 @@ h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {
     counter-reset: h5countertoc;
     list-style-type: none;
 }
-#markdown-toc > li > ul > li > ul > li:before { /* h4 */
+#markdown-toc > li > ul > li > ul > li:not(.nocount):before { /* h4 */
     content: counter(h2countertoc) "." counter(h3countertoc) "." counter(h4countertoc) ".\0000a0\0000a0";
     counter-increment: h4countertoc;
 }
 
 #markdown-toc > li > ul > li > ul > li > ul > li { /* h5 */
+    counter-reset: h6countertoc;
     list-style-type: none;
 }
-#markdown-toc > li > ul > li > ul > li > ul > li:before { /* h5 */
+#markdown-toc > li > ul > li > ul > li > ul > li:not(.nocount):before { /* h5 */
     content: counter(h2countertoc) "." counter(h3countertoc) "." counter(h4countertoc) "." counter(h5countertoc) ".\0000a0\0000a0";
     counter-increment: h5countertoc;
 }
 
+#markdown-toc > li > ul > li > ul > li > ul > li > ul > li { /* h6 */
+    list-style-type: none;
+}
+#markdown-toc > li > ul > li > ul > li > ul > li:not(.nocount):before { /* h5 */
+    content: counter(h2countertoc) "." counter(h3countertoc) "." counter(h4countertoc) "." counter(h5countertoc) "." counter(h6countertoc) ".\0000a0\0000a0";
+    counter-increment: h6countertoc;
+}
 
-/* Avoid orphins at bottom of page when printing.
-   Firefox 115 doesn't support this but it will do no harm there.
+/* Avoid creating orphans at the bottom of the page when printing.
+   Firefox 115 doesn't support this, but it will do no harm there.
    https://stackoverflow.com/questions/34808650/orphan-css-how-avoid-headers-h1-h2-on-bottom-page
    https://caniuse.com/?search=break-after
 */
