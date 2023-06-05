@@ -16,9 +16,10 @@ user guide (tutorial) and a reference guide. It includes:
 2. [Sample Screenshot](#sample-screenshot)
 3. [User guide (tutorial)](#user-guide-tutorial)
    shows how to use the metamath-lamp tool, primarily via examples, e.g.,
-   that [2 + 2 = 4 (`2p2e4`)](proof-2--2--4), the
-   [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot), and the
-   [principle of the syllogism (`syl`)](~proof-principle-of-the-syllogism-syl).
+   [2 + 2 = 4 (`2p2e4`)](#proof-2--2--4), the
+   [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot),
+   and the
+   [principle of the syllogism (`syl`)](#proof-principle-of-the-syllogism-syl).
 4. [Reference manual](#reference-manual) explains each part of the
    user interface, e.g., the [Editor tab](#editor-tab).
 5. [Future directions](#future-directions) discusses
@@ -1257,7 +1258,7 @@ In our modified context we can't use `imim2i`, in fact, we can't use any
 assertion after `ax-3`.
 Let's eliminate this justification:
 
-> Under step 1 is its justification; click on the
+> Under step 1 is its justification; click
 > on the trash can next to it to delete the justification.
 > Then click on **P** to hide the now-empty justification.
 
@@ -1290,7 +1291,7 @@ cases where a hypothesis is directly used as one of the claims.
 Sometimes it's not clear which alternative (if any) is worth trying,
 in which case, you may need to try out different approaches to see
 if they lead anywhere.
-In this situation the direct applications of the hypothesis don't
+In this situation the direct applications of the hypothesis
 don't look to me like they're going to lead to a proof.
 So I'm going to select the option with a wff metavariable &amp;W1
 because that seems more promising.
@@ -1324,6 +1325,9 @@ work variable "&amp;W1" with the expression required by `ax-2`, namely,
 > Select the icon "A with arrow" (that is, "replace").
 > In "Replace what" use the value &amp;W1 and in
 > "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
+> Click "Find Substitution" button; metamath-lamp will
+> show one possible substitution.
+> Click the "Apply" button to apply the substitution to all the statements.
 > Then press unify.
 
 We're getting close! Step 3 is proven, using ax-2.
