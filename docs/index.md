@@ -2390,7 +2390,7 @@ need to scroll through it just to see the early content.
 
 <div class="toc">
 
-*. Table of contents
+* Table of contents
 {:toc}
 
 </div>
