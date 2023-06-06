@@ -54,12 +54,8 @@ h5:before {
 
 /* Use class "nocount" to suppress the heading number.
    Use class "no_toc" to suppress TOC entry, e.g., append a line `{:.no_toc}`
-   In kramdown markdown generator, to create a Table of contents, use this:
-   * text-to-ignore
-   {:toc}
 */
-h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before,
-h6.nocount:before.{
+h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before, h6.nocount:before {
     content: none;
     counter-increment: none;
 }
