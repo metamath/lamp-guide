@@ -108,7 +108,7 @@ h6.nocount:before.{
 #markdown-toc > li > ul > li > ul > li > ul > li > ul > li { /* h6 */
     list-style-type: none;
 }
-#markdown-toc > li > ul > li > ul > li > ul > li> ul > li:not(.nocount):before { /* h6 */
+#markdown-toc > li > ul > li > ul > li > ul > li > ul > li:not(.nocount):before { /* h6 */
     content: counter(h2countertoc) "." counter(h3countertoc) "." counter(h4countertoc) "." counter(h5countertoc) "." counter(h6countertoc) ".\0000a0\0000a0";
     counter-increment: h6countertoc;
 }
