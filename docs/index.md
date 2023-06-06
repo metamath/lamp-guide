@@ -1321,10 +1321,13 @@ Unfortunately, metamath-lamp's current unifier doesn't notice that
 these *can* be unified, so the bottom-up prover won't help us here.
 The tool `mmj2` *can* unify this statement
 with `ax-2` (mmj2 has a more powerful unifier).
-Unfortunately, metamath-lamp's current unifier is only "one way", that is,
+Unfortunately, metamath-lamp's current unifier is only unidirectional, that is,
 it can only substitute in one direction to find a match.
+In the technical literature the current metamath-lamp "unification"
+algorithm is often called "matching"
+instead of being considered full syntactic unification.
 There are some
-[discussions about this fixing this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77),
+[discussions about removing this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77),
 but for now we'll need to work around this.
 
 With a little extra work we can give metamath-lamp the information it needs.
