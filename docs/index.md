@@ -1204,6 +1204,13 @@ the statement(s) to move using the left-hand-side check box, then
 move them up and down using the "up" and "down" icons.
 However, there's no need to reorder these statements.
 
+**Important**: Every hypothesis (and goal) id is a database label, so it
+*must* be unique in the database.
+It cannot match any math symbol token (like `1`), assertion label,
+or a label of any other hypotheses.
+The convention in `set.mm`, as shown above, is for hypotheses to be labelled
+as the name of the goal + "." + an integer starting from 1.
+
 #### Easy proof of syl
 
 Let's prove `syl` the easy way.
@@ -1657,6 +1664,20 @@ any special hypotheses to use. To do that:
   You generally want the goal last.
 
 You're now ready to create a proof.
+
+**Important**: The id of every hypothesis, as well as the goal,
+id is a database label.
+Therefore it *must* be unique in the database.
+The id cannot match a math symbol token (like `1`), an assertion label,
+or a label of any other hypotheses.
+This is noted in the Metamath book, on the page 114, as it notes that
+"each label token must be unique, and no label token may match
+any math symbol token."
+The convention in `set.mm` is for hypotheses to be labelled
+as the name of the goal + "." + an integer starting from 1.
+Note that the id of individual proof steps (other than the hypotheses and goal)
+don't have to be unique in the database, because these ids
+are local to the proof.
 
 Let's now look at the editor command icon bar in more detail.
 
