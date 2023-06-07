@@ -1204,12 +1204,17 @@ the statement(s) to move using the left-hand-side check box, then
 move them up and down using the "up" and "down" icons.
 However, there's no need to reorder these statements.
 
-**Important**: Every hypothesis (and goal) id is a database label, so it
+**Note**: Every hypothesis and goal id is a database label, so it
 *must* be unique in the database.
-It cannot match any math symbol token (like `1`), assertion label,
-or a label of any other hypotheses.
+It cannot match a math symbol token (like `1`), assertion label,
+or hypothesis label.
 The convention in `set.mm`, as shown above, is for hypotheses to be labelled
 as the name of the goal + "." + an integer starting from 1.
+You don't have to worry about incorrect labels, though.
+Metamath-lamp validates labels you use
+(it currently hypotheses and
+[will soon validate goals](https://github.com/expln/metamath-lamp/issues/81)),
+and it will show an error message if the id is in use in the current context.
 
 #### Easy proof of syl
 
