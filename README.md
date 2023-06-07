@@ -1,12 +1,12 @@
 # Metamath-lamp Guide
 
 This is the
-[**Metamath-lamp Guide**](https://lamp-guide.metamath.org/) repository.
+[**Metamath-lamp Guide Source markdown repository**](https://lamp-guide.metamath.org/).
 If you just want to *read* the guide, please view the
 [**Metamath-lamp Guide site**](https://lamp-guide.metamath.org/) instead.
+This guide was primarily authored by [David A. Wheeler](https://dwheeler.com),
 
-[Metamath-lamp](https://github.com/expln/metamath-lamp)
-("Lite Assistant for [Metamath](https://us.metamath.org))
+Metamath-lamp ("Lite Assistant for [Metamath](https://us.metamath.org)
 is a proof assistant for creating formal
 mathematical proofs in the [Metamath system](https://us.metamath.org/).
 Unlike most other Metamath proof systems
@@ -14,17 +14,14 @@ Unlike most other Metamath proof systems
 users can use this proof assistant without installing anything;
 you can simply run it directly using your web browser.
 
-docs/index.md#metamath-lamp-guide) repository.
-
-The [**Metamath-lamp Guide**](docs/index.md#metamath-lamp-guide)
-is a guide to help you learn more about how to use the Metamath-lamp tool.
-This guide was primarily authored by [David A. Wheeler](https://dwheeler.com),
-
 You can use the Metamath-lamp proof assistant *now* by going to the
-**[Metamath-lamp web site](https://expln.github.io/lamp/latest/index.html)**.
+**[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**.
+If you want to view its source, file issues, or propose changes, see the
+[Metamath-lamp source code repository](https://github.com/expln/metamath-lamp)
 
-You can see and contribute to the Metamath-lamp code by going to the
-[Metamath-lamp](https://github.com/expln/metamath-lamp) repository.
+You can see the
+[Metamath-lamp Guide markdown file](docs/index.md#metamath-lamp-guide)
+here.
 
 [Here's a short video demo](https://drive.google.com/file/d/1IwdHLpQreZ_1CJFZJmptRJc2unO8aNh4/view?usp=sharing) (without sound).
 
