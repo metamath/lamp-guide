@@ -1680,22 +1680,72 @@ let's first focus on the Editor tab.
 The Editor tab lets you edit a proof; it starts empty.
 You will create a list of statements in the editor that will eventually
 result in a proof. This tab contains most of the tool capabilities,
-so there's a lot to discuss here. We'll cover:
+so there's a lot to discuss here.
 
-* [Fundamental proof information](#fundamental-proof-information) -
-  this is the region under the editor icon bar for the
-  description, variables, and disjoints.
-* [How to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses) -
-  a summary of how to do this.
+We'll first cover its key UI capabilities from top to bottom, starting from the
+[editor command icon bar](#editor-command-icon-bar).
+We'll then discuss
+[how to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses).
+We complete this section with detailed descriptions of some
+of the more complex dialogues in the editor tab.
+Here is the full list of subsections:
+
 * [Editor command icon bar](#editor-command-icon-bar) -
   this is the topmost area in the editor tab, a bar with icons
   representing commands to modify the proof
+* [Fundamental proof information](#fundamental-proof-information) -
+  this is the region under the editor icon bar for the
+  description, variables, and disjoints.
 * [List of statements in the proof](#list-of-statements-in-the-proof)
 * [Fragment selectors](#fragment-selectors) - for selecting
-  parts of a statement.
+  parts of a statement in the list of statements.
+* [How to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses) -
+  a summary of how to do this.
 * [Search patterns](#search-patterns)
 * [Replacement](#replacement)
 * [Proving bottom-up](#proving-bottom-up)
+
+#### Editor command icon bar
+
+At the top of the editor tab is the
+*editor command icon bar*.
+This is a bar containing icons, where
+each icon represents a command that can be performed to modify the proof.
+You can hover over an icon to see what the command does.
+Here are their icons and meanings:
+
+* Box: Select or deselect all current statements.
+* Up: Move the selected statements up in the list.
+* Down: Move the selected statements down in the list.
+* "+": Add a statement (which you then type in).
+* Trash can: Delete the selected statement(s).
+* Duplicated "+": Copy the selected statement.
+* Merge: Merge the selected statement to a similar statement.
+  Before clicking this button select only one statement;
+  the other similar one will be detected by metamath-lamp.
+* Magnifying glass: Search for a statement pattern in the current context.
+  The selected pattern one (if any) will be added as a new statement.
+  See [search patterns](#search-patterns) for more about search patterns.
+* A with arrow: Apply a replacement (aka substitution) to all statements.
+  See [replacement](#replacement) for more information.
+* Network: Unify. If no statements are selected, it will attempt to unify
+  all statements to create a proof. If a statement is selected, it will
+  open a dialogue to start a bottom-up search for a proof; see
+  [proving bottom-up](#proving-bottom-up) for more about that.
+
+Under the editor command icon bar is the
+[fundamental proof information](#fundamental-proof-information) followed by
+the
+[list of statements in the proof](#list-of-statements-in-the-proof).
+After discussing the list of statements in the proof we'll discuss
+[fragment selectors](#fragment-selectors), which let us
+select parts of a statement.
+We'll then discuss
+[how to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses).
+This will be followed by detailed discussions about some specific commands
+(how to [specify search patterns](#search-patterns),
+[replacement](#replacement), and
+[proving bottom-up](#proving-bottom-up)).
 
 #### Fundamental proof information
 
@@ -1703,8 +1753,8 @@ Just under the [editor command icon bar](#editor-command-icon-bar)
 is fundamental proof information,
 specifically fields for its description, variables, and disjoints.
 You don't *need* to fill in a description or variable list to begin a proof.
-In many cases you won't need to specify disjoints for a proof, but sometimes
-you do. Here is information on these fields.
+In many cases you won't need to specify disjoints for a proof either,
+but sometimes you do. Here is information on these fields.
 
 Note: Click on the *field name* to edit the field.
 You can also select the editable field text, but the description
@@ -1716,7 +1766,7 @@ while just left click selects part of its text.
 This field can't be edited with a simple left-click;
 you must use alt+left click.
 
-*Warning*: At this time the desciption is *not* copied into
+*Warning*: At this time the description is *not* copied into
 the generated final (compressed) proof. That is an idea that is
 being considered.
 
@@ -1795,84 +1845,6 @@ The disjoint expression `x,ph` means
 variable `x` must not occur in the wff `ph`.
 
 For more information, see the Metamath book.
-
-#### How to state the goal and hypotheses
-
-To prove something, you must first tell the system what to prove and
-any special hypotheses to use. To do that:
-
-* Under the "Editor" tab", press the "+" in the
-  [editor command icon bar](#editor-command-icon-bar)
-  to create a new statement. Enter the goal of the proof.
-  Typically the goal will begin with the symbol "|-" which means
-  "it is true that".
-  Click on its step number (1) if you want to rename the step name (typically
-  this is named "qed" if you don't have a better name).
-* If there are hypotheses, press "+" to enter each one, and select the "P"
-  using Alt+left click (or Opt+left click) to change "P" (provable assertion)
-  into "H" (hypothesis). Put them in the intended order by selecting them
-  (the box on the left) and selecting the up and down icons.
-  You generally want the goal last.
-
-You're now ready to create a proof.
-
-**Important**: The id of every hypothesis, as well as the goal,
-id is a database label.
-Therefore it *must* be unique in the database.
-The id cannot match a math symbol token (like `1`), an assertion label,
-or a label of any other hypotheses.
-This is noted in the Metamath book, on the page 114, as it notes that
-"each label token must be unique, and no label token may match
-any math symbol token."
-The convention in `set.mm` is for hypotheses to be labelled
-as the name of the goal + "." + an integer starting from 1.
-Note that the id of individual proof steps (other than the hypotheses and goal)
-don't have to be unique in the database, because these ids
-are local to the proof.
-
-Let's now look at the editor command icon bar in more detail.
-
-#### Editor command icon bar
-
-At the top of the editor tab is the
-*editor command icon bar*.
-This is a bar containing icons, where
-each icon represents a command that can be performed to modify the proof.
-You can hover over an icon to see what the command does.
-Here are their icons and meanings:
-
-* Box: Select or deselect all current statements.
-* Up: Move the selected statements up in the list.
-* Down: Move the selected statements down in the list.
-* "+": Add a statement (which you then type in).
-* Trash can: Delete the selected statement(s).
-* Duplicated "+": Copy the selected statement.
-* Merge: Merge the selected statement to a similar statement.
-  Before clicking this button select only one statement;
-  the other similar one will be detected by metamath-lamp.
-* Magnifying glass: Search for a statement pattern in the current context.
-  The selected pattern one (if any) will be added as a new statement.
-  See [search patterns](#search-patterns) for more about search patterns.
-* A with arrow: Apply a replacement (aka substitution) to all statements.
-  See [replacement](#replacement) for more information.
-* Network: Unify. If no statements are selected, it will attempt to unify
-  all statements to create a proof. If a statement is selected, it will
-  open a dialogue to start a bottom-up search for a proof; see
-  [proving bottom-up](#proving-bottom-up) for more about that.
-
-Under the editor command icon bar is the
-[fundamental proof information](#fundamental-proof-information)
-as we've already discussed.
-Below the fundamental proof information is the
-[list of statements in the proof](#list-of-statements-in-the-proof),
-which we'll discuss next.
-After discussing the list of statements in the proof we'll discuss
-[fragment selectors](#fragment-selectors)
-(for selecting parts of a statement),
-followed by detailed discussions about some specific commands
-(how to [specify search patterns](#search-patterns),
-[replacement](#replacement), and
-[proving bottom-up](#proving-bottom-up)).
 
 #### List of statements in the proof
 
@@ -1953,8 +1925,7 @@ Each statement is presented in the following left-to-right order:
 
 #### Fragment selectors
 
-What we've shown so far is enough to create any proof.
-However, it's very common when creating a proof to want to copy
+It's very common when creating a proof to want to copy
 *part* of a statement. Therefore, metamath-lamp has mechanisms to
 make selecting *parts* of a statement very easy, especially in the presence
 of parentheses-like constructs. This mechanism is called a
@@ -1989,6 +1960,43 @@ step at the same time. In particular, you can use the fragment selector
 on two statements and then invoke *[replacement](#replacement)*.
 Both fragments can be complex expressions when replacement
 occurs (they are not limited to single symbols or only one work variable).
+
+#### How to state the goal and hypotheses
+
+To prove something, you must first tell the system what to prove and
+any special hypotheses to use. To do that:
+
+* Under the "Editor" tab", press the "+" in the
+  [editor command icon bar](#editor-command-icon-bar)
+  to create a new statement. Enter the goal of the proof.
+  Typically the goal will begin with the symbol "|-" which means
+  "it is true that".
+  Click on its step number (1) if you want to rename the step name (typically
+  this is named "qed" if you don't have a better name).
+* If there are hypotheses, press "+" to enter each one, and select the "P"
+  using Alt+left click (or Opt+left click) to change "P" (provable assertion)
+  into "H" (hypothesis). Put them in the intended order by selecting them
+  (the box on the left) and selecting the up and down icons.
+  You generally want the goal last.
+
+You're now ready to create a proof.
+
+**Important**: The id of every hypothesis, as well as the goal,
+id is a database label.
+Therefore it *must* be unique in the database.
+The id cannot match a math symbol token (like `1`), an assertion label,
+or a label of any other hypotheses.
+This is noted in the Metamath book, on the page 114, as it notes that
+"each label token must be unique, and no label token may match
+any math symbol token."
+The convention in `set.mm` is for hypotheses to be labelled
+as the name of the goal + "." + an integer starting from 1.
+Note that the id of individual proof steps (other than the hypotheses and goal)
+don't have to be unique in the database, because these ids
+are local to the proof.
+
+Let's now look at details of some of the more complex dialogues
+in the tools
 
 #### Search patterns
 
