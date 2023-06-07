@@ -42,7 +42,7 @@ Note that metamath-lamp changes over time, so some of this guide
 may not exactly match what you see. If you see a difference, please
 let us know so we can fix this guide. We try to make this guide
 match the tool it's describing.
-This guide was written for release version v10.
+This guide was written for release version `v10`.
 
 You can get the latest version of this *Metamath-lamp guide* at
 &lt;[https://lamp-guide.metamath.org/](https://lamp-guide.metamath.org/)&gt;.
@@ -60,7 +60,7 @@ To use metamath-lamp, do the following:
 1. Load the proof context (the databases you'll use and their scope).
 2. Set the fundamental proof information where desired (its
    description, variables, and disjoints).
-3. Add the goal ("qed") and any hypotheses to the list of statements.
+3. Add the goal (`qed`) and any hypotheses to the list of statements.
    Set their ids to what you want them to be in the final database.
 4. Now create the proof.
    To do this, you add other statements and repeatedly unify them
@@ -74,7 +74,7 @@ To use metamath-lamp, do the following:
    (text file).
 
 Throughout metamath-lamp there are various tooltips.
-So if you hover over an iteractive item,
+So if you hover over an interactive item,
 in most cases the tool will provide a brief
 explanation of what that item does.
 You don't need to memorize this guide!
@@ -117,7 +117,7 @@ Let's show how to use metamath-lamp to create a simple proof, namely,
 that 2 + 2 = 4. This has already been proved in the set.mm database
 as theorem `2p2e4`.
 
-#### Selecting the proof context for 2p2e4
+#### Selecting the proof context for `2p2e4`
 
 We first need to decide on the proof context, that is, the database(s)
 of axioms and proven theorems we'll use. In this case we'll use the most
@@ -130,10 +130,10 @@ would simply reuse that existing proof.
 
 > Select Source type "Web", Alias "set.mm:latest"; after confirmation this
 > loads the given database.
-> Now under scope select "Stop before" and enter the label "2p2e4".
+> Now under scope select "Stop before" and enter the label `2p2e4`.
 > Finally, apply changes to the context.
 
-#### Setting the goal for 2p2e4
+#### Setting the goal for `2p2e4`
 
 For this example we'll leave the proof description, variables, and disjoints
 blank. We do need to tell metamath-lamp our goal.
@@ -167,9 +167,10 @@ label metamath-lamp suggested. But renaming some of the statements
 (especially the target one) makes them easier to distinguish for you
 and eventually this name will appear in the final generated proof.
 If you don't know what else to name the goal, we suggest using the name
-"qed" to reduce confusion.
+`qed` to reduce confusion.
 
-In general, if you plan to eventually add this proof to the set.mm or iset.mm
+In general, if you plan to eventually add this proof to the
+`set.mm` or `iset.mm`
 databases, then you need to follow the
 [set.mm database conventions](https://us.metamath.org/mpeuni/conventions.html),
 including the
@@ -182,14 +183,14 @@ So let's rename this goal statement to `2p2e4`:
 > Left click the label of the first statement
 > (you have to click directly on the number "1"
 > to the left of the first statement).
-> Change the name of the statement from "1" to "2p2e4" and press Enter (Return).
+> Change the name of the statement from "1" to `2p2e4` and press Enter (Return).
 
 #### Interlude: Brief review of metamath-lamp user interface
 
 Let's look at the display we have so far
 (your screen may look somewhat different):
 
-![Metamath-lamp display with just the 2p2e4 goal](2p2e4_goal.png)
+![Metamath-lamp display with just the `2p2e4` goal](2p2e4_goal.png)
 
 The top line summarizes the context - we loaded the `set.mm` database
 (classical logic and ZFC set theory) and stopped reading the database before
@@ -235,7 +236,7 @@ Every statement has a box on its far left, which lets you select
 Now that we've had a brief introduction to the metamath-lamp
 user interface, let's decide how to use it to create our proof.
 
-#### Deciding on a proof strategy for 2p2e4
+#### Deciding on a proof strategy for `2p2e4`
 
 Now we need to figure out how to prove this goal.
 
@@ -301,14 +302,14 @@ We don't want to add this statement as the *last* statement,
 so we'll select the last statement before adding it (so we'll
 insert that statement before it).
 
-> Select the checkbox to the left of the "2p2e4" goal statement.
+> Select the checkbox to the left of the `2p2e4` goal statement.
 > Then select "+" (add new statement).
 > Notice that because a statement was selected, the new statement will
-> be inserted before "2p2e4".
+> be inserted before `2p2e4`.
 > Enter the new statement
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
 > and press Enter (Return).
-> Unselect the checkbox to the left of the "2p2e4" statement.
+> Unselect the checkbox to the left of the `2p2e4` statement.
 > Now, while no statements are selected,
 > press unify (the multiple-connected dots symbol). Since there
 > was no specific statement selected, it will try to justify all statements.
@@ -330,7 +331,7 @@ use the "duplicate" command to get us started:
 > `|- 4 = ( ( 2 + 1 ) + 1 )`
 > press Enter (Return).
 > Press unify, which will produce a green checkmark next to all the statements
-> except our final "2p2e4" statement.
+> except our final `2p2e4` statement.
 
 #### Expanding the meaning of ( 2 + 2 )
 
@@ -379,11 +380,11 @@ equal to very similar expressions. If we could prove that those expressions
 are equal to each other, we could trivially prove our goal.
 Let's try to do that.
 
-> Select the checkbox to the left of the "2p2e4" goal statement.
+> Select the checkbox to the left of the `2p2e4` goal statement.
 > Select "+" (add new statement). Enter the new statement
 > `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`
 > and press Enter (Return).
-> Unselect the "2p2e4" statement.
+> Unselect the `2p2e4` statement.
 > As an experiment, select Unify while there's no statement selected;
 > you'll see that in this case it did *not* find a justification
 > for our new statement.
@@ -420,8 +421,8 @@ and then selecting unify.
 > of this statement. For now, we'll just accept the defaults and press the
 > "Prove" button at the bottom of the dialogue.
 > After a moment it will present a list, and one of the first options
-> (probably the first one) should use "addassi".
-> The theorem "addassi" is a pre-existing theorem showing that
+> (probably the first one) should use `addassi`.
+> The theorem `addassi` is a pre-existing theorem showing that
 > addition is associative.
 > This requires multiple lines, because using this associativity
 > theorem requires showing that `1` and `2` are complex numbers.
@@ -438,7 +439,7 @@ namely that `1 e. CC` (`1` is a complex number) and `2 e. CC`
 We now have a green checkmark next to all our statements, showing
 that all statements are have been proven.
 
-Most importantly, the final statement "2p2e4" has a green checkmark, which
+Most importantly, the final statement `2p2e4` has a green checkmark, which
 means we have proven our goal.
 Metamath-lamp automatically unified all the statements,
 and was able to complete the rest of the proof given what we had provided.
@@ -459,7 +460,7 @@ Before we do, let's briefly talk about how to generate and import information.
 We can now show the compressed proof.
 This is the final proof we can add to a Metamath database.
 
-> Select the green checkmark (*not* "P") on the "2p2e4" goal statement.
+> Select the green checkmark (*not* "P") on the `2p2e4` goal statement.
 >
 > You can select "Copy" to copy the compressed proof into the clipboard.
 > Press "Close"
@@ -598,7 +599,7 @@ Metamath-lamp will display error messages if statements
 are moved to make them depend on statements that
 have not been proved yet.
 
-### Proof: The reciprocal of the cotangent is tangent (reccot)
+### Proof: The reciprocal of the cotangent is tangent (`reccot`)
 
 Let's use metamath-lamp to create another proof, namely,
 that the reciprocal of the cotangent is tangent.
@@ -613,9 +614,9 @@ This exercise is based on the video showing how to prove the
 same theorem using the mmj2 tool
 (["Introduction to Metamath and mmj2" by David A. Wheeler](https://www.youtube.com/watch?v=Rst2hZpWUbU))
 and an earlier video of
-[reccot being proved using metamath-lamp (no sound)](https://drive.google.com/file/d/1IwdHLpQreZ_1CJFZJmptRJc2unO8aNh4/view).
+[`reccot` being proved using metamath-lamp (no sound)](https://drive.google.com/file/d/1IwdHLpQreZ_1CJFZJmptRJc2unO8aNh4/view).
 
-#### Selecting the proof context for reccot
+#### Selecting the proof context for `reccot`
 
 We first need to decide on the proof context, that is, the database(s)
 of axioms and proven theorems we'll use. In this case we'll again use the most
@@ -628,9 +629,9 @@ means we need to erase the proof steps we have and change the context.
 Here's how to do that:
 
 > Select the checkbox on the editor bar above the field name "Description"
-> to select *all* statements. select the trash can with an X
+> to select *all* statements. Select the trash can with an X
 > ("delete selected statements") to delete them all.
-> At the top of the browser window, select the dropdown arrow with the
+> At the top of the browser window, select the drop-down arrow with the
 > "Loaded:..." text that hints at the context.
 > Make sure we are loading from the web the file "set.mm:latest",
 > and change the scope to "Stop before" the label `reccot` by typing it in
@@ -642,7 +643,7 @@ context as usual. Here's how to do that instead:
 
 > Select Source type "Web", Alias "set.mm:latest"; after confirmation this
 > loads the given database.
-> Now under scope select "Stop before" and enter the label "reccot".
+> Now under scope select "Stop before" and enter the label `reccot`.
 > Finally, apply changes to the context.
 
 #### Setting the goal for reccot
@@ -672,7 +673,7 @@ about where the parenthesis go.
 Now modify the label of this goal to `reccot`.
 
 > Select the statement number (1) using the left mouse button.
-> Change the name of the statement to "reccot" and press Enter (Return).
+> Change the name of the statement to `reccot` and press Enter (Return).
 
 Let's take a brief look at this goal.
 It illustrates several symbols in the set.mm database:
@@ -699,7 +700,7 @@ It illustrates several symbols in the set.mm database:
   the <tt>tan(A)</tt> notation used by others
   but without context-dependent notational ambiguity.
 
-#### Deciding on a proof strategy for reccot
+#### Deciding on a proof strategy for `reccot`
 
 Now we need to figure out how to prove this goal.
 
@@ -765,14 +766,14 @@ The fundamental issue is that although a theorem or axiom may use a variable
 (such as `A`), those variables can be replaced with other expressions
 when they are used.
 In this case,
-the original "tanval" showed what the results are when `A` is the argument,
+the original `tanval` showed what the results are when `A` is the argument,
 but we aren't limited to using `A`; we can use any expression that
 produces a class.
 In cases where metamath-lamp cannot be certain of exactly what you want, it
 will create work variables that you can then replace (substitute)
 with whatever you *do* want.
 
-When using set.mm or iset.mm, you'll see work variables of certain forms:
+When using `set.mm` or `iset.mm`, you'll see work variables of certain forms:
 
 * &amp;W<i>number</i> : an expression that is a well-formed formula (wff),
   in short, some value that is true or false.
@@ -996,7 +997,7 @@ We now have several statements. All the statements are proved
 Our goal is about the reciprocal of the tangent, not the tangent itself.
 
 So let's modify the definition of the value of the cotangent to show
-the value of the reciprocal of the tanget.
+the value of the reciprocal of the tangent.
 Remember, in algebra you can do what you want on the left-hand-side
 of an equality,
 as long as you do the same thing on the right-hand side.
@@ -1143,7 +1144,7 @@ If there are intermediate statements you need to prove to lead to the goal,
 just apply the same process - repeatedly work to prove those
 intermediate statements.
 
-### Proof: Principle of the syllogism (syl)
+### Proof: Principle of the syllogism (`syl`)
 
 <!-- Put exlorer tutorial text before this section, once that applies. -->
 
@@ -1223,7 +1224,7 @@ Metamath-lamp validates labels you use
 [will soon validate goals](https://github.com/expln/metamath-lamp/issues/81)),
 and it will show an error message if the id is in use in the current context.
 
-#### Easy proof of syl
+#### Easy proof of `syl`
 
 Let's prove `syl` the easy way.
 Metamath-lamp's bottom-up proof tool can't automatically prove all
@@ -1248,7 +1249,7 @@ meaning the goal is fully proved!
 You can left-click on its green checkmark to get a final proof
 that could be used in a final database.
 
-#### Hard mode: Proving syl using only axioms
+#### Hard mode: Proving `syl` using only axioms
 
 If you thought that was too easy, let's make it more challenging.
 Let's prove `syl` using *only* axioms.
@@ -2372,13 +2373,13 @@ that shows details the proof of that theorem:
 
 Let's try that out next.
 
-#### Viewing proof of mp2
+#### Viewing proof of `mp2`
 
 In the explorer view, scroll down to theorem `mp2`, and click on the
 *name* mp2. This will create a *new* tab that shows details about the
 proof of `mp2`.
 
-Many capabiliities are available in a displayed proof.
+Many capabilities are available in a displayed proof.
 
 Again, you can use the fragment selector to
 copy useful portions of any statement.
@@ -2399,7 +2400,7 @@ Clicking on a reference to an assertion will show an individual assertion tab
 of that assertion (creating the tab if necessary). That tab will provide
 detailed information about the assertion.
 
-#### Gaining an understanding on set.mm's beginnings
+#### Gaining an understanding on `set.mm`'s beginnings
 
 You can use the explorer to gain many insights into a database
 (and mathematics in general).
@@ -2411,7 +2412,7 @@ Let's go back to the explorer tab:
 
 > Click on the "Explorer" text in the tab bar, and scroll to the top.
 
-Let's gain a brief understading of the first theorems and axioms.
+Let's gain a brief understanding of the first theorems and axioms.
 We are entering the foundations of the foundations - the very basement -
 of the "typical" mathematics of classical logic and ZFC set theory.
 
@@ -2429,7 +2430,7 @@ This also lets us restate truths; this is again only useful in
 special technical situations, but it's hard to argue with the conclusion.
 This theorem was contributed by Alan Sare, which you can see by clicking
 on the ">" next to the name. The names of people who formalized and
-proposed various statements are included in their dscription.
+proposed various statements are included in their description.
 
 Assertion 3 is our first axiom, but it's not an assertion of truth (`|-`),
 it's an assertion that something is a well-formed formula (`wff`).
@@ -2444,7 +2445,7 @@ Assertion 4 is a similar axiom, stating that
 Notice the parentheses; since they are specified as part of the axiom allowing
 the use of `->`, the parentheses are required when using `->`.
 
-Assrtion 5 is axiom `ax-mp`, aka modus ponens.
+Assertion 5 is axiom `ax-mp`, aka modus ponens.
 If `ph` is true, and `ph` implies `ps`, then `ps` is true.
 
 The next 3 axioms define the axioms of propositional logic, that is,
