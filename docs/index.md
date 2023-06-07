@@ -605,7 +605,7 @@ This has already been proved in the set.mm database as theorem `reccot`.
 This proof will show some capabilities we didn't see in the previous
 example. This includes work variables (and how to substitute them) and
 metamath-lamp's syntax-aware mechanisms for copying and pasting
-portions of text (aka "selectors").
+portions of text (aka "[fragment selectors](#fragment-selectors)").
 
 This exercise is based on the video showing how to prove the
 same theorem using the mmj2 tool
@@ -915,23 +915,28 @@ modify it.
 
 An easy way to modify the new statement is to
 use metamath-lamp's mechanisms for copying and pasting
-portions of text (aka "selectors").
+portions of text (aka "[fragment selectors](#fragment-selectors)").
 
 > Using Alt+left click, select the *second* parenthesis of the *goal*
 > statement. This will smartly select a syntactically complete portion
-> of the statement and bring up a selector dialogue below the statement.
+> of the statement and bring up a fragment selector dialogue
+> below the statement.
 
-The selector dialogue has icons to smartly expand the selection,
+The fragment selector dialogue has icons to smartly expand the selection,
 shrink the selection, add a new statement above with that selection,
 add a new statement below with that selection,
 copy the selected text to the clipboard, edit that text,
-and unselect (close the selector dialogue).
+and unselect (close the fragment selector dialogue).
 
-> To get an idea of what the selector dialogue can do,
+> To get an idea of what the fragment selector dialogue can do,
 > click on its leftmost icon with arrows going out ("expand selection")
 > and then the next icon with arrows going in ("shrink selection").
 > Note that the tool is selecting the symbols based on the
 > syntax of the symbols.
+
+You can even have fragment selectors enabled on more than one step.
+This makes it easy to pre-select fragments and then press
+"replacement" to fill in both the "Replace what" and "Replace with" fields.
 
 In this case, we want to make a copy of the selected
 text in the goal, then paste that into
@@ -1325,25 +1330,165 @@ Statement 3 looks suspiciously like axiom `ax-2`, which states:
 ~~~~
 
 Unfortunately, metamath-lamp's current unifier doesn't notice that
-these can be unified, so the bottom-up prover won't help us here.
+these *can* be unified, so the bottom-up prover won't help us here.
 The tool `mmj2` *can* unify this statement
-with `ax-2`, so in this case good on mmj2.
+with `ax-2` (mmj2 has a more powerful unifier).
+Unfortunately, metamath-lamp's current unifier is only unidirectional, that is,
+it can only substitute in one direction to find a match.
+In the technical literature the current metamath-lamp "unification"
+algorithm is often called "matching"
+instead of being considered full syntactic unification.
 There are some
-[discussions about this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77).
+[discussions about removing this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77),
+but for now we'll need to work around this.
 
-We can help metamath-lamp along, however. We just need to replace the
+With a little extra work we can give metamath-lamp the information it needs.
+Let's assume that we know we want to use `ax-2` to prove this.
+
+One approach would be replace the
 work variable "&amp;W1" with the expression required by `ax-2`, namely,
 `( ph -> ( ps -> ch ) )`.
+Here's how you could do that, but note that we're going to cancel
+instead of completing this step:
 
 > Select the icon "A with arrow" (that is, "replace").
 > In "Replace what" use the value &amp;W1 and in
 > "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
 > Click "Find Substitution" button; metamath-lamp will
 > show one possible substitution.
-> Click the "Apply" button to apply the substitution to all the statements.
-> Then press unify.
+> You *could* click on the "Apply button and then unify, but don't;
+> select Cancel instead.
 
-We're getting close! Step 3 is proven, using ax-2.
+That would have proven step 3 using ax-2.
+However, if the expressions were more complex it might be hard to
+make sure we were connecting them the right way.
+
+<!-- The following is based on
+https://drive.google.com/file/d/1KIr0eOEmH4VoIHOHFhqXwBn08h-xGicV/view?usp=sharing -->
+
+A more general approach would be to add the step we want to use, and then
+perform substitutions until we can unify them.
+This is a better approach for more complicated situations, so let's see it.
+First, let's bring in a step that uses the assertion we wish to use
+(in this case `ax-2`):
+
+> Select the magnifying glass ("Search"), enter the label `ax-2` and
+> press "Search". Select `ax-2` and press "Choose Selected".
+
+We have added a new step 4, which uses `ax-2` but with work variables:
+
+~~~~
+|- ( ( &W3 -> ( &W4 -> &W2 ) ) -> ( ( &W3 -> &W4 ) -> ( &W3 -> &W2 ) ) )
+~~~~
+
+We are now going to modify steps 3 and 4 until metamath-lamp can
+unify them.
+The key feature we're going to use is that you can use the
+statement fragment selectors to *simultaneously* select two fragments,
+which may include *multiple* work variables, and
+then use "replace". Replace will use the two selected fragments, making
+this process *much* easier.
+
+> Use Alt+click to select, in step *4*, the last `->`.
+
+The statement fragment selector dialogue has appeared under step 4 and
+we now have this fragment selected:
+
+~~~~
+( ( &W3 -> &W4 ) -> ( &W3 -> &W2 ) )
+~~~~
+
+You could use the dialogue to
+increase or decrease the size of the fragment, but we don't need to.
+Now let's select the equivalent fragment in statement 3:
+
+> Use Alt+click to select, in step *3*, the third `->`.
+
+Another fragment selector dialogue has appeared under step 3 and
+it has this fragment selected:
+
+~~~~
+( ( ph -> ps ) -> ( ph -> ch ) )
+~~~~
+
+If you didn't pick the right fragment, use alt+click again to get the
+correct selection.
+
+**Note**: you *can* select two fragments at the *same* time;
+you can also select two multiple statements.
+The ability to select two different fragments or two different
+statements simplifies replacement.
+
+Now we can use replacement:
+
+> Select "A with arrow" (replacement).
+> The replacement dialogue will appear, with our selections
+> entered as the "Replace what" and "Replace with" entries.
+
+The two selected fragments have been copied into the fields.
+The earliest selected step is the "Replace what" and the
+later step is the "replace with"; in this case that's what we want.
+
+> Click on "Find subsitution". Notice that it shows a valid substitution
+> that replaces multiple work variables.
+
+Again, notice that "Replace what" doesn't need to be a single work variable.
+It can be an expression, one that even includes multiple work variables.
+If there are multiple work variables, and you apply the change, all will be
+replaced as necessary throughout the proof.
+
+> Click on "apply". Notice that multiple work variables have been replaced.
+
+We now have these two statements:
+
+~~~~
+4 P |- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
+3 P |- ( &W1 -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
+~~~~
+
+Now let's do another replacement to make steps 3 and 4 even more similar.
+
+> Use Alt+click to select, in step *3*, the initial work variable &amp;W1
+> (only that work variable should be selected).
+> Use Alt+click to select, in step *4*, the first `->`.
+
+The second Alt+click highlighted this fragment in step 4:
+
+~~~~
+( ph -> ( ps -> ch ) )
+~~~~
+
+> Click on "Find substitution".
+
+Again the two fragments are copied in.
+However, in this case the order is the opposite of what we wanted,
+because we want to replace a work variable with an expression
+(not the other way around).
+The default is to use the earlier step first.
+In this case that's the opposite of what we wanted, so we'll
+swap them by pressing the
+"up/down" (reverse) icon to the right of the "replace what" field.
+
+> Press the "up/down" (reverse) icon to swap the field contents,
+> press "Find substitution", then apply.
+
+Now both steps 3 and 4 are the same:
+
+~~~~
+|- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
+~~~~
+
+In fact, metamath-lamp is complaining that the two statements are equal!
+That's not a problem, that's what we were trying to do.
+Let's merge them.
+
+> Select step 3 and click on the "merge" icon.
+> Among the "use" options select using 4 (which uses `ax-2`), so we can
+> keep the connection to `ax-2`.
+> Step 3 is gone, now it's all step 4.
+> Press on "unify" to see we've fully proven step 4.
+
+We're getting close! Step 4 is proven, using ax-2.
 However, step 2 is not yet proven, so the whole proof isn't done.
 Select step 2, and do a bottom-up proof of it as well.
 
@@ -1546,7 +1691,8 @@ so there's a lot to discuss here. We'll cover:
   this is the topmost area in the editor tab, a bar with icons
   representing commands to modify the proof
 * [List of statements in the proof](#list-of-statements-in-the-proof)
-* [Selecting parts of a statement](#selecting-parts-of-a-statement)
+* [Fragment selectors](#fragment-selectors) - for selecting
+  parts of a statement.
 * [Search patterns](#search-patterns)
 * [Replacement](#replacement)
 * [Proving bottom-up](#proving-bottom-up)
@@ -1721,7 +1867,8 @@ Below the fundamental proof information is the
 [list of statements in the proof](#list-of-statements-in-the-proof),
 which we'll discuss next.
 After discussing the list of statements in the proof we'll discuss
-[selecting parts of a statement](#selecting-parts-of-a-statement),
+[fragment selectors](#fragment-selectors)
+(for selecting parts of a statement),
 followed by detailed discussions about some specific commands
 (how to [specify search patterns](#search-patterns),
 [replacement](#replacement), and
@@ -1741,12 +1888,12 @@ not enforce this.
 
 Each statement is presented in the following left-to-right order:
 
-* Box (selector): Select this box to select or unselect this statement.
+* Box (step selector): Select this box to select or unselect this statement.
   Many commands work on the "currently selected statement(s)",
   so it's important to be able to select them all.
   Use the box in the editor command bar to select or deselect all statements.
 * Proof status (if present): If there's a green checkmark following the
-  selector box, a recent unification has
+  step selector box, a recent unification has
   confirmed that this statement is proven given its context and its
   previous statements.
   If there's a yellow tilde, that means that it's *partly* but not
@@ -1804,25 +1951,27 @@ Each statement is presented in the following left-to-right order:
   by using Alt+left click ("alt" is sometimes labelled "opt").
   For more about selecting parts of a statement, see the next section.
 
-#### Selecting parts of a statement
+#### Fragment selectors
 
 What we've shown so far is enough to create any proof.
 However, it's very common when creating a proof to want to copy
 *part* of a statement. Therefore, metamath-lamp has mechanisms to
 make selecting *parts* of a statement very easy, especially in the presence
-of parentheses-like constructs.
+of parentheses-like constructs. This mechanism is called a
+*fragment selector*
 
-By default, Alt+left click enables selecting part of a statement
-(on some Mac keyboards "alt" is labelled "opt").
+By default, Alt+left click on a statements causes a fragment selector
+dialogue to appear and makes a selection based on the selected symbol.
+On some Mac keyboards "alt" is labelled "opt" or "option".
 If you'd prefer a different mechanism, use the settings tab to change this.
 
-Once you've done this, a selector dialogue will appear under the statement.
-You can easily select a part of the statement and modify the selection.
-In particular,
-you can select parentheses-like characters to select the expression
-begun or ended with them.
+Exactly what fragment is selected depends on the symbol you choose.
+If you select a parentheses-like symbol, it selects the expression
+that begins or ends with that symbol.
+If you select an infix symbol, it selects the expression immediately
+surrounding the infix symbol.
 
-You can use the selector dialogue as follows:
+You can use the fragment selector dialogue as follows:
 
 * Expand selection: Expand the selection to the next largest syntactic unit.
 * Shrink selection: Reduce the selection to the next smallest syntactic unit.
@@ -1834,6 +1983,12 @@ You can use the selector dialogue as follows:
   and copy from the clipboard.
 * Edit: Start editing with the current text selected.
 * Close: Close this statement part selection dialogue box.
+
+**Important**: You can use a fragment selector on *more* than one
+step at the same time. In particular, you can use the fragment selector
+on two statements and then invoke *[replacement](#replacement)*.
+Both fragments can be complex expressions when replacement
+occurs (they are not limited to single symbols or only one work variable).
 
 #### Search patterns
 
@@ -1869,25 +2024,44 @@ because the conclusion has a `0` constant which is later followed by a
 
 Select the icon "A with arrow" icon
 (apply a replacement) to replace one
-expressions with another in proof statements.
+expression with another expression in the proof statements.
 
-The replacements will be applied to all statements.
+The replacement will be applied to *all* statements.
 
 After you select this icon
 you'll be presented with a simple dialogue box to describe the
 replacement (substitution):
 
-* In the "Replace what" field enter what you want to change,
-  (e.g., <tt>&amp;C1</tt>).
-* In the "Replace with" field enter what you want to change that to
-  (e.g., `A`).
+* In the "Replace what" field, enter what expression you want to change,
+  (e.g., <tt>&amp;C1</tt> or <tt>( &amp;W1 -> &amp;W2 )</tt>).
+* In the "Replace with" field, enter what expression you want the first
+  expression to change into (e.g., `A` or `( ph -> ch )`).
 
-If you select statement(s) before pressing the icons, a copy
-of the statements will be places in the "Replace what" field.
+You can use fragment selectors to select one or two statement(s)
+before starting a replacement.
+When you press the replacement icon, a copy
+of the first fragment (in displayed order)
+will be placed in the "Replace what" field, while a copy
+of the second fragment (if any)
+will be placed in the "Replace with" field.
+You can use the "up/down arrow" (reverse) icon to swap the field entries.
+
+You can also select statements.
+The statement selected first will be copied into the "Replace what" field,
+and the statement selected second (if any) will be copied into the
+"Replace with" field.
 
 When you press "Find Substitution" the tool will determine if it
-can apply this substitution (that is, if the results are valid types
-everywhere). If it is, you may select "Apply" to apply it.
+can apply this replacement (that is, if the results are valid types
+everywhere and there are valid substitutions).
+If it is valid, you may select "Apply" to apply it.
+
+**Important**:
+Replacements are *not* limited to a single symbol.
+Both fields can be complex expressions, possibly including more than one
+work variable.
+The tool allows you to use fragment selectors to select expressions
+to replace one complex expression with another.
 
 #### Proving bottom-up
 
@@ -2160,7 +2334,7 @@ each prefixed with large black circle "&#x2B24;".
 The final line of an assertion states what can be concluded
 via this assertion when its hypotheses are true.
 
-You can use the text selector to copy useful portions of any statement.
+You can use the fragment selector to copy useful portions of any statement.
 Next to the name of each axiom or theorem is a ">" symbol which lets you
 expand or hide its description.
 
@@ -2196,7 +2370,8 @@ proof of `mp2`.
 
 Many capabiliities are available in a displayed proof.
 
-Again, you can use the text selector to copy useful portions of any statement.
+Again, you can use the fragment selector to
+copy useful portions of any statement.
 
 You can also "show types", which shows the proof that a given expression
 has the given correct types.
@@ -2322,7 +2497,7 @@ each prefixed with large black circle "&#x2B24;".
 The final line of an assertion states what can be concluded
 via this assertion when its hypotheses are true.
 
-You can use the text selector to copy useful portions of any statement.
+You can use the fragment selector to copy useful portions of any statement.
 Next to the name of each axiom or theorem is a ">" symbol which lets you
 expand or hide its description.
 
@@ -2340,7 +2515,8 @@ after any dynamically-created tab to remove the tab.
 Each individual assertion tab displays
 information about one assertion, including its description and proof.
 
-Again, you can use the text selector to copy useful portions of any statement.
+Again, you can use the fragment
+selector to copy useful portions of any statement.
 
 If it's a theorem, you can select
 "show types", which shows the proof that a given expression
