@@ -1399,11 +1399,13 @@ it has this fragment selected:
 ( ( ph -> ps ) -> ( ph -> ch ) )
 ~~~~
 
-If you didn't pci the right fragment, use alt+click again to get the
+If you didn't pick the right fragment, use alt+click again to get the
 correct selection.
 
-**Note**: you *can* select two fragments at the same time.
-The ability to select two different fragments is important.
+**Note**: you *can* select two fragments at the *same* time;
+you can also select two multiple statements.
+The ability to select two different fragments or two different
+statements simplifies replacement.
 
 Now we can use replacement:
 
@@ -1452,8 +1454,8 @@ because we want to replace a work variable with an expression
 (not the other way around).
 The default is to use the earlier step first.
 In this case that's the opposite of what we wanted, so we'll
-swap them by pressing press the
-"up/down" (reverse) icon to he right of the "replace what" field.
+swap them by pressing the
+"up/down" (reverse) icon to the right of the "replace what" field.
 
 > Press the "up/down" (reverse) icon to swap the field contents,
 > press "Find substitution", then apply.
@@ -1958,7 +1960,7 @@ You can use the fragment selector dialogue as follows:
 
 **Important**: You can use a fragment selector on *more* than one
 step at the same time. In particular, you can use the fragment selector
-on two statements and the invoke *[replacement](#replacement)*.
+on two statements and then invoke *[replacement](#replacement)*.
 Both fragments can be complex expressions when replacement
 occurs (they are not limited to single symbols or only one work variable).
 
@@ -1996,34 +1998,40 @@ because the conclusion has a `0` constant which is later followed by a
 
 Select the icon "A with arrow" icon
 (apply a replacement) to replace one
-expression with another in proof statements.
+expression with another expression in the proof statements.
 
-The replacements will be applied to all statements.
+The replacement will be applied to *all* statements.
 
 After you select this icon
 you'll be presented with a simple dialogue box to describe the
 replacement (substitution):
 
-* In the "Replace what" field enter what you want to change,
-  (e.g., <tt>&amp;C1</tt>).
-* In the "Replace with" field enter what you want to change that to
-  (e.g., `A`).
+* In the "Replace what" field, enter what expression you want to change,
+  (e.g., <tt>&amp;C1</tt> or <tt>( &amp;W1 -> &amp;W2 )</tt>).
+* In the "Replace with" field, enter what expression you want the first
+  expression to change into (e.g., `A` or `( ph -> ch )`).
 
 You can use fragment selectors to select one or two statement(s)
 before starting a replacement.
 When you press the replacement icon, a copy
-of the first fragment
+of the first fragment (in displayed order)
 will be placed in the "Replace what" field, while a copy
-of the second fragment
+of the second fragment (if any)
 will be placed in the "Replace with" field.
 You can use the "up/down arrow" (reverse) icon to swap the field entries.
 
+You can also select statements.
+The statement selected first will be copied into the "Replace what" field,
+and the statement selected second (if any) will be copied into the
+"Replace with" field.
+
 When you press "Find Substitution" the tool will determine if it
-can apply this substitution (that is, if the results are valid types
-everywhere). If it is, you may select "Apply" to apply it.
+can apply this replacement (that is, if the results are valid types
+everywhere and there are valid substitutions).
+If it is valid, you may select "Apply" to apply it.
 
 **Important**:
-Replacements are *not* limited to a single symbol..
+Replacements are *not* limited to a single symbol.
 Both fields can be complex expressions, possibly including more than one
 work variable.
 The tool allows you to use fragment selectors to select expressions
