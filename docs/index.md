@@ -1515,6 +1515,16 @@ a database (such as set.mm and iset.mm) and pick an existing proof in it.
 Then load the database and stop reading just before that proof.
 Try to create your own proof, consulting the known proof when you get stuck.
 
+If you're recreating an existing proof, and stop reading before that
+proof, you *can* (and in most cases *should*) reuse the same ids for the
+hypotheses and goal.
+Metamath-lamp will complain if the ids aren't unique in the current context.
+However, since the current context won't include labels of
+the proof you're recreating, it won't be a problem.
+If you're intentionally creating an *alternative* proof
+of the same goal, for eventual use in the database,
+then you *do* need to use different ids.
+
 ### Loading existing metamath-lamp proofs
 
 You can use "import to JSON" to load worked examples of metamath-lamp.
