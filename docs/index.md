@@ -1204,6 +1204,18 @@ the statement(s) to move using the left-hand-side check box, then
 move them up and down using the "up" and "down" icons.
 However, there's no need to reorder these statements.
 
+**Note**: Every hypothesis and goal id is a database label, so it
+*must* be unique in the database.
+It cannot match a math symbol token (like `1`), assertion label,
+or hypothesis label.
+The convention in `set.mm`, as shown above, is for hypotheses to be labelled
+as the name of the goal + "." + an integer starting from 1.
+You don't have to worry about incorrect labels, though.
+Metamath-lamp validates labels you use
+(it currently hypotheses and
+[will soon validate goals](https://github.com/expln/metamath-lamp/issues/81)),
+and it will show an error message if the id is in use in the current context.
+
 #### Easy proof of syl
 
 Let's prove `syl` the easy way.
@@ -1657,6 +1669,20 @@ any special hypotheses to use. To do that:
   You generally want the goal last.
 
 You're now ready to create a proof.
+
+**Important**: The id of every hypothesis, as well as the goal,
+id is a database label.
+Therefore it *must* be unique in the database.
+The id cannot match a math symbol token (like `1`), an assertion label,
+or a label of any other hypotheses.
+This is noted in the Metamath book, on the page 114, as it notes that
+"each label token must be unique, and no label token may match
+any math symbol token."
+The convention in `set.mm` is for hypotheses to be labelled
+as the name of the goal + "." + an integer starting from 1.
+Note that the id of individual proof steps (other than the hypotheses and goal)
+don't have to be unique in the database, because these ids
+are local to the proof.
 
 Let's now look at the editor command icon bar in more detail.
 
