@@ -1518,9 +1518,8 @@ Try to create your own proof, consulting the known proof when you get stuck.
 If you're recreating an existing proof, and stop reading before that
 proof, you *can* (and in most cases *should*) reuse the same ids for the
 hypotheses and goal.
-Metamath-lamp will complain if the ids aren't unique in the current context.
-However, since the current context won't include labels of
-the proof you're recreating, it won't be a problem.
+The current context won't include labels of
+the proof you're recreating, so metamath-lamp won't complain about it.
 If you're intentionally creating an *alternative* proof
 of the same goal, for eventual use in the database,
 then you *do* need to use different ids.
