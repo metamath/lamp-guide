@@ -6,7 +6,9 @@ mathematical proofs in the [Metamath system](https://us.metamath.org/).
 Unlike most other Metamath proof systems,
 such as mmj2 or metamath-exe (the first Metamath proof assistant),
 users can use this proof assistant without installing anything.
-You can instead simply **[run metamath-lamp directly using your web browser using the metamath-lamp site](https://expln.github.io/lamp/latest/index.html)**!
+Instead, you can start using metamath-lamp
+by using your web browser to view the
+**[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**.
 
 This is a guide for metamath-lamp, including both a
 user guide (tutorial) and a reference guide. It includes:
@@ -44,16 +46,17 @@ let us know so we can fix this guide. We try to make this guide
 match the tool it's describing.
 This guide was written for release version `v10`.
 
-You can get the latest version of this *Metamath-lamp guide* at
+The latest version of this
+[*Metamath-lamp guide*](https://lamp-guide.metamath.org/)
+(the guide that you are currently reading)
+is always available at
 &lt;[https://lamp-guide.metamath.org/](https://lamp-guide.metamath.org/)&gt;.
 
 ## Quick start
 
 You don't need to install anything to run metamath-lamp.
-To start metamath-lamp,
-just use your web browser and view the
-**[main Metamath-lamp web site](https://expln.github.io/lamp/latest/index.html)**
-or some other metamath-lamp web site.
+To start metamath-lamp, use your web browser to view the
+**[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**.
 
 To use metamath-lamp, do the following:
 
@@ -95,7 +98,8 @@ using metamath-lamp looks like (proving that 2 + 2 = 4):
 ![Screenshot of 2 + 2 = 4](./metamath-lamp-example.png)
 
 You can start using metamath-lamp immediately by visiting the
-[main Metamath-lamp web site](https://expln.github.io/lamp/latest/index.html).
+[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html).
+
 You can even start using metamath-lamp preloaded with a proof state,
 for example, that
 [2 + 2 = 4](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbeyJ0eXAiOiJXZWIiLCJmaWxlTmFtZSI6IiIsInVybCI6Imh0dHBzOi8vdXMubWV0YW1hdGgub3JnL21ldGFtYXRoL3NldC5tbSIsInJlYWRJbnN0ciI6IlN0b3BCZWZvcmUiLCJsYWJlbCI6IjJwMmU0In1dLCJkZXNjciI6IlByb3ZlIHRoYXQgMiArIDIgPSA0LiIsInZhcnNUZXh0IjoiIiwiZGlzalRleHQiOiIiLCJzdG10cyI6W3sibGFiZWwiOiI5IiwidHlwIjoicCIsImNvbnQiOiJ8LSAxIGUuIENDIiwianN0ZlRleHQiOiI6IGF4LTFjbiJ9LHsibGFiZWwiOiI4IiwidHlwIjoicCIsImNvbnQiOiJ8LSAyIGUuIENDIiwianN0ZlRleHQiOiI6IDJjbiJ9LHsibGFiZWwiOiI1IiwidHlwIjoicCIsImNvbnQiOiJ8LSAyID0gKCAxICsgMSApIiwianN0ZlRleHQiOiI6IGRmLTIifSx7ImxhYmVsIjoiNiIsInR5cCI6InAiLCJjb250IjoifC0gKCAyICsgMiApID0gKCAyICsgKCAxICsgMSApICkiLCJqc3RmVGV4dCI6IjUgOiBvdmVxMmkifSx7ImxhYmVsIjoiMiIsInR5cCI6InAiLCJjb250IjoifC0gMyA9ICggMiArIDEgKSIsImpzdGZUZXh0IjoiOiBkZi0zIn0seyJsYWJlbCI6IjEiLCJ0eXAiOiJwIiwiY29udCI6InwtIDQgPSAoIDMgKyAxICkiLCJqc3RmVGV4dCI6IjogZGYtNCJ9LHsibGFiZWwiOiIzIiwidHlwIjoicCIsImNvbnQiOiJ8LSAoIDMgKyAxICkgPSAoICggMiArIDEgKSArIDEgKSIsImpzdGZUZXh0IjoiMiA6IG92ZXExaSJ9LHsibGFiZWwiOiI0IiwidHlwIjoicCIsImNvbnQiOiJ8LSA0ID0gKCAoIDIgKyAxICkgKyAxICkiLCJqc3RmVGV4dCI6IjEgMyA6IGVxdHJpIn0seyJsYWJlbCI6IjciLCJ0eXAiOiJwIiwiY29udCI6InwtICggKCAyICsgMSApICsgMSApID0gKCAyICsgKCAxICsgMSApICkiLCJqc3RmVGV4dCI6IjggOSA5IDogYWRkYXNzaSJ9LHsibGFiZWwiOiIycDJlNCIsInR5cCI6InAiLCJjb250IjoifC0gKCAyICsgMiApID0gNCIsImpzdGZUZXh0IjoiNyA0IDYgOiAzZXF0cjRyaSJ9XX0=)
@@ -2297,7 +2301,7 @@ and proposed changes are listed in its
 [pull requests](https://github.com/expln/metamath-lamp/pulls).
 You can follow
 [commits in its `develop` branch](https://github.com/expln/metamath-lamp/commits/develop) and even try out the
-[development version of metamath-lamp (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
+[development version of metamath-lamp application page (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
 
 In this section we'll cover some potential future directions.
 
@@ -2568,19 +2572,25 @@ You can find a lot of general information about Metamath at the
 [Metamath home page](https://us.metamath.org/index.html).
 
 If you have feedback (issues) or contributions (pull requests)
-for this guide, please do that via the
-[Metamath-lamp guide repository](https://github.com/metamath/lamp-guide/).
+for this *guide*, please do that by filing issues and pull requests on the
+[Metamath-lamp guide source markdown repository](https://github.com/metamath/lamp-guide/).
+Do *not* send proposals about the *tool* to this repo, as it is only for
+proposed changes to this *guide* document.
 
 For feedback or proposed changes to the Metamath-lamp
-tool itself, please file issues or create pull requests against the
+*tool* itself, please file issues or create pull requests against the
 [metamath-lamp source code repository](https://github.com/expln/metamath-lamp).
+Do *not* send proposals about the *guide* to this repo, as it is only for
+proposed changes to the *tool* itself
 
-As noted earlier, you can [run metamath-lamp directly using your web browser](https://expln.github.io/lamp/latest/index.html). If you want to be on the bleeding edge, you can use the [development version of metamath-lamp (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
+As noted earlier, if you want to run the metamath-lamp application, view the
+[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html).
+If you want to be on the bleeding edge, you can use the [development version of Metamath-lamp application page (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
 
 If you're making a contribution to a Metamath database, such as a new
 proof, please contribute those as changes to the database's repository.
 For example, for `set.mm`, propose changes to the
-[set.mm repository](https://github.com/metamath/set.mm).
+[set.mm database source repository](https://github.com/metamath/set.mm).
 If it's your first time, you should contact the mailing list; they
 would be *delighted* to help you complete that process.
 
