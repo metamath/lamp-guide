@@ -580,7 +580,9 @@ Let's end its display.
 
 You can reorder statements.
 Sometimes you *need* to reorder statements, because
-statements can only use previously proved statements.
+statements can *only* be justified by previously justified statements
+(specifically axioms in the context, proven theorems in the context, or
+preceding proven statements in the proof's list of statements).
 
 To reorder some statements,
 just select one or more
