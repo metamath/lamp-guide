@@ -1803,7 +1803,7 @@ one variable per line.
 By default any variables no longer in use are removed.
 
 Whenever a new work variable is created it will be shown in this list.
-Whenver a work variable is removed (e.g., by substituting it), it's
+Whenever a work variable is removed (e.g., by substituting it), it's
 removed from the list.
 
 If you'd like to give a variable a "local" name in the proof to make the proof
