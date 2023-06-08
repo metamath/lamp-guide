@@ -118,8 +118,8 @@ We will start with a simple proof that 2 + 2 = 4.
 ### Proof: 2 + 2 = 4
 
 Let's show how to use metamath-lamp to create a simple proof, namely,
-that 2 + 2 = 4. This has already been proved in the set.mm database
-as theorem `2p2e4`.
+that 2 + 2 = 4. This has already been
+[proved in the set.mm database as theorem `2p2e4`](https://us.metamath.org/mpeuni/2p2e4.html).
 
 #### Selecting the proof context for `2p2e4`
 
@@ -607,7 +607,8 @@ have not been proved yet.
 
 Let's use metamath-lamp to create another proof, namely,
 that the reciprocal of the cotangent is tangent.
-This has already been proved in the set.mm database as theorem `reccot`.
+This has already been
+[proved in the set.mm database as theorem `reccot`](https://us.metamath.org/mpeuni/reccot.html).
 
 This proof will show some capabilities we didn't see in the previous
 example. This includes work variables (and how to substitute them) and
@@ -1027,7 +1028,7 @@ the cotangent.
      ( 1 / ( cot ` A ) ) = ( 1 / ( ( cos ` A ) / ( sin ` A ) ) ) )
 ~~~~
 
-> ... once you're done, press unify.
+> When you're done, press unify.
 
 Clearly we're going to need to simplify the reciprocal of the cosine
 over the sine.
@@ -1150,7 +1151,7 @@ intermediate statements.
 
 ### Proof: Principle of the syllogism (`syl`)
 
-<!-- Put exlorer tutorial text before this section, once that applies. -->
+<!-- Put explorer tutorial text before this section, once that applies. -->
 
 Let's prove something more basic.
 Let's prove that if phi implies psi, and psi implies chi, then
@@ -1158,8 +1159,8 @@ psi implies chi. In short, let's prove that implication is transitive.
 
 Russell and Whitehead call this claim "the principle of the syllogism";
 others sometimes call this law a "hypothetical syllogism".
-In set.mm the proof of this claim is labelled
-[`syl`](https://us.metamath.org/mpeuni/syl.html).
+This has been
+[proved in the set.mm database as theorem `syl`](https://us.metamath.org/mpeuni/syl.html).
 
 This proof involves using hypotheses, so that means we'll
 learn how to create hypotheses in metamath-lamp.
