@@ -14,3 +14,4 @@ defaults:
       path: "" # an empty string here means all files in the project
     values:
       description: This is a guide for metamath-lamp, including both a user guide (tutorial) and a reference guide. Metamath-lamp (Lite Assistant for Metamath Proofs) is a proof assistant for creating formal mathematical proofs in the Metamath system.
+      author: David A. Wheeler
