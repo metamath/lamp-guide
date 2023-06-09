@@ -1721,6 +1721,7 @@ Here is the full list of subsections:
 * [Search patterns](#search-patterns)
 * [Replacement](#replacement)
 * [Proving bottom-up](#proving-bottom-up)
+* [Unification](#unification)
 
 #### Editor command icon bar
 
@@ -2280,7 +2281,7 @@ certain functions of the mmj2 tool:
 
 Metamath-lamp's current unification algoritm is only unidirectional, that is, it can only substitute in one direction to find a match. In the technical literature this "unification" algorithm is often called "matching" instead of being considered full syntactic unification. Thiz is contrast to ither tools, like mmj2, which implement full syntactic unification.
 
-There are [some discussions about removing this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77). There's nothing fundamental to metamath-lamp about this limitation; the issue is that it takes time to write a correct and performant implementation of unification. We hope rhat future versions of the tool will remove this limitation. However, current users must work around this limitation.
+There are [some discussions about removing this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77). There's nothing fundamental to metamath-lamp about this limitation; the issue is that it takes time to write a correct and performant implementation of unification. We hope that future versions of the tool will remove this limitation. However, current users must work around this limitation.
 
 ### Settings tab
 
