@@ -32,12 +32,15 @@ user guide (tutorial) and a reference guide. It includes:
 9. [Authors and Reviewers](#authors-and-reviewers)
 
 Metamath-lamp is a new proof assistant for creating Metamath proofs.
-As a result, it currently lacks some functionality, such as
-undo/redo and some of the automation rules included in other tools
+As a result, it currently lacks some planned functionality such as
+undo/redo, [full syntactic unification](#unification),
+and some of the automation rules included in other tools
 like mmj2. There are also no doubt some inconsistencies in its UI due
 to its newness.
 That said, metamath-lamp already provides useful functionality,
 including some automation support.
+It can also run directly in your web browser with no additional installation,
+which some may find compelling.
 We hope you'll find it useful.
 
 Note that metamath-lamp changes over time, so some of this guide
@@ -1721,6 +1724,7 @@ Here is the full list of subsections:
 * [Search patterns](#search-patterns)
 * [Replacement](#replacement)
 * [Proving bottom-up](#proving-bottom-up)
+* [Unification](#unification)
 
 #### Editor command icon bar
 
@@ -2275,6 +2279,12 @@ certain functions of the mmj2 tool:
 * In mmj2 you can state that a specific axiom or theorem
   must be used as the justification. You can do the same by
   selecting it as the "Label".
+
+#### Unification
+
+Metamath-lamp's current unification algorithm is only unidirectional, that is, it can only substitute in one direction to find a match. In the technical literature this algorithm is often described as "matching" as compared to full syntactic unification. This is in contrast to other tools, like mmj2, which implement full syntactic unification.
+
+There are [some discussions about removing this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77). There's nothing fundamental to metamath-lamp about this limitation; the issue is that it takes time to write a performant implementation of unification. We hope that future versions of the tool will remove this limitation. However, current users must work around this limitation.
 
 ### Settings tab
 
