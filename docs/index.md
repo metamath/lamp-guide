@@ -47,7 +47,7 @@ Note that metamath-lamp changes over time, so some of this guide
 may not exactly match what you see. If you see a difference, please
 let us know so we can fix this guide. We try to make this guide
 match the tool it's describing.
-This guide was written for release version `v10`.
+This guide was written for release version 10.
 
 The latest version of this
 [*Metamath-lamp guide*](https://lamp-guide.metamath.org/)
