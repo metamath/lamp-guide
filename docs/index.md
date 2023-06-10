@@ -66,10 +66,10 @@ To use metamath-lamp, do the following:
 1. Load the proof context (the databases you'll use and their scope).
 2. Set the fundamental proof information where desired (its
    description, variables, and disjoints).
-3. Add the goal (`qed`) and any hypotheses to the list of statements.
-   Set their ids to what you want them to be in the final database.
+3. Add the goal (`qed`) and any hypotheses to the list of steps.
+   Set their labels to what you want them to be in the final database.
 4. Now create the proof.
-   To do this, you add other statements and repeatedly unify them
+   To do this, you add other steps and repeatedly unify them
    until the goal is completely proven.
    You can create the proof backwards from the goal,
    forwards towards the goal, or in whatever other order makes sense to you.
@@ -145,10 +145,10 @@ would simply reuse that existing proof.
 For this example we'll leave the proof description, variables, and disjoints
 blank. We do need to tell metamath-lamp our goal.
 
-> In the Editor select the icon "+" (add new statement).
+> In the Editor select the icon "+" (add new statement/step).
 > Don't try to select the similar icon "+" with circles behind it;
-> that would try to create a duplicate, and since there are no statements
-> to duplicate the tool will not let you do it.
+> that would try to create a duplicate, and since there are no steps
+> to duplicate the tool will not let you do that.
 > Enter
 > `|- ( 2 + 2 ) = 4`
 > and press Enter (Return) to save the result.
@@ -167,11 +167,11 @@ For now, if you encounter an error while repeating
 the first example, please re-check if you typed in all the
 statements exactly as per the example.
 
-For our purposes, we're going to rename our goal.
-Renaming the target statement (as well as any other statement) is
+For our purposes, we're going to rename the label of our goal.
+Renaming the label of the goal (or any other step) is
 not required by metamath-lamp. You could instead just continue using the
-label metamath-lamp suggested. But renaming some of the statements
-(especially the target one) makes them easier to distinguish for you
+label metamath-lamp suggested. But renaming some of the steps
+(especially the goal) makes them easier to distinguish for you
 and eventually this name will appear in the final generated proof.
 If you don't know what else to name the goal, we suggest using the name
 `qed` to reduce confusion.
@@ -185,12 +185,12 @@ including the
 In this case, the conventional name for this goal would be
 `2p2e4`.
 
-So let's rename this goal statement to `2p2e4`:
+So let's rename this goal step to `2p2e4`:
 
-> Left click the label of the first statement
+> Left click the label of the first step
 > (you have to click directly on the number "1"
-> to the left of the first statement).
-> Change the name of the statement from "1" to `2p2e4` and press Enter (Return).
+> to the left of the first step).
+> Change the name of the step from "1" to `2p2e4` and press Enter (Return).
 
 #### Interlude: Brief review of metamath-lamp user interface
 
@@ -213,7 +213,7 @@ so we'll focus on that.
 Below the word "Editor" is the editor command icon bar.
 The editor command icon bar shows many different icons;
 each icon represents a command you can use to modify a proof.
-We've already used one, the "+" icon that represents adding a statement.
+We've already used one, the "+" icon that represents adding a step.
 The reference manual section
 [Editor command icon bar](#editor-command-icon-bar) discusses each
 icon and the command it performs in more detail.
@@ -221,24 +221,40 @@ You can hover over an icon to see what the command is.
 
 Here are some key icons and the commands they perform:
 
-* Box: Select or deselect all current statements.
-* Up and Down: Move the selected statements up or down in their list.
-* "+": Add a statement (which you then type in).
-* Trash can: Delete the selected statement(s).
-* Duplicated "+": Copy the selected statement.
-* Merge: Merge the selected statements (they must be similar).
-* Magnifying glass: Search for a statement pattern in the current context.
+* Box: Select or deselect all current steps.
+* Up and Down: Move the selected steps up or down in their list.
+* "+": Add a step (which you then type in).
+* Trash can: Delete the selected step(s).
+* Duplicated "+": Copy the selected step.
+* Merge: Merge the selected step (they must be similar).
+* Magnifying glass: Search for a step pattern in the current context.
 * A with arrow: Apply a replacement (aka substitution)
-  to all selected statements.
-* Network: Unify. If no statements are selected, it will attempt to unify
-  all statements to create a proof. If a statement is selected, it will
+  to all selected steps.
+* Network: Unify. If no steps are selected, it will attempt to unify
+  all steps to create a proof. If a step is selected, it will
   open a dialogue to start a bottom-up search for a proof.
 
 Under the editor command icon bar is basic information about the proof
-(such as its description) and statements for the proof.
-We see one statement already, with the id `2p2e4`.
-Every statement has a box on its far left, which lets you select
-(or deselect) the statement to choose what to act on.
+(such as its description) and steps for the proof.
+We see one step already, with the label `2p2e4`.
+Every step has a box on its far left, which lets you select
+(or deselect) the step to choose what to act on.
+
+**Terminology**: A proof is a series of one or more *steps*.
+A valid proof must have at least one step (the *goal*).
+Each step has a collection of information, such as its *label*
+(to identify it),
+*step type*, *justification* (if any), and *statement*
+(typically beginning with `|- ...`).
+In a completed proof, each step must be a
+hypothesis or justified to be true.
+The statement is very important, so informally we
+will sometimes use the term "statement" to refer to a whole step.
+Note that the current version of the tool uses
+"statement" in cases where "step" is intended;
+we'll sometimes use phrases like "statement/step"
+to clarify this.
+A step label is also sometimes called a step id or step name.
 
 Now that we've had a brief introduction to the metamath-lamp
 user interface, let's decide how to use it to create our proof.
@@ -254,7 +270,8 @@ prove something in cases where the automations can't do enough.
 There are many different ways to create a proof, including backwards
 from the goal, forwards toward the goal, or any other order.
 Metamath-lamp supports them all.
-Also, note that there are often many proofs for the same true statement.
+Also, note that there are often many different proofs
+for the same true final statement.
 Here we're going to show one way to do it, as an example.
 
 In many cases we can prove a statement by identifying definitions of
@@ -268,19 +285,20 @@ Let's take that approach.
 In this case, we want to prove that something is 4, so the definition
 of 4 would probably be useful.
 We'll search for the definition of 4 so we can add it to our
-list of statements.
+list of steps.
 
 > Select the magnifying glass (search) icon; under pattern enter
 > `4 =` and click on Search.
-> Select the statement labelled `df-4` and press "Choose Selected".
-> You will now have a new statement with an id of 1:
+> Select the step labelled `df-4` and press "Choose Selected".
+> You will now have a new step with a label of 1:
 > `|- 4 = ( 3 + 1 )`
 
-Notice that to the right of the id, and the left of the statement
-(starting with `|-`), there is a bold letter **P**
-This bold letter **P**
-means that this statement is intended to be *provable*.
-In some cases you'll want a statement to be a
+Notice that in each step,
+to the right of the label and the left of the statement
+(starting with `|-`), there is a bold letter **P**.
+This bold letter **P** is the step type; the **P**
+means that this step is intended to be *provable*.
+In some cases you'll want a step to be a
 *hypothesis* instead being *provable*.
 You can select the **P** with Alt+left click to change it to
 to an **H** (hypothesis) or back to **P** (provable).
@@ -294,34 +312,34 @@ so we can probably just use the naming convention to find it.
 
 > Select the magnifying glass (search) icon; in the "label" field
 > enter `df-3` and click on Search.
-> Select the statement labelled `df-3` and press "Choose Selected".
-> You will now have a new statement with an id of 2:
+> Select the step labelled `df-3` and press "Choose Selected".
+> You will now have a new step with a label of 2:
 > `|- 3 = ( 2 + 1 )`
 
 We can connect the definition of 4 using the definition 3 by simply
 adding 1 to both sides of the definition of 3.
-We can simply add this statement as a claim and see if metamath-lamp
-can find a statement that proves this is correct (in this case it can).
-In fact, if you take very small steps, metamath-lamp can prove a number
-of statements automatically.
+We can simply add a step that claims this statement and see if metamath-lamp
+can find a justification that proves this is correct (in this case it can).
+In fact, if each step makes very small changes, metamath-lamp can
+sometimes prove many statements automatically.
 
-We don't want to add this statement as the *last* statement,
-so we'll select the last statement before adding it (so we'll
-insert that statement before it).
+We don't want to add this step as the *last* step,
+so we'll select the last step before adding it (so we'll
+insert that step before it).
 
 > Select the checkbox to the left of the `2p2e4` goal statement.
-> Then select "+" (add new statement).
-> Notice that because a statement was selected, the new statement will
+> Then select "+" (add new statement/step).
+> Notice that because a step was selected, the new step will
 > be inserted before `2p2e4`.
-> Enter the new statement
+> Enter, for this new step, the statement
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
 > and press Enter (Return).
-> Unselect the checkbox to the left of the `2p2e4` statement.
-> Now, while no statements are selected,
+> Unselect the checkbox to the left of the `2p2e4` label.
+> Now, while no steps are selected,
 > press unify (the multiple-connected dots symbol). Since there
-> was no specific statement selected, it will try to justify all statements.
-> Metamath-lamp will succeed in finding a justification for our new statement,
-> so it will show a green checkmark next to our new statement.
+> was no specific step selected, it will try to justify all steps.
+> Metamath-lamp will succeed in finding a justification for our new step,
+> so it will show a green checkmark next to our new step.
 
 We could later on connect this proof of `( 3 + 1 )` to the number 4.
 However, in a more complex proof we might forget that we were trying
@@ -330,15 +348,15 @@ So let's "clean up" now by directly proving that this term is an
 expansion of a symbol in the goal. Instead of typing it all in, we'll
 use the "duplicate" command to get us started:
 
-> Select the checkbox to the left of the new statement
+> Select the checkbox to the left of the new step
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
 > and press the "duplicate" icon (double circles behind a "+").
-> This will create a duplicate statement below the current one.
+> This will create a duplicate step below the current one.
 > Click on the new statement text, and change `( 3 + 1 )` to 4; once you have
 > `|- 4 = ( ( 2 + 1 ) + 1 )`
 > press Enter (Return).
-> Press unify, which will produce a green checkmark next to all the statements
-> except our final `2p2e4` statement.
+> Press unify, which will produce a green checkmark next to all the steps
+> except our final `2p2e4` step.
 
 #### Expanding the meaning of ( 2 + 2 )
 
@@ -349,8 +367,8 @@ We've already expanded `4`, let's now expand `2`.
 
 > Select the magnifying glass (search) icon; in the "label" field
 > enter `df-2` and click on Search.
-> Select the statement labelled `df-2` and press "Choose Selected".
-> You will now have a new statement:
+> Select the step labelled `df-2` and press "Choose Selected".
+> You will now have a new step with this statement:
 > `|- 2 = ( 1 + 1 )`
 
 This definition of `2` is similar to the value we expanded for `4`.
@@ -361,7 +379,7 @@ Let's try that.
 
 > Select the checkbox to the left of the new statement
 > `|- 2 = ( 1 + 1 )` and then press the icon showing
-> "+" with circles behind it (the duplicate statement icon).
+> "+" with circles behind it (the duplicate statement/step icon).
 > Left-click on it.
 > Modify it so the new statement is
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )`
@@ -376,8 +394,8 @@ Please remove unwanted parentheses and make sure the statement
 looks exactly as in the example.
 
 > Now press unify (the multiple-connected dots symbol). Since there
-> was no specific statement selected, it will try to justify all statements.
-> Metamath-lamp will succeed in finding a justification for our new statement,
+> was no specific step selected, it will try to justify all steps
+> Metamath-lamp will succeed in finding a justification for our new step,
 > so it will show a green checkmark next to our new statement.
 
 #### Showing these expansions are equal
@@ -387,14 +405,14 @@ equal to very similar expressions. If we could prove that those expressions
 are equal to each other, we could trivially prove our goal.
 Let's try to do that.
 
-> Select the checkbox to the left of the `2p2e4` goal statement.
-> Select "+" (add new statement). Enter the new statement
+> Select the checkbox to the left of the `2p2e4` goal step.
+> Select "+" (add new statement/step). Enter the new statement
 > `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`
 > and press Enter (Return).
-> Unselect the `2p2e4` statement.
-> As an experiment, select Unify while there's no statement selected;
+> Unselect the `2p2e4` step.
+> As an experiment, select Unify while there's no step selected;
 > you'll see that in this case it did *not* find a justification
-> for our new statement.
+> for our new step.
 
 It's actually true that
 `( ( 2 + 1 ) + 1 )` is equal to `( 2 + ( 1 + 1 ) )`.
@@ -403,8 +421,8 @@ That's because addition is associative
 The Metamath database in this context already has a proof that
 addition is associative, too.
 
-However, when you press "unify" without selecting any statements,
-metamath-lamp will not automatically prove this new statement,
+However, when you press "unify" without selecting any steps,
+metamath-lamp will not automatically prove this new step,
 even though the Metamath database in this context
 *does* have a proof of this statement.
 The reason is that the rule in this Metamath
@@ -412,9 +430,9 @@ database requires some preconditions that are not currently
 included in our proof.
 
 So we'll instead use a bottom-up search, which will try to find and
-prove any other statements necessary to apply a relevant existing proof.
-A bottom-up search *can* add new statements.
-You enable a bottom-up search by selecting the statement to be proved
+prove any other steps necessary to apply a relevant existing proof.
+A bottom-up search *can* add new steps.
+You enable a bottom-up search by selecting the step to be proved
 and then selecting unify.
 
 > Select the checkbox next to our latest statement
@@ -422,10 +440,11 @@ and then selecting unify.
 > and press "Unify".
 > A new dialogue will display titled "Proving bottom-up".
 > This will enable up to search for a solution backwards from our
-> currently-selected statement to other statements that will help us prove
-> the selected statement.
+> currently-selected step using the context and previous
+> steps that will help us prove the selected step.
 > These dialogue options control how metamath-lamp will search for a proof
-> of this statement. For now, we'll just accept the defaults and press the
+> of the selected step's statement.
+> For now, we'll just accept the defaults and press the
 > "Prove" button at the bottom of the dialogue.
 > After a moment it will present a list, and one of the first options
 > (probably the first one) should use `addassi`.
@@ -437,26 +456,26 @@ and then selecting unify.
 > left to select that one, then press the "Apply Selected" button.
 
 Suddenly a lot has happened.
-We now have new statements that have been automatically added to our proof,
+We now have new steps that have been automatically added to our proof,
 namely that `1 e. CC` (`1` is a complex number) and `2 e. CC`
 (`2` is a complex number).
 
-> Now, without any statements selected, press "Unify".
+> Now, without any steps selected, press "Unify".
 
-We now have a green checkmark next to all our statements, showing
-that all statements are have been proven.
+We now have a green checkmark next to all our steps, showing
+that all steps are have been proven.
 
-Most importantly, the final statement `2p2e4` has a green checkmark, which
+Most importantly, the final step `2p2e4` has a green checkmark, which
 means we have proven our goal.
-Metamath-lamp automatically unified all the statements,
+Metamath-lamp automatically unified all the steps,
 and was able to complete the rest of the proof given what we had provided.
 
 If you are new to Metamath and not familiar with formal systems,
 you may probably not understand how the program knows when to
-mark a statement with a green checkmark meaning it is proved.
+mark a step with a green checkmark meaning it is proved.
 The short answer is that the green checkmark means that
 metamath-lamp is able to find, for that step,
-a specific statement that justifies the claim (as well as recursively all
+a specific step that justifies the claim (as well as recursively all
 of its justifications).
 In a moment we will be looking at the proof steps (in more detail) to
 gain a better understanding.
@@ -467,7 +486,7 @@ Before we do, let's briefly talk about how to generate and import information.
 We can now show the compressed proof.
 This is the final proof we can add to a Metamath database.
 
-> Select the green checkmark (*not* "P") on the `2p2e4` goal statement.
+> Select the green checkmark (*not* "P") on the `2p2e4` goal step.
 >
 > You can select "Copy" to copy the compressed proof into the clipboard.
 > Press "Close"
@@ -497,9 +516,9 @@ current state:
 
 #### Looking at proof steps
 
-In Metamath, *every* step of a valid proof must be an
-application of an axiom or a previously-proven statement.
-Metamath-lamp shows when it can verify this for a statement
+In Metamath, *every* step of a valid completed proof must be an
+application of an axiom, proven theorem, or previously-proven step.
+Metamath-lamp shows when it can verify this for a step
 (after unification) by displaying a green checkmark.
 
 Let's look at how metamath-lamp can justify some steps.
@@ -510,14 +529,14 @@ We'll start with the claim that
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the display
 > its justification.
 
-You will show a list of ids that are being used,
+You will show a list of referenced labels that are being used,
 colon, and `oveq2i`. This means that this particular
-statement is justified (proven) by using the already
-accepted theorem `oveq2i` when applied to those ids.
+step is justified (proven) by using the already
+accepted theorem `oveq2i` when applied to those labelled steps.
 Advanced users can edit this to force metamath-lamp to
 try to use a different justification.
 You can also press the "trash can" icon next to the justification
-to delete it (e.g., because it uses a statement no longer in
+to delete it (e.g., because it uses a step no longer in
 your proof, or because you want to prove it some other way).
 
 But what does this justification *mean*?
@@ -536,9 +555,9 @@ You should see a visualization like this:
 
 ![Visualization of (2+2)=(2+(1+1))](./visual_2p1p1.png)
 
-The top new line is set of ids being used as inputs into
-the justification. In this case there's only one id;
-the id you see may be different than what's shown here.
+The top new line is set of labels being used as inputs into
+the justification. In this case there's only one label;
+the label you see may be different than what's shown here.
 Under that is a copy of that statement:
 
 > `|- 2 = ( 1 + 1 )`
@@ -565,7 +584,7 @@ any time.
 > display of its justification; since the justification
 > is currently displayed, this will hide it.
 
-Let's do the same thing with statement that
+Let's do the same thing with the statement that
 uses associativity,
 `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`,
 
@@ -573,7 +592,7 @@ uses associativity,
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
 > display of its justification, revealing it.
 
-You can now see that the justification of this statement
+You can now see that the justification of this step
 is `addassi` (addition is associative).
 This justification has multiple requirements, which
 as you can see are met.
@@ -584,15 +603,15 @@ Let's end its display.
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
 > display of its justification, hiding it again.
 
-#### Reordering statements
+#### Reordering steps
 
-You can reorder statements.
-Sometimes you *need* to reorder statements, because
-statements can *only* be justified by previously justified statements
-(specifically axioms in the context, proven theorems in the context, or
-preceding proven statements in the proof's list of statements).
+You can reorder steps.
+Sometimes you *need* to reorder steps, because
+steps can *only* be justified by the context (axioms and proven theorems)
+and previous steps.
+You can't refer to a later step, since that might allow circular reasoning.
 
-To reorder some statements,
+To reorder some steps,
 just select one or more
 using the checkboxes on the left, and use the
 "up" icon (to move them up) or "down" icon
@@ -600,10 +619,10 @@ using the checkboxes on the left, and use the
 
 > Left-click on checkbox next to
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
-> and press the "up" icon - the statement will move up.
+> and press the "up" icon - the step will move up.
 
-Metamath-lamp will display error messages if statements
-are moved to make them depend on statements that
+Metamath-lamp will display error messages if steps
+are moved to make them depend on steps that
 have not been proved yet.
 
 ### Proof: The reciprocal of the cotangent is tangent (`reccot`)
@@ -637,8 +656,8 @@ means we need to erase the proof steps we have and change the context.
 Here's how to do that:
 
 > Select the checkbox on the editor bar above the field name "Description"
-> to select *all* statements. Select the trash can with an X
-> ("delete selected statements") to delete them all.
+> to select *all* steps. Select the trash can with an X
+> ("delete selected statements/steps") to delete them all.
 > At the top of the browser window, select the drop-down arrow with the
 > "Loaded:..." text that hints at the context.
 > Make sure we are loading from the web the file "set.mm:latest",
@@ -659,7 +678,7 @@ context as usual. Here's how to do that instead:
 For this example we'll leave the proof description, variables, and disjoints
 blank. We do need to tell metamath-lamp our goal.
 
-> In the Editor select "+"  (add new statement). Enter
+> In the Editor select "+"  (add new statement/step). Enter
 >
 > ~~~~metamath
 > |- ( ( A e. CC /\ ( sin ` A ) =/= 0 /\ ( cos ` A ) =/= 0 ) ->
@@ -680,8 +699,8 @@ about where the parenthesis go.
 
 Now modify the label of this goal to `reccot`.
 
-> Select the statement number (1) using the left mouse button.
-> Change the name of the statement to `reccot` and press Enter (Return).
+> Select the step label (1) using the left mouse button.
+> Change the step label to `reccot` and press Enter (Return).
 
 Let's take a brief look at this goal.
 It illustrates several symbols in the set.mm database:
@@ -760,7 +779,7 @@ and therefore it's undefined when the cosine of A equals zero.
 
 #### Interlude: Work variables
 
-We have a new statement, as expected. However, it has a form we haven't
+We have a new step, as expected. However, it has a form we haven't
 seen before:
 
 ~~~~metamath
@@ -916,15 +935,15 @@ exactly match the goal antecedent.
 We need to prove that we can use these values
 with the exact antecedents in our goal.
 
-This will be easier to do if we duplicate an existing statement and
+This will be easier to do if we duplicate an existing step and
 modify it.
 
 > Select the checkbox to the left of the expression using `tan`.
-> Press the icon showing "+" with multiple circles (duplicate statement);
-> this will create a copy of the selected statement below the current
-> statement.
+> Press the icon showing "+" with multiple circles (duplicate statement/step);
+> this will create a copy of the selected step below the current
+> step.
 
-An easy way to modify the new statement is to
+An easy way to modify the new step's statement is to
 use metamath-lamp's mechanisms for copying and pasting
 portions of text (aka "[fragment selectors](#fragment-selectors)").
 
@@ -934,8 +953,8 @@ portions of text (aka "[fragment selectors](#fragment-selectors)").
 > below the statement.
 
 The fragment selector dialogue has icons to smartly expand the selection,
-shrink the selection, add a new statement above with that selection,
-add a new statement below with that selection,
+shrink the selection, add a new step above with that selection,
+add a new step below with that selection,
 copy the selected text to the clipboard, edit that text,
 and unselect (close the fragment selector dialogue).
 
@@ -969,13 +988,13 @@ valid given the antecedent of our goal:
      ( tan ` A ) = ( ( sin ` A ) / ( cos ` A ) ) )
 ~~~~
 
-It turns out that metamath-lamp can immediately prove this new statement.
+It turns out that metamath-lamp can immediately prove this new step.
 
 > Press the "Unify" icon near the top. Note that the new
-> statement now has a green checkmark.
+> step now has a green checkmark.
 
 You can click on any bold **P** to show the justification for each
-statement with a green checkmark; press the same bold **P** again
+step with a green checkmark; press the same bold **P** again
 to hide the justification.
 
 #### Matching the goal's antecedent for cotangent
@@ -985,7 +1004,7 @@ cotangent, showing we can use this definition even given the
 antecedent of the goal.
 
 > Select the checkbox to the left of the expression using `cot`.
-> Press the icon showing "+" with multiple circles (duplicate statement).
+> Press the icon showing "+" with multiple circles (duplicate statement/step).
 > Using Alt+left click, select the *second* parenthesis of the *goal*
 > statement to select the antecedent of the goal.
 > Press the box-on-box icon (copy to clipboard) under the goal statement.
@@ -997,7 +1016,7 @@ antecedent of the goal.
 > Press Enter (Return) to save the modified statement.
 > Press the Unify icon to unify everything so far.
 
-We now have several statements. All the statements are proved
+We now have several steps. All the steps are proved
 (have green checkmarks) except the goal statement.
 
 #### Handling the reciprocal of the cotangent
@@ -1010,19 +1029,19 @@ Remember, in algebra you can do what you want on the left-hand-side
 of an equality,
 as long as you do the same thing on the right-hand side.
 
-So create a new statement, based on of the value of the cotangent
+So create a new step, based on of the value of the cotangent
 that has the same antecedent as our goal, that shows the value of
 the cotangent.
 
-> Select the checkbox on the left for the statement:
+> Select the checkbox on the left for the step with this statement:
 
 ~~~~metamath
 |- ( ( A e. CC /\ ( sin ` A ) =/= 0 /\ ( cos ` A ) =/= 0 ) ->
      ( cot ` A ) = ( ( cos ` A ) / ( sin ` A ) ) )
 ~~~~
 
-> Now duplicate the statement by pressing the icon showing a "+" with
-> circles under it (duplicate statement).
+> Now duplicate the step by pressing the icon showing a "+" with
+> circles under it (duplicate statement/step).
 > Use left-click to edit it, and surround the left and right
 > and sides of its equality with `( 1 / ... )` resulting in:
 
@@ -1035,12 +1054,14 @@ the cotangent.
 
 Clearly we're going to need to simplify the reciprocal of the cosine
 over the sine.
-We already have a statement that does this, but we need to set its
+We already have a step that does this, but we need to set its
 work variables appropriately.
 
 If we were using mmj2, we could just edit one of the work variables,
 replace with its new value, and unify.
-Metamath-lamp doesn't support this; instead, metamath-lamp expects you
+Metamath-lamp doesn't support this due to a
+[known current limitation](#unification).
+Instead, metamath-lamp expects you
 to use the "replacement" icon. Let's replace the work values so that
 they will work with this expansion of the reciprocal of the cotangent.
 
@@ -1061,7 +1082,7 @@ Let's replace the work variable <tt>&amp;C2</tt>:
 > press "Apply".
 > Press unify.
 
-Again, all but the goal statement are proven.
+Again, all but the goal steps are proven.
 
 #### Proving the preconditions we need
 
@@ -1078,7 +1099,7 @@ cosine is a complex number. Is this information already in the
 set.mm database? Let's find out. Let's look for that statement
 and, if it exists, add it.
 
-> Make sure no statement is selected.
+> Make sure no step is selected.
 > Select the magnifying glass, enter the pattern
 > <tt>e. CC -> cos e. CC</tt> and search.
 > You'll see a list including `coscl` - select `coscl` and press
@@ -1100,7 +1121,7 @@ is often used to indicate a class. Let's do it again.
 
 Now we can start simplifying the reciprocal of the division.
 
-> Select the long statement involving the reciprocal which reads:
+> Select the long step involving the reciprocal which reads:
 
 ~~~~ metamath
 |- ( ( ( ( cos ` A ) e. CC /\ ( cos ` A ) =/= 0 ) /\
@@ -1109,10 +1130,11 @@ Now we can start simplifying the reciprocal of the division.
        ( ( sin ` A ) / ( cos ` A ) ) )
 ~~~~
 
-> Duplicate this statement.
+> Duplicate this step.
 > In the duplicate, change <tt>( cos &#96; A) e. CC</tt> to `A e. CC`,
 > Press Enter, and unify.
-> Select that new statement and duplicate it. In the duplicate change
+> Select that new step and duplicate it. In the duplicate step change its
+> statement
 > <tt>( sin &#96; A ) e. CC</tt> to `A e. CC`, Press Enter, and unify.
 
 This antecedent of this latest new statement is still not exactly the same as
@@ -1120,7 +1142,7 @@ the goal antecedent, but it's very close. It's likely the tool can
 easily complete that, so let's create a new statement based on the
 one we just created but has the *exact* same antecedent as the goal.
 
-> Select the latest new (long) statement:
+> Select the latest new step with this (long) statement:
 
 ~~~~metamath
 |- ( ( ( A e. CC /\ ( cos ` A ) =/= 0 ) /\
@@ -1129,7 +1151,7 @@ one we just created but has the *exact* same antecedent as the goal.
        ( ( sin ` A ) / ( cos ` A ) ) )
 ~~~~
 
-> Duplicate it.
+> Duplicate the step.
 > Use Alt+left-click to click on the *second* parentheses of the goal statement
 > (so we can duplicate its antecedent) and click on the "copy" icon.
 > Select the second parenthesis of our new statement,
@@ -1138,8 +1160,8 @@ one we just created but has the *exact* same antecedent as the goal.
 
 The unification worked!
 
-In fact, that proved more than the new statement.
-Now id `reccot` shows a green checkmark, which means we've
+In fact, that proved more than the new step.
+Now label `reccot` shows a green checkmark, which means we've
 completed the proof.
 
 There are many other ways we could have proven this, and in fact,
@@ -1148,9 +1170,9 @@ using backwards search.
 Many steps "simply worked" in this example,
 but there's no shame in creating intermediate
 steps that aren't instantly proved.
-If there are intermediate statements you need to prove to lead to the goal,
+If there are intermediate steps you need to prove to lead to the goal,
 just apply the same process - repeatedly work to prove those
-intermediate statements.
+intermediate steps.
 
 ### Proof: Principle of the syllogism (`syl`)
 
@@ -1168,7 +1190,7 @@ This has been
 This proof involves using hypotheses, so that means we'll
 learn how to create hypotheses in metamath-lamp.
 
-#### Setting up the context and statement
+#### Setting up the context and goal step for syl
 
 Let's again load the `set.mm` database, and stop before `syl`:
 
@@ -1179,49 +1201,50 @@ Let's again load the `set.mm` database, and stop before `syl`:
 
 Now let's add the conclusion:
 
-> In the Editor select the icon "+" (add new statement).
+> In the Editor select the icon "+" (add new statement/step).
 > Enter
 > `|- ( ph -> ch )`
 > and press Enter (Return).
-> Click on the statement id, change it to `syl`, and press Enter.
+> Click on the step label, change it to `syl`, and press Enter.
 
 However, this statement isn't always true; it's only true when
 *other* statements are true. Those other statements are termed
 "hypotheses"; let's add them.
 
-> In the Editor select the icon "+" (add new statement).
+> In the Editor select the icon "+" (add new statement/step).
 > Enter
 > `|- ( ph -> ps )`
 > and press Enter.
-> By default metamath-lamp presumes a new statement is provable statement
-> (a "**P**" type), but this is a hypothesis instead.
+> Metamath-lamp normally
+> presumes that a new step describes a provable statement
+> (that is, its step type is a "**P**"). However, this is a hypothesis instead.
 > Use Alt+left click to select the **P** on that line.
 > Note: on some keyboards "Alt" is labelled "Opt" or "Option".
 > On the drop-down select "**H**" (hypothesis).
-> Notice that changing a statement into a hypothesis
+> Notice that changing a step into a hypothesis
 > automatically moves it above the goal.
 > Click on the label and rename it to `syl.1`.
 
 We now have a hypothesis! Let's add the other one:
 
-> In the Editor select the icon "+" (add new statement).
+> In the Editor select the icon "+" (add new statement/step).
 > Enter
 > `|- ( ps -> ch )`
 > and press Enter.
 > Use Alt+left click to select the **P** on that line.
 > On the drop-down select "**H**" (hypothesis).
-> Again, this change causes the statement to be automatically moved
+> Again, this change causes the step to be automatically moved
 > above the goal.
 > Click on the label and rename it to `syl.2`.
 
 Notice that it's already ordered in a reasonable way.
 If you ever wanted to change the order of statements, you can select
-the statement(s) to move using the left-hand-side check box, then
+the step(s) to move using the left-hand-side check box, then
 move them up and down using the "up" and "down" icons.
 However, there's no need to reorder these statements.
 
-**Note**: Every hypothesis and goal id is a database label, so it
-*must* be unique in the database.
+**Note**: Every hypothesis and goal label
+is also  database label, so it *must* be unique in the database.
 It cannot match a math symbol token (like `1`), assertion label,
 or hypothesis label.
 The convention in `set.mm`, as shown above, is for hypotheses to be labelled
@@ -1230,7 +1253,8 @@ You don't have to worry about incorrect labels, though.
 Metamath-lamp validates labels you use
 (it currently hypotheses and
 [will soon validate goals](https://github.com/expln/metamath-lamp/issues/81)),
-and it will show an error message if the id is in use in the current context.
+and it will show an error message if the label
+is in use in the current context.
 
 #### Easy proof of `syl`
 
@@ -1245,12 +1269,12 @@ when it can use many theorems that have already been proved.
 > proves the claim. Select that one (using the checkbox on its left)
 > and click on "Apply selected".
 
-Notice that metamath-lamp has added an intermediate statement
-(with id "1") to prove this :
+Notice that metamath-lamp has added an intermediate step
+(with label "1") to prove this :
 
 `|- ( ( ph -> ps ) -> ( ph -> ch ) )`
 
-Also, note that this new statement *and* the final goal
+Also, note that this new step *and* the final goal
 `syl` have green checkmarks.
 The most important thing is that our final goal has a green checkmark,
 meaning the goal is fully proved!
@@ -1263,7 +1287,7 @@ If you thought that was too easy, let's make it more challenging.
 Let's prove `syl` using *only* axioms.
 Most people wouldn't create proofs with only axioms, but doing this
 will help us illustrate ways you can use metamath-lamp.
-In particular, we'll show you how to work backwards from a statement.
+In particular, we'll show you how to work backwards from a step.
 
 We'll start with our current state, including the intermediate step
 that metamath-lamp found.
@@ -1275,11 +1299,11 @@ modus ponens (`ax-mp`) and the propositional logic axioms
 > Change its scope to "stop after" label `ax-3`.
 > Click "Apply changes".
 
-We now see an error after id 1, saying
+We now see an error after label 1, saying
 "*The label 'imim2i' doesn't refer to any assertion.*"
 
 > Click on the **P** of step 1 to reveal the specific reference that
-> it was using (erroneously) to justify this statement.
+> it was using (erroneously) to justify this step's statement.
 
 It says `syl.2 : imim2i` which means that our claimed justification for
 step 1 was to use assertion `imim2i` with `syl.2` as its hypothesis.
@@ -1296,7 +1320,7 @@ Let's unify and see what happens:
 > Click on unify.
 
 The final `syl` step has a symbol "~"; this means that this particular
-statement is justified, but it depends on something else that
+step is justified on its own, but it depends on something else that
 is not transitively justified.
 You can click on the **P** marker after `syl` to see that `syl` depends
 on two other statements, `syl.1` and `1`, and uses `ax-mp` with
@@ -1307,10 +1331,10 @@ However, this justification depends on `1` which isn't currently proven.
 If you looked at this,
 click again on the **P** marker after `syl` to hide these details.
 
-Let's work on proving statement `1`.
+Let's work on proving step `1`.
 Let's try backwards proof.
 
-> Select statement 1 by clicking the checkbox to its left.
+> Select step 1 by clicking the checkbox to its left.
 > Click on "unify" to start a backwards proof.
 > Click on "Prove".
 
@@ -1411,7 +1435,7 @@ we now have this fragment selected:
 
 You could use the dialogue to
 increase or decrease the size of the fragment, but we don't need to.
-Now let's select the equivalent fragment in statement 3:
+Now let's select the equivalent statement fragment in step 3:
 
 > Use Alt+click to select, in step *3*, the third `->`.
 
@@ -1525,13 +1549,13 @@ Then load the database and stop reading just before that proof.
 Try to create your own proof, consulting the known proof when you get stuck.
 
 If you're recreating an existing proof, and stop reading before that
-proof, you *can* (and in most cases *should*) reuse the same ids for the
+proof, you *can* (and in most cases *should*) reuse the same labels for the
 hypotheses and goal.
-The current context won't include labels of
+The current context won't include the labels of
 the proof you're recreating, so metamath-lamp won't complain about it.
 If you're intentionally creating an *alternative* proof
 of the same goal, for eventual use in the database,
-then you *do* need to use different ids.
+then you *do* need to use different labels.
 
 ### Loading existing metamath-lamp proofs
 
@@ -1736,21 +1760,22 @@ You can hover over an icon to see what the command does.
 Here are their icons and meanings:
 
 * Box: Select or deselect all current statements.
-* Up: Move the selected statements up in the list.
-* Down: Move the selected statements down in the list.
-* "+": Add a statement (which you then type in).
-* Trash can: Delete the selected statement(s).
-* Duplicated "+": Copy the selected statement.
-* Merge: Merge the selected statement to a similar statement.
-  Before clicking this button select only one statement;
+* Up: Move the selected statement(s)/step(s) up in the list.
+* Down: Move the selected statement(s)/step(s) down in the list.
+* "+": Add a statement/step (which you then type in).
+* Trash can: Delete the selected statement(s)/step(s).
+* Duplicated "+": Copy the selected statement/step.
+* Merge: Merge the selected statement/step to a similar statement.
+  Before clicking this button select only one statement/step;
   the other similar one will be detected by metamath-lamp.
-* Magnifying glass: Search for a statement pattern in the current context.
-  The selected pattern one (if any) will be added as a new statement.
+* Magnifying glass: Search for a statement pattern in the current context
+  to add its as a new statement/step.
+  The selected pattern one (if any) will be added as a new statement/step.
   See [search patterns](#search-patterns) for more about search patterns.
 * A with arrow: Apply a replacement (aka substitution) to all statements.
   See [replacement](#replacement) for more information.
 * Network: Unify. If no statements are selected, it will attempt to unify
-  all statements to create a proof. If a statement is selected, it will
+  all statements to create a proof. If a statement/step is selected, it will
   open a dialogue to start a bottom-up search for a proof; see
   [proving bottom-up](#proving-bottom-up) for more about that.
 
@@ -1799,7 +1824,7 @@ Omitted, since description is currently not generated as a comment:
   should be an English description of what is proved. Surround
   Metamath statements with backquotes (so they can be typographically formatted)
   and precede references to another with an isolated "~".
-  Conventionally this includes, at its end, a statement like
+  Conventionally this includes, at its end, text like
   "(Contributed by NAME, DD-MMM-YYYY)" where DD-MMM-YYYY is the date
   the proof was completed and MMM is the 3-letter English name
   of the month.
@@ -1867,35 +1892,35 @@ variable `x` must not occur in the wff `ph`.
 
 For more information, see the Metamath book.
 
-#### List of statements in the proof
+#### List of steps in the proof
 
-The list of statements (aka steps) of the proof follows the basic information
+The list of steps of the proof follows the basic information
 about the proof.
 
-By default, when the tool begins there will be no statements.
-Typically the first statement to be added is the statement
-to be proved (aka the *goal*).
+By default, when the tool begins there will be no steps.
+Typically the first step to be added is the step
+to be proved (aka the *goal* step).
 Use "+" in the editor command bar to add the goal.
-Usually the goal is the last statement, though metamath-lamp does
+Usually the goal is the last step, though metamath-lamp does
 not enforce this.
 
-Each statement is presented in the following left-to-right order:
+Each step is presented in the following left-to-right order:
 
-* Box (step selector): Select this box to select or unselect this statement.
-  Many commands work on the "currently selected statement(s)",
+* Box (step selector): Select this box to select or unselect this step.
+  Many commands work on the "currently selected step(s)",
   so it's important to be able to select them all.
-  Use the box in the editor command bar to select or deselect all statements.
+  Use the box in the editor command bar to select or deselect all steps.
 * Proof status (if present): If there's a green checkmark following the
   step selector box, a recent unification has
-  confirmed that this statement is proven given its context and its
-  previous statements.
+  confirmed that this step is proven given its context and its
+  previous steps.
   If there's a yellow tilde, that means that it's *partly* but not
   completely proved.
   Any modification of a proof removes the checkmarks.
   To regenerate the checkmarks,
-  select "unify" (without selecting any particular statement), which will
-  re-verify the statements and show checkmarks for the
-  statements that are proven.
+  select "unify" (without selecting any particular step), which will
+  re-verify the steps and show checkmarks for the
+  steps that are proven.
   Once you see a checkmark, you can see a compressed metamath proof of
   that step by selecting its checkmark (generally you would do this on
   the goal step). Once there, you can show or hide the proof table,
@@ -1908,31 +1933,42 @@ Each statement is presented in the following left-to-right order:
   However, many in the Metamath community would not accept work variables
   into a Metamath database, so in most cases you should change work variables
   to something else before exporting a proof.
-* Id: This is the id for this statement.
-  You should give your proof's goal the id of what you intend to name it.
-  Consider naming your goal "qed" if you don't know what name to use.
-  Each hypothesis needs to have a unique id that isn't already in the
-  database(s) being used.
+* Label: This is the label for this statement.
+  It's also called its "id" or "name".
+  You should give your proof's goal the label
+  of what you intend to name it.
+  Consider using the label "qed" for the goal step
+  if you don't know what name to use.
+  Each hypothesis and the goal needs to have a unique label
+  that isn't already in the context being used (it can't be a math symbol,
+  label, or anything else).
+  These labels (of the hypotheses and goal) are called "global labels";
+  the other labels in the proof are "local labels".
   If you're following the conventions of set.mm, the name of each hypothesis
   is the goal name followed by a period and an integer (starting with 1).
   For example, the proof of "mp3an3an" might have hypotheses
-  with ids "mp3an3an.1" and "mp3an3an.2". Note that this is different
+  with labels "mp3an3an.1" and "mp3an3an.2". Note that this is different
   from the convention of the mmj2 tool,
-  where hypotheses have id names of "h1" and so on.
-  All other statements are typically
+  where hypotheses have labels of "h1" and so on.
+  All other step labels (the "local labels") are typically
   consecutive integers starting with 1, though they don't need to be;
-  an id can be any sequence of alphanumeric characters.
-  Note that if you want to add a generated proof to a Metamath database,
-  the id of every hypothesis and the id of the goal must not already be used.
-  The point of an id is to provide a simple way to refer to a statement.
-* P/H: This is "P" if it's a statement to be proven, and
-  "H" if the statement is a hypothesis, Typically all hypothesis are listed
+  a local label can be any sequence of alphanumeric characters.
+  Again, if you want to add a generated proof to a Metamath database,
+  the label of every hypothesis and goal must not already be used.
+  The point of a label is to provide a simple way to uniquely
+  refer to a statement.
+* Step type (**P**/**H**): The step type is "**P**"
+  if it's a statement to be proven,
+  and "**H**" if the statement is a hypothesis,
+  Typically all hypothesis are listed
   first. By default, left-clicking on a "P" will
   reveal or hide the specific justification
   for the proved step (if any). By default, using Alt+left click will show a
   dialogue to let you select if this is a "P" or "H" statement type.
-* Statement: This is the actual statement. In most cases this will start
-  with "|-" (meaning "it is true that..."), followed by a space-separated
+* Statement: This is the statement to be proven or is being
+  accepted as hypothesis.
+  In most cases this statement will start
+  with `|-` (meaning "it is true that..."), followed by a space-separated
   sequence of symbols of the statement to be proved. An example of a statement
   is `|- ( 2 + 2 ) = 4` (two plus two equals four).
   You can edit the statement. By default, you can do this by clicking
@@ -1942,7 +1978,8 @@ Each statement is presented in the following left-to-right order:
   the cancel icon to not change the statement.
   You can also select *parts* of a statement; by default you can do this
   by using Alt+left click ("alt" is sometimes labelled "opt").
-  For more about selecting parts of a statement, see the next section.
+  For more about selecting parts (fragments) of a statement,
+  see the next section on [fragment selectors](#fragment-selectors).
 
 #### Fragment selectors
 
@@ -1950,7 +1987,7 @@ It's very common when creating a proof to want to copy
 *part* of a statement. Therefore, metamath-lamp has mechanisms to
 make selecting *parts* of a statement very easy, especially in the presence
 of parentheses-like constructs. This mechanism is called a
-*fragment selector*
+*fragment selector*.
 
 By default, Alt+left click on a statements causes a fragment selector
 dialogue to appear and makes a selection based on the selected symbol.
@@ -1967,11 +2004,15 @@ You can use the fragment selector dialogue as follows:
 
 * Expand selection: Expand the selection to the next largest syntactic unit.
 * Shrink selection: Reduce the selection to the next smallest syntactic unit.
-* Add new statement above: Create a new statement above the current statment,
-  and make its contents the selected statement.
-* Add new statement below: Create a new statement below the current statment,
-  and make its contents the selected statement.
-* Copy to clipboard. Note that you can later create or edit statement,
+* Add new statement/step above:
+  Create a new step above the current step, and copy the
+  selected statement fragment into the new step's statement.
+* Add new statement/step below:
+  Create a new step below the current step, and copy the
+  selected statement fragment into the new step's statement.
+* Copy to clipboard.
+  Copy the selected statement fragment into the clipboard.
+  Note that you can later create or edit statements, and when you do,
   and copy from the clipboard.
 * Edit: Start editing with the current text selected.
 * Close: Close this statement part selection dialogue box.
@@ -1989,7 +2030,7 @@ any special hypotheses to use. To do that:
 
 * Under the "Editor" tab", press the "+" in the
   [editor command icon bar](#editor-command-icon-bar)
-  to create a new statement. Enter the goal of the proof.
+  to create a new statement/step. Enter the goal of the proof.
   Typically the goal will begin with the symbol "|-" which means
   "it is true that".
   Click on its step number (1) if you want to rename the step name (typically
@@ -2002,18 +2043,19 @@ any special hypotheses to use. To do that:
 
 You're now ready to create a proof.
 
-**Important**: The id of every hypothesis, as well as the goal,
-id is a database label.
-Therefore it *must* be unique in the database.
-The id cannot match a math symbol token (like `1`), an assertion label,
+**Important**: The label (aka id) of every hypothesis, as well as the goal,
+is a database label.
+Therefore these labels *must* be unique in the context.
+The label cannot match a math symbol token (like `1`), an assertion label,
 or a label of any other hypotheses.
 This is noted in the Metamath book, on the page 114, as it notes that
 "each label token must be unique, and no label token may match
 any math symbol token."
 The convention in `set.mm` is for hypotheses to be labelled
 as the name of the goal + "." + an integer starting from 1.
-Note that the id of individual proof steps (other than the hypotheses and goal)
-don't have to be unique in the database, because these ids
+Note that the label of
+individual proof steps (other than the hypotheses and goal)
+don't have to be unique in the database, because these labels
 are local to the proof.
 
 Let's now look at details of some of the more complex dialogues
@@ -2022,7 +2064,8 @@ in the tools
 #### Search patterns
 
 The "magnifying glass" icon enables you to search for a statement
-that matches a given pattern.
+that matches a given pattern, showing you matches.
+You can then select a match and create a new statement from that match.
 
 The search pattern language is very simple,
 Note that search will *only* match on the conclusion part
@@ -2053,9 +2096,9 @@ because the conclusion has a `0` constant which is later followed by a
 
 Select the icon "A with arrow" icon
 (apply a replacement) to replace one
-expression with another expression in the proof statements.
+expression with another expression.
 
-The replacement will be applied to *all* statements.
+This replacement will be applied to **all** statements in **all** proof steps!
 
 After you select this icon
 you'll be presented with a simple dialogue box to describe the
@@ -2075,9 +2118,9 @@ of the second fragment (if any)
 will be placed in the "Replace with" field.
 You can use the "up/down arrow" (reverse) icon to swap the field entries.
 
-You can also select statements.
-The statement selected first will be copied into the "Replace what" field,
-and the statement selected second (if any) will be copied into the
+You can also select whole statement(s)/step(s).
+The steps selected first will be copied into the "Replace what" field,
+and the step selected second (if any) will be copied into the
 "Replace with" field.
 
 When you press "Find Substitution" the tool will determine if it
@@ -2094,12 +2137,12 @@ to replace one complex expression with another.
 
 #### Proving bottom-up
 
-If you select one statement and then select unify, you'll enter a
+If you select one statement/step and then select unify, you'll enter a
 "proving bottom-up" dialogue.
-
 The bottom-up prover does a breadth-first search to find a proof of
-the selected statement backwards (bottom-up) using the current context
+the selected statement/step backwards (bottom-up) using the current context
 and the options set in this "proving bottom-up" dialogue.
+
 It essentially works backwards to find a match, first with a single level,
 then with 2 levels (a statement that depends on another that also requires
 proving), and so on.
@@ -2171,42 +2214,42 @@ let's review its dialogue box options.
 
 This dialogue has the following options:
 
-Root statements ("first level" and "other levels"):
-These let you select which statements (if any) currently
+Root statements/steps ("first level" and "other levels"):
+These let you select which statements/steps (if any) currently
 in the proof may be used (that is, derived from).
-If a statement isn't selected it will *not* be considered when
+If a statement/step isn't selected it will *not* be considered when
 creating the proof.
-The "First level" option selects the statements that may be
+The "First level" option selects the statements/steps that may be
 used to directly prove this statement, while "other levels" selects the
-statements that may be used beyond this level.
-We can select "all" (all statements may be used),
-"none" (no statements may be used),
-or select a specific set of statements that may be used.
+statements/steps that may be used beyond this level.
+We can select "all" (all statements/steps may be used),
+"none" (no statements/steps may be used),
+or select a specific set of statements/steps that may be used.
 If it shows an expression like "1/8", that means a specific set of
-statements have been selected; the first number is the number of
-statements that are permitted, and the second number is the number of
-statements that *could* be permitted at this point.
-Click on the current value to select the statements to permit.
-If the statement to be proved is not currently proved,
-the "first level" is set to "All" (all statements are considered)
-and the "other levels" is set to "None" (no statements are considered
+statements/steps have been selected; the first number is the number of
+statements/steps that are permitted, and the second number is the number of
+statements/steps that *could* be permitted at this point.
+Click on the current value to select the statements/steps to permit.
+If the statement/step to be proved is not currently proved,
+the "first level" is set to "All" (all statements/steps are considered)
+and the "other levels" is set to "None" (no statements/steps are considered
 after the first level).
-If this statement is already proved, the "first level" will be set
-to the statements that were used.
-Adding statements that can be used will increase what the
+If this statement/step is already proved, the "first level" will be set
+to the statements/steps that were used.
+Adding statements/steps that can be used will increase what the
 bottom-up prover can prove, but this will also increase the time it
 takes to find a proof.
 
-Label: If set, this is the sole ("root") statement to use as a starting
+Label: If set, this is the sole ("root") statement/step to use as a starting
 point. Note that this is set if the system previously found a justification
-for this statement using this justification.
+for this statement/step using this justification.
 If blank, any label may be used as the justification (and the system
 will try them all in the process of searching).
 This setting does not affect other levels (depths) of the proof.
 
 Search depth: How deep the search is to go.
 Use of a single axiom or theorem is depth 1,
-a statement that requires a depth 1 search on a depth 1 search
+a statement/step that requires a depth 1 search on a depth 1 search
 is depth 2, and so on.
 The default search depth value is 4. Larger numbers enable more automation
 but generally take exponentially more time.
@@ -2218,8 +2261,8 @@ This setting is not applied to the first depth of the search, only to
 deeper levels, so it has no affect on searches with search depth 1.
 This setting can limit justifications to be considered based on whether
 or not they are less than the length (or less than or equal to the length)
-of the statement being justified.
-In many cases longer statements shouldn't be considered at deeper depths,
+of the statement/step being justified.
+In many cases longer statements/steps shouldn't be considered at deeper depths,
 since that often implies *increasing* instead of *decreasing* complexity.
 Let's imagine that the system is searching and has to search more than
 depth 1.
@@ -2236,8 +2279,8 @@ the most flexible (it can find more proofs) but may take much longer.
 Checkbox Allow new disjoints:
 Allow the addition of new disjoints.
 
-Checkbox Allow new statements:
-Allow the addition of new statements.
+Checkbox Allow new statements/steps:
+Allow the addition of new statements/steps.
 
 Checkbox Allow new variables:
 Allow the addition of new variables.
@@ -2251,7 +2294,7 @@ If such information is recorded, a
 "show proof tree" button appears in the results of the bottom-up prover
 once it's stopped.
 You can then explore the proof tree and see what the prover found.
-In particular,  you may find that prover found a statement that
+In particular,  you may find that prover found a statement/step that
 "almost" worked, and then modify the search criteria further.
 If the logging level is 1 or more, you may enter the maximum number
 of branches, which will limit the number of branches checked.
@@ -2262,7 +2305,7 @@ memory and slows the search, especially for logging level 2.
 If you set logging level 2, you should restrict it such as by
 setting the label or setting the maximum number of branches.
 
-You can speed up searches by not allowing new disjoints, new statements,
+You can speed up searches by not allowing new disjoints, new statements/steps,
 and/or new variables, but in some cases this may mean a proof won't be
 found.
 
@@ -2270,12 +2313,13 @@ This dialogue can be used to implement functions similar to
 certain functions of the mmj2 tool:
 
 * In mmj2 you can select a specific set of steps
-  that must be used in a justification of a given statement.
+  that must be used in a justification of a given statement/step.
   You can do something similar by doing a bottom-up
-  proof of that given statement, and selecting just those statements to be
-  used as root statements at the "first level".
-  This can quite similar to mmj2 if you also uncheck "allow new statements",
-  which will prevent the introduction of new statements.
+  proof of that given statement/step, and selecting just those statements/steps
+  to be used as root statements/steps at the "first level".
+  This can quite similar to mmj2 if you also uncheck
+  "allow new statements/steps",
+  which will prevent the introduction of new statements/steps.
 * In mmj2 you can state that a specific axiom or theorem
   must be used as the justification. You can do the same by
   selecting it as the "Label".
@@ -2324,7 +2368,7 @@ able to access all of metamath-lamp's functionality.
 
 Another expected change is that the first created step will be
 specially marked as a "goal". Goals will be treated somewhat differently
-from other statements, to make the default behavior more convenient.
+from other steps, to make the default behavior more convenient.
 
 A future version is likely to have an "explorer" tab to let you explore
 the contents of a database.
@@ -2363,7 +2407,7 @@ There are typically many assertions, so this is a paged view.
 
 After that begin the list of assertions (theorems and axioms).
 Each assertion shows its count, the type of assertion
-(theorem or axiom), and the assertion id in bold.
+(theorem or axiom), and the assertion label (id) in bold.
 The rest of the display shows a list of 0 or more hypotheses,
 each prefixed with large black circle "&#x2B24;".
 The final line of an assertion states what can be concluded
@@ -2390,7 +2434,7 @@ any well-formed formula (wff) expression, that is, anything that
 is true or false; it's not limited to being replaced by just another variable.
 The axiom modus ponens can apply to many circumstances.
 
-If you select the id (name) of a theorem, a new tab will be created
+If you select the label (aka name or id) of a theorem, a new tab will be created
 that shows details the proof of that theorem:
 
 ![In explorer, expand a label to show its proof](explorer-expand-label.png)
@@ -2413,7 +2457,7 @@ has the given correct types.
 Metamath proofs include proofs of the types of each expression;
 you can decide whether or not to see this.
 
-Clicking on a use of a hypothesis step id will move the display to that step.
+Clicking on a use of a hypothesis step label will move the display to that step.
 
 At the beginning of the statement is a small "+" (reveal/hide),
 where you can reveal or hide a visualization of that step.
@@ -2526,7 +2570,7 @@ to see a page, or enter the page number.
 
 After that begin the list of assertions (theorems and axioms).
 Each assertion shows its count, the type of assertion
-(theorem or axiom), and the assertion id in bold.
+(theorem or axiom), and the assertion label in bold.
 The rest of the display shows a list of 0 or more hypotheses,
 each prefixed with large black circle "&#x2B24;".
 The final line of an assertion states what can be concluded
@@ -2536,7 +2580,7 @@ You can use the fragment selector to copy useful portions of any statement.
 Next to the name of each axiom or theorem is a ">" symbol which lets you
 expand or hide its description.
 
-If you select the id (name) of an assertion, you will be brought
+If you select the label (aka id or name) of an assertion, you will be brought
 to an individual assertion tab specific to that assertion.
 This tab will be dynamically created if it doesn't exist already.
 
@@ -2561,8 +2605,8 @@ so there's nothing else to prove).
 Metamath proofs include proofs of the types of each expression;
 you can decide whether or not to see this.
 
-Clicking on a use of a hypothesis step id will show
-the individual assertion tab for that id (creating the tab if necessary).
+Clicking on a use of a hypothesis step label will show
+the individual assertion tab for that label (creating the tab if necessary).
 
 At the beginning of the statement is a small "+" (reveal/hide),
 where you can reveal or hide a visualization of that step.
