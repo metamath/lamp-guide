@@ -145,7 +145,7 @@ would simply reuse that existing proof.
 For this example we'll leave the proof description, variables, and disjoints
 blank. We do need to tell metamath-lamp our goal.
 
-> In the Editor select the icon "+" (add new statement/step).
+> In the Editor select the icon "+" (add new statement‡).
 > Don't try to select the similar icon "+" with circles behind it;
 > that would try to create a duplicate, and since there are no steps
 > to duplicate the tool will not let you do that.
@@ -327,7 +327,7 @@ so we'll select the last step before adding it (so we'll
 insert that step before it).
 
 > Select the checkbox to the left of the `2p2e4` goal statement.
-> Then select "+" (add new statement/step).
+> Then select "+" (add new statement‡).
 > Notice that because a step was selected, the new step will
 > be inserted before `2p2e4`.
 > Enter, for this new step, the statement
@@ -378,7 +378,7 @@ Let's try that.
 
 > Select the checkbox to the left of the new statement
 > `|- 2 = ( 1 + 1 )` and then press the icon showing
-> "+" with circles behind it (the duplicate statement/step icon).
+> "+" with circles behind it (the duplicate statement‡ icon).
 > Left-click on it.
 > Modify it so the new statement is
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )`
@@ -405,7 +405,7 @@ are equal to each other, we could trivially prove our goal.
 Let's try to do that.
 
 > Select the checkbox to the left of the `2p2e4` goal step.
-> Select "+" (add new statement/step). Enter the new statement
+> Select "+" (add new statement‡). Enter the new statement
 > `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`
 > and press Enter (Return).
 > Unselect the `2p2e4` step.
@@ -656,7 +656,7 @@ Here's how to do that:
 
 > Select the checkbox on the editor bar above the field name "Description"
 > to select *all* steps. Select the trash can with an X
-> ("delete selected statements/steps") to delete them all.
+> ("delete selected statements‡") to delete them all.
 > At the top of the browser window, select the drop-down arrow with the
 > "Loaded:..." text that hints at the context.
 > Make sure we are loading from the web the file "set.mm:latest",
@@ -677,7 +677,7 @@ context as usual. Here's how to do that instead:
 For this example we'll leave the proof description, variables, and disjoints
 blank. We do need to tell metamath-lamp our goal.
 
-> In the Editor select "+"  (add new statement/step). Enter
+> In the Editor select "+"  (add new statement‡). Enter
 >
 > ~~~~metamath
 > |- ( ( A e. CC /\ ( sin ` A ) =/= 0 /\ ( cos ` A ) =/= 0 ) ->
@@ -938,7 +938,7 @@ This will be easier to do if we duplicate an existing step and
 modify it.
 
 > Select the checkbox to the left of the expression using `tan`.
-> Press the icon showing "+" with multiple circles (duplicate statement/step);
+> Press the icon showing "+" with multiple circles (duplicate statement‡);
 > this will create a copy of the selected step below the current
 > step.
 
@@ -1003,7 +1003,7 @@ cotangent, showing we can use this definition even given the
 antecedent of the goal.
 
 > Select the checkbox to the left of the expression using `cot`.
-> Press the icon showing "+" with multiple circles (duplicate statement/step).
+> Press the icon showing "+" with multiple circles (duplicate statement‡).
 > Using Alt+left click, select the *second* parenthesis of the *goal*
 > statement to select the antecedent of the goal.
 > Press the box-on-box icon (copy to clipboard) under the goal statement.
@@ -1040,7 +1040,7 @@ the cotangent.
 ~~~~
 
 > Now duplicate the step by pressing the icon showing a "+" with
-> circles under it (duplicate statement/step).
+> circles under it (duplicate statement‡).
 > Use left-click to edit it, and surround the left and right
 > and sides of its equality with `( 1 / ... )` resulting in:
 
@@ -1200,7 +1200,7 @@ Let's again load the `set.mm` database, and stop before `syl`:
 
 Now let's add the conclusion:
 
-> In the Editor select the icon "+" (add new statement/step).
+> In the Editor select the icon "+" (add new statement‡).
 > Enter
 > `|- ( ph -> ch )`
 > and press Enter (Return).
@@ -1210,7 +1210,7 @@ However, this statement isn't always true; it's only true when
 *other* statements are true. Those other statements are termed
 "hypotheses"; let's add them.
 
-> In the Editor select the icon "+" (add new statement/step).
+> In the Editor select the icon "+" (add new statement‡).
 > Enter
 > `|- ( ph -> ps )`
 > and press Enter.
@@ -1226,7 +1226,7 @@ However, this statement isn't always true; it's only true when
 
 We now have a hypothesis! Let's add the other one:
 
-> In the Editor select the icon "+" (add new statement/step).
+> In the Editor select the icon "+" (add new statement‡).
 > Enter
 > `|- ( ps -> ch )`
 > and press Enter.
@@ -1759,22 +1759,22 @@ You can hover over an icon to see what the command does.
 Here are their icons and meanings:
 
 * Box: Select or deselect all current statements.
-* Up: Move the selected statement(s)/step(s) up in the list.
-* Down: Move the selected statement(s)/step(s) down in the list.
-* "+": Add a statement/step (which you then type in).
-* Trash can: Delete the selected statement(s)/step(s).
-* Duplicated "+": Copy the selected statement/step.
-* Merge: Merge the selected statement/step to a similar statement.
-  Before clicking this button select only one statement/step;
+* Up: Move the selected statements‡ up in the list.
+* Down: Move the selected statements‡ down in the list.
+* "+": Add a statement‡ (which you then type in).
+* Trash can: Delete the selected statements‡.
+* Duplicated "+": Copy the selected statement‡.
+* Merge: Merge the selected statement‡ to a similar statement.
+  Before clicking this button select only one statement‡;
   the other similar one will be detected by metamath-lamp.
 * Magnifying glass: Search for a statement pattern in the current context
-  to add its as a new statement/step.
-  The selected pattern one (if any) will be added as a new statement/step.
+  to add its as a new statement‡.
+  The selected pattern one (if any) will be added as a new statement‡.
   See [search patterns](#search-patterns) for more about search patterns.
 * A with arrow: Apply a replacement (aka substitution) to all statements.
   See [replacement](#replacement) for more information.
 * Network: Unify. If no statements are selected, it will attempt to unify
-  all statements to create a proof. If a statement/step is selected, it will
+  all statements to create a proof. If a statement‡ is selected, it will
   open a dialogue to start a bottom-up search for a proof; see
   [proving bottom-up](#proving-bottom-up) for more about that.
 
@@ -2002,10 +2002,10 @@ You can use the fragment selector dialogue as follows:
 
 * Expand selection: Expand the selection to the next largest syntactic unit.
 * Shrink selection: Reduce the selection to the next smallest syntactic unit.
-* Add new statement/step above:
+* Add new statement‡ above:
   Create a new step above the current step, and copy the
   selected statement fragment into the new step's statement.
-* Add new statement/step below:
+* Add new statement‡ below:
   Create a new step below the current step, and copy the
   selected statement fragment into the new step's statement.
 * Copy to clipboard.
@@ -2028,7 +2028,7 @@ any special hypotheses to use. To do that:
 
 * Under the "Editor" tab", press the "+" in the
   [editor command icon bar](#editor-command-icon-bar)
-  to create a new statement/step. Enter the goal of the proof.
+  to create a new statement‡. Enter the goal of the proof.
   Typically the goal will begin with the symbol "|-" which means
   "it is true that".
   Click on its step number (1) if you want to rename the step name (typically
@@ -2116,7 +2116,7 @@ of the second fragment (if any)
 will be placed in the "Replace with" field.
 You can use the "up/down arrow" (reverse) icon to swap the field entries.
 
-You can also select whole statement(s)/step(s).
+You can also select whole statements‡.
 The steps selected first will be copied into the "Replace what" field,
 and the step selected second (if any) will be copied into the
 "Replace with" field.
@@ -2135,10 +2135,10 @@ to replace one complex expression with another.
 
 #### Proving bottom-up
 
-If you select one statement/step and then select unify, you'll enter a
+If you select one statement‡ and then select unify, you'll enter a
 "proving bottom-up" dialogue.
 The bottom-up prover does a breadth-first search to find a proof of
-the selected statement/step backwards (bottom-up) using the current context
+the selected statement‡ backwards (bottom-up) using the current context
 and the options set in this "proving bottom-up" dialogue.
 
 It essentially works backwards to find a match, first with a single level,
@@ -2225,30 +2225,30 @@ We can select "all" (all statements‡ may be used),
 "none" (no statements‡ may be used),
 or select a specific set of statements‡ that may be used.
 If it shows an expression like "1/8", that means a specific set of
-statements/steps have been selected; the first number is the number of
-statements/steps that are permitted, and the second number is the number of
-statements/steps that *could* be permitted at this point.
-Click on the current value to select the statements/steps to permit.
-If the statement/step to be proved is not currently proved,
-the "first level" is set to "All" (all statements/steps are considered)
-and the "other levels" is set to "None" (no statements/steps are considered
+statements‡ have been selected; the first number is the number of
+statements‡ that are permitted, and the second number is the number of
+statements‡ that *could* be permitted at this point.
+Click on the current value to select the statements‡ to permit.
+If the statement‡ to be proved is not currently proved,
+the "first level" is set to "All" (all statements‡ are considered)
+and the "other levels" is set to "None" (no statements‡ are considered
 after the first level).
-If this statement/step is already proved, the "first level" will be set
-to the statements/steps that were used.
-Adding statements/steps that can be used will increase what the
+If this statement‡ is already proved, the "first level" will be set
+to the statements‡ that were used.
+Adding statements‡ that can be used will increase what the
 bottom-up prover can prove, but this will also increase the time it
 takes to find a proof.
 
-Label: If set, this is the sole ("root") statement/step to use as a starting
+Label: If set, this is the sole ("root") statement‡ to use as a starting
 point. Note that this is set if the system previously found a justification
-for this statement/step using this justification.
+for this statement‡ using this justification.
 If blank, any label may be used as the justification (and the system
 will try them all in the process of searching).
 This setting does not affect other levels (depths) of the proof.
 
 Search depth: How deep the search is to go.
 Use of a single axiom or theorem is depth 1,
-a statement/step that requires a depth 1 search on a depth 1 search
+a statement‡ that requires a depth 1 search on a depth 1 search
 is depth 2, and so on.
 The default search depth value is 4. Larger numbers enable more automation
 but generally take exponentially more time.
@@ -2260,8 +2260,8 @@ This setting is not applied to the first depth of the search, only to
 deeper levels, so it has no affect on searches with search depth 1.
 This setting can limit justifications to be considered based on whether
 or not they are less than the length (or less than or equal to the length)
-of the statement/step being justified.
-In many cases longer statements/steps shouldn't be considered at deeper depths,
+of the statement‡ being justified.
+In many cases longer statements‡ shouldn't be considered at deeper depths,
 since that often implies *increasing* instead of *decreasing* complexity.
 Let's imagine that the system is searching and has to search more than
 depth 1.
@@ -2278,8 +2278,8 @@ the most flexible (it can find more proofs) but may take much longer.
 Checkbox Allow new disjoints:
 Allow the addition of new disjoints.
 
-Checkbox Allow new statements/steps:
-Allow the addition of new statements/steps.
+Checkbox Allow new statements‡:
+Allow the addition of new statements‡.
 
 Checkbox Allow new variables:
 Allow the addition of new variables.
@@ -2293,7 +2293,7 @@ If such information is recorded, a
 "show proof tree" button appears in the results of the bottom-up prover
 once it's stopped.
 You can then explore the proof tree and see what the prover found.
-In particular,  you may find that prover found a statement/step that
+In particular,  you may find that prover found a statement‡ that
 "almost" worked, and then modify the search criteria further.
 If the logging level is 1 or more, you may enter the maximum number
 of branches, which will limit the number of branches checked.
@@ -2304,7 +2304,7 @@ memory and slows the search, especially for logging level 2.
 If you set logging level 2, you should restrict it such as by
 setting the label or setting the maximum number of branches.
 
-You can speed up searches by not allowing new disjoints, new statements/steps,
+You can speed up searches by not allowing new disjoints, new statements‡,
 and/or new variables, but in some cases this may mean a proof won't be
 found.
 
@@ -2312,13 +2312,13 @@ This dialogue can be used to implement functions similar to
 certain functions of the mmj2 tool:
 
 * In mmj2 you can select a specific set of steps
-  that must be used in a justification of a given statement/step.
+  that must be used in a justification of a given statement‡.
   You can do something similar by doing a bottom-up
-  proof of that given statement/step, and selecting just those statements/steps
-  to be used as root statements/steps at the "first level".
+  proof of that given statement‡, and selecting just those statements‡
+  to be used as root statements‡ at the "first level".
   This can be quite similar to mmj2 if you also uncheck
-  "allow new statements/steps",
-  which will prevent the introduction of new statements/steps.
+  "allow new statements‡",
+  which will prevent the introduction of new statements‡.
 * In mmj2 you can state that a specific axiom or theorem
   must be used as the justification. You can do the same by
   selecting it as the "Label".
