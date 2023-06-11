@@ -244,17 +244,16 @@ Every step has a box on its far left, which lets you select
 A valid proof must have at least one step (the *goal*).
 Each step has a collection of information, such as its *label*
 (to identify it),
-*step type*, *justification* (if any), and *statement*
+*step type* (is it a hypothesis or provable statement?),
+*justification* (if any), and *statement*
 (typically beginning with `|- ...`).
 In a completed proof, each step must be a
 hypothesis or justified to be true.
-The statement is very important, so informally we
-will sometimes use the term "statement" to refer to a whole step.
-Note that the current version of the tool uses
-"statement" in cases where "step" is intended;
-we'll sometimes use phrases like "statement/step"
-to clarify this.
-A step label is also sometimes called a step id or step name.
+A step label is sometimes informally called a step id or step name.
+The tool UI sometimes says "statement" when it means "step".
+To make things clearer, we'll add a "‡" symbol after the
+word "statement" or "statements" when we really mean "step" or "steps",
+so that the words we show are consistent with the UI.
 
 Now that we've had a brief introduction to the metamath-lamp
 user interface, let's decide how to use it to create our proof.
@@ -475,8 +474,8 @@ you may probably not understand how the program knows when to
 mark a step with a green checkmark meaning it is proved.
 The short answer is that the green checkmark means that
 metamath-lamp is able to find, for that step,
-a specific step that justifies the claim (as well as recursively all
-of its justifications).
+a specific theorem or axiom that justifies the claim
+(as well as recursively all of its justifications).
 In a moment we will be looking at the proof steps (in more detail) to
 gain a better understanding.
 Before we do, let's briefly talk about how to generate and import information.
@@ -1740,7 +1739,7 @@ Here is the full list of subsections:
 * [Fundamental proof information](#fundamental-proof-information) -
   this is the region under the editor icon bar for the
   description, variables, and disjoints.
-* [List of statements in the proof](#list-of-statements-in-the-proof)
+* [List of steps in the proof](#list-of-steps-in-the-proof)
 * [Fragment selectors](#fragment-selectors) - for selecting
   parts of a statement in the list of statements.
 * [How to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses) -
@@ -1782,7 +1781,7 @@ Here are their icons and meanings:
 Under the editor command icon bar is the
 [fundamental proof information](#fundamental-proof-information) followed by
 the
-[list of statements in the proof](#list-of-statements-in-the-proof).
+[list of steps in the proof](#list-of-steps-in-the-proof).
 After discussing the list of statements in the proof we'll discuss
 [fragment selectors](#fragment-selectors), which let us
 select parts of a statement.
@@ -1934,7 +1933,6 @@ Each step is presented in the following left-to-right order:
   into a Metamath database, so in most cases you should change work variables
   to something else before exporting a proof.
 * Label: This is the label for this statement.
-  It's also called its "id" or "name".
   You should give your proof's goal the label
   of what you intend to name it.
   Consider using the label "qed" for the goal step
@@ -2043,7 +2041,7 @@ any special hypotheses to use. To do that:
 
 You're now ready to create a proof.
 
-**Important**: The label (aka id) of every hypothesis, as well as the goal,
+**Important**: The label of every hypothesis, as well as the goal,
 is a database label.
 Therefore these labels *must* be unique in the context.
 The label cannot match a math symbol token (like `1`), an assertion label,
@@ -2214,17 +2212,18 @@ let's review its dialogue box options.
 
 This dialogue has the following options:
 
-Root statements/steps ("first level" and "other levels"):
-These let you select which statements/steps (if any) currently
+Root statements‡ ("first level" and "other levels"):
+These let you select which statements‡ (if any) currently
 in the proof may be used (that is, derived from).
-If a statement/step isn't selected it will *not* be considered when
+If a statement‡ isn't selected it will *not* be considered when
 creating the proof.
-The "First level" option selects the statements/steps that may be
-used to directly prove this statement, while "other levels" selects the
-statements/steps that may be used beyond this level.
-We can select "all" (all statements/steps may be used),
-"none" (no statements/steps may be used),
-or select a specific set of statements/steps that may be used.
+The "First level" option selects the statements‡ that may be
+used to directly prove the statement being proved,
+while "other levels" selects the
+statements‡ that may be used beyond this level.
+We can select "all" (all statements‡ may be used),
+"none" (no statements‡ may be used),
+or select a specific set of statements‡ that may be used.
 If it shows an expression like "1/8", that means a specific set of
 statements/steps have been selected; the first number is the number of
 statements/steps that are permitted, and the second number is the number of
@@ -2317,7 +2316,7 @@ certain functions of the mmj2 tool:
   You can do something similar by doing a bottom-up
   proof of that given statement/step, and selecting just those statements/steps
   to be used as root statements/steps at the "first level".
-  This can quite similar to mmj2 if you also uncheck
+  This can be quite similar to mmj2 if you also uncheck
   "allow new statements/steps",
   which will prevent the introduction of new statements/steps.
 * In mmj2 you can state that a specific axiom or theorem
@@ -2407,7 +2406,7 @@ There are typically many assertions, so this is a paged view.
 
 After that begin the list of assertions (theorems and axioms).
 Each assertion shows its count, the type of assertion
-(theorem or axiom), and the assertion label (id) in bold.
+(theorem or axiom), and the assertion label in bold.
 The rest of the display shows a list of 0 or more hypotheses,
 each prefixed with large black circle "&#x2B24;".
 The final line of an assertion states what can be concluded
@@ -2434,7 +2433,7 @@ any well-formed formula (wff) expression, that is, anything that
 is true or false; it's not limited to being replaced by just another variable.
 The axiom modus ponens can apply to many circumstances.
 
-If you select the label (aka name or id) of a theorem, a new tab will be created
+If you select the label (aka name) of a theorem, a new tab will be created
 that shows details the proof of that theorem:
 
 ![In explorer, expand a label to show its proof](explorer-expand-label.png)
@@ -2580,7 +2579,7 @@ You can use the fragment selector to copy useful portions of any statement.
 Next to the name of each axiom or theorem is a ">" symbol which lets you
 expand or hide its description.
 
-If you select the label (aka id or name) of an assertion, you will be brought
+If you select the label of an assertion, you will be brought
 to an individual assertion tab specific to that assertion.
 This tab will be dynamically created if it doesn't exist already.
 
