@@ -244,7 +244,7 @@ Every step has a box on its far left, which lets you select
 A valid proof must have at least one step (the *goal*).
 Each step has a collection of information, such as its *label*
 (to identify it),
-*step type* (is it a hypothesis or provable statement?),
+*step type* (is this a hypothesis or something provable?),
 *justification* (if any), and *statement*
 (typically beginning with `|- ...`).
 In a completed proof, each step must be a
