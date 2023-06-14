@@ -221,18 +221,23 @@ You can hover over an icon to see what the command is.
 
 Here are some key icons and the commands they perform:
 
-* Box: Select or deselect all current steps.
-* Up and Down: Move the selected steps up or down in their list.
-* "+": Add a step (which you then type in).
-* Trash can: Delete the selected step(s).
-* Duplicated "+": Copy the selected step.
-* Merge: Merge the selected step (they must be similar).
-* Magnifying glass: Search for a step pattern in the current context.
-* A with arrow: Apply a replacement (aka substitution)
-  to all selected steps.
-* Network: Unify. If no steps are selected, it will attempt to unify
-  all steps to create a proof. If a step is selected, it will
-  open a dialogue to start a bottom-up search for a proof.
+* Box: Select or deselect all current statements‡.
+* Up and Down: Move the selected statements‡ up or down in the list.
+* "+": Add new statement‡ (which you then type in).
+* Trash can: Delete selected statements‡.
+* Duplicated "+": Duplicate selected statement‡ (that is, make a copy).
+* Merge: Merge two similar statements‡.
+* Magnifying glass:
+  Add new statements‡ by searching for a pattern;
+  see [search patterns](#search-patterns) for more.
+* A with arrow: Apply a substitution‡ (aka replacement) to all statements.
+  See [replacement](#replacement) for more information.
+* Network:
+  Unify all statements‡ or unify selected provable bottom-up.
+  If no statements‡ are selected, it will attempt to unify
+  every statements‡ to create a proof. If one statement‡ is selected,
+  the tool will open a dialogue to start a bottom-up search for a proof
+  of that statement‡.
 
 Under the editor command icon bar is basic information about the proof
 (such as its description) and steps for the proof.
@@ -254,6 +259,9 @@ The tool UI sometimes says "statement" when it means "step".
 To make things clearer, we'll add a "‡" symbol after the
 word "statement" or "statements" when we really mean "step" or "steps",
 so that the words we show are consistent with the UI.
+The term "substitution" also has multiple meanings; we will use
+"substitution‡" when we mean the replacement menu operation
+(instead of the fundamental Metamath operation called substitution).
 
 Now that we've had a brief introduction to the metamath-lamp
 user interface, let's decide how to use it to create our proof.
@@ -378,7 +386,7 @@ Let's try that.
 
 > Select the checkbox to the left of the new statement
 > `|- 2 = ( 1 + 1 )` and then press the icon showing
-> "+" with circles behind it (the duplicate statement‡ icon).
+> "+" with circles behind it (the duplicate selected statement‡ icon).
 > Left-click on it.
 > Modify it so the new statement is
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )`
@@ -849,11 +857,11 @@ Well, the goal is going to involve the tangent of `A`, so we know
 we're going to specifically need the tangent of `A`.
 That means that we need to replace all instances of <tt>&amp;C1</tt>
 with the value `A`. This process of replacing values is called
-applying a substitution.
+applying a substitution‡.
 
-> Select the icon "A with arrow" (apply a replacement).
+> Select the icon "A with arrow" (apply a substitution‡).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
-> enter `A` - once that's done, press "Find Substitution".
+> enter `A` - once that's done, press "Find Substitution‡".
 > The system will check if this is valid; in this case, it could that
 > there was only 1 way to interpret this command and that the result is valid.
 > It will show you that you can change <tt>&amp;C1</tt> to `A` - press
@@ -876,9 +884,9 @@ Let's exploit that.
 We again have a work variable, and we already know what its value
 should be, so let's deal with that now.
 
-> Select the icon "A with arrow" (apply a replacement).
+> Select the icon "A with arrow" (apply a substitution‡).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
-> enter `A` - once that's done, press "Find Substitution".
+> enter `A` - once that's done, press "Find Substitution‡".
 > It will show you that you can change <tt>&amp;C1</tt> to `A` - press
 > `Apply` to apply the change.
 
@@ -938,7 +946,8 @@ This will be easier to do if we duplicate an existing step and
 modify it.
 
 > Select the checkbox to the left of the expression using `tan`.
-> Press the icon showing "+" with multiple circles (duplicate statement‡);
+> Press the icon showing "+" with multiple circles
+> (duplicate selected statement‡);
 > this will create a copy of the selected step below the current
 > step.
 
@@ -1003,7 +1012,8 @@ cotangent, showing we can use this definition even given the
 antecedent of the goal.
 
 > Select the checkbox to the left of the expression using `cot`.
-> Press the icon showing "+" with multiple circles (duplicate statement‡).
+> Press the icon showing "+" with multiple circles
+> (duplicate selected statement‡).
 > Using Alt+left click, select the *second* parenthesis of the *goal*
 > statement to select the antecedent of the goal.
 > Press the box-on-box icon (copy to clipboard) under the goal statement.
@@ -1040,7 +1050,7 @@ the cotangent.
 ~~~~
 
 > Now duplicate the step by pressing the icon showing a "+" with
-> circles under it (duplicate statement‡).
+> circles under it (duplicate selected statement‡).
 > Use left-click to edit it, and surround the left and right
 > and sides of its equality with `( 1 / ... )` resulting in:
 
@@ -1069,7 +1079,7 @@ Let's replace the work variable <tt>&amp;C1</tt>:
 > Press on the icon "A with arrow" to apply a replacement.
 > In "Replace what" enter <tt>&amp;C1</tt> and
 > in "Replace with" enter <tt>( cos ` A )</tt> ... once you're done. press
-> "Find Substitution". It will determine that there is 1 valid substitution;
+> "Find Substitution‡". It will determine that there is 1 valid substitution‡;
 > press "Apply".
 
 Let's replace the work variable <tt>&amp;C2</tt>:
@@ -1077,7 +1087,7 @@ Let's replace the work variable <tt>&amp;C2</tt>:
 > Press on the icon "A with arrow" to apply a replacement.
 > In "Replace what" enter <tt>&amp;C2</tt> and
 > in "Replace with" enter <tt>( sin ` A )</tt> ... once you're done. press
-> "Find Substitution". It will determine that there is 1 valid substitution;
+> "Find Substitution‡". It will determine that there is 1 valid substitution‡;
 > press "Apply".
 > Press unify.
 
@@ -1105,7 +1115,7 @@ and, if it exists, add it.
 > "Choose Selected".
 > This has a work variable; press on the "A with arrow" (apply replacement)
 > and substitute <tt>&amp;C1</tt> with `A` (remember to select
-> "Find Substitution" and then "Apply").
+> "Find Substitution‡" and then "Apply").
 > We now have <tt>|- ( A e. CC -> ( cos ` A ) e. CC )</tt> as a
 > statement.
 
@@ -1388,8 +1398,8 @@ instead of completing this step:
 > Select the icon "A with arrow" (that is, "replace").
 > In "Replace what" use the value &amp;W1 and in
 > "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
-> Click "Find Substitution" button; metamath-lamp will
-> show one possible substitution.
+> Click "Find Substitution‡" button; metamath-lamp will
+> show one possible substitution‡.
 > You *could* click on the "Apply button and then unify, but don't;
 > select Cancel instead.
 
@@ -1401,7 +1411,7 @@ make sure we were connecting them the right way.
 https://drive.google.com/file/d/1KIr0eOEmH4VoIHOHFhqXwBn08h-xGicV/view?usp=sharing -->
 
 A more general approach would be to add the step we want to use, and then
-perform substitutions until we can unify them.
+perform substitutions‡ until we can unify them.
 This is a better approach for more complicated situations, so let's see it.
 First, let's bring in a step that uses the assertion we wish to use
 (in this case `ax-2`):
@@ -1463,7 +1473,7 @@ The two selected fragments have been copied into the fields.
 The earliest selected step is the "Replace what" and the
 later step is the "replace with"; in this case that's what we want.
 
-> Click on "Find subsitution". Notice that it shows a valid substitution
+> Click on "Find substitution". Notice that it shows a valid substitution‡
 > that replaces multiple work variables.
 
 Again, notice that "Replace what" doesn't need to be a single work variable.
@@ -1492,7 +1502,7 @@ The second Alt+click highlighted this fragment in step 4:
 ( ph -> ( ps -> ch ) )
 ~~~~
 
-> Click on "Find substitution".
+> Click on "Find substitution‡".
 
 Again the two fragments are copied in.
 However, in this case the order is the opposite of what we wanted,
@@ -1504,7 +1514,7 @@ swap them by pressing the
 "up/down" (reverse) icon to the right of the "replace what" field.
 
 > Press the "up/down" (reverse) icon to swap the field contents,
-> press "Find substitution", then apply.
+> press "Find substitution‡", then apply.
 
 Now both steps 3 and 4 are the same:
 
@@ -1758,33 +1768,38 @@ each icon represents a command that can be performed to modify the proof.
 You can hover over an icon to see what the command does.
 Here are their icons and meanings:
 
-* Box: Select or deselect all current statements.
+* Box: Select or deselect all current statements‡.
 * Up: Move the selected statements‡ up in the list.
 * Down: Move the selected statements‡ down in the list.
-* "+": Add a statement‡ (which you then type in).
-* Trash can: Delete the selected statements‡.
-* Duplicated "+": Copy the selected statement‡.
-* Merge: Merge the selected statement‡ to a similar statement.
+* "+": Add new statement‡ (which you then type in).
+* Trash can: Delete selected statements‡.
+* Duplicated "+": Duplicate selected statement‡ (that is, make a copy).
+* Merge: Merge two similar statements‡.
   Before clicking this button select only one statement‡;
-  the other similar one will be detected by metamath-lamp.
-* Magnifying glass: Search for a statement pattern in the current context
-  to add its as a new statement‡.
-  The selected pattern one (if any) will be added as a new statement‡.
+  the similar one will be detected by metamath-lamp.
+* Magnifying glass:
+  Add new statements‡ from existing assertions
+  (and place before selected statements‡ if any).
+  This will search for a statement pattern in the current context
+  to add as one or more statements‡.
   See [search patterns](#search-patterns) for more about search patterns.
-* A with arrow: Apply a replacement (aka substitution) to all statements.
+* A with arrow: Apply a substitution‡ (aka replacement) to all statements.
   See [replacement](#replacement) for more information.
-* Network: Unify. If no statements are selected, it will attempt to unify
-  all statements to create a proof. If a statement‡ is selected, it will
-  open a dialogue to start a bottom-up search for a proof; see
+* Network:
+  Unify all statements‡ or unify selected provable bottom-up.
+  If no statements‡ are selected, it will attempt to unify
+  every statements‡ to create a proof. If one statement‡ is selected,
+  the tool will open a dialogue to start a bottom-up search for a proof
+  of that statement‡; see
   [proving bottom-up](#proving-bottom-up) for more about that.
 
 Under the editor command icon bar is the
 [fundamental proof information](#fundamental-proof-information) followed by
 the
 [list of steps in the proof](#list-of-steps-in-the-proof).
-After discussing the list of statements in the proof we'll discuss
+After discussing the list of steps in the proof we'll discuss
 [fragment selectors](#fragment-selectors), which let us
-select parts of a statement.
+easily select parts of a statement.
 We'll then discuss
 [how to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses).
 This will be followed by detailed discussions about some specific commands
@@ -2028,10 +2043,10 @@ any special hypotheses to use. To do that:
 
 * Under the "Editor" tab", press the "+" in the
   [editor command icon bar](#editor-command-icon-bar)
-  to create a new statement‡. Enter the goal of the proof.
-  Typically the goal will begin with the symbol "|-" which means
+  to create a new statement‡. Enter the goal of the proof as its statement.
+  Typically the goal's statement will begin with the symbol "|-" which means
   "it is true that".
-  Click on its step number (1) if you want to rename the step name (typically
+  Click on its step number if you want to rename the step name (typically
   this is named "qed" if you don't have a better name).
 * If there are hypotheses, press "+" to enter each one, and select the "P"
   using Alt+left click (or Opt+left click) to change "P" (provable assertion)
@@ -2093,14 +2108,14 @@ because the conclusion has a `0` constant which is later followed by a
 #### Replacement
 
 Select the icon "A with arrow" icon
-(apply a replacement) to replace one
+(apply a substitution‡) to replace one
 expression with another expression.
 
 This replacement will be applied to **all** statements in **all** proof steps!
 
 After you select this icon
 you'll be presented with a simple dialogue box to describe the
-replacement (substitution):
+substitution‡:
 
 * In the "Replace what" field, enter what expression you want to change,
   (e.g., <tt>&amp;C1</tt> or <tt>( &amp;W1 -> &amp;W2 )</tt>).
@@ -2116,14 +2131,15 @@ of the second fragment (if any)
 will be placed in the "Replace with" field.
 You can use the "up/down arrow" (reverse) icon to swap the field entries.
 
-You can also select whole statements‡.
+You can also use the checkboxes on the left to select statements‡
+before starting a replacement.
 The steps selected first will be copied into the "Replace what" field,
 and the step selected second (if any) will be copied into the
 "Replace with" field.
 
-When you press "Find Substitution" the tool will determine if it
+When you press "Find Substitution‡" the tool will determine if it
 can apply this replacement (that is, if the results are valid types
-everywhere and there are valid substitutions).
+everywhere and there are valid substitutions‡).
 If it is valid, you may select "Apply" to apply it.
 
 **Important**:
@@ -2212,13 +2228,13 @@ let's review its dialogue box options.
 
 This dialogue has the following options:
 
-Root statements‡ ("first level" and "other levels"):
-These let you select which statements‡ (if any) currently
+Root statements ("first level" and "other levels"):
+These let you select which steps (if any) currently
 in the proof may be used (that is, derived from).
 If a statement‡ isn't selected it will *not* be considered when
 creating the proof.
 The "First level" option selects the statements‡ that may be
-used to directly prove the statement being proved,
+used to directly prove the root statement being proved,
 while "other levels" selects the
 statements‡ that may be used beyond this level.
 We can select "all" (all statements‡ may be used),
@@ -2239,16 +2255,17 @@ Adding statements‡ that can be used will increase what the
 bottom-up prover can prove, but this will also increase the time it
 takes to find a proof.
 
-Label: If set, this is the sole ("root") statement‡ to use as a starting
-point. Note that this is set if the system previously found a justification
-for this statement‡ using this justification.
-If blank, any label may be used as the justification (and the system
-will try them all in the process of searching).
+Label: If set, this is the label of the only reference that is allowed
+to be used used as a starting when proving bottom-up (backwards).
+Note that this value is set to the current justification's reference
+if there is already a justification.
+If blank, any label may be used as the justification reference
+(and the system will try them all in the process of searching).
 This setting does not affect other levels (depths) of the proof.
 
 Search depth: How deep the search is to go.
 Use of a single axiom or theorem is depth 1,
-a statement‡ that requires a depth 1 search on a depth 1 search
+a statement that requires a depth 1 search on a depth 1 search
 is depth 2, and so on.
 The default search depth value is 4. Larger numbers enable more automation
 but generally take exponentially more time.
@@ -2260,8 +2277,8 @@ This setting is not applied to the first depth of the search, only to
 deeper levels, so it has no affect on searches with search depth 1.
 This setting can limit justifications to be considered based on whether
 or not they are less than the length (or less than or equal to the length)
-of the statement‡ being justified.
-In many cases longer statements‡ shouldn't be considered at deeper depths,
+of the statement being justified.
+In many cases longer statements shouldn't be considered at deeper depths,
 since that often implies *increasing* instead of *decreasing* complexity.
 Let's imagine that the system is searching and has to search more than
 depth 1.
@@ -2293,7 +2310,7 @@ If such information is recorded, a
 "show proof tree" button appears in the results of the bottom-up prover
 once it's stopped.
 You can then explore the proof tree and see what the prover found.
-In particular,  you may find that prover found a statement‡ that
+In particular,  you may find that prover found a statement that
 "almost" worked, and then modify the search criteria further.
 If the logging level is 1 or more, you may enter the maximum number
 of branches, which will limit the number of branches checked.
@@ -2321,7 +2338,7 @@ certain functions of the mmj2 tool:
   which will prevent the introduction of new statements‡.
 * In mmj2 you can state that a specific axiom or theorem
   must be used as the justification. You can do the same by
-  selecting it as the "Label".
+  selecting it as the "Label" in a bottom-up proof.
 
 #### Unification
 
