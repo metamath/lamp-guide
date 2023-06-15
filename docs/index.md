@@ -2256,7 +2256,7 @@ bottom-up prover can prove, but this will also increase the time it
 takes to find a proof.
 
 Label: If set, this is the label of the only reference that is allowed
-to be used used as a starting when proving bottom-up (backwards).
+to be used as a starting when proving bottom-up (backwards).
 Note that this value is set to the current justification's reference
 if there is already a justification.
 If blank, any label may be used as the justification reference
