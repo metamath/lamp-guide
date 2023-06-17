@@ -2742,7 +2742,7 @@ Within the code:
   The `->` is syntactic sugar that allows you to call a function
   but the parameter to the left of `->` becomes the first (or specified)
   parameter of the function. E.g., `x->bar` is the same as `bar(x)` and
-  `foo->bar(x)` is the same as `foo(bar,x)`.
+  `x->bar(foo)` is the same as `bar(x,foo)`.
   See [ReScript pipe](https://rescript-lang.org/docs/manual/latest/pipe)
   for more information.
   This implies preferring the newer "data-first" ReScript interfaces,
