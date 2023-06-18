@@ -1,21 +1,18 @@
 # Icon test
 
-## Example:
+## Example
 
 For example, replace:
 
 > In the Editor select the icon "+" (add new statement‡).
 > Don't try to select the similar icon "+" with circles behind it;
 
-
 with:
 
-> In the Editor select the
-<img width=16 height=16 src="add.svg" alt="add"> icon (add new statement‡ / "+").
+> In the Editor select the <img width=16 height=16 src="add.svg" alt="add"> icon (add new statement‡ / "+").
 > Don't try to select the similar
-<img width=16 height=16 src="duplicate.svg" alt="duplicate"> icon
-(duplicate statement‡ / + with circles);
- "+" with circles behind it;
+> <img width=16 height=16 src="duplicate.svg" alt="duplicate"> icon
+> (duplicate statement‡ / + with circles behind it)
 
 ## SVG icons
 
@@ -27,4 +24,3 @@ with:
 <img width=16 height=16 src="duplicate.svg" alt="duplicate"> icon (duplicate / + with circles)
 
 <img width=16 height=16 src="add.svg" alt="add"> icon (add new statement‡ / "+")
-
