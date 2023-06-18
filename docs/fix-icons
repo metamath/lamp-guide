@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Fix SVGs so they can be displayed using <img>.
+
+for file; do
+sed -E 's/<svg [^>]*(viewBox="[^"]*") [^>]*>/<svg xmlns="http:\/\/www.w3.org\/2000\/svg" \1>/i' < "$file" > ,1
+mv ,1 "$file"
+done
