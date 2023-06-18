@@ -39,6 +39,11 @@
   direction: ltr;
 }
 
+span.inline-text {
+  font-size: 16px;
+  font-variation-settings: 'OPSZ' 20;
+}
+
 /* Number headers */
 
 body {
