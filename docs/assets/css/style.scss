@@ -16,6 +16,30 @@
 */
 @import "{{ site.theme }}";
 
+/* Add access to Material Design iconcs from Google (Apache 2 license).
+   See: https://developers.google.com/fonts/docs/material_symbols#use_in_web
+*/
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  src: url(/assets/fonts/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].woff2) format('woff');
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+/* Number headers */
+
 body {
     counter-reset: h2counter;
 }
