@@ -2688,7 +2688,8 @@ compiles to efficient and human-readable JavaScript.
 ReScript is a programming language
 similar to [OCaml](https://en.wikipedia.org/wiki/OCaml);
 it is multi-paradigm but it encourages functional programming approaches.
-ReScript source files have the extension `.res`.
+ReScript source files have the extension `.res` (for most code) or
+`.resi` (for external interfaces).
 
 For more about ReScript, see this
 [introduction](https://rescript-lang.org/docs/manual/latest/introduction)
@@ -2700,7 +2701,8 @@ By default you must specify the full scoped name of a function, e.g.,
 
 Metamath-lamp
 uses the widely-used React library to implement its user interface.
-React comes with a robust API to React (and JavaScript).
+The Rescript programming languages comes with a robust API
+to use React and JavaScript.
 
 In discussions, metamath-lamp is often abbreviated as `mm-lamp`.
 
@@ -2708,14 +2710,14 @@ To simplify things and not have to think about different possible scenarios,
 metamath-lamp tends to use the approach
 *stop if bad data is detected and let the user decide how to correct the data*.
 
-Within the code:
+Here are some conventions for the source code filenames:
 
 * Filenames beginning with `MM_cmp_*.res` (meaning "component")
   are very coupled with UI related things, e.g., React, the web browser DOM,
   window global variables, and so on.
   Usually one cmp file contains one React component, but
   this is not a strict rule and there are a few exceptions.
-* Files beginning with `MM_wrk_*.res` (meaning "worker")
+* Filenames beginning with `MM_wrk_*.res` (meaning "worker")
   must not depend on UI related things, as these files could be (eventually)
   used in a worker thread. Worker threads don't support many features
   which are supported in the main thread.
@@ -2724,33 +2726,42 @@ Within the code:
   Where possible, put functionality in `MM_wrk_` files instead of
   `MM_cmp_` files; this means they can work in worker file *and*
   makes them much easier to test.
-* Where at all possible, please reuse existing functions unless there's
-  a strong reason to do otherwise, as this simplifies code review.
-  It's acknowledged that this is challenge when you are new to the code base.
-* Functional style is generally applied, e.g., `filter` and `map`.
-* Like several other languages, many functions return an
-  `Option` (which can be `Some('a)` or `None`) or a
-  `Result` (which can be `Ok('good)` or `Error('bad)`). These enable
-  compile-time checking that prevent null and undefined errors.
-  However, if you need it (such as for stopping loops early),
-  ReScript also supports exceptions.
-* ReScript has two built-in libraries: `Js` for simple interfaces direct
-  to JavaScript, and `Belt` which provides more sophisticated collection
-  handling. When either works, prefer the `Js` interfaces which are simpler
-  and map directly to JavaScript.
-* Use the `->` (pipe) construct as is now conventional in ReScript.
-  The `->` is syntactic sugar that allows you to call a function
-  but the parameter to the left of `->` becomes the first (or specified)
-  parameter of the function. E.g., `x->bar` is the same as `bar(x)` and
-  `x->bar(foo)` is the same as `bar(x,foo)`.
-  See [ReScript pipe](https://rescript-lang.org/docs/manual/latest/pipe)
-  for more information.
-  This implies preferring the newer "data-first" ReScript interfaces,
-  for example, you should prefer `Array2` over `Array`.
-  Doing this improves compiler error messages and IDE integration.
-* If you add/modify functionality, please add/modify tests.
-  The source code for tests is in `*_test.res` files.
-  RSpec-style tests are created using `describe({... it({... )} ..})`.
+
+Here are some conventions for the source code itself:
+
+1. Where at all possible, please reuse existing functions unless there's
+   a strong reason to do otherwise, as this simplifies code review.
+   It's acknowledged that this is challenge when you are new to the code base.
+2. Functional style is generally used, e.g., `filter` and `map`.
+3. Like several other languages, many functions return an
+   `Option` (which can be `Some('a)` or `None`) or a
+   `Result` (which can be `Ok('good)` or `Error('bad)`). These enable
+   compile-time checking that prevent null and undefined errors.
+   By convention prefer using these for returning error information.
+   ReScript also supports exceptions, but you should generally avoid using
+   exceptions for control flow unless they're needed.
+4. Names normally use camelCase. Most names (including
+   variable and function names) use lowerCamelCase, but module names
+   use UpperCamelCase.
+5. ReScript has two built-in libraries: `Js` for simple interfaces direct
+   to JavaScript, and `Belt` which provides more sophisticated collection
+   handling. When either works, prefer the `Js` interfaces which are simpler
+   and map directly to JavaScript, but *do* use Belt when it helps.
+6. Use the `->` (pipe) construct as is now conventional in ReScript.
+   The `->` is syntactic sugar that allows you to call a function
+   but with the parameter to the left of `->` becoming the first (or specified)
+   parameter of the function. For example, function call
+   `myData->MyModule.myFunction` means the same thing as
+   `MyModule.myFunction(myData)`, and function call
+   `myData->MyModule.myFunction(fooData)` means the same thing as
+   `MyModule.myfunction(myData, fooData)`.
+   See [ReScript pipe](https://rescript-lang.org/docs/manual/latest/pipe)
+   for more information.
+   This implies preferring the newer "data-first" ReScript interfaces,
+   for example, you should prefer `Array2` over `Array`.
+7. If you add/modify functionality, please add/modify tests.
+   The source code for tests is in `*_test.res` files.
+   RSpec-style tests are created using `describe({... it({... )} ..})`.
 
 ## Licensing
 
