@@ -233,7 +233,7 @@ Here are the icons in the edit icon bar and the commands they perform:
 | <img width="32" height="32" src="add.svg" alt="add"> | Add new statement‡ | "+" |  Type in the new statement |
 | <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected statements‡ | Trash can | |
 | <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement‡ | Circles behind "+" | Makes a copy of the selected statement‡ |
-| <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar statements‡ | merge | |
+| <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar statements‡ | Merge | Select one statement‡ |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new statements‡ by searching for a pattern; see [search patterns](#search-patterns) |
 | <img width="32" height="32" src="replacement.svg" alt="replacement"> | Substitution‡ | A with arrow | Apply a substitution‡ (aka replacement) to all statements; se [replacement](#replacement) |
 | <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all statements‡ or unify selected provable bottom-up.  If no statements‡ are selected, attempt to unify everything.  If one statement‡ is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
@@ -889,9 +889,9 @@ with the value `A`. This process of replacing values is called
 applying a substitution‡.
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow)
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
-> enter `A` - once that's done, press "Find Substitution‡".
+> enter `A` ... once that's done, press "Find Substitution‡".
 > The system will check if this is valid; in this case, it could that
 > there was only 1 way to interpret this command and that the result is valid.
 > It will show you that you can change <tt>&amp;C1</tt> to `A` - press
@@ -918,7 +918,7 @@ should be, so let's deal with that now.
 > Select the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
-> enter `A` - once that's done, press "Find Substitution‡".
+> enter `A` ... once that's done, press "Find Substitution‡".
 > It will show you that you can change <tt>&amp;C1</tt> to `A` - press
 > `Apply` to apply the change.
 
@@ -1130,7 +1130,7 @@ Let's replace the work variable <tt>&amp;C1</tt>:
 > Press on the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow).
 > In "Replace what" enter <tt>&amp;C1</tt> and
-> in "Replace with" enter <tt>( cos &#96; A )</tt>. Once you're done, press
+> in "Replace with" enter <tt>( cos &#96; A )</tt> ... Once you're done, press
 > "Find Substitution‡". It will determine that there is 1 valid substitution‡;
 > press "Apply".
 
@@ -1139,8 +1139,8 @@ Let's replace the work variable <tt>&amp;C2</tt>:
 > Press on the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow).
 > In "Replace what" enter <tt>&amp;C2</tt> and
-> in "Replace with" enter <tt>( sin &#96; A )</tt> and
-> once you're done, press
+> in "Replace with" enter <tt>( sin &#96; A )</tt> ...
+> once that's done, press
 > "Find Substitution‡". It will determine that there is 1 valid substitution‡;
 > press "Apply".
 > Press
@@ -1851,7 +1851,7 @@ Here are their icons and meanings:
 | <img width="32" height="32" src="add.svg" alt="add"> | Add new statement‡ | "+" |  Type in the new statement |
 | <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected statements‡ | Trash can | |
 | <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement‡ | Circles behind "+" | Makes a copy of the selected statement‡ |
-| <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar statements‡ | merge | |
+| <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar statements‡ | Merge | Select one statement‡ |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new statements‡ by searching for a pattern; see [search patterns](#search-patterns) |
 | <img width="32" height="32" src="replacement.svg" alt="replacement"> | Substitution‡ | A with arrow | Apply a substitution‡ (aka replacement) to all statements; se [replacement](#replacement) |
 | <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all statements‡ or unify selected provable bottom-up.  If no statements‡ are selected, attempt to unify everything.  If one statement‡ is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
