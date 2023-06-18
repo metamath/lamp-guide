@@ -8,19 +8,19 @@ This is a test of icons:
 <span class="material-symbols-outlined">favorite</span>
 
 This is a test of inline icons:
-* Press the <span class="material-symbols-outlined" class="inline-text">search</span> icon (search / magnifying glass).
-* Press the <span class="material-symbols-outlined" class="inline-text">menu</span> icon
-* Press the <span class="material-symbols-outlined" class="inline-text">close</span> icon
-* Press the <span class="material-symbols-outlined" class="inline-text">settings</span> icon
-* Press the <span class="material-symbols-outlined" class="inline-text">done</span> icon
-* Press the <span class="material-symbols-outlined" class="inline-text">expand more</span> icon
-* Press the <span class="material-symbols-outlined" class="inline-text">add</span> icon
-* Press the <span class="material-symbols-outlined" class="inline-text">delete</span> icon
-* Press the <span class="material-symbols-outlined" class="inline-text">add circle</span> icon
-* Press the <span class="material-symbols-outlined" class="inline-text">cancel</span> icon
-* Press the <span class="material-symbols-outlined" class="inline-text">delete forever</span> icon
-* Press the <span class="material-symbols-outlined" class="inline-text">arrow upward</span> icon
-* Press the <span class="material-symbols-outlined" class="inline-text">arrow downward</span> icon
+* Press the <span class="material-symbols-outlined inline-text">search</span> icon (search / magnifying glass).
+* Press the <span class="material-symbols-outlined inline-text">menu</span> icon
+* Press the <span class="material-symbols-outlined inline-text">close</span> icon
+* Press the <span class="material-symbols-outlined inline-text">settings</span> icon
+* Press the <span class="material-symbols-outlined inline-text">done</span> icon
+* Press the <span class="material-symbols-outlined inline-text">expand more</span> icon
+* Press the <span class="material-symbols-outlined inline-text">add</span> icon
+* Press the <span class="material-symbols-outlined inline-text">delete</span> icon
+* Press the <span class="material-symbols-outlined inline-text">add circle</span> icon
+* Press the <span class="material-symbols-outlined inline-text">cancel</span> icon
+* Press the <span class="material-symbols-outlined inline-text">delete forever</span> icon
+* Press the <span class="material-symbols-outlined inline-text">arrow upward</span> icon
+* Press the <span class="material-symbols-outlined inline-text">arrow downward</span> icon
 
 For more information:
 
