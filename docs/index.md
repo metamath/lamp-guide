@@ -2636,27 +2636,20 @@ detailed information about the assertion.
 Metamath-lamp is intended to be an easy-to-use proof assistant.
 We hope you'll find that it meets your needs.
 
-If you need help on the tool or how to create proofs, the best place to go
-is the
+No matter how you decide to contribute, we thank you for your time.
+
+### Creating and contributing proofs
+
+As noted earlier, if you want to run the metamath-lamp application
+to create proofs, view the
+[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html).
+
+If you need help on how to create Metamath proofs,
+or on how to use the metamath-lamp tool to create Metamath proofs,
+the best place to go is the
 [Metamath mailing list](https://us.metamath.org/mm-mailing-list.html).
 You can find a lot of general information about Metamath at the
 [Metamath home page](https://us.metamath.org/index.html).
-
-If you have feedback (issues) or contributions (pull requests)
-for this *guide*, please do that by filing issues and pull requests on the
-[Metamath-lamp guide source markdown repository](https://github.com/metamath/lamp-guide/).
-Do *not* send proposals about the *tool* to this repo, as it is only for
-proposed changes to this *guide* document.
-
-For feedback or proposed changes to the Metamath-lamp
-*tool* itself, please file issues or create pull requests against the
-[metamath-lamp source code repository](https://github.com/expln/metamath-lamp).
-Do *not* send proposals about the *guide* to this repo, as it is only for
-proposed changes to the *tool* itself
-
-As noted earlier, if you want to run the metamath-lamp application, view the
-[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html).
-If you want to be on the bleeding edge, you can use the [development version of Metamath-lamp application page (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
 
 If you're making a contribution to a Metamath database, such as a new
 proof, please contribute those as changes to the database's repository.
@@ -2665,7 +2658,110 @@ For example, for `set.mm`, propose changes to the
 If it's your first time, you should contact the mailing list; they
 would be *delighted* to help you complete that process.
 
-Thank you for your time.
+### Feedback on this guide (not the metamath-lamp tool)
+
+If you have feedback (issues) or contributions (pull requests)
+for this *guide*, please do that by filing issues and pull requests on the
+[Metamath-lamp guide source markdown repository](https://github.com/metamath/lamp-guide/).
+Do *not* send proposals about the *tool* to this repo, as it is only for
+proposed changes to this *guide* document.
+
+### Feedback on the metamath-lamp tool (not the guide)
+
+For feedback or proposed changes to the Metamath-lamp
+*tool* itself, please file issues or create pull requests against the
+[metamath-lamp source code repository](https://github.com/expln/metamath-lamp).
+Do *not* send proposals about the *guide* to this repo, as it is only for
+proposed changes to the *tool* itself
+
+If you want to be on the bleeding edge, you can use the [development version of Metamath-lamp application page (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
+
+### Quick tour of the metamath-lamp source code
+
+If you wish to try to contribute *code* to the metamath-lamp
+project itself, you'll need to learn more. Here are some hints.
+
+The metamath-lamp program is written in the
+[ReScript programming language](https://rescript-lang.org/).
+ReScript is a robustly typed language that
+compiles to efficient and human-readable JavaScript.
+ReScript is a programming language
+similar to [OCaml](https://en.wikipedia.org/wiki/OCaml);
+it is multi-paradigm but it encourages functional programming approaches.
+ReScript source files have the extension `.res` (for most code) or
+`.resi` (for external interfaces).
+
+For more about ReScript, see this
+[introduction](https://rescript-lang.org/docs/manual/latest/introduction)
+and
+[overview](https://rescript-lang.org/docs/manual/latest/overview).
+ReScript has a sound type system and its code has no null/undefined errors.
+By default you must specify the full scoped name of a function, e.g.,
+`mytext->Js_string2.split(":")`.
+
+Metamath-lamp
+uses the widely-used React library to implement its user interface.
+The Rescript programming languages comes with a robust API
+to use React and JavaScript.
+
+In discussions, metamath-lamp is often abbreviated as `mm-lamp`.
+
+To simplify things and not have to think about different possible scenarios,
+metamath-lamp tends to use the approach
+*stop if bad data is detected and let the user decide how to correct the data*.
+
+Here are some conventions for the source code filenames:
+
+* Filenames beginning with `MM_cmp_*.res` (meaning "component")
+  are very coupled with UI related things, e.g., React, the web browser DOM,
+  window global variables, and so on.
+  Usually one cmp file contains one React component, but
+  this is not a strict rule and there are a few exceptions.
+* Filenames beginning with `MM_wrk_*.res` (meaning "worker")
+  must not depend on UI related things, as these files could be (eventually)
+  used in a worker thread. Worker threads don't support many features
+  which are supported in the main thread.
+  If such a UI related feature appears in a worker thread it
+  usually leads to an error (compilation or runtime).
+  Where possible, put functionality in `MM_wrk_` files instead of
+  `MM_cmp_` files; this means they can work in worker file *and*
+  makes them much easier to test.
+
+Here are some conventions for the source code itself:
+
+1. Where at all possible, please reuse existing functions unless there's
+   a strong reason to do otherwise, as this simplifies code review.
+   It's acknowledged that this is challenge when you are new to the code base.
+2. Functional style is generally used, e.g., `filter` and `map`.
+3. Like several other languages, many functions return an
+   `Option` (which can be `Some('a)` or `None`) or a
+   `Result` (which can be `Ok('good)` or `Error('bad)`). These enable
+   compile-time checking that prevent null and undefined errors.
+   By convention prefer using these for returning error information.
+   ReScript also supports exceptions, but you should generally avoid using
+   exceptions for control flow unless they're needed.
+4. Names normally use camelCase. Most names (including
+   variable and function names) use lowerCamelCase, but module names
+   use UpperCamelCase.
+5. ReScript has two built-in libraries: `Js` for simple interfaces direct
+   to JavaScript, and `Belt` which provides more sophisticated collection
+   handling. When either works, prefer the `Js` interfaces which are simpler
+   and map directly to JavaScript, but *do* use Belt when it helps.
+6. Use the `->` (pipe) construct as is now conventional in ReScript.
+   The `->` is syntactic sugar that allows you to call a function
+   but with the parameter to the left of `->` becoming the first (or specified)
+   parameter of the function. For example, function call
+   `myData->MyModule.myFunction` means the same thing as
+   `MyModule.myFunction(myData)`, and function call
+   `myData->MyModule.myFunction(fooData)` means the same thing as
+   `MyModule.myfunction(myData, fooData)`.
+   See [ReScript pipe](https://rescript-lang.org/docs/manual/latest/pipe)
+   for more information.
+   This implies preferring the newer "data-first" ReScript interfaces,
+   for example, you should prefer `Array2` over `Array`.
+7. If you add/modify functionality, please add/modify tests.
+   The source code for tests is in `*_test.res` files.
+   RSpec-style tests are created using `describe({... it({... )} ..})`.
 
 ## Licensing
 
