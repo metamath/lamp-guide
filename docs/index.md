@@ -1904,7 +1904,7 @@ substituted with the same variable.
 The disjoint expression `x,ph` means
 variable `x` must not occur in the wff `ph`.
 
-For more information, see the Metamath book.
+For more information, see the [Metamath book](https://us.metamath.org/index.html#book).
 
 #### List of steps in the proof
 
@@ -2061,7 +2061,9 @@ is a database label.
 Therefore these labels *must* be unique in the context.
 The label cannot match a math symbol token (like `1`), an assertion label,
 or a label of any other hypotheses.
-This is noted in the Metamath book, on the page 114, as it notes that
+This is noted in the
+[Metamath book](https://us.metamath.org/index.html#book),
+on the page 114, as it notes that
 "each label token must be unique, and no label token may match
 any math symbol token."
 The convention in `set.mm` is for hypotheses to be labelled
