@@ -430,7 +430,7 @@ Let's try to do that.
 > and press Enter (Return).
 > Unselect the `2p2e4` step.
 > As an experiment, select the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / Hub)
+> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub)
 > while there's no step selected;
 > you'll see that in this case it did *not* find a justification
 > for our new step.
