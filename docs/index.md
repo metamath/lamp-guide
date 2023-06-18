@@ -978,7 +978,7 @@ This will be easier to do if we duplicate an existing step and
 modify it.
 
 > Select the checkbox to the left of the expression using `tan`.
-> Press the 
+> Press the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡ / circles behind "+").
 > This will create a copy of the selected step below the current
 > step.
@@ -1061,7 +1061,7 @@ antecedent of the goal.
 > statement to select the antecedent of the goal.
 > Let's copy this statement fragment into the clipboard.
 > Press the
-> icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy / box-on-box) 
+> icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy / box-on-box)
 > under the goal statement.
 > Now use Alt+left click on the second parenthesis of the new statement
 > we just created, selecting its antecedent.
@@ -1133,6 +1133,7 @@ Let's replace the work variable <tt>&amp;C1</tt>:
 > in "Replace with" enter <tt>( cos &#96; A )</tt>. Once you're done, press
 > "Find Substitution‡". It will determine that there is 1 valid substitution‡;
 > press "Apply".
+
 Let's replace the work variable <tt>&amp;C2</tt>:
 
 > Press on the
