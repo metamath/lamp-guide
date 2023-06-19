@@ -417,9 +417,12 @@ The justification it will show is `2 : oveq1i`, which means that it can
 justify this new statement by applying theorem `oveq1i` and providing step 2
 as the hypothesis required by `oveq1i`.
 
-We could later on connect this proof of `( 3 + 1 )` to the number 4.
+#### Using statement fragments to connect 3 + 1 with 4
+
+We could later on connect this proof of the meaning of
+`( 3 + 1 )` to the number 4.
 However, in a more complex proof we might forget that we were trying
-to prove an expansion of a value in the goal (4 in this case).
+to prove an expansion of a value used in the goal (4 in this case).
 So let's "clean up" now by directly proving that this term is an
 expansion of a symbol in the goal. Instead of typing it all in, we'll
 use the "duplicate" command to get us started:
@@ -433,11 +436,64 @@ This will create a duplicate step (labelled 4)
 below the selected step (labelled 3).
 The tool will also complain that there's a duplicate.
 Let's fix that.
+We *could* long-click on the new statement text to edit it,
+and change its `( 3 + 1 )` to 4.
+However, this is a good time for us to introduce
+metamath-lamp's support for *statement fragments*.
 
-> Long-click on the new statement text to edit it,
-> and change `( 3 + 1 )` to 4; once you have
-> `|- 4 = ( ( 2 + 1 ) + 1 )`
-> press Enter (Return).
+> Click (do *not* long-click) on the open parenthesis "(" to the left of "3"
+> in our new (duplicate) step.
+> This will open a statement fragment icon bar below the statement
+> and select `( 3 + 1 ) ` as a fragment.
+> If you didn't get the right fragment selected, just try again.
+
+A normal click on a symbol in a statement enables
+metamath-lamp's *statement fragment* mechanism, which lets you
+select and manipulate *fragments* of statements in a syntax-aware way.
+This lets you manipulate text in sensible ways and
+eliminates tasks like the need to count parentheses.
+
+Exactly what statement fragment is selected depends on the symbol you choose.
+If you select a parentheses-like symbol, it selects the expression
+that begins or ends with that symbol.
+If you select an infix symbol, it selects the expression immediately
+surrounding the infix symbol.
+You can then modify the selection, for example, you can use the
+icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection)
+and the
+icon <img width="16" height="16" src="zoomoutmap.svg" alt="shrink"> (shrink selection)
+to expand or shrink the selected sequence of symbols in a
+syntactically-aware way.
+
+Here is the meaning of each icon in the statement fragment selector:
+
+| Icon | Meaning | Visual Description | Additional information |
+| ---- | ------- | ------------------ | ---------------------- |
+| <img width="32" height="32" src="zoominmap.svg" alt="expand"> | Expand selection | Zoom in | Expand the selection to the next larger syntactic unit |
+| <img width="32" height="32" src="zoomoutmap.svg" alt="shrink"> | Shrink selection | Zoom out | Reduce the selection to the next smaller syntactic unit |
+| <img width="32" height="32" src="addabove.svg" alt="add above"> | Add new statement above | Arrow up from box | Create a new step above the current step with the selected statement fragment |
+| <img width="32" height="32" src="addbelow.svg" alt="add below"> | Add new statement below | Arrow down from box | Create a new step below the current step with the selected statement fragment |
+| <img width="32" height="32" src="copy.svg" alt="copy"> | Copy to clipboard | | Copy the fragment into the clipboard |
+| <img width="32" height="32" src="edit.svg" alt="edit"> | Edit | Pencil | Start editing with current text selected |
+| <img width="32" height="32" src="cancel.svg" alt="cancel"> | Cancel| Circled X | Cancel (and close) this statement fragment dialogue |
+
+You can use a fragment selector on *more* than one
+step at the same time; this is useful, for example, when doing a
+*[replacement](#replacement)*.
+
+In this case, we'll change `( 3 + 1 )` to 4:
+
+> Click on the
+> icon <img width="32" height="32" src="edit.svg" alt="edit"> (edit)
+> to begin editing the statement with the fragment selected.
+> Type "4". Typing text will immediately replace the selected text,
+> in this case `( 3 + 1 )`.
+> Now press Enter (Return).
+
+We now have a new step with the statement
+`|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`. Let's unify to see if the
+tool can find a proof for this claim.
+
 > Press the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
@@ -479,6 +535,8 @@ when writing new statements,
 but sometimes when editing it doesn't help.
 Please remove unwanted parentheses and make sure the statement
 looks exactly as in the example.
+
+Feel free to use statement fragment selectors instead to make this change.
 
 > Now press the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
