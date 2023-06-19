@@ -136,7 +136,7 @@ We recommend starting the tool and apply these examples.
 We will start with a simple proof that
 [2 + 2 = 4 (`2p2e4`)](proof-2-2-4).
 We'll then follow that with
-a [tour using the Explorer tab](~a-tour-using-the-explorer-tab),
+a [tour using the Explorer tab](#a-tour-using-the-explorer-tab),
 a [proof of the principle of the syllogism (`syl`)](#proof-principle-of-the-syllogism-syl), and a
 [proof that the reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
 We'll close with some other topics, such as a discussion on
