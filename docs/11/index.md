@@ -185,6 +185,10 @@ So we're going to add a statement and type in our goal statement.
 > `|- ( 2 + 2 ) = 4`
 > and press Enter (Return) to save the result.
 
+After editing, instead of pressing Enter (Return), you could also click on the
+icon <img width="16" height="16" src="save.svg" alt="save"> (save) or the
+icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel).
+
 Be sure to surround each symbol by at least one space (the first
 and last symbols can start and end the statement).
 If you make a mistake, it will show an error;
