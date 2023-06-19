@@ -1,5 +1,7 @@
 # Metamath-lamp Guide: User Guide (Tutorial) and Reference Manual
 
+*by [David A. Wheeler](https://dwheeler.com))*
+
 Metamath-lamp (Lite Assistant for Metamath Proofs) is
 a proof assistant for creating formal
 mathematical proofs in the [Metamath system](https://us.metamath.org/).
@@ -10,14 +12,14 @@ Instead, you can start using metamath-lamp
 by using your web browser, including your smartphone web browser, to view the
 **[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**.
 
-This is a guide for metamath-lamp, including both a
+This *Metamath-lamp Guide* is both a
 user guide (tutorial) and a reference guide. It includes:
 
 1. [Quick start](#quick-start)
    briefly introduces how to start and use metamath-lamp.
 2. [Sample Screenshot](#sample-screenshot)
 3. [User guide (tutorial)](#user-guide-tutorial)
-   shows how to use the metamath-lamp tool, primarily via examples, e.g.,
+   shows how to use the metamath-lamp tool, e.g., proving
    [2 + 2 = 4 (`2p2e4`)](#proof-2--2--4), the
    [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot),
    and the
@@ -43,18 +45,15 @@ including on a smartphone,
 which some may find compelling.
 We hope you'll find it useful.
 
-Note that metamath-lamp improves over time, so some of this guide
+Metamath-lamp improves over time, so some of this guide
 may not exactly match what you see. If you see a difference, please
-let us know so we can fix this guide. We try to make this guide
-match the tool it's describing.
+let us know so we can fix this guide.
 This guide was written for release version 11.
-You can also see the older guide for
-[version 10](10/index.html).
+You can also see the guide for [version 10](10/index.html).
 
 The latest version of this
 [*Metamath-lamp guide*](https://lamp-guide.metamath.org/)
-(the guide that you are currently reading)
-is always available at
+is available at
 &lt;[https://lamp-guide.metamath.org/](https://lamp-guide.metamath.org/)&gt;.
 
 ## Quick start
