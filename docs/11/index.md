@@ -696,7 +696,10 @@ Step labels don't need to be non-negative integers
 We can now show the compressed proof.
 This is the final proof we can add to a Metamath database.
 
-> Long-click the green checkmark (*not* "P") on the `2p2e4` goal step.
+> Click on the checkbox on the left of the goal step to select it.
+> Click on the
+> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
+> and select "Show completed proof".
 
 This shows the compressed proof. You can use checkboxes to
 also show the proof table, or to show the proof tables with just the
@@ -705,11 +708,6 @@ correct type).
 
 > You can select "Copy" to copy the compressed proof into the clipboard.
 > Press "Close"
-
-You can also bring up this dialogue by selecting the goal step,
-selecting the
-icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
-and selecting "Show completed proof".
 
 #### Exporting and importing your current state
 
@@ -1143,6 +1141,13 @@ Also, note that this new step *and* the final goal
 The most important thing is that our final goal has a green checkmark,
 meaning the goal is fully proved!
 
+If you like, you can again extract the final compressed proof:
+
+> Click on the checkbox on the left of the goal step to select it.
+> Click on the
+> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
+> and select "Show completed proof".
+
 #### Hard mode: Proving `syl` using only axioms
 
 If you thought that was too easy, let's make it more challenging.
@@ -1485,6 +1490,13 @@ to limit yourself to just axioms. Proofs are shorter, clearer, and
 easier to understand if you create theorems of more basic
 claims, and slowly build up from those simpler theorems
 to more complex claims. It's also much easier to create each proof.
+
+If you like, you can again extract the final compressed proof:
+
+> Click on the checkbox on the left of the goal step to select it.
+> Click on the
+> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
+> and select "Show completed proof".
 
 ### Proof: The reciprocal of the cotangent is tangent (`reccot`)
 
@@ -1987,6 +1999,13 @@ The unification worked!
 In fact, that proved more than the new step.
 Now label `reccot` shows a green checkmark, which means we've
 completed the proof.
+
+If you like, you can again extract the final compressed proof:
+
+> Click on the checkbox on the left of the goal step to select it.
+> Click on the
+> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
+> and select "Show completed proof".
 
 There are many other ways we could have proven this, and in fact,
 we could have done some of this with less manual work by more aggressively
