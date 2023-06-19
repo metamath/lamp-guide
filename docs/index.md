@@ -589,7 +589,7 @@ talk about how to generate and import information.
 The step labels are mostly arbitrary, but it's sometimes
 convenient to have them in order. Let's renumber the numbered steps.
 
-> Click the 
+> Click the
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
 > and select "Renumber steps".
 
@@ -615,7 +615,7 @@ correct type).
 > Press "Close"
 
 You can also bring up this dialogue by selecting the goal step,
-selecting the 
+selecting the
 icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
 and selecting "Show completed proof".
 
@@ -670,11 +670,14 @@ But what does this justification *mean*?
 Metamath-lamp can provide a visualization to show you what
 it means. This only works when the tool has
 verified that justification and thus shows a green check.
-So let's first use unify to make sure what we want to visualize is proven.
+So let's first use unify to ensure that we've proven what we
+want to visualize.
 
-> While no step is selected,
-> press the
+> While no step is selected, press the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+
+All steps have green checkmarks, which means all steps are proven.
+Let's visualize a step:
 
 > Left-click on the green checkmark or the step label
 > for the step showing `oveq2i`
