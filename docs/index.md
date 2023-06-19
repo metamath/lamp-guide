@@ -159,6 +159,18 @@ We'll also sometimes say "press" to mean the same thing.
 
 > Finally, click on the "Apply Changes" button to accept the selected context.
 
+#### Small display
+
+Metamath-lamp works really well on small displays like smartphones.
+However, if you are using a small display, you should
+configure the tool so it uses less display space.
+
+> If you're using a small display, click the
+> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
+> and select "View options".
+> Turn on "Compact mode" and "Small buttons".
+> Press Close.
+
 #### Setting the goal statement for `2p2e4`
 
 We need to tell metamath-lamp our goal.
