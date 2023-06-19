@@ -102,6 +102,7 @@ With a mouse you can also use a shortcut: hold the Alt key (sometimes
 labelled Opt or Option instead), then click with the mouse.
 
 Also:
+
 * To save an edit, use the
   icon <img width="16" height="16" src="save.svg" alt="save"> (save)
   or press Enter (Return).
@@ -930,11 +931,11 @@ Here are a few symbols and their meanings:
   consequent.
 * `ph`, `ps`, `ch`, etc. represent the Greek letters &phi;, &psi;, and &chi;.
   These are variables that represent an arbitrary expression with a value
-  of either true or false. 
+  of either true or false.
 * <tt>-.</tt> means logical not; if what follows is true then the result
   is false, if what follows is false then the result is true.
 
-See [common set.mm symbols](#common-set-mm-symbols) for more.
+See [common set.mm symbols](#common-setmm-symbols) for more.
 
 #### Viewing proof of `mp2`
 
@@ -1627,7 +1628,7 @@ It illustrates several symbols in the set.mm database:
   the <tt>tan(A)</tt> notation used by others
   but without context-dependent notational ambiguity.
 
-See [common set.mm symbols](#common-set-mm-symbols) for more information.
+See [common set.mm symbols](#common-setmm-symbols) for more information.
 
 #### Deciding on a proof strategy for `reccot`
 
@@ -2160,7 +2161,7 @@ Here we will discuss:
 * [Settings tab](#settings-tab)
 * [Explorer tab](#explorer-tab)
 * [Individual Assertion tab](#individual-assertion-tab)
-* [Common set.mm symbols](#common-set-mm-symbols)
+* [Common set.mm symbols](#common-setmm-symbols)
 
 ### Basic UI conventions
 
@@ -2191,6 +2192,7 @@ that is, a click edits the statement and a long-click enables
 statement fragment selection.
 
 Also:
+
 * To save an edit, use the
   icon <img width="16" height="16" src="save.svg" alt="save"> (save)
   or press Enter (Return).
@@ -2374,7 +2376,7 @@ Omitted, since description is currently not generated as a comment:
   of the month.
 -->
 
-##### Variables
+##### Work and Local Variables
 
 This section shows a list of work variables and local variables,
 one variable per line.
@@ -2984,16 +2986,16 @@ detailed information about the assertion.
 
 Here are some common symbols defined in `set.mm`.
 
-#### Variables
+#### Symbols for variables
 
 * `A`, `B`, `C`, and any other uppercase Latin letter is a variable
   that represents an arbitrary expression of a class.
   All sets are classes, not all classes are sets.
   By convention we start with `A` unless there's a reason to do otherwise.
-* `ph`, `ps, `ch`, etc. represent the Greek letters &phi;, &psi;, and &chi;.
-  These are variables that represent an arbitrary expression with a value
-  of either true or false. 
-* `x`, `y`, `z`, etc., are variables that represent a set variable.
+* `ph`, `ps`, and `ch` represent the Greek letters &phi;, &psi;, and &chi;.
+  Lowercase Greek letters represent an arbitrary expression with a value
+  of either true or false.
+* `x`, `y`, `z`, and other lowercase Latin letters represent a set variable.
 
 #### Logical operators
 
