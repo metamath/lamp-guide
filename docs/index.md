@@ -146,7 +146,7 @@ For this example we'll leave the proof description, variables, and disjoints
 blank. We do need to tell metamath-lamp our goal.
 
 > In the Editor select the
-> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡ / "+").
+> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
 > Don't try to select the similar
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> as
 > that would try to create a duplicate. There are no steps
@@ -230,7 +230,7 @@ Here are the icons in the edit icon bar and the commands they perform:
 | <img width="32" height="32" src="checkbox.svg" alt="checkbox"> | Select all | Checkbox | Select or deselect all current statements‡ |
 | <img width="32" height="32" src="down.svg" alt="down"> | Down | Down arrow | Move the selected statements‡ down the list |
 | <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected statements‡ up the list |
-| <img width="32" height="32" src="add.svg" alt="add"> | Add new statement‡ | "+" |  Type in the new statement |
+| <img width="32" height="32" src="add.svg" alt="add"> | Add new statement‡ | Plus sign | Type in the new statement |
 | <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected statements‡ | Trash can | |
 | <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement‡ | Circles behind "+" | Makes a copy of the selected statement‡ |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar statements‡ | Merge | Select one statement‡ |
@@ -294,7 +294,7 @@ of 4 would probably be useful.
 We'll search for the definition of 4 so we can add it to our
 list of steps.
 
-> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search / magnifying glass);
+> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search);
 > under pattern enter
 > `4 =` and click on Search.
 > Select the step labelled `df-4` and press "Choose Selected".
@@ -318,7 +318,7 @@ the definition of 3 as well.
 Note that `df-4` is the definition of 4; this suggests a naming convention,
 so we can probably just use the naming convention to find it.
 
-> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search / magnifying glass);
+> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search);
 > in the "label" field
 > enter `df-3` and click on Search.
 > Select the step labelled `df-3` and press "Choose Selected".
@@ -338,7 +338,7 @@ insert that step before it).
 
 > Select the checkbox to the left of the `2p2e4` goal statement.
 > Then press
-> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡ / "+").
+> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
 > Notice that because a step was selected, the new step will
 > be inserted before `2p2e4`.
 > Enter, for this new step, the statement
@@ -347,7 +347,7 @@ insert that step before it).
 > Unselect the checkbox to the left of the `2p2e4` label.
 > Now, while no steps are selected, press
 > press the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub).
+> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Since there
 > was no specific step selected, it will try to justify all steps.
 > Metamath-lamp will succeed in finding a justification for our new step,
@@ -363,13 +363,13 @@ use the "duplicate" command to get us started:
 > Select the checkbox to the left of the new step
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
 > and press the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate / circles behind "+").
+> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate).
 > This will create a duplicate step below the current one.
 > Click on the new statement text, and change `( 3 + 1 )` to 4; once you have
 > `|- 4 = ( ( 2 + 1 ) + 1 )`
 > press Enter (Return).
 > Press the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub),
+> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
 > which will produce a green checkmark next to all the steps
 > except our final `2p2e4` step.
 
@@ -380,7 +380,7 @@ of relationship. A common technique to create proofs is to expand
 the definitions of terms and then show that their expansions are equivalent.
 We've already expanded `4`, let's now expand `2`.
 
-> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search / magnifying glass);
+> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search);
 > in the "label" field
 > enter `df-2` and click on Search.
 > Select the step labelled `df-2` and press "Choose Selected".
@@ -395,7 +395,7 @@ Let's try that.
 
 > Select the checkbox to the left of the new statement
 > `|- 2 = ( 1 + 1 )` and then press the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate / circles behind "+").
+> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate).
 > Modify the new statement so it is
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )`
 > and press Enter (Return).
@@ -409,7 +409,7 @@ Please remove unwanted parentheses and make sure the statement
 looks exactly as in the example.
 
 > Now press the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub),
+> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
 > Since there
 > was no specific step selected, it will try to justify all steps
 > Metamath-lamp will succeed in finding a justification for our new step,
@@ -424,13 +424,13 @@ Let's try to do that.
 
 > Select the checkbox to the left of the `2p2e4` goal step.
 > Select the
-> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡ / "+").
+> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
 > Enter the new statement
 > `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`
 > and press Enter (Return).
 > Unselect the `2p2e4` step.
 > As an experiment, select the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub)
+> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > while there's no step selected;
 > you'll see that in this case it did *not* find a justification
 > for our new step.
@@ -443,7 +443,7 @@ The Metamath database in this context already has a proof that
 addition is associative, too.
 
 However, when you press
-the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub)
+the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 without selecting any steps,
 metamath-lamp will not automatically prove this new step,
 even though the Metamath database in this context
@@ -457,12 +457,12 @@ prove any other steps necessary to apply a relevant existing proof.
 A bottom-up search *can* add new steps.
 You enable a bottom-up search by selecting the step to be proved
 and then pressing
-the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub).
+the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 > Select the checkbox next to our latest statement
 > `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`
 > and press the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub).
+> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > A new dialogue will display titled "Proving bottom-up".
 > This will enable up to search for a solution backwards from our
 > currently-selected step using the context and previous
@@ -486,7 +486,7 @@ namely that `1 e. CC` (`1` is a complex number) and `2 e. CC`
 (`2` is a complex number).
 
 > Now, without any steps selected, press the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub).
+> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 We now have a green checkmark next to all our steps, showing
 that all steps are have been proven.
@@ -526,7 +526,7 @@ whatever they are, and anyone can reload them later.
 This lets you share details of a proof, even one that isn't complete.
 
 > Left-click on the
-> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu / 3 short horizontal lines aka hamburger)
+> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
 > on the top right of the display.
 
 This will show several ways to export and import your
@@ -562,7 +562,7 @@ accepted theorem `oveq2i` when applied to those labelled steps.
 Advanced users can edit this to force metamath-lamp to
 try to use a different justification.
 You can also press the
-icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete / trash can)
+icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
 next to the justification
 to delete it (e.g., because it uses a step no longer in
 your proof, or because you want to prove it some other way).
@@ -573,7 +573,7 @@ Metamath-lamp can provide a visualization to show you what
 it means. So let's enable it.
 
 > Left-click on the
-> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu / 3 short horizontal lines aka hamburger)
+> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
 > on the top right of the display and select
 > "Visualization is Off".
 > You will see that now "Visualization is On"; left-click
@@ -643,15 +643,15 @@ To reorder some steps,
 just select one or more
 using the checkboxes on the left.
 You may then use the
-icon <img width="16" height="16" src="up.svg" alt="up"> (up / up arrow)
+icon <img width="16" height="16" src="up.svg" alt="up"> (up)
 to move them up, or the
-icon <img width="16" height="16" src="down.svg" alt="down"> (down / down arrow)
+icon <img width="16" height="16" src="down.svg" alt="down"> (down)
 to move them down.
 
 > Left-click on checkbox next to
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
 > and press the
-> icon <img width="16" height="16" src="up.svg" alt="up"> (up / up arrow) -
+> icon <img width="16" height="16" src="up.svg" alt="up"> (up) -
 > the step will move up.
 
 Metamath-lamp will display error messages if steps
@@ -712,7 +712,7 @@ For this example we'll leave the proof description, variables, and disjoints
 blank. We do need to tell metamath-lamp our goal.
 
 > In the Editor select
-> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡ / "+").
+> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
 > Enter
 >
 > ~~~~metamath
@@ -779,7 +779,7 @@ cotangent. So let's retrieve their definitions.
 
 Let's first find the definition of the tangent.
 
-> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search / magnifying glass).
+> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search).
 > In the pattern enter <tt>( tan &#96;</tt> and click on Search.
 
 That produces a huge number of results. We could scroll through many pages
@@ -872,7 +872,7 @@ into a Metamath database, so in most cases you should change work variables
 to something else before exporting a proof.
 
 As we'll see in a moment, we'll use the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow)
+icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
 to replace
 the work variables with symbols or expressions so we can complete
 the proof.
@@ -889,7 +889,7 @@ with the value `A`. This process of replacing values is called
 applying a substitution‡.
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow).
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
 > enter `A` ... once that's done, press "Find Substitution‡".
 > The system will check if this is valid; in this case, it could that
@@ -906,17 +906,17 @@ to make searching easier. In set.mm, the definition for finding a value
 of a function is usually the function's abbreviated name followed by `val`.
 Let's exploit that.
 
-> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search / magnifying glass).
+> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search).
 > In the label field (not the pattern field)
 > enter `cotval`  and click on the
-> icon <img width="16" height="16" src="search.svg" alt="search"> (search / magnifying glass).
+> icon <img width="16" height="16" src="search.svg" alt="search"> (search).
 > Select `cotval` and click on "Choose Selected".
 
 We again have a work variable, and we already know what its value
 should be, so let's deal with that now.
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow).
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
 > enter `A` ... once that's done, press "Find Substitution‡".
 > It will show you that you can change <tt>&amp;C1</tt> to `A` - press
@@ -929,7 +929,7 @@ that proves "what a reciprocal does for me".
 What I want to find is something like `( 1 / ( A / B ) ) = ( B / A )`,
 which presumably will only be acceptable if `A` isn't zero and `B` isn't zero.
 
-> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search / magnifying glass).
+> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search).
 > In the pattern enter:
 
 ~~~~
@@ -979,7 +979,7 @@ modify it.
 
 > Select the checkbox to the left of the expression using `tan`.
 > Press the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡ / circles behind "+").
+> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡).
 > This will create a copy of the selected step below the current
 > step.
 
@@ -1000,10 +1000,10 @@ and unselect (close the fragment selector dialogue).
 
 > To get an idea of what the fragment selector dialogue can do,
 > press on the leftmost icon
-> icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection / zoom in),
+> icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection),
 > which expands the selected sequence of symbols.
 > Now select the
-> icon <img width="16" height="16" src="zoomoutmap.svg" alt="shrink"> (shrink selection / zoom out),
+> icon <img width="16" height="16" src="zoomoutmap.svg" alt="shrink"> (shrink selection),
 > which shrinks the selected sequence of symbols.
 > Note that the tool is selecting the symbols based on the
 > syntax of the symbols, to the next larger or smaller but syntactically
@@ -1011,19 +1011,19 @@ and unselect (close the fragment selector dialogue).
 
 You can even have fragment selectors enabled on more than one step.
 This makes it easy to pre-select fragments and then press the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow)
+icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
 to fill in both the "Replace what" and "Replace with" fields.
 
 In this case, we want to make a copy of the selected
 text in the goal, then paste that into
 the relevant section of the new statement.
 
-> Press the icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy to clipboard / box on box)
+> Press the icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy to clipboard)
 > under the goal statement.
 > Now use Alt+left click on the second parenthesis of the new statement
 > we just created, selecting its antecedent.
 > Press the
-> icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit / pencil),
+> icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit),
 > then use your system's paste command
 > ("control-V" on most computers, "command-V" on Macintoshes) to overwrite
 > the selected text with the text in the clipboard.
@@ -1040,7 +1040,7 @@ valid given the antecedent of our goal:
 It turns out that metamath-lamp can immediately prove this new step.
 
 > Press the
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub)
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > in the icon editor bar above the steps. Note that the new
 > step now has a green checkmark.
 
@@ -1056,23 +1056,23 @@ antecedent of the goal.
 
 > Select the checkbox to the left of the expression using `cot`.
 > Press the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡ / circles behind "+").
+> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡).
 > Using Alt+left click, select the *second* parenthesis of the *goal*
 > statement to select the antecedent of the goal.
 > Let's copy this statement fragment into the clipboard.
 > Press the
-> icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy / box-on-box)
+> icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy)
 > under the goal statement.
 > Now use Alt+left click on the second parenthesis of the new statement
 > we just created, selecting its antecedent.
 > Press the
-> icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit / pencil),
+> icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit),
 > then use your system's paste command
 > ("control-V" on most computers, "command-V" on Macintoshes) to overwrite
 > the selected text with the text in the clipboard.
 > Press Enter (Return) to save the modified statement.
 > Press
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub)
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > to unify everything so far.
 
 We now have several steps. All the steps are proved
@@ -1100,7 +1100,7 @@ the cotangent.
 ~~~~
 
 > Let's duplicate this step. Press the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡ / circles behind "+").
+> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡).
 > Use left-click to edit it, and surround the left and right
 > and sides of its equality with `( 1 / ... )` resulting in:
 
@@ -1110,7 +1110,7 @@ the cotangent.
 ~~~~
 
 > When you're done, press
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub).
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 Clearly we're going to need to simplify the reciprocal of the cosine
 over the sine.
@@ -1128,7 +1128,7 @@ they will work with this expansion of the reciprocal of the cotangent.
 Let's replace the work variable <tt>&amp;C1</tt>:
 
 > Press on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow).
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
 > In "Replace what" enter <tt>&amp;C1</tt> and
 > in "Replace with" enter <tt>( cos &#96; A )</tt> ... Once you're done, press
 > "Find Substitution‡". It will determine that there is 1 valid substitution‡;
@@ -1137,14 +1137,14 @@ Let's replace the work variable <tt>&amp;C1</tt>:
 Let's replace the work variable <tt>&amp;C2</tt>:
 
 > Press on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow).
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
 > In "Replace what" enter <tt>&amp;C2</tt> and
 > in "Replace with" enter <tt>( sin &#96; A )</tt> ...
 > once that's done, press
 > "Find Substitution‡". It will determine that there is 1 valid substitution‡;
 > press "Apply".
 > Press
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub).
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 Again, all but the goal steps are proven.
 
@@ -1169,7 +1169,7 @@ and, if it exists, add it.
 > You'll see a list including `coscl` - select `coscl` and press
 > "Choose Selected".
 > This has a work variable; press on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow)
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
 > and substitute <tt>&amp;C1</tt> with `A` (remember to select
 > "Find Substitution‡" and then "Apply").
 > We now have <tt>|- ( A e. CC -> ( cos &#96; A ) e. CC )</tt> as a
@@ -1196,14 +1196,14 @@ Now we can start simplifying the reciprocal of the division.
 ~~~~
 
 > Duplicate this step by pressing the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡ / circles behind "+").
+> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡).
 > In the duplicate, change <tt>( cos &#96; A) e. CC</tt> to `A e. CC`,
 > Press Enter, and press
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub).
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Select that new step and duplicate it. In the duplicate step change its
 > statement
 > <tt>( sin &#96; A ) e. CC</tt> to `A e. CC`, Press Enter, and press
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub).
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 This antecedent of this latest new statement is still not exactly the same as
 the goal antecedent, but it's very close. It's likely the tool can
@@ -1225,7 +1225,7 @@ one we just created but has the *exact* same antecedent as the goal.
 > Select the second parenthesis of our new statement,
 > press Edit, and paste with control-V (or command-V).
 > Enter, then press
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub).
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 The unification worked!
 
@@ -1270,7 +1270,7 @@ Let's again load the `set.mm` database, and stop before `syl`:
 
 Now let's add the conclusion:
 
-> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡ / "+").
+> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
 > Enter
 > `|- ( ph -> ch )`
 > and press Enter (Return).
@@ -1280,7 +1280,7 @@ However, this statement isn't always true; it's only true when
 *other* statements are true. Those other statements are termed
 "hypotheses"; let's add them.
 
-> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡ / "+").
+> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
 > Enter
 > `|- ( ph -> ps )`
 > and press Enter.
@@ -1296,7 +1296,7 @@ However, this statement isn't always true; it's only true when
 
 We now have a hypothesis! Let's add the other one:
 
-> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡ / "+").
+> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
 > Enter
 > `|- ( ps -> ch )`
 > and press Enter.
@@ -1333,7 +1333,7 @@ proofs, but it *is* able to find some proofs automatically, especially
 when it can use many theorems that have already been proved.
 
 > Select just goal `syl`, and press
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub).
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Click on "Prove". The tool will soon reply with some options,
 > including one that uses `imim2i` and `ax-mp` that *completely*
 > proves the claim. Select that one (using the checkbox on its left)
@@ -1388,7 +1388,7 @@ Let's eliminate this justification:
 Let's unify and see what happens:
 
 > Click on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub).
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 The final `syl` step has a symbol "~"; this means that this particular
 step is justified on its own, but it depends on something else that
@@ -1407,7 +1407,7 @@ Let's try backwards proof.
 
 > Select step 1 by clicking the checkbox to its left.
 > To start a backwards proof, press on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub).
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Click on "Prove".
 
 The bottom-up prover will show us some options.
@@ -1459,7 +1459,7 @@ Here's how you could do that, but note that we're going to cancel
 instead of completing this step:
 
 > Press the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow)
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
 > In "Replace what" use the value &amp;W1 and in
 > "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
 > Click "Find Substitution‡" button; metamath-lamp will
@@ -1530,7 +1530,7 @@ statements simplifies replacement.
 Now we can use replacement:
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (sUbstitution‡ / A with arrow).
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (sUbstitution‡).
 > The replacement dialogue will appear, with our selections
 > entered as the "Replace what" and "Replace with" entries.
 
@@ -1576,11 +1576,11 @@ because we want to replace a work variable with an expression
 The default is to use the earlier step first.
 In this case that's the opposite of what we wanted, so we'll
 swap them by pressing the
-icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse / up and down arrows)
+icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 to the right of the "replace what" field.
 
 > Press the
-> icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse / up and down arrows)
+> icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 > to swap the field contents,
 > press "Find substitution‡", then apply.
 
@@ -1599,7 +1599,7 @@ Let's merge them.
 > keep the connection to `ax-2`.
 > Step 3 is gone, now it's all step 4.
 > Press on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub)
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > to see we've fully proven step 4.
 
 We're getting close! Step 4 is proven, using ax-2.
@@ -1607,7 +1607,7 @@ However, step 2 is not yet proven, so the whole proof isn't done.
 Select step 2, and do a bottom-up proof of it as well.
 
 > Select step 2, press on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub),
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
 > and press "prove".
 > At the top it will show a use of `ac-mp` that proves all steps;
 > select it and "apply selected".
@@ -1848,7 +1848,7 @@ Here are their icons and meanings:
 | <img width="32" height="32" src="checkbox.svg" alt="checkbox"> | Select all | Checkbox | Select or deselect all current statements‡ |
 | <img width="32" height="32" src="down.svg" alt="down"> | Down | Down arrow | Move the selected statements‡ down the list |
 | <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected statements‡ up the list |
-| <img width="32" height="32" src="add.svg" alt="add"> | Add new statement‡ | "+" |  Type in the new statement |
+| <img width="32" height="32" src="add.svg" alt="add"> | Add new statement‡ | Plus sign | Type in the new statement |
 | <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected statements‡ | Trash can | |
 | <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement‡ | Circles behind "+" | Makes a copy of the selected statement‡ |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar statements‡ | Merge | Select one statement‡ |
@@ -1979,7 +1979,7 @@ By default, when the tool begins there will be no steps.
 Typically the first step to be added is the step
 to be proved (aka the *goal* step).
 Use the
-icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡ / "+")
+icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡)
 in the editor command bar to add the goal.
 Usually the goal is the last step, though metamath-lamp does
 not enforce this.
@@ -1998,7 +1998,7 @@ Each step is presented in the following left-to-right order:
   completely proved.
   Any modification of a proof removes the checkmarks.
   To regenerate the checkmarks, press
-  the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify / hub)
+  the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
   without selecting any particular step; this will
   re-verify the steps and show checkmarks for the
   steps that are proven.
@@ -2055,9 +2055,9 @@ Each step is presented in the following left-to-right order:
   on the text with the mouse left button or by touching it
   using a touchscreen.
   Once you're done, press the
-  icon <img width="16" height="16" src="save.svg" alt="save"> (save / disk)
+  icon <img width="16" height="16" src="save.svg" alt="save"> (save)
   to save the edited statement, or the
-  icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel / circled X)
+  icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel)
   to not change the statement.
   You can also select *parts* of a statement; by default you can do this
   by using Alt+left click ("alt" is sometimes labelled "opt").
@@ -2087,10 +2087,10 @@ You can use the fragment selector dialogue as follows:
 
 > To get an idea of what the fragment selector dialogue can do,
 > press on the leftmost icon
-> icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection / zoom in),
+> icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection),
 > which expands the selected sequence of symbols.
 > Now select the
-> icon <img width="16" height="16" src="zoomoutmap.svg" alt="shrink"> (shrink selection / zoom out),
+> icon <img width="16" height="16" src="zoomoutmap.svg" alt="shrink"> (shrink selection),
 > which shrinks the selected sequence of symbols.
 
 | Icon | Meaning | Visual Description | Additional information |
@@ -2151,7 +2151,7 @@ in the tools
 
 #### Search patterns
 
-The icon <img width="16" height="16" src="search.svg" alt="search"> (search / magnifying glass)
+The icon <img width="16" height="16" src="search.svg" alt="search"> (search)
 enables you to search for a statement
 that matches a given pattern, showing you matches.
 You can then select a match and create a new statement from that match.
@@ -2184,7 +2184,7 @@ because the conclusion has a `0` constant which is later followed by a
 #### Replacement
 
 Select the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡ / A with arrow)
+icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
 to replace one
 expression with another expression.
 
@@ -2207,7 +2207,7 @@ will be placed in the "Replace what" field, while a copy
 of the second fragment (if any)
 will be placed in the "Replace with" field.
 You can use the
-icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse / up and down arrows)
+icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 to swap the field entries.
 
 You can also use the checkboxes on the left to select statements‡
