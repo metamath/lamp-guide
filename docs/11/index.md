@@ -720,7 +720,7 @@ Metamath-lamp can export the current state of your efforts,
 whatever they are, and anyone can reload them later.
 This lets you share details of a proof, even one that isn't complete.
 
-> Left-click on the
+> Click on the
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
 > on the top right of the display.
 
@@ -772,7 +772,7 @@ want to visualize.
 All steps have green checkmarks, which means all steps are proven.
 Let's visualize a step:
 
-> Left-click on the green checkmark or the step label
+> Click on the green checkmark or the step label
 > for the step showing `oveq2i`
 > (this is probably step 4).
 > Remember, this needs to be a short click, not a long click.
@@ -805,7 +805,7 @@ This means we can use `oveq2i` to justify the final claim,
 We can also hide justifications (including the visualization)
 any time.
 
-> Left-click on the green checkmark or step label for
+> Click on the green checkmark or step label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
 > display of its justification; since the justification
 > is currently displayed, this will hide it.
@@ -814,7 +814,7 @@ Let's do the same thing with the statement that
 uses associativity,
 `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`,
 
-> Left-click on green checkmark or label for
+> Click on green checkmark or label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
 > display of its justification, revealing it.
 
@@ -825,7 +825,7 @@ as you can see are met.
 
 Let's end its display.
 
-> Left-click on the green checkmark or step label for
+> Click on the green checkmark or step label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
 > display of its justification, hiding it again.
 
@@ -1895,7 +1895,7 @@ the cotangent.
 
 > Let's duplicate this step. Click on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
-> Use left-click to edit it, and surround the left and right
+> Long-click to edit it, and surround the left and right
 > and sides of its equality with `( 1 / ... )` resulting in:
 
 ~~~~metamath
@@ -2348,15 +2348,14 @@ You don't *need* to fill in a description or variable list to begin a proof.
 In many cases you won't need to specify disjoints for a proof either,
 but sometimes you do. Here is information on these fields.
 
-Note: Click on the *field name* to edit the field.
-You can also select the editable field text, but the description
-field is odd - by default, you have to use long-click to edit it,
-while just left click selects part of its text.
+As always, you can long-click on the field to edit it.
+
+There is a shortcut for these fields.
+You may also click on the *field name* to edit the field.
 
 ##### Description
 
-This field can't be edited with a simple left-click;
-you must use alt+left click.
+This is a description of the proof.
 
 *Warning*: At this time the description is *not* copied into
 the generated final (compressed) proof. That is an idea that is
