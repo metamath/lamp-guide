@@ -841,6 +841,566 @@ Metamath-lamp will display error messages if steps
 are moved to make them depend on steps that
 have not been proved yet.
 
+### A tour using the Explorer tab
+
+The tab bar lets you switch between tabs, and those tabs always include
+ "Settings", "Editor", and "Explorer".
+The Explorer tab lets us view the assertions (axioms and theorems)
+in the current loaded context.
+Let's try out the Explorer tab.
+
+#### Loading a context for the explorer
+
+You need to have a context loaded before the explorer tab is useful.
+For our purposes we'll use the `set.mm` database.
+If you're continuing the tutorial, you've done that.
+
+However, if you're starting at this point, first load `set.mm` as the context:
+
+> Make sure we are loading from the web the file "set.mm:latest",
+> You can change the scope or not, your choice.
+> Then press "Apply changes" to apply this change.
+
+#### Trying out the explorer tab
+
+Let's try out the explorer tab:
+
+> Click on "Explorer" in the tab bar.
+
+The explorer view lets you see the various assertions
+(axioms and theorems) in the loaded database(s).
+The top of the explorer view lets you select what to view;
+by default all assertions are included.
+There are typically many assertions, so this is a paged view.
+
+After that begin the list of assertions (theorems and axioms).
+Each assertion shows its count, the type of assertion
+(theorem or axiom), and the assertion label in bold.
+The rest of the display shows a list of 0 or more hypotheses,
+each prefixed with large black circle "&#x2B24;".
+The final line of an assertion states what can be concluded
+via this assertion when its hypotheses are true.
+
+You can use the fragment selector to copy useful portions of any statement.
+Next to the name of each axiom or theorem is a ">" symbol which lets you
+expand or hide its description.
+
+Let's look at axiom `ax-mp`, which is probably assertion number 5
+in your display. Axiom `ax-mp` is called *modus ponens* and is well-known.
+Here is what it looks like in the explorer display:
+
+![Axiom ax-5 in the explorer tab](ax-5-explorer.png)
+
+Modus ponens has two hypotheses:
+
+* `|- ph` - that is, "when `ph` is true", and
+* `|- ( ph -> ps )` - that is, "when `ph` implies `ps`"
+
+Using axiom `ax-mp`, whenever those two hypotheses are true, you
+can prove "`ps` is true". Note that `ph` and `ps` are variables over
+any well-formed formula (wff) expression, that is, anything that
+is true or false; it's not limited to being replaced by just another variable.
+The axiom modus ponens can apply to many circumstances.
+
+If you select the label (aka name) of a theorem, a new tab will be created
+that shows details the proof of that theorem:
+
+![In explorer, expand a label to show its proof](explorer-expand-label.png)
+
+Let's try that out next.
+
+#### Viewing proof of `mp2`
+
+In the explorer view, scroll down to theorem `mp2`, and click on the
+*name* mp2. This will create a *new* tab that shows details about the
+proof of `mp2`.
+
+Many capabilities are available in a displayed proof.
+
+Again, you can use the fragment selector to
+copy useful portions of any statement.
+
+You can also "show types", which shows the proof that a given expression
+has the given correct types.
+Metamath proofs include proofs of the types of each expression;
+you can decide whether or not to see this.
+
+Clicking on a use of a hypothesis step label will move the display to that step.
+
+At the beginning of the statement is a small "+" (reveal/hide),
+where you can reveal or hide a visualization of that step.
+Try that out; the visualizations can make it easier to understand
+how Metamath proofs work.
+
+Clicking on a reference to an assertion will show an individual assertion tab
+of that assertion (creating the tab if necessary). That tab will provide
+detailed information about the assertion.
+
+#### Gaining an understanding on `set.mm`'s beginnings
+
+You can use the explorer to gain many insights into a database
+(and mathematics in general).
+In this section we'll walk through the first few assertions
+of `set.mm` to gain some understanding of it.
+If you're already familiar with `set.mm`, you can skip this section.
+
+Let's go back to the explorer tab:
+
+> Click on the "Explorer" text in the tab bar, and scroll to the top.
+
+Let's gain a brief understanding of the first theorems and axioms.
+We are entering the foundations of the foundations - the very basement -
+of the "typical" mathematics of classical logic and ZFC set theory.
+
+The first theorem we have is `a1ii`.
+It has two hypotheses and one conclusion, and
+all the statements begin with `|-` meaning "this is true".
+Theorem `a1ii` can be interpreted as saying that if some `ph` is true,
+and some `ps` is true, then that `ph` is true.
+This simply lets us restate truths; this is only useful in
+special technical situations, but it's hard to argue with the conclusion.
+
+Theorem `idi` is similar; it says that if some `ph` is true, then that
+`ph` is true.
+This also lets us restate truths; this is again only useful in
+special technical situations, but it's hard to argue with the conclusion.
+This theorem was contributed by Alan Sare, which you can see by clicking
+on the ">" next to the name. The names of people who formalized and
+proposed various statements are included in their description.
+
+Assertion 3 is our first axiom, but it's not an assertion of truth (`|-`),
+it's an assertion that something is a well-formed formula (`wff`).
+It says `wff -. ph`, that is, if some `ph` is a wff
+(an expression that is true or false), then
+`-. ph` is also a wff.
+The sequence `-.` represents "logical not", and this axiom
+allows us to use the sequence `-. ph` as a wff where `ph` is a wff.
+
+Assertion 4 is a similar axiom, stating that
+`( ph -> ps )` is a well-formed formula (`wff`).
+Notice the parentheses; since they are specified as part of the axiom allowing
+the use of `->`, the parentheses are required when using `->`.
+
+Assertion 5 is axiom `ax-mp`, aka modus ponens.
+If `ph` is true, and `ph` implies `ps`, then `ps` is true.
+
+The next 3 axioms define the axioms of propositional logic, that is,
+the fundamental rules for determining if something is true or false
+given other values that are true or false.
+These are the same as, for example, those of Margaris.
+
+Axiom `ax-1` is also called "Simp" or the "principle of simplification".
+It asserts that `|- ( ph -> ( ps -> ph ) )`.
+If you open the description you'll see that this formalization was
+contributed by "NM". "NM" stands for Norman Megill, the original
+creator of the Metamath system. As you can see, we try to give credit
+to those who take the time to formalize mathematics; we hope you'll
+eventually create proofs and get credit too!
+
+Axiom `ax-2` is also called "Frege".
+It asserts that
+`|- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )`
+This looks more complex than it is; it really just
+"distributes" an antecedent over two consequents.
+
+Axiom `ax-3` is also called "Transp".
+It asserts that
+`|- ( ( -. ph -> -. ps ) -> ( ps -> ph ) )`.
+
+Theorem `mp2` then proves a claim
+(a double modus ponens) using only previously-accepted assertions.
+
+There are many more theorems of course. We should briefly point out one,
+`syl`. The theorem `syl` proves that if `( ph -> ps )` and
+`( ps -> ch )`, then `( ph -> ch )`. This is one of the most
+commonly-used theorems in the entire `set.mm` database.
+
+These are very basic beginnings.
+What's extraordinary is that you can build up, assertion by assertion,
+to eventually completely prove complex mathematical ideas.
+
+Let's try to prove something very basic, using only some basic beginnings.
+This will help you learn more about both the metamath-lamp tool and
+the `set.mm` database.
+
+### Proof: Principle of the syllogism (`syl`)
+
+Let's prove something more basic.
+Let's prove that if phi implies psi, and psi implies chi, then
+psi implies chi. In short, let's prove that implication is transitive.
+
+Russell and Whitehead call this claim "the principle of the syllogism";
+others sometimes call this law a "hypothetical syllogism".
+This has been
+[proved in the set.mm database as theorem `syl`](https://us.metamath.org/mpeuni/syl.html).
+
+This proof involves using hypotheses, so that means we'll
+learn how to create hypotheses in metamath-lamp.
+
+#### Setting up the context and goal step for syl
+
+Let's again load the `set.mm` database, and stop before `syl`:
+
+> Select Source type "Web", Alias "set.mm:latest"; after confirmation this
+> loads the given database.
+> Now under scope select "Stop before" and enter the label `syl`.
+> Finally, apply changes to the context.
+
+Now let's add the conclusion:
+
+> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
+> Enter
+> `|- ( ph -> ch )`
+> and press Enter (Return).
+> Click on the step label, change it to `syl`, and press Enter.
+
+However, this statement isn't always true; it's only true when
+*other* statements are true. Those other statements are termed
+"hypotheses"; let's add them.
+
+> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
+> Enter
+> `|- ( ph -> ps )`
+> and press Enter.
+> Metamath-lamp normally
+> presumes that a new step describes a provable statement
+> (that is, its step type is a "**P**"). However, this is a hypothesis instead.
+> Use Alt+left click to select the **P** on that line.
+> Note: on some keyboards "Alt" is labelled "Opt" or "Option".
+> On the drop-down select "**H**" (hypothesis).
+> Notice that changing a step into a hypothesis
+> automatically moves it above the goal.
+> Click on the label and rename it to `syl.1`.
+
+We now have a hypothesis! Let's add the other one:
+
+> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
+> Enter
+> `|- ( ps -> ch )`
+> and press Enter.
+> Use Alt+left click to select the **P** on that line.
+> On the drop-down select "**H**" (hypothesis).
+> Again, this change causes the step to be automatically moved
+> above the goal.
+> Click on the label and rename it to `syl.2`.
+
+Notice that it's already ordered in a reasonable way.
+If you ever wanted to change the order of statements, you can select
+the step(s) to move using the left-hand-side check box, then
+move them up and down using the "up" and "down" icons.
+However, there's no need to reorder these statements.
+
+**Note**: Every hypothesis and goal label
+is also  database label, so it *must* be unique in the database.
+It cannot match a math symbol token (like `1`), assertion label,
+or hypothesis label.
+The convention in `set.mm`, as shown above, is for hypotheses to be labelled
+as the name of the goal + "." + an integer starting from 1.
+You don't have to worry about incorrect labels, though.
+Metamath-lamp validates labels you use
+(it currently hypotheses and
+[will soon validate goals](https://github.com/expln/metamath-lamp/issues/81)),
+and it will show an error message if the label
+is in use in the current context.
+
+#### Easy proof of `syl`
+
+Let's prove `syl` the easy way.
+Metamath-lamp's bottom-up proof tool can't automatically prove all
+proofs, but it *is* able to find some proofs automatically, especially
+when it can use many theorems that have already been proved.
+
+> Select just goal `syl`, and press
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+> Click on "Prove". The tool will soon reply with some options,
+> including one that uses `imim2i` and `ax-mp` that *completely*
+> proves the claim. Select that one (using the checkbox on its left)
+> and click on "Apply selected".
+
+Notice that metamath-lamp has added an intermediate step
+(with label "1") to prove this :
+
+`|- ( ( ph -> ps ) -> ( ph -> ch ) )`
+
+Also, note that this new step *and* the final goal
+`syl` have green checkmarks.
+The most important thing is that our final goal has a green checkmark,
+meaning the goal is fully proved!
+You can left-click on its green checkmark to get a final proof
+that could be used in a final database.
+
+#### Hard mode: Proving `syl` using only axioms
+
+If you thought that was too easy, let's make it more challenging.
+Let's prove `syl` using *only* axioms.
+Most people wouldn't create proofs with only axioms, but doing this
+will help us illustrate ways you can use metamath-lamp.
+In particular, we'll show you how to work backwards from a step.
+
+We'll start with our current state, including the intermediate step
+that metamath-lamp found.
+Now change the context so it only includes the axioms
+modus ponens (`ax-mp`) and the propositional logic axioms
+`ax-1`, `ax-2`, and `ax-3`, not anything after them:
+
+> Select at the top the context bar showing "Loaded:..." text.
+> Change its scope to "stop after" label `ax-3`.
+> Click "Apply changes".
+
+We now see an error after label 1, saying
+"*The label 'imim2i' doesn't refer to any assertion.*"
+
+> Click on the **P** of step 1 to reveal the specific reference that
+> it was using (erroneously) to justify this step's statement.
+
+It says `syl.2 : imim2i` which means that our claimed justification for
+step 1 was to use assertion `imim2i` with `syl.2` as its hypothesis.
+In our modified context we can't use `imim2i`, in fact, we can't use any
+assertion after `ax-3`.
+Let's eliminate this justification:
+
+> Under step 1 is its justification; click
+> on the trash can next to it to delete the justification.
+> Then click on **P** to hide the now-empty justification.
+
+Let's unify and see what happens:
+
+> Click on
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+
+The final `syl` step has a symbol "~"; this means that this particular
+step is justified on its own, but it depends on something else that
+is not transitively justified.
+You can click on the **P** marker after `syl` to see that `syl` depends
+on two other statements, `syl.1` and `1`, and uses `ax-mp` with
+those hypotheses to justify this step.
+This is a perfectly fine use of `ax-mp`, and `syl.1` is a hypothesis
+(so it's assumed true for its purposes).
+However, this justification depends on `1` which isn't currently proven.
+If you looked at this,
+click again on the **P** marker after `syl` to hide these details.
+
+Let's work on proving step `1`.
+Let's try backwards proof.
+
+> Select step 1 by clicking the checkbox to its left.
+> To start a backwards proof, press on
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+> Click on "Prove".
+
+The bottom-up prover will show us some options.
+It shows several ways to apply `ax-mp` (modus ponens), including
+cases where a hypothesis is directly used as one of the claims.
+Sometimes it's not clear which alternative (if any) is worth trying,
+in which case, you may need to try out different approaches to see
+if they lead anywhere.
+In this situation the direct applications of the hypothesis
+don't look to me like they're going to lead to a proof.
+So I'm going to select the option with a wff metavariable &amp;W1
+because that seems more promising.
+
+> Click on the option that includes &amp;W1 and use "Apply Selected".
+
+We now have these statements:
+
+~~~~
+3  P  |- ( &W1 -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
+2  P  |- &W1
+~~~~
+
+Statement 3 looks suspiciously like axiom `ax-2`, which states:
+
+~~~~
+( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
+~~~~
+
+Unfortunately, metamath-lamp's current unifier doesn't notice that
+these *can* be unified, so the bottom-up prover won't help us here.
+The tool `mmj2` *can* unify this statement
+with `ax-2` (mmj2 has a more powerful unifier).
+Unfortunately, metamath-lamp's current unifier is only unidirectional, that is,
+it can only substitute in one direction to find a match.
+In the technical literature the current metamath-lamp "unification"
+algorithm is often called "matching"
+instead of being considered full syntactic unification.
+There are some
+[discussions about removing this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77),
+but for now we'll need to work around this.
+
+With a little extra work we can give metamath-lamp the information it needs.
+Let's assume that we know we want to use `ax-2` to prove this.
+
+One approach would be replace the
+work variable "&amp;W1" with the expression required by `ax-2`, namely,
+`( ph -> ( ps -> ch ) )`.
+Here's how you could do that, but note that we're going to cancel
+instead of completing this step:
+
+> Press the
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
+> In "Replace what" use the value &amp;W1 and in
+> "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
+> Click "Find Substitution‡" button; metamath-lamp will
+> show one possible substitution‡.
+> You *could* click on the "Apply button and then unify, but don't;
+> select Cancel instead.
+
+That would have proven step 3 using ax-2.
+However, if the expressions were more complex it might be hard to
+make sure we were connecting them the right way.
+
+<!-- The following is based on
+https://drive.google.com/file/d/1KIr0eOEmH4VoIHOHFhqXwBn08h-xGicV/view?usp=sharing -->
+
+A more general approach would be to add the step we want to use, and then
+perform substitutions‡ until we can unify them.
+This is a better approach for more complicated situations, so let's see it.
+First, let's bring in a step that uses the assertion we wish to use
+(in this case `ax-2`):
+
+> Select the magnifying glass ("Search"), enter the label `ax-2` and
+> press "Search". Select `ax-2` and press "Choose Selected".
+
+We have added a new step 4, which uses `ax-2` but with work variables:
+
+~~~~
+|- ( ( &W3 -> ( &W4 -> &W2 ) ) -> ( ( &W3 -> &W4 ) -> ( &W3 -> &W2 ) ) )
+~~~~
+
+We are now going to modify steps 3 and 4 until metamath-lamp can
+unify them.
+The key feature we're going to use is that you can use the
+statement fragment selectors to *simultaneously* select two fragments,
+which may include *multiple* work variables, and
+then use "replace". Replace will use the two selected fragments, making
+this process *much* easier.
+
+> Use Alt+click to select, in step *4*, the last `->`.
+
+The statement fragment selector dialogue has appeared under step 4 and
+we now have this fragment selected:
+
+~~~~
+( ( &W3 -> &W4 ) -> ( &W3 -> &W2 ) )
+~~~~
+
+You could use the dialogue to
+increase or decrease the size of the fragment, but we don't need to.
+Now let's select the equivalent statement fragment in step 3:
+
+> Use Alt+click to select, in step *3*, the third `->`.
+
+Another fragment selector dialogue has appeared under step 3 and
+it has this fragment selected:
+
+~~~~
+( ( ph -> ps ) -> ( ph -> ch ) )
+~~~~
+
+If you didn't pick the right fragment, use alt+click again to get the
+correct selection.
+
+**Note**: you *can* select two fragments at the *same* time;
+you can also select two multiple statements.
+The ability to select two different fragments or two different
+statements simplifies replacement.
+
+Now we can use replacement:
+
+> Select the
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (sUbstitution‡).
+> The replacement dialogue will appear, with our selections
+> entered as the "Replace what" and "Replace with" entries.
+
+The two selected fragments have been copied into the fields.
+The earliest selected step is the "Replace what" and the
+later step is the "replace with"; in this case that's what we want.
+
+> Click on "Find substitution". Notice that it shows a valid substitution‡
+> that replaces multiple work variables.
+
+Again, notice that "Replace what" doesn't need to be a single work variable.
+It can be an expression, one that even includes multiple work variables.
+If there are multiple work variables, and you apply the change, all will be
+replaced as necessary throughout the proof.
+
+> Click on "apply". Notice that multiple work variables have been replaced.
+
+We now have these two statements:
+
+~~~~
+4 P |- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
+3 P |- ( &W1 -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
+~~~~
+
+Now let's do another replacement to make steps 3 and 4 even more similar.
+
+> Use Alt+click to select, in step *3*, the initial work variable &amp;W1
+> (only that work variable should be selected).
+> Use Alt+click to select, in step *4*, the first `->`.
+
+The second Alt+click highlighted this fragment in step 4:
+
+~~~~
+( ph -> ( ps -> ch ) )
+~~~~
+
+> Click on "Find substitution‡".
+
+Again the two fragments are copied in.
+However, in this case the order is the opposite of what we wanted,
+because we want to replace a work variable with an expression
+(not the other way around).
+The default is to use the earlier step first.
+In this case that's the opposite of what we wanted, so we'll
+swap them by pressing the
+icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
+to the right of the "replace what" field.
+
+> Press the
+> icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
+> to swap the field contents,
+> press "Find substitution‡", then apply.
+
+Now both steps 3 and 4 are the same:
+
+~~~~
+|- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
+~~~~
+
+In fact, metamath-lamp is complaining that the two statements are equal!
+That's not a problem, that's what we were trying to do.
+Let's merge them.
+
+> Select step 3 and click on the "merge" icon.
+> Among the "use" options select using 4 (which uses `ax-2`), so we can
+> keep the connection to `ax-2`.
+> Step 3 is gone, now it's all step 4.
+> Press on
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
+> to see we've fully proven step 4.
+
+We're getting close! Step 4 is proven, using ax-2.
+However, step 2 is not yet proven, so the whole proof isn't done.
+Select step 2, and do a bottom-up proof of it as well.
+
+> Select step 2, press on
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
+> and press "prove".
+> At the top it will show a use of `ac-mp` that proves all steps;
+> select it and "apply selected".
+
+Congratulations! We now have a proof of `syl` by *only* using
+axioms directly.
+
+Creating this proof by only using axioms let us try out some features
+of metamath-lamp. That said, most of the time you won't want
+to limit yourself to just axioms. Proofs are shorter, clearer, and
+easier to understand if you create theorems of more basic
+claims, and slowly build up from those simpler theorems
+to more complex claims. It's also much easier to create each proof.
+
+
 ### Proof: The reciprocal of the cotangent is tangent (`reccot`)
 
 Let's use metamath-lamp to create another proof, namely,
@@ -1426,385 +1986,6 @@ If there are intermediate steps you need to prove to lead to the goal,
 just apply the same process - repeatedly work to prove those
 intermediate steps.
 
-### Proof: Principle of the syllogism (`syl`)
-
-<!-- Put explorer tutorial text before this section, once that applies. -->
-
-Let's prove something more basic.
-Let's prove that if phi implies psi, and psi implies chi, then
-psi implies chi. In short, let's prove that implication is transitive.
-
-Russell and Whitehead call this claim "the principle of the syllogism";
-others sometimes call this law a "hypothetical syllogism".
-This has been
-[proved in the set.mm database as theorem `syl`](https://us.metamath.org/mpeuni/syl.html).
-
-This proof involves using hypotheses, so that means we'll
-learn how to create hypotheses in metamath-lamp.
-
-#### Setting up the context and goal step for syl
-
-Let's again load the `set.mm` database, and stop before `syl`:
-
-> Select Source type "Web", Alias "set.mm:latest"; after confirmation this
-> loads the given database.
-> Now under scope select "Stop before" and enter the label `syl`.
-> Finally, apply changes to the context.
-
-Now let's add the conclusion:
-
-> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
-> Enter
-> `|- ( ph -> ch )`
-> and press Enter (Return).
-> Click on the step label, change it to `syl`, and press Enter.
-
-However, this statement isn't always true; it's only true when
-*other* statements are true. Those other statements are termed
-"hypotheses"; let's add them.
-
-> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
-> Enter
-> `|- ( ph -> ps )`
-> and press Enter.
-> Metamath-lamp normally
-> presumes that a new step describes a provable statement
-> (that is, its step type is a "**P**"). However, this is a hypothesis instead.
-> Use Alt+left click to select the **P** on that line.
-> Note: on some keyboards "Alt" is labelled "Opt" or "Option".
-> On the drop-down select "**H**" (hypothesis).
-> Notice that changing a step into a hypothesis
-> automatically moves it above the goal.
-> Click on the label and rename it to `syl.1`.
-
-We now have a hypothesis! Let's add the other one:
-
-> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
-> Enter
-> `|- ( ps -> ch )`
-> and press Enter.
-> Use Alt+left click to select the **P** on that line.
-> On the drop-down select "**H**" (hypothesis).
-> Again, this change causes the step to be automatically moved
-> above the goal.
-> Click on the label and rename it to `syl.2`.
-
-Notice that it's already ordered in a reasonable way.
-If you ever wanted to change the order of statements, you can select
-the step(s) to move using the left-hand-side check box, then
-move them up and down using the "up" and "down" icons.
-However, there's no need to reorder these statements.
-
-**Note**: Every hypothesis and goal label
-is also  database label, so it *must* be unique in the database.
-It cannot match a math symbol token (like `1`), assertion label,
-or hypothesis label.
-The convention in `set.mm`, as shown above, is for hypotheses to be labelled
-as the name of the goal + "." + an integer starting from 1.
-You don't have to worry about incorrect labels, though.
-Metamath-lamp validates labels you use
-(it currently hypotheses and
-[will soon validate goals](https://github.com/expln/metamath-lamp/issues/81)),
-and it will show an error message if the label
-is in use in the current context.
-
-#### Easy proof of `syl`
-
-Let's prove `syl` the easy way.
-Metamath-lamp's bottom-up proof tool can't automatically prove all
-proofs, but it *is* able to find some proofs automatically, especially
-when it can use many theorems that have already been proved.
-
-> Select just goal `syl`, and press
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
-> Click on "Prove". The tool will soon reply with some options,
-> including one that uses `imim2i` and `ax-mp` that *completely*
-> proves the claim. Select that one (using the checkbox on its left)
-> and click on "Apply selected".
-
-Notice that metamath-lamp has added an intermediate step
-(with label "1") to prove this :
-
-`|- ( ( ph -> ps ) -> ( ph -> ch ) )`
-
-Also, note that this new step *and* the final goal
-`syl` have green checkmarks.
-The most important thing is that our final goal has a green checkmark,
-meaning the goal is fully proved!
-You can left-click on its green checkmark to get a final proof
-that could be used in a final database.
-
-#### Hard mode: Proving `syl` using only axioms
-
-If you thought that was too easy, let's make it more challenging.
-Let's prove `syl` using *only* axioms.
-Most people wouldn't create proofs with only axioms, but doing this
-will help us illustrate ways you can use metamath-lamp.
-In particular, we'll show you how to work backwards from a step.
-
-We'll start with our current state, including the intermediate step
-that metamath-lamp found.
-Now change the context so it only includes the axioms
-modus ponens (`ax-mp`) and the propositional logic axioms
-`ax-1`, `ax-2`, and `ax-3`, not anything after them:
-
-> Select at the top the context bar showing "Loaded:..." text.
-> Change its scope to "stop after" label `ax-3`.
-> Click "Apply changes".
-
-We now see an error after label 1, saying
-"*The label 'imim2i' doesn't refer to any assertion.*"
-
-> Click on the **P** of step 1 to reveal the specific reference that
-> it was using (erroneously) to justify this step's statement.
-
-It says `syl.2 : imim2i` which means that our claimed justification for
-step 1 was to use assertion `imim2i` with `syl.2` as its hypothesis.
-In our modified context we can't use `imim2i`, in fact, we can't use any
-assertion after `ax-3`.
-Let's eliminate this justification:
-
-> Under step 1 is its justification; click
-> on the trash can next to it to delete the justification.
-> Then click on **P** to hide the now-empty justification.
-
-Let's unify and see what happens:
-
-> Click on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
-
-The final `syl` step has a symbol "~"; this means that this particular
-step is justified on its own, but it depends on something else that
-is not transitively justified.
-You can click on the **P** marker after `syl` to see that `syl` depends
-on two other statements, `syl.1` and `1`, and uses `ax-mp` with
-those hypotheses to justify this step.
-This is a perfectly fine use of `ax-mp`, and `syl.1` is a hypothesis
-(so it's assumed true for its purposes).
-However, this justification depends on `1` which isn't currently proven.
-If you looked at this,
-click again on the **P** marker after `syl` to hide these details.
-
-Let's work on proving step `1`.
-Let's try backwards proof.
-
-> Select step 1 by clicking the checkbox to its left.
-> To start a backwards proof, press on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
-> Click on "Prove".
-
-The bottom-up prover will show us some options.
-It shows several ways to apply `ax-mp` (modus ponens), including
-cases where a hypothesis is directly used as one of the claims.
-Sometimes it's not clear which alternative (if any) is worth trying,
-in which case, you may need to try out different approaches to see
-if they lead anywhere.
-In this situation the direct applications of the hypothesis
-don't look to me like they're going to lead to a proof.
-So I'm going to select the option with a wff metavariable &amp;W1
-because that seems more promising.
-
-> Click on the option that includes &amp;W1 and use "Apply Selected".
-
-We now have these statements:
-
-~~~~
-3  P  |- ( &W1 -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
-2  P  |- &W1
-~~~~
-
-Statement 3 looks suspiciously like axiom `ax-2`, which states:
-
-~~~~
-( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
-~~~~
-
-Unfortunately, metamath-lamp's current unifier doesn't notice that
-these *can* be unified, so the bottom-up prover won't help us here.
-The tool `mmj2` *can* unify this statement
-with `ax-2` (mmj2 has a more powerful unifier).
-Unfortunately, metamath-lamp's current unifier is only unidirectional, that is,
-it can only substitute in one direction to find a match.
-In the technical literature the current metamath-lamp "unification"
-algorithm is often called "matching"
-instead of being considered full syntactic unification.
-There are some
-[discussions about removing this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77),
-but for now we'll need to work around this.
-
-With a little extra work we can give metamath-lamp the information it needs.
-Let's assume that we know we want to use `ax-2` to prove this.
-
-One approach would be replace the
-work variable "&amp;W1" with the expression required by `ax-2`, namely,
-`( ph -> ( ps -> ch ) )`.
-Here's how you could do that, but note that we're going to cancel
-instead of completing this step:
-
-> Press the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
-> In "Replace what" use the value &amp;W1 and in
-> "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
-> Click "Find Substitution‡" button; metamath-lamp will
-> show one possible substitution‡.
-> You *could* click on the "Apply button and then unify, but don't;
-> select Cancel instead.
-
-That would have proven step 3 using ax-2.
-However, if the expressions were more complex it might be hard to
-make sure we were connecting them the right way.
-
-<!-- The following is based on
-https://drive.google.com/file/d/1KIr0eOEmH4VoIHOHFhqXwBn08h-xGicV/view?usp=sharing -->
-
-A more general approach would be to add the step we want to use, and then
-perform substitutions‡ until we can unify them.
-This is a better approach for more complicated situations, so let's see it.
-First, let's bring in a step that uses the assertion we wish to use
-(in this case `ax-2`):
-
-> Select the magnifying glass ("Search"), enter the label `ax-2` and
-> press "Search". Select `ax-2` and press "Choose Selected".
-
-We have added a new step 4, which uses `ax-2` but with work variables:
-
-~~~~
-|- ( ( &W3 -> ( &W4 -> &W2 ) ) -> ( ( &W3 -> &W4 ) -> ( &W3 -> &W2 ) ) )
-~~~~
-
-We are now going to modify steps 3 and 4 until metamath-lamp can
-unify them.
-The key feature we're going to use is that you can use the
-statement fragment selectors to *simultaneously* select two fragments,
-which may include *multiple* work variables, and
-then use "replace". Replace will use the two selected fragments, making
-this process *much* easier.
-
-> Use Alt+click to select, in step *4*, the last `->`.
-
-The statement fragment selector dialogue has appeared under step 4 and
-we now have this fragment selected:
-
-~~~~
-( ( &W3 -> &W4 ) -> ( &W3 -> &W2 ) )
-~~~~
-
-You could use the dialogue to
-increase or decrease the size of the fragment, but we don't need to.
-Now let's select the equivalent statement fragment in step 3:
-
-> Use Alt+click to select, in step *3*, the third `->`.
-
-Another fragment selector dialogue has appeared under step 3 and
-it has this fragment selected:
-
-~~~~
-( ( ph -> ps ) -> ( ph -> ch ) )
-~~~~
-
-If you didn't pick the right fragment, use alt+click again to get the
-correct selection.
-
-**Note**: you *can* select two fragments at the *same* time;
-you can also select two multiple statements.
-The ability to select two different fragments or two different
-statements simplifies replacement.
-
-Now we can use replacement:
-
-> Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (sUbstitution‡).
-> The replacement dialogue will appear, with our selections
-> entered as the "Replace what" and "Replace with" entries.
-
-The two selected fragments have been copied into the fields.
-The earliest selected step is the "Replace what" and the
-later step is the "replace with"; in this case that's what we want.
-
-> Click on "Find substitution". Notice that it shows a valid substitution‡
-> that replaces multiple work variables.
-
-Again, notice that "Replace what" doesn't need to be a single work variable.
-It can be an expression, one that even includes multiple work variables.
-If there are multiple work variables, and you apply the change, all will be
-replaced as necessary throughout the proof.
-
-> Click on "apply". Notice that multiple work variables have been replaced.
-
-We now have these two statements:
-
-~~~~
-4 P |- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
-3 P |- ( &W1 -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
-~~~~
-
-Now let's do another replacement to make steps 3 and 4 even more similar.
-
-> Use Alt+click to select, in step *3*, the initial work variable &amp;W1
-> (only that work variable should be selected).
-> Use Alt+click to select, in step *4*, the first `->`.
-
-The second Alt+click highlighted this fragment in step 4:
-
-~~~~
-( ph -> ( ps -> ch ) )
-~~~~
-
-> Click on "Find substitution‡".
-
-Again the two fragments are copied in.
-However, in this case the order is the opposite of what we wanted,
-because we want to replace a work variable with an expression
-(not the other way around).
-The default is to use the earlier step first.
-In this case that's the opposite of what we wanted, so we'll
-swap them by pressing the
-icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
-to the right of the "replace what" field.
-
-> Press the
-> icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
-> to swap the field contents,
-> press "Find substitution‡", then apply.
-
-Now both steps 3 and 4 are the same:
-
-~~~~
-|- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
-~~~~
-
-In fact, metamath-lamp is complaining that the two statements are equal!
-That's not a problem, that's what we were trying to do.
-Let's merge them.
-
-> Select step 3 and click on the "merge" icon.
-> Among the "use" options select using 4 (which uses `ax-2`), so we can
-> keep the connection to `ax-2`.
-> Step 3 is gone, now it's all step 4.
-> Press on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
-> to see we've fully proven step 4.
-
-We're getting close! Step 4 is proven, using ax-2.
-However, step 2 is not yet proven, so the whole proof isn't done.
-Select step 2, and do a bottom-up proof of it as well.
-
-> Select step 2, press on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
-> and press "prove".
-> At the top it will show a use of `ac-mp` that proves all steps;
-> select it and "apply selected".
-
-Congratulations! We now have a proof of `syl` by *only* using
-axioms directly.
-
-Creating this proof by only using axioms let us try out some features
-of metamath-lamp. That said, most of the time you won't want
-to limit yourself to just axioms. Proofs are shorter, clearer, and
-easier to understand if you create theorems of more basic
-claims, and slowly build up from those simpler theorems
-to more complex claims. It's also much easier to create each proof.
-
 ### Creating your own examples from existing proofs
 
 An excellent way to learn how to use metamath-lamp is to select
@@ -1916,6 +2097,8 @@ Here we will discuss:
 * [Main tabs: Settings and Editor](#main-tabs-settings-and-editor)
 * [Editor tab](#editor-tab)
 * [Settings tab](#settings-tab)
+* [Explorer tab](#explorer-tab)
+* [Individual Assertion tab](#individual-assertion-tab)
 
 ### Loading source Metamath databases to create the proof context
 
@@ -2625,211 +2808,7 @@ The choice is yours.
 Most of the other settings should be fairly obvious, and in most
 cases you won't want to change them.
 
-## Future directions
-
-There are many ways the metamath-lamp tool could be expanded.
-Proposals are listed in its
-[issues](https://github.com/expln/metamath-lamp/issues)
-and proposed changes are listed in its
-[pull requests](https://github.com/expln/metamath-lamp/pulls).
-You can follow
-[commits in its `develop` branch](https://github.com/expln/metamath-lamp/commits/develop) and even try out the
-[development version of metamath-lamp application page (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
-
-In this section we'll cover some potential future directions.
-
-One small but important expected change is support for a "long click".
-Holding down the left mouse button or touch for a longer time
-(e.g., 500 milliseconds) is a "long click", and is considered the same
-as alt+left click. This small change means that smartphones will be
-able to access all of metamath-lamp's functionality.
-
-Another expected change is that the first created step will be
-specially marked as a "goal". Goals will be treated somewhat differently
-from other steps, to make the default behavior more convenient.
-
-A future version is likely to have an "explorer" tab to let you explore
-the contents of a database.
-Below is draft text describing this feature, which may give you glimpse.
-
-### Tutorial: A tour using the Explorer tab
-
-The tab bar lets you switch between tabs, and those tabs always include
- "Settings", "Editor", and "Explorer".
-The explorer tab lets us view the assertions (axioms and theorems)
-in the current loaded context.  Let's try out the Explorer tab.
-
-#### Loading a context for the explorer
-
-You need to have a context loaded before the explorer tab is useful.
-For our purposes we'll use the `set.mm` database.
-If you're continuing the tutorial, you've done that.
-
-However, if you're starting at this point, first load `set.mm` as the context:
-
-> Make sure we are loading from the web the file "set.mm:latest",
-> You can change the scope or not, your choice.
-> Then press "Apply changes" to apply this change.
-
-#### Trying out the explorer tab
-
-Let's try out the explorer tab:
-
-> Click on "Explorer" in the tab bar.
-
-The explorer view lets you see the various assertions
-(axioms and theorems) in the loaded database(s).
-The top of the explorer view lets you select what to view;
-by default all assertions are included.
-There are typically many assertions, so this is a paged view.
-
-After that begin the list of assertions (theorems and axioms).
-Each assertion shows its count, the type of assertion
-(theorem or axiom), and the assertion label in bold.
-The rest of the display shows a list of 0 or more hypotheses,
-each prefixed with large black circle "&#x2B24;".
-The final line of an assertion states what can be concluded
-via this assertion when its hypotheses are true.
-
-You can use the fragment selector to copy useful portions of any statement.
-Next to the name of each axiom or theorem is a ">" symbol which lets you
-expand or hide its description.
-
-Let's look at axiom `ax-mp`, which is probably assertion number 5
-in your display. Axiom `ax-mp` is called *modus ponens* and is well-known.
-Here is what it looks like in the explorer display:
-
-![Axiom ax-5 in the explorer tab](ax-5-explorer.png)
-
-Modus ponens has two hypotheses:
-
-* `|- ph` - that is, "when `ph` is true", and
-* `|- ( ph -> ps )` - that is, "when `ph` implies `ps`"
-
-Using axiom `ax-mp`, whenever those two hypotheses are true, you
-can prove "`ps` is true". Note that `ph` and `ps` are variables over
-any well-formed formula (wff) expression, that is, anything that
-is true or false; it's not limited to being replaced by just another variable.
-The axiom modus ponens can apply to many circumstances.
-
-If you select the label (aka name) of a theorem, a new tab will be created
-that shows details the proof of that theorem:
-
-![In explorer, expand a label to show its proof](explorer-expand-label.png)
-
-Let's try that out next.
-
-#### Viewing proof of `mp2`
-
-In the explorer view, scroll down to theorem `mp2`, and click on the
-*name* mp2. This will create a *new* tab that shows details about the
-proof of `mp2`.
-
-Many capabilities are available in a displayed proof.
-
-Again, you can use the fragment selector to
-copy useful portions of any statement.
-
-You can also "show types", which shows the proof that a given expression
-has the given correct types.
-Metamath proofs include proofs of the types of each expression;
-you can decide whether or not to see this.
-
-Clicking on a use of a hypothesis step label will move the display to that step.
-
-At the beginning of the statement is a small "+" (reveal/hide),
-where you can reveal or hide a visualization of that step.
-Try that out; the visualizations can make it easier to understand
-how Metamath proofs work.
-
-Clicking on a reference to an assertion will show an individual assertion tab
-of that assertion (creating the tab if necessary). That tab will provide
-detailed information about the assertion.
-
-#### Gaining an understanding on `set.mm`'s beginnings
-
-You can use the explorer to gain many insights into a database
-(and mathematics in general).
-In this section we'll walk through the first few assertions
-of `set.mm` to gain some understanding of it.
-If you're already familiar with `set.mm`, you can skip this section.
-
-Let's go back to the explorer tab:
-
-> Click on the "Explorer" text in the tab bar, and scroll to the top.
-
-Let's gain a brief understanding of the first theorems and axioms.
-We are entering the foundations of the foundations - the very basement -
-of the "typical" mathematics of classical logic and ZFC set theory.
-
-The first theorem we have is `a1ii`.
-It has two hypotheses and one conclusion, and
-all the statements begin with `|-` meaning "this is true".
-Theorem `a1ii` can be interpreted as saying that if some `ph` is true,
-and some `ps` is true, then that `ph` is true.
-This simply lets us restate truths; this is only useful in
-special technical situations, but it's hard to argue with the conclusion.
-
-Theorem `idi` is similar; it says that if some `ph` is true, then that
-`ph` is true.
-This also lets us restate truths; this is again only useful in
-special technical situations, but it's hard to argue with the conclusion.
-This theorem was contributed by Alan Sare, which you can see by clicking
-on the ">" next to the name. The names of people who formalized and
-proposed various statements are included in their description.
-
-Assertion 3 is our first axiom, but it's not an assertion of truth (`|-`),
-it's an assertion that something is a well-formed formula (`wff`).
-It says `wff -. ph`, that is, if some `ph` is a wff
-(an expression that is true or false), then
-`-. ph` is also a wff.
-The sequence `-.` represents "logical not", and this axiom
-allows us to use the sequence `-. ph` as a wff where `ph` is a wff.
-
-Assertion 4 is a similar axiom, stating that
-`( ph -> ps )` is a well-formed formula (`wff`).
-Notice the parentheses; since they are specified as part of the axiom allowing
-the use of `->`, the parentheses are required when using `->`.
-
-Assertion 5 is axiom `ax-mp`, aka modus ponens.
-If `ph` is true, and `ph` implies `ps`, then `ps` is true.
-
-The next 3 axioms define the axioms of propositional logic, that is,
-the fundamental rules for determining if something is true or false
-given other values that are true or false.
-These are the same as, for example, those of Margaris.
-
-Axiom `ax-1` is also called "Simp" or the "principle of simplification".
-It asserts that `|- ( ph -> ( ps -> ph ) )`.
-If you open the description you'll see that this formalization was
-contributed by "NM". "NM" stands for Norman Megill, the original
-creator of the Metamath system. As you can see, we try to give credit
-to those who take the time to formalize mathematics; we hope you'll
-eventually create proofs and get credit too!
-
-Axiom `ax-2` is also called "Frege".
-It asserts that
-`|- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )`
-This looks more complex than it is; it really just
-"distributes" an antecedent over two consequents.
-
-Axiom `ax-3` is also called "Transp".
-It asserts that
-`|- ( ( -. ph -> -. ps ) -> ( ps -> ph ) )`.
-
-Theorem `mp2` then proves a claim
-(a double modus ponens) using only previously-accepted assertions.
-
-There are many more theorems of course. We should briefly point out one,
-`syl`. The theorem `syl` proves that if `( ph -> ps )` and
-`( ps -> ch )`, then `( ph -> ch )`. This is one of the most
-commonly-used theorems in the entire `set.mm` database.
-
-These are very basic beginnings.
-What's extraordinary is that you can build up, assertion by assertion,
-to eventually completely prove complex mathematical ideas.
-
-### Reference Manual addition: Explorer tab
+### Explorer tab
 
 The explorer view lets you see the various assertions
 (axioms and theorems) in the loaded database(s).
@@ -2862,7 +2841,7 @@ If you select the label of an assertion, you will be brought
 to an individual assertion tab specific to that assertion.
 This tab will be dynamically created if it doesn't exist already.
 
-### Reference Manual addition: Individual Assertion tab
+### Individual Assertion tab
 
 The tab bar shows all the opened dynamically-created
 individual assertions.
@@ -2892,6 +2871,17 @@ where you can reveal or hide a visualization of that step.
 Clicking on a reference to an assertion will show an individual assertion tab
 of that assertion (creating the tab if necessary). That tab will provide
 detailed information about the assertion.
+
+## Future directions
+
+There are many ways the metamath-lamp tool could be expanded.
+Proposals are listed in its
+[issues](https://github.com/expln/metamath-lamp/issues)
+and proposed changes are listed in its
+[pull requests](https://github.com/expln/metamath-lamp/pulls).
+You can follow
+[commits in its `develop` branch](https://github.com/expln/metamath-lamp/commits/develop) and even try out the
+[development version of metamath-lamp application page (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
 
 ## Help, feedback, and contributions
 
