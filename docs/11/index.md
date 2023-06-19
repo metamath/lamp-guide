@@ -21,9 +21,9 @@ user guide (tutorial) and a reference guide. It includes:
 3. [User guide (tutorial)](#user-guide-tutorial)
    shows how to use the metamath-lamp tool, e.g., proving
    [2 + 2 = 4 (`2p2e4`)](#proof-2--2--4), the
-   [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot),
-   and the
-   [principle of the syllogism (`syl`)](#proof-principle-of-the-syllogism-syl).
+   [principle of the syllogism (`syl`)](#proof-principle-of-the-syllogism-syl),
+   and that the
+   [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
 4. [Reference manual](#reference-manual) explains each part of the
    user interface, e.g., the [Editor tab](#editor-tab).
 5. [Future directions](#future-directions) discusses
