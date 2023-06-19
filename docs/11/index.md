@@ -444,7 +444,7 @@ metamath-lamp's support for *statement fragments*.
 > Click (do *not* long-click) on the open parenthesis "(" to the left of "3"
 > in our new (duplicate) step.
 > This will open a statement fragment icon bar below the statement
-> and select `( 3 + 1 ) ` as a fragment.
+> and select `( 3 + 1 )` as a fragment.
 > If you didn't get the right fragment selected, just try again.
 
 A normal click on a symbol in a statement enables
