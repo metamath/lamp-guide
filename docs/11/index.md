@@ -100,6 +100,16 @@ then release.
 With a mouse you can also use a shortcut: hold the Alt key (sometimes
 labelled Opt or Option instead), then click with the mouse.
 
+Also:
+* To save an edit, use the
+  icon <img width="16" height="16" src="save.svg" alt="save"> (save)
+  or press Enter (Return).
+* To cancel an edit, use the
+  icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel)
+  or press Esc (Escape).
+* To delete something selected, use the
+  icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
+
 ## Sample Screenshot
 
 Here's a sample screenshot to give you an idea of what
@@ -1507,8 +1517,9 @@ means we need to erase the proof steps we have and change the context.
 Here's how to do that:
 
 > Select the checkbox on the editor bar above the field name "Description"
-> to select *all* steps. Select the trash can with an X
-> ("delete selected steps") to delete them all.
+> to select *all* steps. Click on
+> icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete)
+> to delete all the selected steps.
 > At the top of the browser window, select the drop-down arrow with the
 > "Loaded:..." text that hints at the context.
 > Make sure we are loading from the web the file "set.mm:latest",
@@ -2130,9 +2141,15 @@ There are various shortcuts. You can use the
 that is, a click edits the statement and a long-click enables
 statement fragment selection.
 
-On a keyboard the Enter key (sometimes labelled Return) accepts a
-change and/or selects the default, while the Esc (Escape) key cancels
-an action.
+Also:
+* To save an edit, use the
+  icon <img width="16" height="16" src="save.svg" alt="save"> (save)
+  or press Enter (Return).
+* To cancel an edit, use the
+  icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel)
+  or press Esc (Escape).
+* To delete something selected, use the
+  icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
 
 ### Loading source Metamath databases to create the proof context
 
