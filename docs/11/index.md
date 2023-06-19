@@ -161,7 +161,7 @@ If we included the existing proof, the prover
 would simply reuse that existing proof.
 
 When to tool starts it will say that
-"No Metamath database is laoded, please select a database to load."
+"No Metamath database is loaded, please select a database to load."
 
 > Under "Source type" select "Web", and under
 > Alias select "set.mm:latest".
@@ -341,7 +341,7 @@ Each step has a collection of information, shown left-to-right:
   A step label is sometimes informally called a step id or step name.
 * *Step type* (is this a goal **G**, hypothesis **H** or
   something else provable **P**?).
-* *Justification* (if any).
+* *Justification* (if any) - the reason the statement is true.
 * *Statement* (a claim, typically beginning with `|-`).
 
 In a completed proof, each step used in a proof must have a justification
@@ -919,14 +919,31 @@ any well-formed formula (wff) expression, that is, anything that
 is true or false; it's not limited to being replaced by just another variable.
 The axiom modus ponens can apply to many circumstances.
 
+#### A few set.mm symbols
+
+Proof statements' symbols use ASCII characters.
+Here are a few symbols and their meanings:
+
+* <tt>-&gt;</tt> represents "implies".
+  The left-hand-side of an implication is called
+  the antecedent; the right-hand-side of an implication is called the
+  consequent.
+* `ph`, `ps`, `ch`, etc. represent the Greek letters &phi;, &psi;, and &chi;.
+  These are variables that represent an arbitrary expression with a value
+  of either true or false. 
+* <tt>-.</tt> means logical not; if what follows is true then the result
+  is false, if what follows is false then the result is true.
+
+See [common set.mm symbols](#common-set-mm-symbols) for more.
+
+#### Viewing proof of `mp2`
+
 If you select the label (aka name) of a theorem, a new tab will be created
 that shows details the proof of that theorem:
 
 ![In explorer, expand a label to show its proof](explorer-expand-label.png)
 
-Let's try that out next.
-
-#### Viewing proof of `mp2`
+Let's try that out now.
 
 In the explorer view, scroll down to theorem `mp2`, and click on the
 *name* mp2. This will create a *new* tab that shows details about the
@@ -1071,8 +1088,8 @@ Now let's add the conclusion:
 > and press Enter (Return).
 > Click on the step label, change it to `syl`, and press Enter.
 
-However, this statement isn't always true; it's only true when
-*other* statements are true. Those other statements are termed
+However, this statement isn't always true; it's only necessarily true when
+some *other* statements are true. Those other statements are termed
 "hypotheses". Let's add some hypotheses.
 
 > In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
@@ -1085,7 +1102,7 @@ However, this statement isn't always true; it's only true when
 > Long-click on the **P** on that line.
 > On the drop-down select "**H**" (hypothesis) instead to change it
 > to a hypothesis.
-> Click on the label and rename it to `syl.1`.
+> Long-click on its label and rename it to `syl.1`.
 
 We now have a hypothesis! Let's add the other one:
 
@@ -1097,26 +1114,30 @@ We now have a hypothesis! Let's add the other one:
 > On the drop-down list select "**H**" (hypothesis).
 > Again, this change causes the step to be automatically moved
 > above the goal.
-> Click on the label and rename it to `syl.2`.
+> Long-click on the label and rename it to `syl.2`.
 
 Notice that it's already ordered in a reasonable way.
 If you ever wanted to change the order of statements, you can select
 the step(s) to move using the left-hand-side check box, then
-move them up and down using the "up" and "down" icons.
-However, there's no need to reorder these statements.
+use the
+icon <img width="16" height="16" src="up.svg" alt="up"> (up)
+and the
+icon <img width="16" height="16" src="down.svg" alt="down"> (down)
+to change their order.
+In this case, there's no need to reorder these statements.
 
 **Note**: Every hypothesis and goal label
-is also a database label, so they *must* be unique if they are
-inserted into a final database.
+is also a database label, so they *must* be unique in the database
+they will be inserted into.
 These labels cannot match a math symbol token (like `1`), assertion label,
 or hypothesis label.
 The convention in `set.mm`, as shown above, is for hypotheses to be labelled
-as the name of the goal + "." + an integer starting from 1.
+as the name of the goal + `.` + an integer starting from 1.
 Metamath-lamp validates labels you use
 (it currently hypotheses and
 [will soon validate goals](https://github.com/expln/metamath-lamp/issues/81)),
 and it will show an error message if the label
-is in use in the current context.
+is already in use in the current context.
 
 #### Easy proof of `syl`
 
@@ -1125,12 +1146,12 @@ Metamath-lamp's bottom-up proof tool can't automatically prove all
 proofs, but it *is* able to find some proofs automatically, especially
 when it can use many theorems that have already been proved.
 
-> Select just goal `syl`, and click on
+> Select just the goal `syl`, and click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Press on "Prove". The tool will soon reply with some options,
 > including one that uses `imim2i` and `ax-mp` that *completely*
 > proves the claim. Select that one (using the checkbox on its left)
-> and click on "Apply selected".
+> and press on "Apply selected".
 
 Notice that metamath-lamp has added an intermediate step
 (with label "1") to prove this :
@@ -1164,9 +1185,9 @@ In particular, we'll show you how to work backwards from a step.
 
 We'll start with our current state, including the intermediate step
 that metamath-lamp found when we were doing things the easy way.
-Now change the context so it only includes the axioms
+Now change the context so that it includes the axioms
 modus ponens (`ax-mp`) and the propositional logic axioms
-`ax-1`, `ax-2`, and `ax-3`, not anything after them:
+`ax-1`, `ax-2`, and `ax-3`, and *not* anything after them:
 
 > Select at the top the context bar showing "Loaded:..." text.
 > Change its scope to "stop after" label `ax-3`.
@@ -1175,13 +1196,12 @@ modus ponens (`ax-mp`) and the propositional logic axioms
 We now see an error after label 1, saying
 "*The label 'imim2i' doesn't refer to any assertion.*"
 
-> Click on the **P** of step 1 to reveal the specific reference that
-> it was using (erroneously) to justify this step's statement.
-
-It says `syl.2 : imim2i` which means that our claimed justification for
+The problem is that its justification still says
+`syl.2 : imim2i` which means that our claimed justification for
 step 1 was to use assertion `imim2i` with `syl.2` as its hypothesis.
 In our modified context we can't use `imim2i`, in fact, we can't use any
 assertion after `ax-3`.
+
 Let's eliminate this justification:
 
 > Long-click on the now-invalid justification
@@ -1203,7 +1223,7 @@ on two other statements, `syl.1` and `1`, and uses `ax-mp` with
 those hypotheses to justify this step.
 This is a perfectly fine use of `ax-mp`, and `syl.1` is a hypothesis
 (so it's assumed true for its purposes).
-However, this justification depends on `1` which isn't currently proven.
+However, this justification depends on step `1` which isn't currently proven.
 
 ##### Working backwards on syl
 
@@ -1366,7 +1386,7 @@ which may include *multiple* work variables, and
 then use "replace". Replace will use the two selected fragments, making
 this process *much* easier.
 
-> Use a long-click to select, in step *4*, the last `->`.
+> Use a click to select, in step *4*, the last `->`.
 
 The statement fragment selector dialogue has appeared under step 4 and
 we now have this fragment selected:
@@ -1379,7 +1399,7 @@ You could use the dialogue to
 increase or decrease the size of the fragment, but we don't need to.
 Now let's select the equivalent statement fragment in step 3:
 
-> Use a long-click to select, in step *3*, the third `->`.
+> Use a click to select, in step *3*, the third `->`.
 
 Another fragment selector dialogue has appeared under step 3 and
 it has this fragment selected:
@@ -1426,9 +1446,9 @@ We now have these two statements:
 
 Now let's do another replacement to make steps 3 and 4 even more similar.
 
-> Use a long-click to select, in step *3*, the initial work variable &amp;W1
+> Use a click to select, in step *3*, the initial work variable &amp;W1
 > (only that work variable should be selected).
-> Use a long-click to select, in step *4*, the first `->`.
+> Use a click to select, in step *4*, the first `->`.
 
 The second long-click highlighted this fragment in step 4:
 
@@ -1607,6 +1627,8 @@ It illustrates several symbols in the set.mm database:
   the <tt>tan(A)</tt> notation used by others
   but without context-dependent notational ambiguity.
 
+See [common set.mm symbols](#common-set-mm-symbols) for more information.
+
 #### Deciding on a proof strategy for `reccot`
 
 Now we need to figure out how to prove this goal.
@@ -1642,7 +1664,7 @@ In this case it finds a statement named `tanval` (value of the tangent).
 
 The default search pattern language is very simple.
 A pattern should consist of a space-separated sequence of one or more symbols
-(currently only constants and typecodes are allowed).
+(currently only constants and typecodes like *class* are allowed).
 Statements will only be considered matches if their conclusion part has
 the same constants in the same order, with optionally 1 or more other
 symbols before the pattern, between the requested symbols,
@@ -1782,7 +1804,7 @@ An easy way to modify the new step's statement is to
 use metamath-lamp's mechanisms for copying and pasting
 portions of text (aka "[fragment selectors](#fragment-selectors)").
 
-> Using long-click, select the *second* parenthesis of the *goal*
+> Click on the *second* parenthesis of the *goal*
 > statement. This will smartly select a syntactically complete portion
 > of the statement and bring up a fragment selector dialogue
 > below the statement.
@@ -1828,13 +1850,13 @@ antecedent of the goal.
 > Click on the checkbox to the left of the expression using `cot`.
 > Click on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
-> Using long-left click, select the *second* parenthesis of the *goal*
+> Click on the *second* parenthesis of the *goal*
 > statement to select the antecedent of the goal.
 > Let's copy this statement fragment into the clipboard.
 > Click on the
 > icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy)
 > under the goal statement.
-> Now use long-click on the second parenthesis of the new statement
+> Now click on the second parenthesis of the new statement
 > we just created, selecting its antecedent.
 > Click on the
 > icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit),
@@ -1991,7 +2013,7 @@ one we just created but has the *exact* same antecedent as the goal.
 ~~~~
 
 > Duplicate the step.
-> Use long-click to click on the *second* parentheses of the goal statement
+> Click on the *second* parentheses of the goal statement
 > (so we can duplicate its antecedent) and click on the "copy" icon.
 > Now click on the second parenthesis of our new statement,
 > click on the
@@ -2138,6 +2160,7 @@ Here we will discuss:
 * [Settings tab](#settings-tab)
 * [Explorer tab](#explorer-tab)
 * [Individual Assertion tab](#individual-assertion-tab)
+* [Common set.mm symbols](#common-set-mm-symbols)
 
 ### Basic UI conventions
 
@@ -2956,6 +2979,57 @@ where you can reveal or hide a visualization of that step.
 Clicking on a reference to an assertion will show an individual assertion tab
 of that assertion (creating the tab if necessary). That tab will provide
 detailed information about the assertion.
+
+### Common set.mm symbols
+
+Here are some common symbols defined in `set.mm`.
+
+#### Variables
+
+* `A`, `B`, `C`, and any other uppercase Latin letter is a variable
+  that represents an arbitrary expression of a class.
+  All sets are classes, not all classes are sets.
+  By convention we start with `A` unless there's a reason to do otherwise.
+* `ph`, `ps, `ch`, etc. represent the Greek letters &phi;, &psi;, and &chi;.
+  These are variables that represent an arbitrary expression with a value
+  of either true or false. 
+* `x`, `y`, `z`, etc., are variables that represent a set variable.
+
+#### Logical operators
+
+* `->` represents "implies". The left-hand-side of an implication is called
+  the antecedent; the right-hand-side of an implication is called the
+  consequent.
+* <tt>-.</tt> means logical not; if what follows is true then the result
+  is false, if what follows is false then the result is true.
+* <tt>/&#96;</tt>
+  represents logical "and", that is, if both sides of it are true
+  tnen the result is true (otherwise it's false).
+* <tt>&#96;/</tt> represents logical "or", that is, if either side is true
+  tnen the result is true (otherwise it's false).
+* <tt>&#92;/</tt> represent "and". It's not used here, but
+  <tt>/&#92;</tt> represents "or".
+
+#### Relations
+
+* `=` represents "is equal to"; the left and right sides must be classes.
+* `=/=` represents "not equal to".
+* `e.` represents "is a member of"; so `A e. B` is how we write
+  "A &isin; B". The expression <tt>A e. CC</tt> means "A is a complex number".
+
+#### Other symbols
+
+* `CC` represents the set of all complex numbers.
+* `/` represents complex number division.
+* The form <tt>( FUNCTION &#96; ARGUMENT )</tt>
+  applies function FUNCTION to ARGUMENT, that is, it determines the
+  value of the function for that argument.
+  Therefore <tt>( tan &#96; A )</tt> is the tangent of `A`.
+  This left apostrophe notation originated from Peano and was adopted in
+  *Principia Mathematica* by Whitehead and Russell, Quine, and others.
+  This notation means the same thing as
+  the <tt>tan(A)</tt> notation used by others
+  but without context-dependent notational ambiguity.
 
 ## Future directions
 
