@@ -1,6 +1,6 @@
 # Metamath-lamp Guide: User Guide (Tutorial) and Reference Manual
 
-*by [David A. Wheeler](https://dwheeler.com))*
+*by [David A. Wheeler](https://dwheeler.com)*
 
 Metamath-lamp (Lite Assistant for Metamath Proofs) is
 a proof assistant for creating formal
