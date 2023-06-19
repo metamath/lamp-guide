@@ -2886,9 +2886,9 @@ Settings tab are *not* applied until you select
 
 One setting in particular that you might want to change involves
 how to interpret left click.
-Should you edit statements with *left click* -
-and thus select statements using *Alt + left click*? Or the reverse?
+Should you edit statements with a *click* or a *long-click*?
 The choice is yours.
+By default, editing statements uses a long-click.
 
 Most of the other settings should be fairly obvious, and in most
 cases you won't want to change them.
