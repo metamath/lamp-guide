@@ -77,9 +77,9 @@ To use metamath-lamp, do the following:
    forwards towards the goal, or in whatever other order makes sense to you.
 5. Copy the compressed proof of the goal into the clipboard.
    You can do this by selecting the green checkmark next to the goal
-   to show the compressed proof, then press copy.
-   You'd typically copy that compressed proof into a Metamath database
-   (text file).
+   to show the compressed proof, then press the copy button.
+   You'd typically copy the compressed proof text into a Metamath database
+   (which is a text file).
 
 Throughout metamath-lamp there are various tooltips.
 So if you use a mouse and hover over an interactive item,
@@ -2486,9 +2486,16 @@ Each step is presented in the following left-to-right order:
   "**G**" if the statement is a goal (a special kind of provable statement).
   Typically all hypothesis are listed first and the goal is shown last.
   for the proved step (if any).
+  Use click to reveal the justification (if it's hidden).
   Use long-click to change (edit) the step type.
+* Justification: This justifies why some statement is true.
+  For hypotheses this is "HYP".
+  For provable and goal statements, this has the form "*hyps*:*ref*",
+  where *hyps* is a space-separated list of previous step's labels that
+  are being used in the justification and *ref* is a reference to an
+  axiom or theorem in the current context.
 * Statement: This is the statement to be proven or is being
-  accepted as hypothesis.
+  accepted as a hypothesis.
   In most cases this statement will start
   with `|-` (meaning "it is true that..."), followed by a space-separated
   sequence of symbols of the statement to be proved. An example of a statement
@@ -2501,9 +2508,7 @@ Each step is presented in the following left-to-right order:
   to save the edited statement, or the
   icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel)
   to not change the statement.
-  You can also select *parts* of a statement; by default you can do this
-  by using long-click.
-  For more about selecting parts (fragments) of a statement,
+  You can also select *parts* of a statement;
   see the next section on [fragment selectors](#fragment-selectors).
 
 #### Fragment selectors
@@ -2514,26 +2519,25 @@ make selecting *parts* of a statement very easy, especially in the presence
 of parentheses-like constructs. This mechanism is called a
 *fragment selector*.
 
-By default, Alt+left click on a statements causes a fragment selector
+By default, clicking on a symbol in a statement causes a fragment selector
 dialogue to appear and makes a selection based on the selected symbol.
-On some Mac keyboards "alt" is labelled "opt" or "option".
-If you'd prefer a different mechanism, use the settings tab to change this.
 
 Exactly what fragment is selected depends on the symbol you choose.
 If you select a parentheses-like symbol, it selects the expression
 that begins or ends with that symbol.
-If you select an infix symbol, it selects the expression immediately
+If you select an infix relationship symbol,
+it selects the expression immediately
 surrounding the infix symbol.
 
-You can use the fragment selector dialogue as follows:
+Once you select a fragment you can change selection.
+Clicking on the
+icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection)
+will expands the selected sequence of symbols, while
+the
+icon <img width="16" height="16" src="zoomoutmap.svg" alt="shrink"> (shrink selection)
+will shrink the selected sequence of symbols.
 
-> To get an idea of what the fragment selector dialogue can do,
-> press on the leftmost icon
-> icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection),
-> which expands the selected sequence of symbols.
-> Now select the
-> icon <img width="16" height="16" src="zoomoutmap.svg" alt="shrink"> (shrink selection),
-> which shrinks the selected sequence of symbols.
+Here is the full set of icons in the fragment selection bar:
 
 | Icon | Meaning | Visual Description | Additional information |
 | ---- | ------- | ------------------ | ---------------------- |
@@ -2563,11 +2567,16 @@ any special hypotheses to use. To do that:
   "it is true that".
   Click on its step number if you want to rename the step name (typically
   this is named "qed" if you don't have a better name).
-* If there are hypotheses, press "+" to enter each one, and select the "P"
-  using Alt+left click (or Opt+left click) to change "P" (provable assertion)
-  into "H" (hypothesis). Put them in the intended order by selecting them
-  (the box on the left) and selecting the up and down icons.
-  You generally want the goal last.
+  By default the step added when there are currently no steps
+  is assigned the step type **G** (goal) - a special kind of provable
+  statement that by default is kept at the end of the list of steps.
+* If there are hypotheses, click on the
+  icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement),
+  enter the statement text, and then long-click on the **P**.
+  Change "**P**" (provable assertion)
+  into "**H**" (hypothesis). Put them in the intended order by selecting them
+  (the box on the left) and clicking on the up and down icons.
+  You may want to rename the labels of the hypotheses.
 
 You're now ready to create a proof.
 
@@ -2625,7 +2634,7 @@ because the conclusion has a `0` constant which is later followed by a
 
 #### Replacement
 
-Select the
+Click on the
 icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
 to replace one
 expression with another expression.
