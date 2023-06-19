@@ -488,20 +488,22 @@ step at the same time; this is useful, for example, when doing a
 In this case, we'll change `( 3 + 1 )` to 4:
 
 > Click on the
-> icon <img width="32" height="32" src="edit.svg" alt="edit"> (edit)
-> to begin editing the statement with the fragment selected.
-> Type "4". Typing text will immediately replace the selected text,
+> icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit)
+> in the newly-revealed statement fragment icon bar.
+> This will begin editing the statement with the fragment selected.
+> Type `4` - note that entering text will immediately replace the selected text,
 > in this case `( 3 + 1 )`.
 > Now press Enter (Return).
 
 We now have a new step with the statement
-`|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`. Let's unify to see if the
+`|- 4 = ( ( 2 + 1 ) + 1 )`. Let's unify to see if the
 tool can find a proof for this claim.
 
 > Press the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
-This will produce a green checkmark next to all the steps
+This will produce a green checkmark next our new step.
+We have green checkmarks next to all the steps
 except our final `2p2e4` step.
 
 #### Expanding the meaning of ( 2 + 2 )
