@@ -176,9 +176,9 @@ configure the tool so it uses less display space.
 We need to tell metamath-lamp our goal.
 So we're going to add a statement and type in our goal statement.
 
-> In the Editor select the
+> In the Editor click on the
 > icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
-> Don't try to select the similar
+> Don't try to click on the similar
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> as
 > that would try to create a duplicate (the tool won't let you do that anyway).
 > Enter
@@ -356,7 +356,7 @@ expanding and simplifying the
 results to show that what we want to prove is correct.
 Let's take that approach.
 
-#### Expanding the meaning of 4
+#### Expanding the definition of 4
 
 In this case, we want to prove that something is 4, so the definition
 of 4 would probably be useful.
