@@ -1063,7 +1063,7 @@ Now let's add the conclusion:
 
 However, this statement isn't always true; it's only true when
 *other* statements are true. Those other statements are termed
-"hypotheses"; let's add them.
+"hypotheses". Let's add some hypotheses.
 
 > In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 > Enter
@@ -1072,11 +1072,9 @@ However, this statement isn't always true; it's only true when
 > Metamath-lamp normally
 > presumes that a new step describes a provable statement
 > (that is, its step type is a "**P**"). However, this is a hypothesis instead.
-> Use Alt+left click to select the **P** on that line.
-> Note: on some keyboards "Alt" is labelled "Opt" or "Option".
-> On the drop-down select "**H**" (hypothesis).
-> Notice that changing a step into a hypothesis
-> automatically moves it above the goal.
+> Long-click on the **P** on that line.
+> On the drop-down select "**H**" (hypothesis) instead to change it
+> to a hypothesis.
 > Click on the label and rename it to `syl.1`.
 
 We now have a hypothesis! Let's add the other one:
@@ -1085,8 +1083,8 @@ We now have a hypothesis! Let's add the other one:
 > Enter
 > `|- ( ps -> ch )`
 > and press Enter.
-> Use Alt+left click to select the **P** on that line.
-> On the drop-down select "**H**" (hypothesis).
+> Use long-click to select the **P** on that line.
+> On the drop-down list select "**H**" (hypothesis).
 > Again, this change causes the step to be automatically moved
 > above the goal.
 > Click on the label and rename it to `syl.2`.
@@ -1098,12 +1096,12 @@ move them up and down using the "up" and "down" icons.
 However, there's no need to reorder these statements.
 
 **Note**: Every hypothesis and goal label
-is also  database label, so it *must* be unique in the database.
-It cannot match a math symbol token (like `1`), assertion label,
+is also a database label, so they *must* be unique if they are
+inserted into a final database.
+These labels cannot match a math symbol token (like `1`), assertion label,
 or hypothesis label.
 The convention in `set.mm`, as shown above, is for hypotheses to be labelled
 as the name of the goal + "." + an integer starting from 1.
-You don't have to worry about incorrect labels, though.
 Metamath-lamp validates labels you use
 (it currently hypotheses and
 [will soon validate goals](https://github.com/expln/metamath-lamp/issues/81)),
@@ -1131,21 +1129,24 @@ Notice that metamath-lamp has added an intermediate step
 
 Also, note that this new step *and* the final goal
 `syl` have green checkmarks.
+
 The most important thing is that our final goal has a green checkmark,
 meaning the goal is fully proved!
-You can left-click on its green checkmark to get a final proof
-that could be used in a final database.
 
 #### Hard mode: Proving `syl` using only axioms
 
 If you thought that was too easy, let's make it more challenging.
 Let's prove `syl` using *only* axioms.
-Most people wouldn't create proofs with only axioms, but doing this
+Most people wouldn't create proofs with only axioms,
+but some people find this to be an interesting challenge.
+We're going to do this because it
 will help us illustrate ways you can use metamath-lamp.
 In particular, we'll show you how to work backwards from a step.
 
+##### Switch from our current state to hard mode
+
 We'll start with our current state, including the intermediate step
-that metamath-lamp found.
+that metamath-lamp found when we were doing things the easy way.
 Now change the context so it only includes the axioms
 modus ponens (`ax-mp`) and the propositional logic axioms
 `ax-1`, `ax-2`, and `ax-3`, not anything after them:
@@ -1166,9 +1167,11 @@ In our modified context we can't use `imim2i`, in fact, we can't use any
 assertion after `ax-3`.
 Let's eliminate this justification:
 
-> Under step 1 is its justification; click
-> on the trash can next to it to delete the justification.
-> Then click on **P** to hide the now-empty justification.
+> Long-click on the now-invalid justification
+> `syl.2 : imim2i` so that we can change it.
+> We really just want to get rid of it, so click on the
+> icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
+> to delete the justification.
 
 Let's unify and see what happens:
 
@@ -1178,14 +1181,14 @@ Let's unify and see what happens:
 The final `syl` step has a symbol "~"; this means that this particular
 step is justified on its own, but it depends on something else that
 is not transitively justified.
-You can click on the **P** marker after `syl` to see that `syl` depends
+You can see that `syl` depends
 on two other statements, `syl.1` and `1`, and uses `ax-mp` with
 those hypotheses to justify this step.
 This is a perfectly fine use of `ax-mp`, and `syl.1` is a hypothesis
 (so it's assumed true for its purposes).
 However, this justification depends on `1` which isn't currently proven.
-If you looked at this,
-click again on the **P** marker after `syl` to hide these details.
+
+##### Working backwards on syl
 
 Let's work on proving step `1`.
 Let's try backwards proof.
@@ -1203,10 +1206,68 @@ in which case, you may need to try out different approaches to see
 if they lead anywhere.
 In this situation the direct applications of the hypothesis
 don't look to me like they're going to lead to a proof.
-So I'm going to select the option with a wff metavariable &amp;W1
+
+I'm going to select the option with a work variable &amp;W1
 because that seems more promising.
 
 > Click on the option that includes &amp;W1 and use "Apply Selected".
+
+We haven't seen work variables before; let's explain them.
+
+#### Interlude: Work variables
+
+The symbols beginning with "&amp;" are what's called "work variables".
+Work variables often show up when creating proofs.
+The fundamental issue is that although a theorem or axiom may use a variable
+(such as `A`), those variables can be replaced with other expressions
+of the same type when they are used.
+In cases where metamath-lamp cannot be certain of exactly what you want, it
+will create work variables that you can then replace (substitute)
+with whatever you *do* want (as long as they're the same type).
+
+When using `set.mm` or `iset.mm`, you'll see work variables of certain forms:
+
+* &amp;W<i>number</i> : an expression that is a well-formed formula (wff),
+  in short, some value that is true or false.
+  This could be a variable that is a wff, such as
+  `ph` (the ASCII representation for "&#x1D711;"),
+  `ps` (for "&#x1D713;"),
+  `ch` (for "&#x1D712;"), or
+  `th` (for "&#x1D703;").
+  But it could be any other wff expression, such as `ph /\ ps`.
+* &amp;C<i>number</i> : an expression that is a class.
+  Any set is a class, though not all classes are sets.
+  This could be a variable that is a class, such as
+  `A`, `B`, `C`, and so on. It could also be an expression that is a class,
+  such as <tt>( sin &#96; A )</tt>.
+* &amp;S<i>number</i> : a set variable.
+  This represents a variable that represents a set, such as `x`, `y`, or `z`.
+  This can't be an expression (class variables are used in this case).
+  Set variables can show up immediately after quantifiers; requiring them
+  to be a variable ensures that they are syntactically valid.
+
+In work variables the number will increase from 1 as needed to keep
+different work variables distinct..
+
+If you look carefully you'll see that the "Variables" field in the
+proof display has new information once work variables are added.
+The "Variables" field shows a label, type, and name.
+The variables field is helpful when proofs get long, because
+it will show you in one place what work variables are not currently handled.
+
+Metamath-lamp can export proofs with work variables
+(they will be treated like local variables and defined in the generated proof).
+However, many in the Metamath community would not accept this
+into a Metamath database, so in most cases you should change work variables
+to something else before exporting a proof.
+
+In many cases you'd use the
+icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
+to replace
+the work variables with symbols or expressions so we can complete
+the proof.
+
+#### Replacing some work variables
 
 We now have these statements:
 
@@ -1250,7 +1311,7 @@ instead of completing this step:
 > Click "Find Substitution‡" button; metamath-lamp will
 > show one possible substitution‡.
 > You *could* click on the "Apply button and then unify, but don't;
-> select Cancel instead.
+> select the "Cancel" button instead.
 
 That would have proven step 3 using ax-2.
 However, if the expressions were more complex it might be hard to
@@ -1260,8 +1321,12 @@ make sure we were connecting them the right way.
 https://drive.google.com/file/d/1KIr0eOEmH4VoIHOHFhqXwBn08h-xGicV/view?usp=sharing -->
 
 A more general approach would be to add the step we want to use, and then
-perform substitutions‡ until we can unify them.
-This is a better approach for more complicated situations, so let's see it.
+perform substitutions‡ until we can merge them together.
+This is a better approach for more complicated situations, because
+then the tool can help us track what we're trying to accomplish and
+tell us when we succeeded.
+So let's see it!
+
 First, let's bring in a step that uses the assertion we wish to use
 (in this case `ax-2`):
 
@@ -1369,6 +1434,8 @@ to the right of the "replace what" field.
 > to swap the field contents,
 > press "Find substitution‡", then apply.
 
+#### Handling the duplication in syl
+
 Now both steps 3 and 4 are the same:
 
 ~~~~
@@ -1386,6 +1453,8 @@ Let's merge them.
 > Press on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > to see we've fully proven step 4.
+
+#### Completing syl in hard mode
 
 We're getting close! Step 4 is proven, using ax-2.
 However, step 2 is not yet proven, so the whole proof isn't done.
@@ -1406,7 +1475,6 @@ to limit yourself to just axioms. Proofs are shorter, clearer, and
 easier to understand if you create theorems of more basic
 claims, and slowly build up from those simpler theorems
 to more complex claims. It's also much easier to create each proof.
-
 
 ### Proof: The reciprocal of the cotangent is tangent (`reccot`)
 
@@ -1562,64 +1630,15 @@ and therefore it's undefined when the cosine of A equals zero.
 > While still in the search dialogue, select the box next to `tanval`.
 > and press "Choose Selected".
 
-#### Interlude: Work variables
+#### Interlude: Work variables in reccot
 
-We have a new step, as expected. However, it has a form we haven't
-seen before:
+We have a new step, as expected. This one has work variables,
+in this case class work variables:
 
 ~~~~metamath
 |- ( ( &C1 e. CC /\ ( cos ` &C1 ) =/= 0 ) ->
    ( tan ` &C1 ) = ( ( sin ` &C1 ) / ( cos ` &C1 ) ) )
 ~~~~
-
-The symbols beginning with "&amp;" are what's called "work variables".
-Work variables often show up when creating proofs.
-The fundamental issue is that although a theorem or axiom may use a variable
-(such as `A`), those variables can be replaced with other expressions
-when they are used.
-In this case,
-the original `tanval` showed what the results are when `A` is the argument,
-but we aren't limited to using `A`; we can use any expression that
-produces a class.
-In cases where metamath-lamp cannot be certain of exactly what you want, it
-will create work variables that you can then replace (substitute)
-with whatever you *do* want.
-
-When using `set.mm` or `iset.mm`, you'll see work variables of certain forms:
-
-* &amp;W<i>number</i> : an expression that is a well-formed formula (wff),
-  in short, some value that is true or false.
-  This could be a variable that is a wff, such as
-  `ph` (the ASCII representation for "&#x1D711;"),
-  `ps` (for "&#x1D713;"),
-  `ch` (for "&#x1D712;"), or
-  `th` (for "&#x1D703;").
-  But it could be any other wff expression, such as `ph /\ ps`.
-* &amp;C<i>number</i> : an expression that is a class.
-  Any set is a class (though not all classes are sets).
-  This could be a variable that is a class, such as
-  `A`, `B`, `C`, and so on. It could also be an expression that is a class,
-  such as <tt>( sin &#96; A )</tt>.
-* &amp;S<i>number</i> : a set variable.
-  This represents a variable that represents a set, such as `x`, `y`, or `z`.
-  This can't be an expression (class variables are used in this case).
-  Set variables can show up immediately after quantifiers; requiring them
-  to be a variable ensures that they are syntactically valid.
-
-In work variables the number will increase from 1 as needed to keep
-different work variables distinct..
-
-If you look carefully you'll see that the "Variables" field in the
-proof display has new information.
-What it's saying is that there's a work variable of type "class"
-with the name "&amp;C1". This field is helpful when proofs get long, because
-it will show you in one place what work variables are not handled.
-
-Metamath-lamp can export proofs with work variables
-(they will be treated like local variables and defined in the generated proof).
-However, many in the Metamath community would not accept this
-into a Metamath database, so in most cases you should change work variables
-to something else before exporting a proof.
 
 As we'll see in a moment, we'll use the
 icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
@@ -1742,41 +1761,20 @@ portions of text (aka "[fragment selectors](#fragment-selectors)").
 > of the statement and bring up a fragment selector dialogue
 > below the statement.
 
-The fragment selector dialogue has icons to smartly expand the selection,
-shrink the selection, add a new step above with that selection,
-add a new step below with that selection,
-copy the selected text to the clipboard, edit that text,
-and unselect (close the fragment selector dialogue).
-
-> To get an idea of what the fragment selector dialogue can do,
-> press on the leftmost icon
-> icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection),
-> which expands the selected sequence of symbols.
-> Now select the
-> icon <img width="16" height="16" src="zoomoutmap.svg" alt="shrink"> (shrink selection),
-> which shrinks the selected sequence of symbols.
-> Note that the tool is selecting the symbols based on the
-> syntax of the symbols, to the next larger or smaller but syntactically
-> valid sequence.
-
-You can even have fragment selectors enabled on more than one step.
-This makes it easy to pre-select fragments and then press the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
-to fill in both the "Replace what" and "Replace with" fields.
-
 In this case, we want to make a copy of the selected
 text in the goal, then paste that into
 the relevant section of the new statement.
 
 > Press the icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy to clipboard)
 > under the goal statement.
-> Now use Alt+left click on the second parenthesis of the new statement
+> Long-click on the second parenthesis of the new statement
 > we just created, selecting its antecedent.
 > Press the
 > icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit),
 > then use your system's paste command
 > ("control-V" on most computers, "command-V" on Macintoshes) to overwrite
 > the selected text with the text in the clipboard.
+> On smartphones use a long-click in the selected edit region and select paste.
 > Press Enter (Return) to save the modified statement.
 
 We now have a new statement, showing value of a tangent is still
@@ -1794,10 +1792,6 @@ It turns out that metamath-lamp can immediately prove this new step.
 > in the icon editor bar above the steps. Note that the new
 > step now has a green checkmark.
 
-You can click on any bold **P** to show the justification for each
-step with a green checkmark; press the same bold **P** again
-to hide the justification.
-
 #### Matching the goal's antecedent for cotangent
 
 Let's do the same thing with the definition of the value of the
@@ -1813,7 +1807,7 @@ antecedent of the goal.
 > Press the
 > icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy)
 > under the goal statement.
-> Now use Alt+left click on the second parenthesis of the new statement
+> Now use long-click on the second parenthesis of the new statement
 > we just created, selecting its antecedent.
 > Press the
 > icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit),
@@ -2100,12 +2094,45 @@ That includes some capabilities that might not be obvious.
 
 Here we will discuss:
 
+* [Basic UI conventions](#basic-ui-convenctions)
 * [Loading source Metamath databases to create the proof context](#loading-source-metamath-databases-to-create-the-proof-context)
 * [Main tabs: Settings and Editor](#main-tabs-settings-and-editor)
 * [Editor tab](#editor-tab)
 * [Settings tab](#settings-tab)
 * [Explorer tab](#explorer-tab)
 * [Individual Assertion tab](#individual-assertion-tab)
+
+### Basic UI conventions
+
+A click, aka a short click or short tap,
+lets you select a button,
+reveal information, toggle a display, or select some information.
+
+In this document we use the term "click" to mean
+either a click with the left mouse button *or* a tap on a touchscreen.
+A click with a mouse involves moving the mouse cursor to point to the
+object to be manipulated, pressing the left mouse button down, and then
+immediately releasing the left mouse button.
+A tap on a touchscreen is considered equivalent to a click; it involves
+briefly pressing the object on the screen and immediately releasing the
+press.
+
+**Edits generally require a long-click by default**.
+There are multiple ways to do a long-click.
+Using a mouse, you can press down on the mouse, wait a second, then release.
+Using a touchscreen, you can press down on the screen, wait a second,
+then release.
+With a mouse you can also use a shortcut: hold the Alt key (sometimes
+labelled Opt or Option instead), then click with the mouse.
+
+There are various shortcuts. You can use the
+[settings tab](#settings-tab) so that on statements the meaning is swapped,
+that is, a click edits the statement and a long-click enables
+statement fragment selection.
+
+On a keyboard the Enter key (sometimes labelled Return) accepts a
+change and/or selects the default, while the Esc (Escape) key cancels
+an action.
 
 ### Loading source Metamath databases to create the proof context
 
