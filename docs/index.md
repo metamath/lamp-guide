@@ -7,7 +7,7 @@ Unlike most other Metamath proof systems,
 such as mmj2 or metamath-exe (the first Metamath proof assistant),
 users can use this proof assistant without installing anything.
 Instead, you can start using metamath-lamp
-by using your web browser to view the
+by using your web browser, including your smartphone web browser, to view the
 **[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**.
 
 This is a guide for metamath-lamp, including both a
@@ -35,19 +35,21 @@ Metamath-lamp is a new proof assistant for creating Metamath proofs.
 As a result, it currently lacks some planned functionality such as
 undo/redo, [full syntactic unification](#unification),
 and some of the automation rules included in other tools
-like mmj2. There are also no doubt some inconsistencies in its UI due
-to its newness.
+like mmj2.
 That said, metamath-lamp already provides useful functionality,
 including some automation support.
 It can also run directly in your web browser with no additional installation,
+including on a smartphone,
 which some may find compelling.
 We hope you'll find it useful.
 
-Note that metamath-lamp changes over time, so some of this guide
+Note that metamath-lamp improves over time, so some of this guide
 may not exactly match what you see. If you see a difference, please
 let us know so we can fix this guide. We try to make this guide
 match the tool it's describing.
-This guide was written for release version 10.
+This guide was written for release version 11.
+You can also see the older guide for
+[version 10](10/index.html).
 
 The latest version of this
 [*Metamath-lamp guide*](https://lamp-guide.metamath.org/)
@@ -57,7 +59,8 @@ is always available at
 
 ## Quick start
 
-You don't need to install anything to run metamath-lamp.
+You don't need to install anything to run metamath-lamp, and
+it works on personal computers and smartphones.
 To start metamath-lamp, use your web browser to view the
 **[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**.
 
@@ -80,18 +83,23 @@ To use metamath-lamp, do the following:
    (text file).
 
 Throughout metamath-lamp there are various tooltips.
-So if you hover over an interactive item,
+So if you use a mouse and hover over an interactive item,
 in most cases the tool will provide a brief
 explanation of what that item does.
-You don't need to memorize this guide!
+You don't need to memorize this guide.
 
-This software works on many different systems which have different conventions.
-On some Macintosh keyboards the "Enter" key is instead labelled "Return" and
-the "Alt" key is instead labelled "Opt" or "Option".
-On a touchscreen (like a smartphone), a quick touch and release on a UI
-control is the same as a left click.
-Metamath-lamp has some actions that are quickly accessed using Alt+left click
-(hold down the Alt aka Opt key, and while holding it use left click).
+We'll use the term "click" to mean
+either a click with the left mouse button *or* a tap on a touchscreen.
+A short click (or short tap) lets you reveal information,
+toggle a display, or select some information.
+
+**Edits generally require a long-click by default**.
+There are multiple ways to do a long-click.
+Using a mouse, you can press down on the mouse, wait a second, then release.
+Using a touchscreen, you can press down on the screen, wait a second,
+then release.
+With a mouse you can also use a shortcut: hold the Alt key (sometimes
+labelled Opt or Option instead), then click with the mouse.
 
 ## Sample Screenshot
 
@@ -135,28 +143,41 @@ proof of 2 + 2 = 4, which in this database is named `2p2e4`.
 If we included the existing proof, the prover
 would simply reuse that existing proof.
 
-> Select Source type "Web", Alias "set.mm:latest"; after confirmation this
-> loads the given database.
-> Now under scope select "Stop before" and enter the label `2p2e4`.
-> Finally, apply changes to the context.
+When to tool starts it will say that
+"No Metamath database is laoded, please select a database to load."
 
-#### Setting the goal for `2p2e4`
+> Under "Source type" select "Web", and under
+> Alias select "set.mm:latest".
+> After confirmation this will download the selected database.
+> Under "Scope" change "Read all" into "Stop before"
+> enter the label `2p2e4` and select it from the dropdown menu.
 
-For this example we'll leave the proof description, variables, and disjoints
-blank. We do need to tell metamath-lamp our goal.
+We'll use the term "click" to mean
+either a click with the left mouse button *or* a tap on a touchscreen.
+A normal click or tap lets you do many things like apply buttons,
+reveal information, toggle a display, and select some information.
+We'll also sometimes say "press" to mean the same thing.
+
+> Finally, click on the "Apply Changes" button to accept the selected context.
+
+#### Setting the goal statement for `2p2e4`
+
+We need to tell metamath-lamp our goal.
+So we're going to add a statement and type in our goal statement.
 
 > In the Editor select the
-> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
+> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 > Don't try to select the similar
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> as
-> that would try to create a duplicate. There are no steps
-> to duplicate so the tool will not let you do that anyway.
+> that would try to create a duplicate (the tool won't let you do that anyway).
 > Enter
 > `|- ( 2 + 2 ) = 4`
 > and press Enter (Return) to save the result.
 
 Be sure to surround each symbol by at least one space (the first
 and last symbols can start and end the statement).
+If you make a mistake, it will show an error;
+you can then long-click on the statement to edit it.
 
 The set.mm database has strict rules about parentheses.
 For example, set.mm requires that infix functions like "+"
@@ -169,14 +190,21 @@ For now, if you encounter an error while repeating
 the first example, please re-check if you typed in all the
 statements exactly as per the example.
 
+#### Setting the goal label for `2p2e4`
+
+Metamath-lamp assumes by default that the first step you add is the
+final goal.
+Thus, this step shows a bold **G** (meaning that this is the goal)
+and it's given the goal's default label `qed`.
+
 For our purposes, we're going to rename the label of our goal.
 Renaming the label of the goal (or any other step) is
 not required by metamath-lamp. You could instead just continue using the
 label metamath-lamp suggested. But renaming some of the steps
-(especially the goal) makes them easier to distinguish for you
-and eventually this name will appear in the final generated proof.
-If you don't know what else to name the goal, we suggest using the name
-`qed` to reduce confusion.
+(especially the goal) makes them easier to distinguish for you.
+Also, the label of the goal
+will appear in the final generated proof, so it's best to at least rename
+the goal.
 
 In general, if you plan to eventually add this proof to the
 `set.mm` or `iset.mm`
@@ -187,12 +215,37 @@ including the
 In this case, the conventional name for this goal would be
 `2p2e4`.
 
+But now we need to learn a general rule about the metamath-lamp
+user interface:
+
+**Edits generally require a long-click**.
+
+There are multiple ways to do a long-click.
+Using a mouse, you can press down on the mouse, wait a second, then release.
+Using a touchscreen, you can press down on the screen, wait a second,
+then release.
+With a mouse you can also use a shortcut: hold the Alt key (sometimes
+labelled Opt or Option instead), then click with the mouse.
+There are a few shortcuts, and you can use *Settings* to change some
+defaults, but for now let's use the default configuration.
+
 So let's rename this goal step to `2p2e4`:
 
-> Left click the label of the first step
-> (you have to click directly on the number "1"
-> to the left of the first step).
-> Change the name of the step from "1" to `2p2e4` and press Enter (Return).
+> Long-click on the label of the first step, which is currently named `qed`.
+> Change the name of the step from `qed` to `2p2e4` and press Enter (Return).
+
+#### Setting the description for `2p2e4`
+
+It's not required, but it's often useful to have a description.
+Let's set one.
+
+> Long-click on box to the right of the word "Description".
+> When it opens for editing, enter the text `Prove that 2 + 2 = 4.`
+> Press Enter (Return).
+
+Metamath-lamp has many shortcuts.
+For example, you can also edit fields by clicking on the name of the
+field (e.g., by clicking on "Description").
 
 #### Interlude: Brief review of metamath-lamp user interface
 
@@ -217,27 +270,27 @@ The editor command icon bar shows many different icons;
 each icon represents a command you can use to modify a proof.
 We've already used one icon, the icon
 <img width="16" height="16" src="add.svg" alt="add">
-that adds a new statement‡ and looks like a "+".
+that adds a new statement and looks like a "+".
 The reference manual section
 [Editor command icon bar](#editor-command-icon-bar) discusses each
 icon and the command it performs in more detail.
 You can hover over an icon to see what the command is.
 
-Here are the icons in the edit icon bar and the commands they perform:
+Here's a list of the icons in the edit icon bar and the commands they perform:
 
 | Icon | Meaning | Visual Description | Additional information |
 | ---- | ------- | ------------------ | ---------------------- |
-| <img width="32" height="32" src="checkbox.svg" alt="checkbox"> | Select all | Checkbox | Select or deselect all current statements‡ |
-| <img width="32" height="32" src="down.svg" alt="down"> | Down | Down arrow | Move the selected statements‡ down the list |
-| <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected statements‡ up the list |
-| <img width="32" height="32" src="add.svg" alt="add"> | Add new statement‡ | Plus sign | Type in the new statement |
-| <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected statements‡ | Trash can | |
-| <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement‡ | Circles behind "+" | Makes a copy of the selected statement‡ |
-| <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar statements‡ | Merge | Select one statement‡ |
-| <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new statements‡ by searching for a pattern; see [search patterns](#search-patterns) |
+| <img width="32" height="32" src="checkbox.svg" alt="checkbox"> | Select all | Checkbox | Select or deselect all current steps |
+| <img width="32" height="32" src="down.svg" alt="down"> | Down | Down arrow | Move the selected steps down the list |
+| <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected steps up the list |
+| <img width="32" height="32" src="add.svg" alt="add"> | Add new statement | Plus sign | Type in the new statement |
+| <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected steps | Trash can | |
+| <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement | Circles behind "+" | Makes a copy of the selected statement |
+| <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
+| <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
 | <img width="32" height="32" src="replacement.svg" alt="replacement"> | Substitution‡ | A with arrow | Apply a substitution‡ (aka replacement) to all statements; se [replacement](#replacement) |
-| <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all statements‡ or unify selected provable bottom-up.  If no statements‡ are selected, attempt to unify everything.  If one statement‡ is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
-| <img width="32" height="32" src="menu.svg" alt="menu"> | Menu | 3 short horizontal lines aka hamburger | Menu of other actions
+| <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all steps or unify selected provable bottom-up.  If no steps are selected, attempt to unify everything.  If one statement is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
+| <img width="32" height="32" src="menu.svg" alt="menu"> | Menu | 3 horizontal lines aka hamburger | Menu of other actions
 
 Under the editor command icon bar is basic information about the proof
 (such as its description) and steps for the proof.
@@ -247,18 +300,19 @@ Every step has a box on its far left, which lets you select
 
 **Terminology**: A proof is a series of one or more *steps*.
 A valid proof must have at least one step (the *goal*).
-Each step has a collection of information, such as its *label*
-(to identify it),
-*step type* (is this a hypothesis or something provable?),
-*justification* (if any), and *statement*
-(typically beginning with `|- ...`).
-In a completed proof, each step must be a
-hypothesis or justified to be true.
-A step label is sometimes informally called a step id or step name.
-The tool UI sometimes says "statement" when it means "step".
-To make things clearer, we'll add a "‡" symbol after the
-word "statement" or "statements" when we really mean "step" or "steps",
-so that the words we show are consistent with the UI.
+Each step has a collection of information, shown left-to-right:
+
+* *Checkbox* to show if the step is selected.
+* *Label* (to identify it).
+  A step label is sometimes informally called a step id or step name.
+* *Step type* (is this a goal **G**, hypothesis **H** or
+  something else provable **P**?).
+* *Justification* (if any).
+* *Statement* (a claim, typically beginning with `|- ...`).
+
+In a completed proof, each step used in a proof must have a justification
+(that is, it's either a hypothesis, or it references
+an axiom or theorem, possibly using previous steps as its hypotheses).
 The term "substitution" also has multiple meanings; we will use
 "substitution‡" when we mean the replacement menu operation
 (instead of the fundamental Metamath operation called substitution).
@@ -294,11 +348,12 @@ of 4 would probably be useful.
 We'll search for the definition of 4 so we can add it to our
 list of steps.
 
-> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search);
+> Select the
+> icon <img width="16" height="16" src="search.svg" alt="search"> (search);
 > under pattern enter
 > `4 =` and click on Search.
 > Select the step labelled `df-4` and press "Choose Selected".
-> You will now have a new step with a label of 1:
+> You will now have a new step with a label of 1 and this statement:
 > `|- 4 = ( 3 + 1 )`
 
 Notice that in each step,
@@ -307,22 +362,25 @@ to the right of the label and the left of the statement
 This bold letter **P** is the step type; the **P**
 means that this step is intended to be *provable*.
 In some cases you'll want a step to be a
-*hypothesis* instead being *provable*.
+*hypothesis* (something assumed) instead being *provable*.
 You can select the **P** with Alt+left click to change it to
 to an **H** (hypothesis) or back to **P** (provable).
 We aren't going to use any hypotheses
 in this proof, so we won't do that for now.
+The first step we created has the step type **G** (goal);
+the goal is a special type of provable statement.
 
 This definition of 4 depends on the definition of 3, so let's add
 the definition of 3 as well.
 Note that `df-4` is the definition of 4; this suggests a naming convention,
 so we can probably just use the naming convention to find it.
 
-> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search);
+> Select the
+> icon <img width="16" height="16" src="search.svg" alt="search"> (search);
 > in the "label" field
 > enter `df-3` and click on Search.
 > Select the step labelled `df-3` and press "Choose Selected".
-> You will now have a new step with a label of 2:
+> You will now have a new step with a label of 2 and with this statement:
 > `|- 3 = ( 2 + 1 )`
 
 We can connect the definition of 4 using the definition 3 by simply
@@ -332,26 +390,21 @@ can find a justification that proves this is correct (in this case it can).
 In fact, if each step makes very small changes, metamath-lamp can
 sometimes prove many statements automatically.
 
-We don't want to add this step as the *last* step,
-so we'll select the last step before adding it (so we'll
-insert that step before it).
-
-> Select the checkbox to the left of the `2p2e4` goal statement.
-> Then press
-> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
-> Notice that because a step was selected, the new step will
-> be inserted before `2p2e4`.
+> Click on the
+> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 > Enter, for this new step, the statement
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
 > and press Enter (Return).
-> Unselect the checkbox to the left of the `2p2e4` label.
 > Now, while no steps are selected, press
-> press the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Since there
 > was no specific step selected, it will try to justify all steps.
-> Metamath-lamp will succeed in finding a justification for our new step,
-> so it will show a green checkmark next to our new step.
+
+Metamath-lamp will succeed in finding a justification for our new step,
+so it will show a green checkmark next to our new step.
+The justification it will show is `2 : oveq1i`, which means that it can
+justify this new statement by applying theorem `oveq1i` and providing step 2
+as the hypothesis required by `oveq1i`.
 
 We could later on connect this proof of `( 3 + 1 )` to the number 4.
 However, in a more complex proof we might forget that we were trying
@@ -360,18 +413,25 @@ So let's "clean up" now by directly proving that this term is an
 expansion of a symbol in the goal. Instead of typing it all in, we'll
 use the "duplicate" command to get us started:
 
-> Select the checkbox to the left of the new step
+> Select the checkbox to the left of the new step 3 stating
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
 > and press the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate).
-> This will create a duplicate step below the current one.
-> Click on the new statement text, and change `( 3 + 1 )` to 4; once you have
+
+This will create a duplicate step (labelled 4)
+below the selected step (labelled 3).
+The tool will also complain that there's a duplicate.
+Let's fix that.
+
+> Long-click on the new statement text to edit it,
+> and change `( 3 + 1 )` to 4; once you have
 > `|- 4 = ( ( 2 + 1 ) + 1 )`
 > press Enter (Return).
 > Press the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
-> which will produce a green checkmark next to all the steps
-> except our final `2p2e4` step.
+> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+
+This will produce a green checkmark next to all the steps
+except our final `2p2e4` step.
 
 #### Expanding the meaning of ( 2 + 2 )
 
@@ -380,8 +440,9 @@ of relationship. A common technique to create proofs is to expand
 the definitions of terms and then show that their expansions are equivalent.
 We've already expanded `4`, let's now expand `2`.
 
-> Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search);
-> in the "label" field
+> Select the
+> icon <img width="16" height="16" src="search.svg" alt="search"> (search).
+> In the "label" field
 > enter `df-2` and click on Search.
 > Select the step labelled `df-2` and press "Choose Selected".
 > You will now have a new step with this statement:
@@ -396,24 +457,26 @@ Let's try that.
 > Select the checkbox to the left of the new statement
 > `|- 2 = ( 1 + 1 )` and then press the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate).
-> Modify the new statement so it is
+> Use long-click on the new statement and modify it so that it is
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )`
 > and press Enter (Return).
 
-While editing this statement you may find some parenthesis appear
+While editing this statement you may find some parentheses appear
 automatically in unwanted places.
-This is actually intended to be a handy feature
-when writing new statements.
-But when editing existing ones it might be redundant.
+This is intended to be a handy feature
+when writing new statements,
+but sometimes when editing it doesn't help.
 Please remove unwanted parentheses and make sure the statement
 looks exactly as in the example.
 
 > Now press the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
 > Since there
-> was no specific step selected, it will try to justify all steps
-> Metamath-lamp will succeed in finding a justification for our new step,
-> so it will show a green checkmark next to our new statement.
+> was no specific step selected, it will try to justify all steps.
+
+Metamath-lamp will succeed in finding a justification for our new step,
+so it will show a green checkmark next to our new statement
+and its justification (`5 : oveq2i` in this case).
 
 #### Showing these expansions are equal
 
@@ -422,13 +485,21 @@ equal to very similar expressions. If we could prove that those expressions
 are equal to each other, we could trivially prove our goal.
 Let's try to do that.
 
-> Select the checkbox to the left of the `2p2e4` goal step.
+> Select the checkbox of the `2p2e4` goal step.
 > Select the
-> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
+> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
+
+**Bug**
+Currently this duplicates the **G** type.
+
+> On the new step, long-click on **G** and turn it into **P** (provable).
+
+Now let's edit the new statement.
+
+> Long-click on the statement of the new step.
 > Enter the new statement
 > `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`
 > and press Enter (Return).
-> Unselect the `2p2e4` step.
 > As an experiment, select the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > while there's no step selected;
@@ -438,7 +509,8 @@ Let's try to do that.
 It's actually true that
 `( ( 2 + 1 ) + 1 )` is equal to `( 2 + ( 1 + 1 ) )`.
 That's because addition is associative
-(you can do the first or second addition first and the result is the same).
+(you can start with either the first or second addition
+and the result is the same).
 The Metamath database in this context already has a proof that
 addition is associative, too.
 
@@ -464,19 +536,24 @@ the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > and press the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > A new dialogue will display titled "Proving bottom-up".
-> This will enable up to search for a solution backwards from our
-> currently-selected step using the context and previous
-> steps that will help us prove the selected step.
-> These dialogue options control how metamath-lamp will search for a proof
-> of the selected step's statement.
-> For now, we'll just accept the defaults and press the
-> "Prove" button at the bottom of the dialogue.
-> After a moment it will present a list, and one of the first options
-> (probably the first one) should use `addassi`.
-> The theorem `addassi` is a pre-existing theorem showing that
-> addition is associative.
-> This requires multiple lines, because using this associativity
-> theorem requires showing that `1` and `2` are complex numbers.
+
+This will enable up to search for a solution backwards from our
+currently-selected step using the context and previous
+steps that will help us prove the selected step.
+These dialogue options control how metamath-lamp will search for a proof
+of the selected step's statement.
+
+For now, we'll just accept the defaults.
+
+> press the "Prove" button at the bottom of the dialogue.
+
+After a moment it will present a list, and one of the first options
+(probably the first one) should use `addassi`.
+The theorem `addassi` is a pre-existing theorem showing that
+addition is associative.
+This requires multiple lines, because using this associativity
+theorem requires showing that `1` and `2` are complex numbers.
+
 > Use the checkbox to its
 > left to select that one, then press the "Apply Selected" button.
 
@@ -484,9 +561,6 @@ Suddenly a lot has happened.
 We now have new steps that have been automatically added to our proof,
 namely that `1 e. CC` (`1` is a complex number) and `2 e. CC`
 (`2` is a complex number).
-
-> Now, without any steps selected, press the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 We now have a green checkmark next to all our steps, showing
 that all steps are have been proven.
@@ -502,20 +576,48 @@ mark a step with a green checkmark meaning it is proved.
 The short answer is that the green checkmark means that
 metamath-lamp is able to find, for that step,
 a specific theorem or axiom that justifies the claim
-(as well as recursively all of its justifications).
+(as well as recursively all of its justifications), possibly
+using steps previous to that step.
 In a moment we will be looking at the proof steps (in more detail) to
 gain a better understanding.
-Before we do, let's briefly talk about how to generate and import information.
+
+Before we do, let's briefly clean things up, and then
+talk about how to generate and import information.
+
+#### Renumbering steps
+
+The step labels are mostly arbitrary, but it's sometimes
+convenient to have them in order. Let's renumber the numbered steps.
+
+> Click the 
+> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
+> and select "Renumber steps".
+
+The menu shows many less-used commands.
+This specific command
+will renumber the step labels that are non-negative integers
+Step labels don't need to be non-negative integers
+(e.g., `2p2e4`); those steps will keep their labels as-is.
 
 #### Getting the completed proof
 
 We can now show the compressed proof.
 This is the final proof we can add to a Metamath database.
 
-> Select the green checkmark (*not* "P") on the `2p2e4` goal step.
->
+> Long-click the green checkmark (*not* "P") on the `2p2e4` goal step.
+
+This shows the compressed proof. You can use checkboxes to
+also show the proof table, or to show the proof tables with just the
+essentials (not showing the syntax proofs that expressions have the
+correct type).
+
 > You can select "Copy" to copy the compressed proof into the clipboard.
 > Press "Close"
+
+You can also bring up this dialogue by selecting the goal step,
+selecting the 
+icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
+and selecting "Show completed proof".
 
 #### Exporting and importing your current state
 
@@ -529,7 +631,7 @@ This lets you share details of a proof, even one that isn't complete.
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
 > on the top right of the display.
 
-This will show several ways to export and import your
+This menu includes several ways to export and import your
 current state:
 
 * "Export to URL": Provides a URL. You or anyone else
@@ -546,38 +648,38 @@ In Metamath, *every* step of a valid completed proof must be an
 application of an axiom, proven theorem, or previously-proven step.
 Metamath-lamp shows when it can verify this for a step
 (after unification) by displaying a green checkmark.
+It will also fill in the "justification" text.
 
-Let's look at how metamath-lamp can justify some steps.
-We'll start with the claim that
+For example, let's look at what is now step 4,
 `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )`:
 
-> Left-click on the **P** next to
-> `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the display
-> its justification.
-
-You will show a list of referenced labels that are being used,
-colon, and `oveq2i`. This means that this particular
+Near this step you'll see a number, a colon, and `oveq2i`.
+This means that this particular
 step is justified (proven) by using the already
-accepted theorem `oveq2i` when applied to those labelled steps.
-Advanced users can edit this to force metamath-lamp to
+accepted theorem `oveq2i` when applied to that labelled step.
+Advanced users can edit this (with a long-click) to force metamath-lamp to
 try to use a different justification.
-You can also press the
+While editing you can press the
 icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
 next to the justification
-to delete it (e.g., because it uses a step no longer in
-your proof, or because you want to prove it some other way).
+to delete entirely, e.g.,
+because you want to prove it some other way.
 
 But what does this justification *mean*?
 
 Metamath-lamp can provide a visualization to show you what
-it means. So let's enable it.
+it means. This only works when the tool has
+verified that justification and thus shows a green check.
+So let's first use unify to make sure what we want to visualize is proven.
 
-> Left-click on the
-> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
-> on the top right of the display and select
-> "Visualization is Off".
-> You will see that now "Visualization is On"; left-click
-> outside the region to close the menu.
+> While no step is selected,
+> press the
+> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+
+> Left-click on the green checkmark or the step label
+> for the step showing `oveq2i`
+> (this is probably step 4).
+> Remember, this needs to be a short click, not a long click.
 
 You should see a visualization like this:
 
@@ -607,7 +709,7 @@ This means we can use `oveq2i` to justify the final claim,
 We can also hide justifications (including the visualization)
 any time.
 
-> Left-click on the **P** next to
+> Left-click on the green checkmark or step label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
 > display of its justification; since the justification
 > is currently displayed, this will hide it.
@@ -616,7 +718,7 @@ Let's do the same thing with the statement that
 uses associativity,
 `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`,
 
-> Left-click on the **P** next to
+> Left-click on green checkmark or label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
 > display of its justification, revealing it.
 
@@ -627,7 +729,7 @@ as you can see are met.
 
 Let's end its display.
 
-> Left-click on the **P** next to
+> Left-click on the green checkmark or step label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
 > display of its justification, hiding it again.
 
@@ -653,6 +755,9 @@ to move them down.
 > and press the
 > icon <img width="16" height="16" src="up.svg" alt="up"> (up) -
 > the step will move up.
+> Press the
+> icon <img width="16" height="16" src="up.svg" alt="up"> (down)
+> to move it back.
 
 Metamath-lamp will display error messages if steps
 are moved to make them depend on steps that
@@ -690,7 +795,7 @@ Here's how to do that:
 
 > Select the checkbox on the editor bar above the field name "Description"
 > to select *all* steps. Select the trash can with an X
-> ("delete selected statements‡") to delete them all.
+> ("delete selected steps") to delete them all.
 > At the top of the browser window, select the drop-down arrow with the
 > "Loaded:..." text that hints at the context.
 > Make sure we are loading from the web the file "set.mm:latest",
@@ -712,7 +817,7 @@ For this example we'll leave the proof description, variables, and disjoints
 blank. We do need to tell metamath-lamp our goal.
 
 > In the Editor select
-> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
+> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 > Enter
 >
 > ~~~~metamath
@@ -979,7 +1084,7 @@ modify it.
 
 > Select the checkbox to the left of the expression using `tan`.
 > Press the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡).
+> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
 > This will create a copy of the selected step below the current
 > step.
 
@@ -1056,7 +1161,7 @@ antecedent of the goal.
 
 > Select the checkbox to the left of the expression using `cot`.
 > Press the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡).
+> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
 > Using Alt+left click, select the *second* parenthesis of the *goal*
 > statement to select the antecedent of the goal.
 > Let's copy this statement fragment into the clipboard.
@@ -1100,7 +1205,7 @@ the cotangent.
 ~~~~
 
 > Let's duplicate this step. Press the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡).
+> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
 > Use left-click to edit it, and surround the left and right
 > and sides of its equality with `( 1 / ... )` resulting in:
 
@@ -1196,7 +1301,7 @@ Now we can start simplifying the reciprocal of the division.
 ~~~~
 
 > Duplicate this step by pressing the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement‡).
+> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
 > In the duplicate, change <tt>( cos &#96; A) e. CC</tt> to `A e. CC`,
 > Press Enter, and press
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
@@ -1270,7 +1375,7 @@ Let's again load the `set.mm` database, and stop before `syl`:
 
 Now let's add the conclusion:
 
-> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
+> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 > Enter
 > `|- ( ph -> ch )`
 > and press Enter (Return).
@@ -1280,7 +1385,7 @@ However, this statement isn't always true; it's only true when
 *other* statements are true. Those other statements are termed
 "hypotheses"; let's add them.
 
-> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
+> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 > Enter
 > `|- ( ph -> ps )`
 > and press Enter.
@@ -1296,7 +1401,7 @@ However, this statement isn't always true; it's only true when
 
 We now have a hypothesis! Let's add the other one:
 
-> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡).
+> In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 > Enter
 > `|- ( ps -> ch )`
 > and press Enter.
@@ -1845,17 +1950,17 @@ Here are their icons and meanings:
 
 | Icon | Meaning | Visual Description | Additional information |
 | ---- | ------- | ------------------ | ---------------------- |
-| <img width="32" height="32" src="checkbox.svg" alt="checkbox"> | Select all | Checkbox | Select or deselect all current statements‡ |
-| <img width="32" height="32" src="down.svg" alt="down"> | Down | Down arrow | Move the selected statements‡ down the list |
-| <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected statements‡ up the list |
-| <img width="32" height="32" src="add.svg" alt="add"> | Add new statement‡ | Plus sign | Type in the new statement |
-| <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected statements‡ | Trash can | |
-| <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement‡ | Circles behind "+" | Makes a copy of the selected statement‡ |
-| <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar statements‡ | Merge | Select one statement‡ |
-| <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new statements‡ by searching for a pattern; see [search patterns](#search-patterns) |
+| <img width="32" height="32" src="checkbox.svg" alt="checkbox"> | Select all | Checkbox | Select or deselect all current steps |
+| <img width="32" height="32" src="down.svg" alt="down"> | Down | Down arrow | Move the selected steps down the list |
+| <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected steps up the list |
+| <img width="32" height="32" src="add.svg" alt="add"> | Add new statement | Plus sign | Type in the new statement |
+| <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected steps | Trash can | |
+| <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement | Circles behind "+" | Makes a copy of the selected statement |
+| <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
+| <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
 | <img width="32" height="32" src="replacement.svg" alt="replacement"> | Substitution‡ | A with arrow | Apply a substitution‡ (aka replacement) to all statements; se [replacement](#replacement) |
-| <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all statements‡ or unify selected provable bottom-up.  If no statements‡ are selected, attempt to unify everything.  If one statement‡ is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
-| <img width="32" height="32" src="menu.svg" alt="menu"> | Menu | 3 short horizontal lines aka hamburger | Menu of other actions
+| <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all steps or unify selected provable bottom-up.  If no steps are selected, attempt to unify everything.  If one statement is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
+| <img width="32" height="32" src="menu.svg" alt="menu"> | Menu | 3 horizontal lines aka hamburger | Menu of other actions
 
 Under the editor command icon bar is the
 [fundamental proof information](#fundamental-proof-information) followed by
@@ -1979,7 +2084,7 @@ By default, when the tool begins there will be no steps.
 Typically the first step to be added is the step
 to be proved (aka the *goal* step).
 Use the
-icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement‡)
+icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement)
 in the editor command bar to add the goal.
 Usually the goal is the last step, though metamath-lamp does
 not enforce this.
@@ -2097,8 +2202,8 @@ You can use the fragment selector dialogue as follows:
 | ---- | ------- | ------------------ | ---------------------- |
 | <img width="32" height="32" src="zoominmap.svg" alt="expand"> | Expand selection | Zoom in | Expand the selection to the next larger syntactic unit |
 | <img width="32" height="32" src="zoomoutmap.svg" alt="shrink"> | Shrink selection | Zoom out | Reduce the selection to the next smaller syntactic unit |
-| <img width="32" height="32" src="addabove.svg" alt="add above"> | Add new statement‡ above | Arrow up from box | Create a new step above the current step with the selected statement fragment |
-| <img width="32" height="32" src="addbelow.svg" alt="add below"> | Add new statement‡ below | Arrow down from box | Create a new step below the current step with the selected statement fragment |
+| <img width="32" height="32" src="addabove.svg" alt="add above"> | Add new statement above | Arrow up from box | Create a new step above the current step with the selected statement fragment |
+| <img width="32" height="32" src="addbelow.svg" alt="add below"> | Add new statement below | Arrow down from box | Create a new step below the current step with the selected statement fragment |
 | <img width="32" height="32" src="copy.svg" alt="copy"> | Copy to clipboard | | Copy the fragment into the clipboard |
 | <img width="32" height="32" src="edit.svg" alt="edit"> | Edit | Pencil | Start editing with current text selected |
 | <img width="32" height="32" src="cancel.svg" alt="cancel"> | Cancel| Circled X | Cancel (and close) this statement fragment dialogue |
@@ -2116,7 +2221,7 @@ any special hypotheses to use. To do that:
 
 * Under the "Editor" tab", press the "+" in the
   [editor command icon bar](#editor-command-icon-bar)
-  to create a new statement‡. Enter the goal of the proof as its statement.
+  to create a new statement. Enter the goal of the proof as its statement.
   Typically the goal's statement will begin with the symbol "|-" which means
   "it is true that".
   Click on its step number if you want to rename the step name (typically
@@ -2210,7 +2315,7 @@ You can use the
 icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 to swap the field entries.
 
-You can also use the checkboxes on the left to select statements‡
+You can also use the checkboxes on the left to select steps
 before starting a replacement.
 The steps selected first will be copied into the "Replace what" field,
 and the step selected second (if any) will be copied into the
@@ -2230,10 +2335,10 @@ to replace one complex expression with another.
 
 #### Proving bottom-up
 
-If you select one statement‡ and then select unify, you'll enter a
+If you select one statement and then select unify, you'll enter a
 "proving bottom-up" dialogue.
 The bottom-up prover does a breadth-first search to find a proof of
-the selected statement‡ backwards (bottom-up) using the current context
+the selected statement backwards (bottom-up) using the current context
 and the options set in this "proving bottom-up" dialogue.
 
 It essentially works backwards to find a match, first with a single level,
@@ -2310,27 +2415,27 @@ This dialogue has the following options:
 Root statements ("first level" and "other levels"):
 These let you select which steps (if any) currently
 in the proof may be used (that is, derived from).
-If a statement‡ isn't selected it will *not* be considered when
+If a statement isn't selected it will *not* be considered when
 creating the proof.
-The "First level" option selects the statements‡ that may be
+The "First level" option selects the steps that may be
 used to directly prove the root statement being proved,
 while "other levels" selects the
-statements‡ that may be used beyond this level.
-We can select "all" (all statements‡ may be used),
-"none" (no statements‡ may be used),
-or select a specific set of statements‡ that may be used.
+steps that may be used beyond this level.
+We can select "all" (all steps may be used),
+"none" (no steps may be used),
+or select a specific set of steps that may be used.
 If it shows an expression like "1/8", that means a specific set of
-statements‡ have been selected; the first number is the number of
-statements‡ that are permitted, and the second number is the number of
-statements‡ that *could* be permitted at this point.
-Click on the current value to select the statements‡ to permit.
-If the statement‡ to be proved is not currently proved,
-the "first level" is set to "All" (all statements‡ are considered)
-and the "other levels" is set to "None" (no statements‡ are considered
+steps have been selected; the first number is the number of
+steps that are permitted, and the second number is the number of
+steps that *could* be permitted at this point.
+Click on the current value to select the steps to permit.
+If the statement to be proved is not currently proved,
+the "first level" is set to "All" (all steps are considered)
+and the "other levels" is set to "None" (no steps are considered
 after the first level).
-If this statement‡ is already proved, the "first level" will be set
-to the statements‡ that were used.
-Adding statements‡ that can be used will increase what the
+If this statement is already proved, the "first level" will be set
+to the steps that were used.
+Adding steps that can be used will increase what the
 bottom-up prover can prove, but this will also increase the time it
 takes to find a proof.
 
@@ -2374,8 +2479,8 @@ the most flexible (it can find more proofs) but may take much longer.
 Checkbox Allow new disjoints:
 Allow the addition of new disjoints.
 
-Checkbox Allow new statements‡:
-Allow the addition of new statements‡.
+Checkbox Allow new steps:
+Allow the addition of new steps.
 
 Checkbox Allow new variables:
 Allow the addition of new variables.
@@ -2400,7 +2505,7 @@ memory and slows the search, especially for logging level 2.
 If you set logging level 2, you should restrict it such as by
 setting the label or setting the maximum number of branches.
 
-You can speed up searches by not allowing new disjoints, new statements‡,
+You can speed up searches by not allowing new disjoints, new steps,
 and/or new variables, but in some cases this may mean a proof won't be
 found.
 
@@ -2408,13 +2513,13 @@ This dialogue can be used to implement functions similar to
 certain functions of the mmj2 tool:
 
 * In mmj2 you can select a specific set of steps
-  that must be used in a justification of a given statement‡.
+  that must be used in a justification of a given statement.
   You can do something similar by doing a bottom-up
-  proof of that given statement‡, and selecting just those statements‡
-  to be used as root statements‡ at the "first level".
+  proof of that given statement, and selecting just those steps
+  to be used as root steps at the "first level".
   This can be quite similar to mmj2 if you also uncheck
-  "allow new statements‡",
-  which will prevent the introduction of new statements‡.
+  "allow new steps",
+  which will prevent the introduction of new steps.
 * In mmj2 you can state that a specific axiom or theorem
   must be used as the justification. You can do the same by
   selecting it as the "Label" in a bottom-up proof.
