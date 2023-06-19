@@ -87,10 +87,11 @@ in most cases the tool will provide a brief
 explanation of what that item does.
 You don't need to memorize this guide.
 
-We'll use the term "click" to mean
+We'll use the term "click" a general term to mean
 either a click with the left mouse button *or* a tap on a touchscreen.
 A short click (or short tap) lets you reveal information,
 toggle a display, or select some information.
+"Press" means pressing and releasing a key or clicking on a button.
 
 **Edits generally require a long-click by default**.
 There are multiple ways to do a long-click.
@@ -169,7 +170,8 @@ When to tool starts it will say that
 > enter the label `2p2e4` and select it from the dropdown menu.
 
 We'll use the term "click" to mean
-either a click with the left mouse button *or* a tap on a touchscreen.
+either a quick click with the left mouse button *or* a quick
+tap on a touchscreen.
 A normal click or tap lets you do many things like apply buttons,
 reveal information, toggle a display, and select some information.
 We'll also sometimes say "press" to mean the same thing.
@@ -340,7 +342,7 @@ Each step has a collection of information, shown left-to-right:
 * *Step type* (is this a goal **G**, hypothesis **H** or
   something else provable **P**?).
 * *Justification* (if any).
-* *Statement* (a claim, typically beginning with `|- ...`).
+* *Statement* (a claim, typically beginning with `|-`).
 
 In a completed proof, each step used in a proof must have a justification
 (that is, it's either a hypothesis, or it references
@@ -395,7 +397,7 @@ This bold letter **P** is the step type; the **P**
 means that this step is intended to be *provable*.
 In some cases you'll want a step to be a
 *hypothesis* (something assumed) instead being *provable*.
-You can select the **P** with Alt+left click to change it to
+You can select the **P** with a long-click to change it to
 to an **H** (hypothesis) or back to **P** (provable).
 We aren't going to use any hypotheses
 in this proof, so we won't do that for now.
@@ -427,7 +429,7 @@ sometimes prove many statements automatically.
 > Enter, for this new step, the statement
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
 > and press Enter (Return).
-> Now, while no steps are selected, press
+> Now, while no steps are selected, click on the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Since there
 > was no specific step selected, it will try to justify all steps.
@@ -450,7 +452,7 @@ use the "duplicate" command to get us started:
 
 > Select the checkbox to the left of the new step 3 stating
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
-> and press the
+> and click on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate).
 
 This will create a duplicate step (labelled 4)
@@ -516,7 +518,7 @@ We now have a new step with the statement
 `|- 4 = ( ( 2 + 1 ) + 1 )`. Let's unify to see if the
 tool can find a proof for this claim.
 
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 This will produce a green checkmark next our new step.
@@ -561,7 +563,7 @@ looks exactly as in the example.
 
 Feel free to use statement fragment selectors instead to make this change.
 
-> Now press the
+> Now click on the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
 > Since there
 > was no specific step selected, it will try to justify all steps.
@@ -606,7 +608,7 @@ and the result is the same).
 The Metamath database in this context already has a proof that
 addition is associative, too.
 
-However, when you press
+However, when you click on
 the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 without selecting any steps,
 metamath-lamp will not automatically prove this new step,
@@ -620,12 +622,12 @@ So we'll instead use a bottom-up search, which will try to find and
 prove any other steps necessary to apply a relevant existing proof.
 A bottom-up search *can* add new steps.
 You enable a bottom-up search by selecting the step to be proved
-and then pressing
+and then clicking on
 the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 > Select the checkbox next to our latest statement
 > `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`
-> and press the
+> and click on the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > A new dialogue will display titled "Proving bottom-up".
 
@@ -637,7 +639,7 @@ of the selected step's statement.
 
 For now, we'll just accept the defaults.
 
-> press the "Prove" button at the bottom of the dialogue.
+> Press the "Prove" button at the bottom of the dialogue.
 
 After a moment it will present a list, and one of the first options
 (probably the first one) should use `addassi`.
@@ -707,7 +709,7 @@ essentials (not showing the syntax proofs that expressions have the
 correct type).
 
 > You can select "Copy" to copy the compressed proof into the clipboard.
-> Press "Close"
+> Press "Close" to dismiss the dialogue box.
 
 #### Exporting and importing your current state
 
@@ -749,7 +751,7 @@ step is justified (proven) by using the already
 accepted theorem `oveq2i` when applied to that labelled step.
 Advanced users can edit this (with a long-click) to force metamath-lamp to
 try to use a different justification.
-While editing you can press the
+While editing you can click on the
 icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
 next to the justification
 to delete entirely, e.g.,
@@ -763,7 +765,7 @@ verified that justification and thus shows a green check.
 So let's first use unify to ensure that we've proven what we
 want to visualize.
 
-> While no step is selected, press the
+> While no step is selected, click on the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 All steps have green checkmarks, which means all steps are proven.
@@ -843,12 +845,12 @@ to move them up, or the
 icon <img width="16" height="16" src="down.svg" alt="down"> (down)
 to move them down.
 
-> Left-click on checkbox next to
+> Click on the checkbox next to
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
-> and press the
+> and then click the
 > icon <img width="16" height="16" src="up.svg" alt="up"> (up) -
 > the step will move up.
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="up.svg" alt="up"> (down)
 > to move it back.
 
@@ -1123,9 +1125,9 @@ Metamath-lamp's bottom-up proof tool can't automatically prove all
 proofs, but it *is* able to find some proofs automatically, especially
 when it can use many theorems that have already been proved.
 
-> Select just goal `syl`, and press
+> Select just goal `syl`, and click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
-> Click on "Prove". The tool will soon reply with some options,
+> Press on "Prove". The tool will soon reply with some options,
 > including one that uses `imim2i` and `ax-mp` that *completely*
 > proves the claim. Select that one (using the checkbox on its left)
 > and click on "Apply selected".
@@ -1209,7 +1211,7 @@ Let's work on proving step `1`.
 Let's try backwards proof.
 
 > Select step 1 by clicking the checkbox to its left.
-> To start a backwards proof, press on
+> To start a backwards proof, click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Click on "Prove".
 
@@ -1319,7 +1321,7 @@ work variable "&amp;W1" with the expression required by `ax-2`, namely,
 Here's how you could do that, but note that we're going to cancel
 instead of completing this step:
 
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
 > In "Replace what" use the value &amp;W1 and in
 > "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
@@ -1345,7 +1347,9 @@ So let's see it!
 First, let's bring in a step that uses the assertion we wish to use
 (in this case `ax-2`):
 
-> Select the magnifying glass ("Search"), enter the label `ax-2` and
+> Click on the
+> icon <img width="16" height="16" src="search.svg" alt="search"> (search),
+> enter the label `ax-2` and
 > press "Search". Select `ax-2` and press "Choose Selected".
 
 We have added a new step 4, which uses `ax-2` but with work variables:
@@ -1362,7 +1366,7 @@ which may include *multiple* work variables, and
 then use "replace". Replace will use the two selected fragments, making
 this process *much* easier.
 
-> Use Alt+click to select, in step *4*, the last `->`.
+> Use a long-click to select, in step *4*, the last `->`.
 
 The statement fragment selector dialogue has appeared under step 4 and
 we now have this fragment selected:
@@ -1375,7 +1379,7 @@ You could use the dialogue to
 increase or decrease the size of the fragment, but we don't need to.
 Now let's select the equivalent statement fragment in step 3:
 
-> Use Alt+click to select, in step *3*, the third `->`.
+> Use a long-click to select, in step *3*, the third `->`.
 
 Another fragment selector dialogue has appeared under step 3 and
 it has this fragment selected:
@@ -1422,11 +1426,11 @@ We now have these two statements:
 
 Now let's do another replacement to make steps 3 and 4 even more similar.
 
-> Use Alt+click to select, in step *3*, the initial work variable &amp;W1
+> Use a long-click to select, in step *3*, the initial work variable &amp;W1
 > (only that work variable should be selected).
-> Use Alt+click to select, in step *4*, the first `->`.
+> Use a long-click to select, in step *4*, the first `->`.
 
-The second Alt+click highlighted this fragment in step 4:
+The second long-click highlighted this fragment in step 4:
 
 ~~~~
 ( ph -> ( ps -> ch ) )
@@ -1440,11 +1444,11 @@ because we want to replace a work variable with an expression
 (not the other way around).
 The default is to use the earlier step first.
 In this case that's the opposite of what we wanted, so we'll
-swap them by pressing the
+swap them by clicking on the
 icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 to the right of the "replace what" field.
 
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 > to swap the field contents,
 > press "Find substitution‡", then apply.
@@ -1465,7 +1469,7 @@ Let's merge them.
 > Among the "use" options select using 4 (which uses `ax-2`), so we can
 > keep the connection to `ax-2`.
 > Step 3 is gone, now it's all step 4.
-> Press on
+> Click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > to see we've fully proven step 4.
 
@@ -1475,7 +1479,7 @@ We're getting close! Step 4 is proven, using ax-2.
 However, step 2 is not yet proven, so the whole proof isn't done.
 Select step 2, and do a bottom-up proof of it as well.
 
-> Select step 2, press on
+> Select step 2, then click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
 > and press "prove".
 > At the top it will show a use of `ac-mp` that proves all steps;
@@ -1770,16 +1774,15 @@ This will be easier to do if we duplicate an existing step and
 modify it.
 
 > Select the checkbox to the left of the expression using `tan`.
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
-> This will create a copy of the selected step below the current
-> step.
+> This will create a copy of the selected step below the current step.
 
 An easy way to modify the new step's statement is to
 use metamath-lamp's mechanisms for copying and pasting
 portions of text (aka "[fragment selectors](#fragment-selectors)").
 
-> Using Alt+left click, select the *second* parenthesis of the *goal*
+> Using long-click, select the *second* parenthesis of the *goal*
 > statement. This will smartly select a syntactically complete portion
 > of the statement and bring up a fragment selector dialogue
 > below the statement.
@@ -1788,11 +1791,12 @@ In this case, we want to make a copy of the selected
 text in the goal, then paste that into
 the relevant section of the new statement.
 
-> Press the icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy to clipboard)
+> Click on the
+> icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy to clipboard)
 > under the goal statement.
 > Long-click on the second parenthesis of the new statement
 > we just created, selecting its antecedent.
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit),
 > then use your system's paste command
 > ("control-V" on most computers, "command-V" on Macintoshes) to overwrite
@@ -1810,7 +1814,7 @@ valid given the antecedent of our goal:
 
 It turns out that metamath-lamp can immediately prove this new step.
 
-> Press the
+> Click on the
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > in the icon editor bar above the steps. Note that the new
 > step now has a green checkmark.
@@ -1821,24 +1825,24 @@ Let's do the same thing with the definition of the value of the
 cotangent, showing we can use this definition even given the
 antecedent of the goal.
 
-> Select the checkbox to the left of the expression using `cot`.
-> Press the
+> Click on the checkbox to the left of the expression using `cot`.
+> Click on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
-> Using Alt+left click, select the *second* parenthesis of the *goal*
+> Using long-left click, select the *second* parenthesis of the *goal*
 > statement to select the antecedent of the goal.
 > Let's copy this statement fragment into the clipboard.
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy)
 > under the goal statement.
 > Now use long-click on the second parenthesis of the new statement
 > we just created, selecting its antecedent.
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit),
 > then use your system's paste command
 > ("control-V" on most computers, "command-V" on Macintoshes) to overwrite
 > the selected text with the text in the clipboard.
 > Press Enter (Return) to save the modified statement.
-> Press
+> Click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > to unify everything so far.
 
@@ -1866,7 +1870,7 @@ the cotangent.
      ( cot ` A ) = ( ( cos ` A ) / ( sin ` A ) ) )
 ~~~~
 
-> Let's duplicate this step. Press the
+> Let's duplicate this step. Click on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
 > Use left-click to edit it, and surround the left and right
 > and sides of its equality with `( 1 / ... )` resulting in:
@@ -1876,7 +1880,7 @@ the cotangent.
      ( 1 / ( cot ` A ) ) = ( 1 / ( ( cos ` A ) / ( sin ` A ) ) ) )
 ~~~~
 
-> When you're done, press
+> When you're done, click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 Clearly we're going to need to simplify the reciprocal of the cosine
@@ -1894,7 +1898,7 @@ they will work with this expansion of the reciprocal of the cotangent.
 
 Let's replace the work variable <tt>&amp;C1</tt>:
 
-> Press on the
+> Click on the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
 > In "Replace what" enter <tt>&amp;C1</tt> and
 > in "Replace with" enter <tt>( cos &#96; A )</tt> ... Once you're done, press
@@ -1903,14 +1907,14 @@ Let's replace the work variable <tt>&amp;C1</tt>:
 
 Let's replace the work variable <tt>&amp;C2</tt>:
 
-> Press on the
+> Click on the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
 > In "Replace what" enter <tt>&amp;C2</tt> and
 > in "Replace with" enter <tt>( sin &#96; A )</tt> ...
 > once that's done, press
 > "Find Substitution‡". It will determine that there is 1 valid substitution‡;
 > press "Apply".
-> Press
+> Click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 Again, all but the goal steps are proven.
@@ -1935,7 +1939,7 @@ and, if it exists, add it.
 > <tt>e. CC -> cos e. CC</tt> and search.
 > You'll see a list including `coscl` - select `coscl` and press
 > "Choose Selected".
-> This has a work variable; press on the
+> This has a work variable; click on the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
 > and substitute <tt>&amp;C1</tt> with `A` (remember to select
 > "Find Substitution‡" and then "Apply").
@@ -1962,14 +1966,14 @@ Now we can start simplifying the reciprocal of the division.
        ( ( sin ` A ) / ( cos ` A ) ) )
 ~~~~
 
-> Duplicate this step by pressing the
+> Duplicate this step by clicking on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
 > In the duplicate, change <tt>( cos &#96; A) e. CC</tt> to `A e. CC`,
-> Press Enter, and press
+> Press Enter, and click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Select that new step and duplicate it. In the duplicate step change its
 > statement
-> <tt>( sin &#96; A ) e. CC</tt> to `A e. CC`, Press Enter, and press
+> <tt>( sin &#96; A ) e. CC</tt> to `A e. CC`, Press Enter, and click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 This antecedent of this latest new statement is still not exactly the same as
@@ -1987,10 +1991,13 @@ one we just created but has the *exact* same antecedent as the goal.
 ~~~~
 
 > Duplicate the step.
-> Use Alt+left-click to click on the *second* parentheses of the goal statement
+> Use long-click to click on the *second* parentheses of the goal statement
 > (so we can duplicate its antecedent) and click on the "copy" icon.
-> Select the second parenthesis of our new statement,
-> press Edit, and paste with control-V (or command-V).
+> Now click on the second parenthesis of our new statement,
+> click on the
+> icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit)
+> below it,
+> and paste with control-V (or command-V).
 > Enter, then press
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
@@ -2318,7 +2325,7 @@ but sometimes you do. Here is information on these fields.
 
 Note: Click on the *field name* to edit the field.
 You can also select the editable field text, but the description
-field is odd - by default, you have to use Alt+left click to edit it,
+field is odd - by default, you have to use long-click to edit it,
 while just left click selects part of its text.
 
 ##### Description
@@ -2473,14 +2480,13 @@ Each step is presented in the following left-to-right order:
   the label of every hypothesis and goal must not already be used.
   The point of a label is to provide a simple way to uniquely
   refer to a statement.
-* Step type (**P**/**H**): The step type is "**P**"
-  if it's a statement to be proven,
-  and "**H**" if the statement is a hypothesis,
-  Typically all hypothesis are listed
-  first. By default, left-clicking on a "P" will
-  reveal or hide the specific justification
-  for the proved step (if any). By default, using Alt+left click will show a
-  dialogue to let you select if this is a "P" or "H" statement type.
+* Step type (**P**/**H**/**G**): The step type is "**P**"
+  if it's a provable statement (a statement to be proven),
+  "**H**" if the statement is a hypothesis, or
+  "**G**" if the statement is a goal (a special kind of provable statement).
+  Typically all hypothesis are listed first and the goal is shown last.
+  for the proved step (if any).
+  Use long-click to change (edit) the step type.
 * Statement: This is the statement to be proven or is being
   accepted as hypothesis.
   In most cases this statement will start
@@ -2496,7 +2502,7 @@ Each step is presented in the following left-to-right order:
   icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel)
   to not change the statement.
   You can also select *parts* of a statement; by default you can do this
-  by using Alt+left click ("alt" is sometimes labelled "opt").
+  by using long-click.
   For more about selecting parts (fragments) of a statement,
   see the next section on [fragment selectors](#fragment-selectors).
 
@@ -2684,7 +2690,7 @@ dialogue box and press "Prove" (or "Cancel" if you don't want to search).
 When you press "Prove" it will repeatedly attempt various options in
 an attempt to prove the statement, showing the depth of the current search
 (e.g., "1/4" means it's doing depth 1 searches out of a maximum of 4)
-and how many attempts it's made so far. Press the circled "X" to
+and how many attempts it's made so far. Click on the circled "X" to
 stop its attempts to find a proof.
 
 Proving bottom-up can take a long time,
