@@ -2094,7 +2094,7 @@ That includes some capabilities that might not be obvious.
 
 Here we will discuss:
 
-* [Basic UI conventions](#basic-ui-convenctions)
+* [Basic UI conventions](#basic-ui-conventions)
 * [Loading source Metamath databases to create the proof context](#loading-source-metamath-databases-to-create-the-proof-context)
 * [Main tabs: Settings and Editor](#main-tabs-settings-and-editor)
 * [Editor tab](#editor-tab)
