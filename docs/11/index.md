@@ -77,9 +77,9 @@ To use metamath-lamp, do the following:
    forwards towards the goal, or in whatever other order makes sense to you.
 5. Copy the compressed proof of the goal into the clipboard.
    You can do this by selecting the green checkmark next to the goal
-   to show the compressed proof, then press copy.
-   You'd typically copy that compressed proof into a Metamath database
-   (text file).
+   to show the compressed proof, then press the copy button.
+   You'd typically copy the compressed proof text into a Metamath database
+   (which is a text file).
 
 Throughout metamath-lamp there are various tooltips.
 So if you use a mouse and hover over an interactive item,
@@ -87,10 +87,11 @@ in most cases the tool will provide a brief
 explanation of what that item does.
 You don't need to memorize this guide.
 
-We'll use the term "click" to mean
+We'll use the term "click" a general term to mean
 either a click with the left mouse button *or* a tap on a touchscreen.
 A short click (or short tap) lets you reveal information,
 toggle a display, or select some information.
+"Press" means pressing and releasing a key or clicking on a button.
 
 **Edits generally require a long-click by default**.
 There are multiple ways to do a long-click.
@@ -101,6 +102,7 @@ With a mouse you can also use a shortcut: hold the Alt key (sometimes
 labelled Opt or Option instead), then click with the mouse.
 
 Also:
+
 * To save an edit, use the
   icon <img width="16" height="16" src="save.svg" alt="save"> (save)
   or press Enter (Return).
@@ -160,7 +162,7 @@ If we included the existing proof, the prover
 would simply reuse that existing proof.
 
 When to tool starts it will say that
-"No Metamath database is laoded, please select a database to load."
+"No Metamath database is loaded, please select a database to load."
 
 > Under "Source type" select "Web", and under
 > Alias select "set.mm:latest".
@@ -169,7 +171,8 @@ When to tool starts it will say that
 > enter the label `2p2e4` and select it from the dropdown menu.
 
 We'll use the term "click" to mean
-either a click with the left mouse button *or* a tap on a touchscreen.
+either a quick click with the left mouse button *or* a quick
+tap on a touchscreen.
 A normal click or tap lets you do many things like apply buttons,
 reveal information, toggle a display, and select some information.
 We'll also sometimes say "press" to mean the same thing.
@@ -339,8 +342,8 @@ Each step has a collection of information, shown left-to-right:
   A step label is sometimes informally called a step id or step name.
 * *Step type* (is this a goal **G**, hypothesis **H** or
   something else provable **P**?).
-* *Justification* (if any).
-* *Statement* (a claim, typically beginning with `|- ...`).
+* *Justification* (if any) - the reason the statement is true.
+* *Statement* (a claim, typically beginning with `|-`).
 
 In a completed proof, each step used in a proof must have a justification
 (that is, it's either a hypothesis, or it references
@@ -395,7 +398,7 @@ This bold letter **P** is the step type; the **P**
 means that this step is intended to be *provable*.
 In some cases you'll want a step to be a
 *hypothesis* (something assumed) instead being *provable*.
-You can select the **P** with Alt+left click to change it to
+You can select the **P** with a long-click to change it to
 to an **H** (hypothesis) or back to **P** (provable).
 We aren't going to use any hypotheses
 in this proof, so we won't do that for now.
@@ -427,7 +430,7 @@ sometimes prove many statements automatically.
 > Enter, for this new step, the statement
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
 > and press Enter (Return).
-> Now, while no steps are selected, press
+> Now, while no steps are selected, click on the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Since there
 > was no specific step selected, it will try to justify all steps.
@@ -450,7 +453,7 @@ use the "duplicate" command to get us started:
 
 > Select the checkbox to the left of the new step 3 stating
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
-> and press the
+> and click on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate).
 
 This will create a duplicate step (labelled 4)
@@ -516,7 +519,7 @@ We now have a new step with the statement
 `|- 4 = ( ( 2 + 1 ) + 1 )`. Let's unify to see if the
 tool can find a proof for this claim.
 
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 This will produce a green checkmark next our new step.
@@ -561,7 +564,7 @@ looks exactly as in the example.
 
 Feel free to use statement fragment selectors instead to make this change.
 
-> Now press the
+> Now click on the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
 > Since there
 > was no specific step selected, it will try to justify all steps.
@@ -606,7 +609,7 @@ and the result is the same).
 The Metamath database in this context already has a proof that
 addition is associative, too.
 
-However, when you press
+However, when you click on
 the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 without selecting any steps,
 metamath-lamp will not automatically prove this new step,
@@ -620,12 +623,12 @@ So we'll instead use a bottom-up search, which will try to find and
 prove any other steps necessary to apply a relevant existing proof.
 A bottom-up search *can* add new steps.
 You enable a bottom-up search by selecting the step to be proved
-and then pressing
+and then clicking on
 the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 > Select the checkbox next to our latest statement
 > `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`
-> and press the
+> and click on the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > A new dialogue will display titled "Proving bottom-up".
 
@@ -637,7 +640,7 @@ of the selected step's statement.
 
 For now, we'll just accept the defaults.
 
-> press the "Prove" button at the bottom of the dialogue.
+> Press the "Prove" button at the bottom of the dialogue.
 
 After a moment it will present a list, and one of the first options
 (probably the first one) should use `addassi`.
@@ -707,7 +710,7 @@ essentials (not showing the syntax proofs that expressions have the
 correct type).
 
 > You can select "Copy" to copy the compressed proof into the clipboard.
-> Press "Close"
+> Press "Close" to dismiss the dialogue box.
 
 #### Exporting and importing your current state
 
@@ -749,7 +752,7 @@ step is justified (proven) by using the already
 accepted theorem `oveq2i` when applied to that labelled step.
 Advanced users can edit this (with a long-click) to force metamath-lamp to
 try to use a different justification.
-While editing you can press the
+While editing you can click on the
 icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
 next to the justification
 to delete entirely, e.g.,
@@ -763,7 +766,7 @@ verified that justification and thus shows a green check.
 So let's first use unify to ensure that we've proven what we
 want to visualize.
 
-> While no step is selected, press the
+> While no step is selected, click on the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 All steps have green checkmarks, which means all steps are proven.
@@ -843,12 +846,12 @@ to move them up, or the
 icon <img width="16" height="16" src="down.svg" alt="down"> (down)
 to move them down.
 
-> Left-click on checkbox next to
+> Click on the checkbox next to
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
-> and press the
+> and then click the
 > icon <img width="16" height="16" src="up.svg" alt="up"> (up) -
 > the step will move up.
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="up.svg" alt="up"> (down)
 > to move it back.
 
@@ -917,14 +920,31 @@ any well-formed formula (wff) expression, that is, anything that
 is true or false; it's not limited to being replaced by just another variable.
 The axiom modus ponens can apply to many circumstances.
 
+#### A few set.mm symbols
+
+Proof statements' symbols use ASCII characters.
+Here are a few symbols and their meanings:
+
+* <tt>-&gt;</tt> represents "implies".
+  The left-hand-side of an implication is called
+  the antecedent; the right-hand-side of an implication is called the
+  consequent.
+* `ph`, `ps`, `ch`, etc. represent the Greek letters &phi;, &psi;, and &chi;.
+  These are variables that represent an arbitrary expression with a value
+  of either true or false.
+* <tt>-.</tt> means logical not; if what follows is true then the result
+  is false, if what follows is false then the result is true.
+
+See [common set.mm symbols](#common-setmm-symbols) for more.
+
+#### Viewing proof of `mp2`
+
 If you select the label (aka name) of a theorem, a new tab will be created
 that shows details the proof of that theorem:
 
 ![In explorer, expand a label to show its proof](explorer-expand-label.png)
 
-Let's try that out next.
-
-#### Viewing proof of `mp2`
+Let's try that out now.
 
 In the explorer view, scroll down to theorem `mp2`, and click on the
 *name* mp2. This will create a *new* tab that shows details about the
@@ -1069,8 +1089,8 @@ Now let's add the conclusion:
 > and press Enter (Return).
 > Click on the step label, change it to `syl`, and press Enter.
 
-However, this statement isn't always true; it's only true when
-*other* statements are true. Those other statements are termed
+However, this statement isn't always true; it's only necessarily true when
+some *other* statements are true. Those other statements are termed
 "hypotheses". Let's add some hypotheses.
 
 > In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
@@ -1083,7 +1103,7 @@ However, this statement isn't always true; it's only true when
 > Long-click on the **P** on that line.
 > On the drop-down select "**H**" (hypothesis) instead to change it
 > to a hypothesis.
-> Click on the label and rename it to `syl.1`.
+> Long-click on its label and rename it to `syl.1`.
 
 We now have a hypothesis! Let's add the other one:
 
@@ -1095,26 +1115,30 @@ We now have a hypothesis! Let's add the other one:
 > On the drop-down list select "**H**" (hypothesis).
 > Again, this change causes the step to be automatically moved
 > above the goal.
-> Click on the label and rename it to `syl.2`.
+> Long-click on the label and rename it to `syl.2`.
 
 Notice that it's already ordered in a reasonable way.
 If you ever wanted to change the order of statements, you can select
 the step(s) to move using the left-hand-side check box, then
-move them up and down using the "up" and "down" icons.
-However, there's no need to reorder these statements.
+use the
+icon <img width="16" height="16" src="up.svg" alt="up"> (up)
+and the
+icon <img width="16" height="16" src="down.svg" alt="down"> (down)
+to change their order.
+In this case, there's no need to reorder these statements.
 
 **Note**: Every hypothesis and goal label
-is also a database label, so they *must* be unique if they are
-inserted into a final database.
+is also a database label, so they *must* be unique in the database
+they will be inserted into.
 These labels cannot match a math symbol token (like `1`), assertion label,
 or hypothesis label.
 The convention in `set.mm`, as shown above, is for hypotheses to be labelled
-as the name of the goal + "." + an integer starting from 1.
+as the name of the goal + `.` + an integer starting from 1.
 Metamath-lamp validates labels you use
 (it currently hypotheses and
 [will soon validate goals](https://github.com/expln/metamath-lamp/issues/81)),
 and it will show an error message if the label
-is in use in the current context.
+is already in use in the current context.
 
 #### Easy proof of `syl`
 
@@ -1123,12 +1147,12 @@ Metamath-lamp's bottom-up proof tool can't automatically prove all
 proofs, but it *is* able to find some proofs automatically, especially
 when it can use many theorems that have already been proved.
 
-> Select just goal `syl`, and press
+> Select just the goal `syl`, and click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
-> Click on "Prove". The tool will soon reply with some options,
+> Press on "Prove". The tool will soon reply with some options,
 > including one that uses `imim2i` and `ax-mp` that *completely*
 > proves the claim. Select that one (using the checkbox on its left)
-> and click on "Apply selected".
+> and press on "Apply selected".
 
 Notice that metamath-lamp has added an intermediate step
 (with label "1") to prove this :
@@ -1162,9 +1186,9 @@ In particular, we'll show you how to work backwards from a step.
 
 We'll start with our current state, including the intermediate step
 that metamath-lamp found when we were doing things the easy way.
-Now change the context so it only includes the axioms
+Now change the context so that it includes the axioms
 modus ponens (`ax-mp`) and the propositional logic axioms
-`ax-1`, `ax-2`, and `ax-3`, not anything after them:
+`ax-1`, `ax-2`, and `ax-3`, and *not* anything after them:
 
 > Select at the top the context bar showing "Loaded:..." text.
 > Change its scope to "stop after" label `ax-3`.
@@ -1173,13 +1197,12 @@ modus ponens (`ax-mp`) and the propositional logic axioms
 We now see an error after label 1, saying
 "*The label 'imim2i' doesn't refer to any assertion.*"
 
-> Click on the **P** of step 1 to reveal the specific reference that
-> it was using (erroneously) to justify this step's statement.
-
-It says `syl.2 : imim2i` which means that our claimed justification for
+The problem is that its justification still says
+`syl.2 : imim2i` which means that our claimed justification for
 step 1 was to use assertion `imim2i` with `syl.2` as its hypothesis.
 In our modified context we can't use `imim2i`, in fact, we can't use any
 assertion after `ax-3`.
+
 Let's eliminate this justification:
 
 > Long-click on the now-invalid justification
@@ -1201,7 +1224,7 @@ on two other statements, `syl.1` and `1`, and uses `ax-mp` with
 those hypotheses to justify this step.
 This is a perfectly fine use of `ax-mp`, and `syl.1` is a hypothesis
 (so it's assumed true for its purposes).
-However, this justification depends on `1` which isn't currently proven.
+However, this justification depends on step `1` which isn't currently proven.
 
 ##### Working backwards on syl
 
@@ -1209,7 +1232,7 @@ Let's work on proving step `1`.
 Let's try backwards proof.
 
 > Select step 1 by clicking the checkbox to its left.
-> To start a backwards proof, press on
+> To start a backwards proof, click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Click on "Prove".
 
@@ -1319,7 +1342,7 @@ work variable "&amp;W1" with the expression required by `ax-2`, namely,
 Here's how you could do that, but note that we're going to cancel
 instead of completing this step:
 
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
 > In "Replace what" use the value &amp;W1 and in
 > "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
@@ -1345,7 +1368,9 @@ So let's see it!
 First, let's bring in a step that uses the assertion we wish to use
 (in this case `ax-2`):
 
-> Select the magnifying glass ("Search"), enter the label `ax-2` and
+> Click on the
+> icon <img width="16" height="16" src="search.svg" alt="search"> (search),
+> enter the label `ax-2` and
 > press "Search". Select `ax-2` and press "Choose Selected".
 
 We have added a new step 4, which uses `ax-2` but with work variables:
@@ -1362,7 +1387,7 @@ which may include *multiple* work variables, and
 then use "replace". Replace will use the two selected fragments, making
 this process *much* easier.
 
-> Use Alt+click to select, in step *4*, the last `->`.
+> Use a click to select, in step *4*, the last `->`.
 
 The statement fragment selector dialogue has appeared under step 4 and
 we now have this fragment selected:
@@ -1375,7 +1400,7 @@ You could use the dialogue to
 increase or decrease the size of the fragment, but we don't need to.
 Now let's select the equivalent statement fragment in step 3:
 
-> Use Alt+click to select, in step *3*, the third `->`.
+> Use a click to select, in step *3*, the third `->`.
 
 Another fragment selector dialogue has appeared under step 3 and
 it has this fragment selected:
@@ -1422,11 +1447,11 @@ We now have these two statements:
 
 Now let's do another replacement to make steps 3 and 4 even more similar.
 
-> Use Alt+click to select, in step *3*, the initial work variable &amp;W1
+> Use a click to select, in step *3*, the initial work variable &amp;W1
 > (only that work variable should be selected).
-> Use Alt+click to select, in step *4*, the first `->`.
+> Use a click to select, in step *4*, the first `->`.
 
-The second Alt+click highlighted this fragment in step 4:
+The second long-click highlighted this fragment in step 4:
 
 ~~~~
 ( ph -> ( ps -> ch ) )
@@ -1440,11 +1465,11 @@ because we want to replace a work variable with an expression
 (not the other way around).
 The default is to use the earlier step first.
 In this case that's the opposite of what we wanted, so we'll
-swap them by pressing the
+swap them by clicking on the
 icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 to the right of the "replace what" field.
 
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 > to swap the field contents,
 > press "Find substitution‡", then apply.
@@ -1465,7 +1490,7 @@ Let's merge them.
 > Among the "use" options select using 4 (which uses `ax-2`), so we can
 > keep the connection to `ax-2`.
 > Step 3 is gone, now it's all step 4.
-> Press on
+> Click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > to see we've fully proven step 4.
 
@@ -1475,7 +1500,7 @@ We're getting close! Step 4 is proven, using ax-2.
 However, step 2 is not yet proven, so the whole proof isn't done.
 Select step 2, and do a bottom-up proof of it as well.
 
-> Select step 2, press on
+> Select step 2, then click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
 > and press "prove".
 > At the top it will show a use of `ac-mp` that proves all steps;
@@ -1603,6 +1628,8 @@ It illustrates several symbols in the set.mm database:
   the <tt>tan(A)</tt> notation used by others
   but without context-dependent notational ambiguity.
 
+See [common set.mm symbols](#common-setmm-symbols) for more information.
+
 #### Deciding on a proof strategy for `reccot`
 
 Now we need to figure out how to prove this goal.
@@ -1638,7 +1665,7 @@ In this case it finds a statement named `tanval` (value of the tangent).
 
 The default search pattern language is very simple.
 A pattern should consist of a space-separated sequence of one or more symbols
-(currently only constants and typecodes are allowed).
+(currently only constants and typecodes like *class* are allowed).
 Statements will only be considered matches if their conclusion part has
 the same constants in the same order, with optionally 1 or more other
 symbols before the pattern, between the requested symbols,
@@ -1770,16 +1797,15 @@ This will be easier to do if we duplicate an existing step and
 modify it.
 
 > Select the checkbox to the left of the expression using `tan`.
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
-> This will create a copy of the selected step below the current
-> step.
+> This will create a copy of the selected step below the current step.
 
 An easy way to modify the new step's statement is to
 use metamath-lamp's mechanisms for copying and pasting
 portions of text (aka "[fragment selectors](#fragment-selectors)").
 
-> Using Alt+left click, select the *second* parenthesis of the *goal*
+> Click on the *second* parenthesis of the *goal*
 > statement. This will smartly select a syntactically complete portion
 > of the statement and bring up a fragment selector dialogue
 > below the statement.
@@ -1788,11 +1814,12 @@ In this case, we want to make a copy of the selected
 text in the goal, then paste that into
 the relevant section of the new statement.
 
-> Press the icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy to clipboard)
+> Click on the
+> icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy to clipboard)
 > under the goal statement.
 > Long-click on the second parenthesis of the new statement
 > we just created, selecting its antecedent.
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit),
 > then use your system's paste command
 > ("control-V" on most computers, "command-V" on Macintoshes) to overwrite
@@ -1810,7 +1837,7 @@ valid given the antecedent of our goal:
 
 It turns out that metamath-lamp can immediately prove this new step.
 
-> Press the
+> Click on the
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > in the icon editor bar above the steps. Note that the new
 > step now has a green checkmark.
@@ -1821,24 +1848,24 @@ Let's do the same thing with the definition of the value of the
 cotangent, showing we can use this definition even given the
 antecedent of the goal.
 
-> Select the checkbox to the left of the expression using `cot`.
-> Press the
+> Click on the checkbox to the left of the expression using `cot`.
+> Click on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
-> Using Alt+left click, select the *second* parenthesis of the *goal*
+> Click on the *second* parenthesis of the *goal*
 > statement to select the antecedent of the goal.
 > Let's copy this statement fragment into the clipboard.
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy)
 > under the goal statement.
-> Now use long-click on the second parenthesis of the new statement
+> Now click on the second parenthesis of the new statement
 > we just created, selecting its antecedent.
-> Press the
+> Click on the
 > icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit),
 > then use your system's paste command
 > ("control-V" on most computers, "command-V" on Macintoshes) to overwrite
 > the selected text with the text in the clipboard.
 > Press Enter (Return) to save the modified statement.
-> Press
+> Click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > to unify everything so far.
 
@@ -1866,7 +1893,7 @@ the cotangent.
      ( cot ` A ) = ( ( cos ` A ) / ( sin ` A ) ) )
 ~~~~
 
-> Let's duplicate this step. Press the
+> Let's duplicate this step. Click on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
 > Use left-click to edit it, and surround the left and right
 > and sides of its equality with `( 1 / ... )` resulting in:
@@ -1876,7 +1903,7 @@ the cotangent.
      ( 1 / ( cot ` A ) ) = ( 1 / ( ( cos ` A ) / ( sin ` A ) ) ) )
 ~~~~
 
-> When you're done, press
+> When you're done, click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 Clearly we're going to need to simplify the reciprocal of the cosine
@@ -1894,7 +1921,7 @@ they will work with this expansion of the reciprocal of the cotangent.
 
 Let's replace the work variable <tt>&amp;C1</tt>:
 
-> Press on the
+> Click on the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
 > In "Replace what" enter <tt>&amp;C1</tt> and
 > in "Replace with" enter <tt>( cos &#96; A )</tt> ... Once you're done, press
@@ -1903,14 +1930,14 @@ Let's replace the work variable <tt>&amp;C1</tt>:
 
 Let's replace the work variable <tt>&amp;C2</tt>:
 
-> Press on the
+> Click on the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
 > In "Replace what" enter <tt>&amp;C2</tt> and
 > in "Replace with" enter <tt>( sin &#96; A )</tt> ...
 > once that's done, press
 > "Find Substitution‡". It will determine that there is 1 valid substitution‡;
 > press "Apply".
-> Press
+> Click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 Again, all but the goal steps are proven.
@@ -1935,7 +1962,7 @@ and, if it exists, add it.
 > <tt>e. CC -> cos e. CC</tt> and search.
 > You'll see a list including `coscl` - select `coscl` and press
 > "Choose Selected".
-> This has a work variable; press on the
+> This has a work variable; click on the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
 > and substitute <tt>&amp;C1</tt> with `A` (remember to select
 > "Find Substitution‡" and then "Apply").
@@ -1962,14 +1989,14 @@ Now we can start simplifying the reciprocal of the division.
        ( ( sin ` A ) / ( cos ` A ) ) )
 ~~~~
 
-> Duplicate this step by pressing the
+> Duplicate this step by clicking on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
 > In the duplicate, change <tt>( cos &#96; A) e. CC</tt> to `A e. CC`,
-> Press Enter, and press
+> Press Enter, and click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Select that new step and duplicate it. In the duplicate step change its
 > statement
-> <tt>( sin &#96; A ) e. CC</tt> to `A e. CC`, Press Enter, and press
+> <tt>( sin &#96; A ) e. CC</tt> to `A e. CC`, Press Enter, and click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 This antecedent of this latest new statement is still not exactly the same as
@@ -1987,10 +2014,13 @@ one we just created but has the *exact* same antecedent as the goal.
 ~~~~
 
 > Duplicate the step.
-> Use Alt+left-click to click on the *second* parentheses of the goal statement
+> Click on the *second* parentheses of the goal statement
 > (so we can duplicate its antecedent) and click on the "copy" icon.
-> Select the second parenthesis of our new statement,
-> press Edit, and paste with control-V (or command-V).
+> Now click on the second parenthesis of our new statement,
+> click on the
+> icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit)
+> below it,
+> and paste with control-V (or command-V).
 > Enter, then press
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
@@ -2131,6 +2161,7 @@ Here we will discuss:
 * [Settings tab](#settings-tab)
 * [Explorer tab](#explorer-tab)
 * [Individual Assertion tab](#individual-assertion-tab)
+* [Common set.mm symbols](#common-setmm-symbols)
 
 ### Basic UI conventions
 
@@ -2161,6 +2192,7 @@ that is, a click edits the statement and a long-click enables
 statement fragment selection.
 
 Also:
+
 * To save an edit, use the
   icon <img width="16" height="16" src="save.svg" alt="save"> (save)
   or press Enter (Return).
@@ -2318,7 +2350,7 @@ but sometimes you do. Here is information on these fields.
 
 Note: Click on the *field name* to edit the field.
 You can also select the editable field text, but the description
-field is odd - by default, you have to use Alt+left click to edit it,
+field is odd - by default, you have to use long-click to edit it,
 while just left click selects part of its text.
 
 ##### Description
@@ -2344,7 +2376,7 @@ Omitted, since description is currently not generated as a comment:
   of the month.
 -->
 
-##### Variables
+##### Work and Local Variables
 
 This section shows a list of work variables and local variables,
 one variable per line.
@@ -2473,16 +2505,22 @@ Each step is presented in the following left-to-right order:
   the label of every hypothesis and goal must not already be used.
   The point of a label is to provide a simple way to uniquely
   refer to a statement.
-* Step type (**P**/**H**): The step type is "**P**"
-  if it's a statement to be proven,
-  and "**H**" if the statement is a hypothesis,
-  Typically all hypothesis are listed
-  first. By default, left-clicking on a "P" will
-  reveal or hide the specific justification
-  for the proved step (if any). By default, using Alt+left click will show a
-  dialogue to let you select if this is a "P" or "H" statement type.
+* Step type (**P**/**H**/**G**): The step type is "**P**"
+  if it's a provable statement (a statement to be proven),
+  "**H**" if the statement is a hypothesis, or
+  "**G**" if the statement is a goal (a special kind of provable statement).
+  Typically all hypothesis are listed first and the goal is shown last.
+  for the proved step (if any).
+  Use click to reveal the justification (if it's hidden).
+  Use long-click to change (edit) the step type.
+* Justification: This justifies why some statement is true.
+  For hypotheses this is "HYP".
+  For provable and goal statements, this has the form "*hyps*:*ref*",
+  where *hyps* is a space-separated list of previous step's labels that
+  are being used in the justification and *ref* is a reference to an
+  axiom or theorem in the current context.
 * Statement: This is the statement to be proven or is being
-  accepted as hypothesis.
+  accepted as a hypothesis.
   In most cases this statement will start
   with `|-` (meaning "it is true that..."), followed by a space-separated
   sequence of symbols of the statement to be proved. An example of a statement
@@ -2495,9 +2533,7 @@ Each step is presented in the following left-to-right order:
   to save the edited statement, or the
   icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel)
   to not change the statement.
-  You can also select *parts* of a statement; by default you can do this
-  by using Alt+left click ("alt" is sometimes labelled "opt").
-  For more about selecting parts (fragments) of a statement,
+  You can also select *parts* of a statement;
   see the next section on [fragment selectors](#fragment-selectors).
 
 #### Fragment selectors
@@ -2508,26 +2544,25 @@ make selecting *parts* of a statement very easy, especially in the presence
 of parentheses-like constructs. This mechanism is called a
 *fragment selector*.
 
-By default, Alt+left click on a statements causes a fragment selector
+By default, clicking on a symbol in a statement causes a fragment selector
 dialogue to appear and makes a selection based on the selected symbol.
-On some Mac keyboards "alt" is labelled "opt" or "option".
-If you'd prefer a different mechanism, use the settings tab to change this.
 
 Exactly what fragment is selected depends on the symbol you choose.
 If you select a parentheses-like symbol, it selects the expression
 that begins or ends with that symbol.
-If you select an infix symbol, it selects the expression immediately
+If you select an infix relationship symbol,
+it selects the expression immediately
 surrounding the infix symbol.
 
-You can use the fragment selector dialogue as follows:
+Once you select a fragment you can change selection.
+Clicking on the
+icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection)
+will expands the selected sequence of symbols, while
+the
+icon <img width="16" height="16" src="zoomoutmap.svg" alt="shrink"> (shrink selection)
+will shrink the selected sequence of symbols.
 
-> To get an idea of what the fragment selector dialogue can do,
-> press on the leftmost icon
-> icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection),
-> which expands the selected sequence of symbols.
-> Now select the
-> icon <img width="16" height="16" src="zoomoutmap.svg" alt="shrink"> (shrink selection),
-> which shrinks the selected sequence of symbols.
+Here is the full set of icons in the fragment selection bar:
 
 | Icon | Meaning | Visual Description | Additional information |
 | ---- | ------- | ------------------ | ---------------------- |
@@ -2557,11 +2592,16 @@ any special hypotheses to use. To do that:
   "it is true that".
   Click on its step number if you want to rename the step name (typically
   this is named "qed" if you don't have a better name).
-* If there are hypotheses, press "+" to enter each one, and select the "P"
-  using Alt+left click (or Opt+left click) to change "P" (provable assertion)
-  into "H" (hypothesis). Put them in the intended order by selecting them
-  (the box on the left) and selecting the up and down icons.
-  You generally want the goal last.
+  By default the step added when there are currently no steps
+  is assigned the step type **G** (goal) - a special kind of provable
+  statement that by default is kept at the end of the list of steps.
+* If there are hypotheses, click on the
+  icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement),
+  enter the statement text, and then long-click on the **P**.
+  Change "**P**" (provable assertion)
+  into "**H**" (hypothesis). Put them in the intended order by selecting them
+  (the box on the left) and clicking on the up and down icons.
+  You may want to rename the labels of the hypotheses.
 
 You're now ready to create a proof.
 
@@ -2619,7 +2659,7 @@ because the conclusion has a `0` constant which is later followed by a
 
 #### Replacement
 
-Select the
+Click on the
 icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
 to replace one
 expression with another expression.
@@ -2684,7 +2724,7 @@ dialogue box and press "Prove" (or "Cancel" if you don't want to search).
 When you press "Prove" it will repeatedly attempt various options in
 an attempt to prove the statement, showing the depth of the current search
 (e.g., "1/4" means it's doing depth 1 searches out of a maximum of 4)
-and how many attempts it's made so far. Press the circled "X" to
+and how many attempts it's made so far. Click on the circled "X" to
 stop its attempts to find a proof.
 
 Proving bottom-up can take a long time,
@@ -2871,9 +2911,9 @@ Settings tab are *not* applied until you select
 
 One setting in particular that you might want to change involves
 how to interpret left click.
-Should you edit statements with *left click* -
-and thus select statements using *Alt + left click*? Or the reverse?
+Should you edit statements with a *click* or a *long-click*?
 The choice is yours.
+By default, editing statements uses a long-click.
 
 Most of the other settings should be fairly obvious, and in most
 cases you won't want to change them.
@@ -2941,6 +2981,57 @@ where you can reveal or hide a visualization of that step.
 Clicking on a reference to an assertion will show an individual assertion tab
 of that assertion (creating the tab if necessary). That tab will provide
 detailed information about the assertion.
+
+### Common set.mm symbols
+
+Here are some common symbols defined in `set.mm`.
+
+#### Symbols for variables
+
+* `A`, `B`, `C`, and any other uppercase Latin letter is a variable
+  that represents an arbitrary expression of a class.
+  All sets are classes, not all classes are sets.
+  By convention we start with `A` unless there's a reason to do otherwise.
+* `ph`, `ps`, and `ch` represent the Greek letters &phi;, &psi;, and &chi;.
+  Lowercase Greek letters represent an arbitrary expression with a value
+  of either true or false.
+* `x`, `y`, `z`, and other lowercase Latin letters represent a set variable.
+
+#### Logical operators
+
+* `->` represents "implies". The left-hand-side of an implication is called
+  the antecedent; the right-hand-side of an implication is called the
+  consequent.
+* <tt>-.</tt> means logical not; if what follows is true then the result
+  is false, if what follows is false then the result is true.
+* <tt>/&#96;</tt>
+  represents logical "and", that is, if both sides of it are true
+  tnen the result is true (otherwise it's false).
+* <tt>&#96;/</tt> represents logical "or", that is, if either side is true
+  tnen the result is true (otherwise it's false).
+* <tt>&#92;/</tt> represent "and". It's not used here, but
+  <tt>/&#92;</tt> represents "or".
+
+#### Relations
+
+* `=` represents "is equal to"; the left and right sides must be classes.
+* `=/=` represents "not equal to".
+* `e.` represents "is a member of"; so `A e. B` is how we write
+  "A &isin; B". The expression <tt>A e. CC</tt> means "A is a complex number".
+
+#### Other symbols
+
+* `CC` represents the set of all complex numbers.
+* `/` represents complex number division.
+* The form <tt>( FUNCTION &#96; ARGUMENT )</tt>
+  applies function FUNCTION to ARGUMENT, that is, it determines the
+  value of the function for that argument.
+  Therefore <tt>( tan &#96; A )</tt> is the tangent of `A`.
+  This left apostrophe notation originated from Peano and was adopted in
+  *Principia Mathematica* by Whitehead and Russell, Quine, and others.
+  This notation means the same thing as
+  the <tt>tan(A)</tt> notation used by others
+  but without context-dependent notational ambiguity.
 
 ## Future directions
 
