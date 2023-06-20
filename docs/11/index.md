@@ -2172,10 +2172,11 @@ You can use "import to JSON" to load worked examples of metamath-lamp.
 For example, we have completed examples of these proofs available in
 JSON format:
 
-* [2p2e4](./2p2e4.lamp.json)
-* [reccot](./reccot.lamp.json)
-* [syl (easy version)](./syl-easy.lamp.json)
-* [syl (axioms only)](./syl-axiom-only.lamp.json)
+* [`2p2e4`](./2p2e4.lamp.json)
+* [`syl` (easy version)](./syl-easy.lamp.json)
+* [`syl` (axioms only)](./syl-axiom-only.lamp.json)
+* [`reccot`](./reccot.lamp.json)
+* [empty](./empty.lamp.json) (import this JSON to erase everything)
 
 You can also generate a URL that includes the proof state, and share that
 URL with anyone.
