@@ -597,10 +597,11 @@ Let's try to do that.
 > Click on the
 > icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 
-**Bug**
-Currently this duplicates the **G** type.
-
-> On the new step, long-click on **G** and turn it into **P** (provable).
+We're duplicating a goal step.
+The tool knows there's only one goal, so in the duplicate the
+step type will be turned into a provable (**P**) step type.
+By default the goal is kept at the end, so this new statement will be
+added just before the goal step.
 
 Now let's edit the new statement.
 
