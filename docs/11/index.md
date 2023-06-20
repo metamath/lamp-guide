@@ -3108,13 +3108,11 @@ Here are some common symbols defined in `set.mm`.
   consequent.
 * <tt>-.</tt> means logical not; if what follows is true then the result
   is false, if what follows is false then the result is true.
-* <tt>/&#96;</tt>
-  represents logical "and", that is, if both sides of it are true
-  tnen the result is true (otherwise it's false).
-* <tt>&#96;/</tt> represents logical "or", that is, if either side is true
-  tnen the result is true (otherwise it's false).
-* <tt>&#92;/</tt> represent "and". It's not used here, but
-  <tt>/&#92;</tt> represents "or".
+* <tt>&#92;/</tt> represents logical "and".
+  If both sides of it are true
+  then the result is true (otherwise it's false).
+* <tt>/&#92;</tt> represents logical "or". If either side of it is true
+  then the result is true (otherwise it's false).
 
 #### Relations
 
