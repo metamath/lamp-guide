@@ -451,9 +451,16 @@ So let's "clean up" now by directly proving that this term is an
 expansion of a symbol in the goal. Instead of typing it all in, we'll
 use the "duplicate" command to get us started:
 
-> Select the checkbox to the left of the new step 3 stating
-> `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
-> and click on the
+> Click the
+> checkbox
+> icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select step)
+> to the left of the new step 3
+> (*not* the checkbox
+> icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select all)
+> on the [editor command icon bar](#editor-command-icon-bar)),
+> Step 3 is the step with
+> `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )` as the statement.
+> Click on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate).
 
 This will create a duplicate step (labelled 4)
@@ -547,8 +554,10 @@ We can take the definition of `2` and add `2` to both sides, at the
 beginning of each side, to produce a very similar expression.
 Let's try that.
 
-> Select the checkbox to the left of the new statement
-> `|- 2 = ( 1 + 1 )` and then press the
+> Click on the checkbox
+> icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select step)
+> to the left of the new statement
+> `|- 2 = ( 1 + 1 )` to select that step, then press the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate).
 > Use long-click on the new statement and modify it so that it is
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )`
@@ -580,8 +589,10 @@ equal to very similar expressions. If we could prove that those expressions
 are equal to each other, we could trivially prove our goal.
 Let's try to do that.
 
-> Select the checkbox of the `2p2e4` goal step.
-> Select the
+> Click on the checkbox
+> icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select step)
+> of the `2p2e4` goal step.
+> Click on the
 > icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 
 **Bug**
@@ -626,7 +637,9 @@ You enable a bottom-up search by selecting the step to be proved
 and then clicking on
 the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
-> Select the checkbox next to our latest statement
+> Click on the checkbox
+> icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select step)
+> of the `2p2e4` goal step.
 > `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`
 > and click on the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
@@ -699,7 +712,9 @@ Step labels don't need to be non-negative integers
 We can now show the compressed proof.
 This is the final proof we can add to a Metamath database.
 
-> Click on the checkbox on the left of the goal step to select it.
+> Select the goal step by clicking on the checkbox
+> icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select step)
+> to the left of the goal step.
 > Click on the
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
 > and select "Show completed proof".
@@ -1202,7 +1217,9 @@ meaning the goal is fully proved!
 
 If you like, you can again extract the final compressed proof:
 
-> Click on the checkbox on the left of the goal step to select it.
+> Click on the checkbox
+> icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select step)
+> on the left of the goal step to select it.
 > Click on the
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
 > and select "Show completed proof".
@@ -1628,7 +1645,9 @@ If you've already been using metamath-lamp to prove something else, that
 means we need to erase the proof steps we have and change the context.
 Here's how to do that:
 
-> Select the checkbox on the editor bar above the field name "Description"
+> Select the checkbox on the
+> [editor command icon bar](#editor-command-icon-bar)
+> above the field name "Description"
 > to select *all* steps. Click on
 > icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete)
 > to delete all the selected steps.
@@ -1850,7 +1869,8 @@ class =/= 0 /\ class =/= 0 -> ( 1 / ( class / class ) ) = ( class / class )
 After looking at my options I find `recdiv` and that *is*
 what I want!
 
-> Select the checkbox to the left of `recdiv` - then scroll to the
+> Click on the checkbox to the left of `recdiv` to select that
+> step, then scroll to the
 > bottom and click on "Choose Selected".
 
 Now we have two work variables, representing the numerator and
