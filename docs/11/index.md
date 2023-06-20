@@ -383,7 +383,7 @@ of 4 would probably be useful.
 We'll search for the definition of 4 so we can add it to our
 list of steps.
 
-> Select the
+> Click on the
 > icon <img width="16" height="16" src="search.svg" alt="search"> (search);
 > under pattern enter
 > `4 =` and click on Search.
@@ -1622,11 +1622,6 @@ that the reciprocal of the cotangent is tangent.
 This has already been
 [proved in the set.mm database as theorem `reccot`](https://us.metamath.org/mpeuni/reccot.html).
 
-This proof will show some capabilities we didn't see in the previous
-example. This includes work variables (and how to substitute them) and
-metamath-lamp's syntax-aware mechanisms for copying and pasting
-portions of text (aka "[fragment selectors](#fragment-selectors)").
-
 This exercise is based on the video showing how to prove the
 same theorem using the mmj2 tool
 (["Introduction to Metamath and mmj2" by David A. Wheeler](https://www.youtube.com/watch?v=Rst2hZpWUbU))
@@ -1804,7 +1799,7 @@ applying a substitution‡.
 > Select the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
-> enter `A` ... once that's done, press "Find Substitution‡".
+> enter `A` and once that's done, press "Find Substitution‡".
 > The system will check if this is valid; in this case, it could that
 > there was only 1 way to interpret this command and that the result is valid.
 > It will show you that you can change <tt>&amp;C1</tt> to `A` - press
@@ -1831,8 +1826,8 @@ should be, so let's deal with that now.
 > Select the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
-> enter `A` ... once that's done, press "Find Substitution‡".
-> It will show you that you can change <tt>&amp;C1</tt> to `A` - press
+> enter `A` and once that's done, press "Find Substitution‡".
+> It will show you that you can change <tt>&amp;C1</tt> to `A` so press
 > `Apply` to apply the change.
 
 #### What does reciprocal do?
@@ -1948,7 +1943,9 @@ antecedent of the goal.
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
 > Click on the *second* parenthesis of the *goal*
 > statement to select the antecedent of the goal.
-> Let's copy this statement fragment into the clipboard.
+
+Let's copy this statement fragment into the clipboard.
+
 > Click on the
 > icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy)
 > under the goal statement.
@@ -2053,8 +2050,10 @@ set.mm database? Let's find out. Let's look for that statement
 and, if it exists, add it.
 
 > Make sure no step is selected.
-> Select the magnifying glass, enter the pattern
-> <tt>e. CC -> cos e. CC</tt> and search.
+> Click on the
+> icon <img width="16" height="16" src="search.svg" alt="search"> (search);
+> enter the pattern
+> <tt>e. CC -> cos e. CC</tt> and press search.
 > You'll see a list including `coscl` - select `coscl` and press
 > "Choose Selected".
 > This has a work variable; click on the
@@ -2067,15 +2066,19 @@ and, if it exists, add it.
 We've noticed another naming convention in set.mm; a name ending in "cl"
 is often used to indicate a class. Let's do it again.
 
-> Select the magnifying glass, search for *label* `sincl`, and search.
+> Click on the
+> icon <img width="16" height="16" src="search.svg" alt="search"> (search).
+> Search for *label* (not the statement) `sincl` and search.
 > Select `sincl` (*not* `asincl`!).
-> Substitute <tt>&amp;C1</tt> with `A`.
-> We now have <tt>|- ( A e. CC -> ( sin &#96; A ) e. CC )</tt> as a
-> statement.
+> Substitute <tt>&amp;C1</tt> with `A` (you should now know how to do that
+> without detailed instructions about what to press).
+
+We now have <tt>|- ( A e. CC -> ( sin &#96; A ) e. CC )</tt> as a
+statement.
 
 Now we can start simplifying the reciprocal of the division.
 
-> Select the long step involving the reciprocal which reads:
+> Select the step involving the reciprocal which has this long statement:
 
 ~~~~ metamath
 |- ( ( ( ( cos ` A ) e. CC /\ ( cos ` A ) =/= 0 ) /\
@@ -2086,8 +2089,9 @@ Now we can start simplifying the reciprocal of the division.
 
 > Duplicate this step by clicking on the
 > icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
-> In the duplicate, change <tt>( cos &#96; A) e. CC</tt> to `A e. CC`,
-> Press Enter, and click on
+> In the duplicate, change <tt>( cos &#96; A) e. CC</tt> to `A e. CC`
+> and once that's done press Enter (Return).
+> Click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > Select that new step and duplicate it. In the duplicate step change its
 > statement
@@ -2097,7 +2101,7 @@ Now we can start simplifying the reciprocal of the division.
 This antecedent of this latest new statement is still not exactly the same as
 the goal antecedent, but it's very close. It's likely the tool can
 easily complete that, so let's create a new statement based on the
-one we just created but has the *exact* same antecedent as the goal.
+one we just created but it has the *exact* same antecedent as the goal.
 
 > Select the latest new step with this (long) statement:
 
@@ -2145,7 +2149,7 @@ intermediate steps.
 ### Creating your own examples from existing proofs
 
 An excellent way to learn how to use metamath-lamp is to select
-a database (such as set.mm and iset.mm) and pick an existing proof in it.
+a database (such as `set.mm` and `iset.mm`) and pick an existing proof in it.
 Then load the database and stop reading just before that proof.
 Try to create your own proof, consulting the known proof when you get stuck.
 
