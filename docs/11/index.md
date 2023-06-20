@@ -343,8 +343,8 @@ Each step has a collection of information, shown left-to-right:
 * *Checkbox* to show if the step is selected.
 * *Label* (to identify it).
   A step label is sometimes informally called a step id or step name.
-* *Step type* (is this a goal **G**, hypothesis **H** or
-  something else provable **P**?).
+* *Step type* (a goal **G**, hypothesis **H**, or
+  another provable statement **P**).
 * *Justification* (if any) - the reason the statement is true.
 * *Statement* (a claim, typically beginning with `|-`).
 
