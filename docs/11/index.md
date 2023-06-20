@@ -258,7 +258,8 @@ Using a touchscreen, you can press down on the screen, wait a second,
 then release.
 With a mouse you can also use a shortcut: hold the Alt key (sometimes
 labelled Opt or Option instead), then click with the mouse.
-There are a few shortcuts, and you can use *Settings* to change some
+There are a few shortcuts, and you can use the
+[*Settings* tab](#settings-tab) to change some
 defaults, but for now let's use the default configuration.
 
 So let's rename this goal step to `2p2e4`:
@@ -291,10 +292,13 @@ The top line summarizes the context - we loaded the `set.mm` database
 `2p2e4`.
 
 The next line is the tab bar,
-letting you select between *Settings* and
-*Editor*.
+letting you select between various tabs.
+These tabs always include
+[*Settings*](#settings-tab), [*Editor*](#editor-tab), and
+[*Explorer*](#explorer-tab), and may include
+[other tabs too](#individual-assertion-tab).
 If you want to change the configuration of the tool, use *Settings*.
-Normally you''l be in the *Editor* tab (which lets you edit proofs),
+You'll normally be in the *Editor* tab when editing proofs,
 so we'll focus on that.
 
 Below the word "Editor" is the editor command icon bar.
@@ -774,10 +778,14 @@ to delete entirely, e.g.,
 because you want to prove it some other way.
 
 But what does this justification *mean*?
+Visualizations can help, so let's discuss them.
 
-Metamath-lamp can provide a visualization to show you what
-it means. This only works when the tool has
-verified that justification and thus shows a green check.
+#### Visualization: a powerful metamath-lamp capability
+
+Metamath-lamp can provide visualizations to show you what
+a given justification means for a given step.
+This only works when the tool has
+verified the justification and thus shows a green check.
 So let's first use unify to ensure that we've proven what we
 want to visualize.
 
@@ -844,6 +852,9 @@ Let's end its display.
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
 > display of its justification, hiding it again.
 
+Please *do* try out visualization of different steps.
+We think seeing several will help better understand how it all works.
+
 #### Reordering steps
 
 You can reorder steps.
@@ -877,7 +888,8 @@ have not been proved yet.
 ### A tour using the Explorer tab
 
 The tab bar lets you switch between tabs, and those tabs always include
- "Settings", "Editor", and "Explorer".
+[*Settings*](#settings-tab), [*Editor*](#editor-tab), and
+[*Explorer*](#explorer-tab).
 The Explorer tab lets us view the assertions (axioms and theorems)
 in the current loaded context.
 Let's try out the Explorer tab.
@@ -2257,7 +2269,7 @@ Here we will discuss:
 
 * [Basic UI conventions](#basic-ui-conventions)
 * [Loading source Metamath databases to create the proof context](#loading-source-metamath-databases-to-create-the-proof-context)
-* [Main tabs: Settings and Editor](#main-tabs-settings-and-editor)
+* [Main tabs: Settings, Editor, and Explorer](#main-tabs-settings-editor-and-explorer)
 * [Editor tab](#editor-tab)
 * [Settings tab](#settings-tab)
 * [Explorer tab](#explorer-tab)
@@ -2357,15 +2369,20 @@ Once you've selected all sources, select "Apply changes" to process these
 source databases. After it's applied, the source selection section
 is hidden and you can start creating a proof with the proof editor.
 
-### Main tabs: Settings and Editor
+### Main tabs: Settings, Editor, and Explorer
 
 Once you've loaded the context,
-at the top there is a tab bar with two tabs, "Settings" and "Editor".
+at the top there is a tab bar with three tabs:
 
 * The "[Editor tab](#editor-tab)" is the main view that lets you see
   and edit a proof.
 * The "[Settings tab](#settings-tab)" lets you change the
   editor configuration to your liking,
+* The "[Explorer tab](#explorer-tab)" lets you view the current context,
+  e.g., the axioms and theorems.
+
+There may also be dynamically-created
+[individual Assertion tab](#individual-assertion-tab).
 
 Click on the name of the tab that you wish to see,
 and that tab will be displayed below it.
@@ -3007,9 +3024,10 @@ There are [some discussions about removing this limitation in metamath-lamp](htt
 
 The "Settings" tab lets you configure metamath-lamp to your liking.
 
-It's important to remember that any changes you make in the
-Settings tab are *not* applied until you select
-"Apply Changes"; if you want to discard changes, select "Discard Changes".
+You **must** press on *"Apply Changes"* for changes to be applied.
+Any changes you make in the
+Settings tab are *not* applied until you select "Apply Changes".
+If you want to discard changes, select "Discard Changes".
 
 One setting in particular that you might want to change involves
 how to interpret left click.
@@ -3019,6 +3037,10 @@ By default, editing statements uses a long-click.
 
 Most of the other settings should be fairly obvious, and in most
 cases you won't want to change them.
+
+If you don't see the name of a database in the context dropdown,
+open the settings tab and check your settings.
+You may need to click on "Restore default URLs" and "apply changes".
 
 ### Explorer tab
 
