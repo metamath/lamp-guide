@@ -75,20 +75,17 @@ To use metamath-lamp, do the following:
    until the goal is completely proven.
    You can create the proof backwards from the goal,
    forwards towards the goal, or in whatever other order makes sense to you.
-5. Copy the compressed proof of the goal into the clipboard.
-   You can do this by selecting the green checkmark next to the goal
-   to show the compressed proof, then press the copy button.
+5. Get the final results using "Show completed proof".
    You'd typically copy the compressed proof text into a Metamath database
    (which is a text file).
 
 Throughout metamath-lamp there are various tooltips.
 So if you use a mouse and hover over an interactive item,
-in most cases the tool will provide a brief
-explanation of what that item does.
+the tool will often provide a brief explanation.
 You don't need to memorize this guide.
 
-We'll use the term "click" a general term to mean
-either a click with the left mouse button *or* a tap on a touchscreen.
+We use the term "click" to mean
+a click with the left mouse button *or* a tap on a touchscreen.
 A short click (or short tap) lets you reveal information,
 toggle a display, or select some information.
 "Press" means pressing and releasing a key or clicking on a button.
