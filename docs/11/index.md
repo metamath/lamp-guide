@@ -1600,7 +1600,7 @@ If you like, you can again extract the final compressed proof:
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
 > and select "Show completed proof".
 
-### Screen shot of `syl` with only axioms
+#### Screen shot of `syl` with only axioms
 
 Here's a screen shot of `syl` proven with only axioms.
 
