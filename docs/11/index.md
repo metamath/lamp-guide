@@ -311,7 +311,9 @@ The reference manual section
 icon and the command it performs in more detail.
 You can hover over an icon to see what the command is.
 
-Here's a list of the icons in the edit icon bar and the commands they perform:
+Here's a list of the icons in the
+[editor command icon bar](#editor-command-icon-bar)
+and the command each icon performs:
 
 | Icon | Meaning | Visual Description | Additional information |
 | ---- | ------- | ------------------ | ---------------------- |
@@ -1929,7 +1931,8 @@ It turns out that metamath-lamp can immediately prove this new step.
 
 > Click on the
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
-> in the icon editor bar above the steps. Note that the new
+> in the [editor command icon bar](#editor-command-icon-bar)
+> above the steps. Note that the new
 > step now has a green checkmark.
 
 #### Matching the goal's antecedent for cotangent
@@ -2365,7 +2368,7 @@ at the top there is a tab bar with two tabs, "Settings" and "Editor".
 * The "[Settings tab](#settings-tab)" lets you change the
   editor configuration to your liking,
 
-CLick on the name of the tab that you wish to see,
+Click on the name of the tab that you wish to see,
 and that tab will be displayed below it.
 We'll cover the [Settings tab](#settings-tab) later;
 let's first focus on the Editor tab.
@@ -2389,13 +2392,13 @@ Here is the full list of subsections:
   this is the topmost area in the editor tab, a bar with icons
   representing commands to modify the proof
 * [Fundamental proof information](#fundamental-proof-information) -
-  this is the region under the editor icon bar for the
-  description, variables, and disjoints.
+  this is the region under the
+  [editor command icon bar](#editor-command-icon-bar)
+  for the description, variables, and disjoints.
 * [List of steps in the proof](#list-of-steps-in-the-proof)
 * [Fragment selectors](#fragment-selectors) - for selecting
   parts of a statement in the list of statements.
-* [How to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses) -
-  a summary of how to do this.
+* [How to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses) - a summary of how to do this.
 * [Search patterns](#search-patterns)
 * [Replacement](#replacement)
 * [Proving bottom-up](#proving-bottom-up)
@@ -2546,7 +2549,8 @@ Typically the first step to be added is the step
 to be proved (aka the *goal* step).
 Use the
 icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement)
-in the editor command bar to add the goal.
+in the [editor command icon bar](#editor-command-icon-bar)
+to add the goal.
 Usually the goal is the last step, though metamath-lamp does
 not enforce this.
 
@@ -2554,8 +2558,9 @@ Each step is presented in the following left-to-right order:
 
 * Box (step selector): Select this box to select or unselect this step.
   Many commands work on the "currently selected step(s)",
-  so it's important to be able to select them all.
-  Use the box in the editor command bar to select or deselect all steps.
+  so it's important to be able to easily select steps.
+  Use the box in the [editor command icon bar](#editor-command-icon-bar)
+  to select or deselect all steps.
 * Proof status (if present): If there's a green checkmark following the
   step selector box, a recent unification has
   confirmed that this step is proven given its context and its
