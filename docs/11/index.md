@@ -1074,6 +1074,21 @@ learn how to create hypotheses in metamath-lamp.
 
 #### Setting up the context and goal step for syl
 
+As always, start up metamath-lamp.
+
+We need to erase any previous materials.
+
+If you have any steps or other information, erase them:
+
+> Click on the leftmost
+> icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select all)
+> of the [editor command icon bar](#editor-command-icon-bar)
+> so all steps are selected.
+> Click on the
+> icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
+> to delete the old steps.
+> When it asks "Delete all steps?" press on "Delete".
+
 Let's again load the `set.mm` database, and stop before `syl`:
 
 > Select Source type "Web", Alias "set.mm:latest"; after confirmation this
@@ -1081,17 +1096,24 @@ Let's again load the `set.mm` database, and stop before `syl`:
 > Now under scope select "Stop before" and enter the label `syl`.
 > Finally, apply changes to the context.
 
+Let's set the description.
+
+> Click on the field name "Description" to edit the description.
+> Enter text like `Prove syl.` and press Enter (Return).
+> Erase data for "Variables" and "Disjoints" if there are any.
+
 Now let's add the conclusion:
 
 > In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 > Enter
 > `|- ( ph -> ch )`
 > and press Enter (Return).
-> Click on the step label, change it to `syl`, and press Enter.
+> Long-click on the step label, change it to `syl`, and press Enter.
 
-However, this statement isn't always true; it's only necessarily true when
-some *other* statements are true. Those other statements are termed
-"hypotheses". Let's add some hypotheses.
+This statement isn't always true; it's only necessarily true when
+some *other* statements are true. In Metamath terminology
+these other statements are termed "hypotheses".
+Let's add some hypotheses.
 
 > In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 > Enter
@@ -1101,8 +1123,10 @@ some *other* statements are true. Those other statements are termed
 > presumes that a new step describes a provable statement
 > (that is, its step type is a "**P**"). However, this is a hypothesis instead.
 > Long-click on the **P** on that line.
-> On the drop-down select "**H**" (hypothesis) instead to change it
-> to a hypothesis.
+> On the drop-down drag down and
+> select "**H**" (hypothesis) to change this step to a hypothesis.
+> Notice that its justification is now "HYP" (it's justified because
+> it's a hypothesis).
 > Long-click on its label and rename it to `syl.1`.
 
 We now have a hypothesis! Let's add the other one:
@@ -1111,11 +1135,10 @@ We now have a hypothesis! Let's add the other one:
 > Enter
 > `|- ( ps -> ch )`
 > and press Enter.
-> Use long-click to select the **P** on that line.
-> On the drop-down list select "**H**" (hypothesis).
-> Again, this change causes the step to be automatically moved
-> above the goal.
-> Long-click on the label and rename it to `syl.2`.
+> Long-click on the **P** on that line;
+> on the drop-down list again select "**H**" (hypothesis).
+> Again, its justification becomes "HYP".
+> Long-click on its label and rename it to `syl.2`.
 
 Notice that it's already ordered in a reasonable way.
 If you ever wanted to change the order of statements, you can select
@@ -1140,6 +1163,16 @@ Metamath-lamp validates labels you use
 and it will show an error message if the label
 is already in use in the current context.
 
+#### Starting situation for `syl`
+
+Here is what your display should look like at this point
+for proving `syl`:
+
+![Starting setup to prove theorem syl](syl-setup.png)
+
+You can download this
+[starting setup in metamath-lamp JSON format](syl-setup.lamp.json ).
+
 #### Easy proof of `syl`
 
 Let's prove `syl` the easy way.
@@ -1149,8 +1182,10 @@ when it can use many theorems that have already been proved.
 
 > Select just the goal `syl`, and click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
-> Press on "Prove". The tool will soon reply with some options,
-> including one that uses `imim2i` and `ax-mp` that *completely*
+> Press on "Prove". The tool will soon reply with some options
+> (you may need to scroll down to see them).
+> These options will include, at or near the top, an option
+> that uses `imim2i` and `ax-mp` that *completely*
 > proves the claim. Select that one (using the checkbox on its left)
 > and press on "Apply selected".
 
@@ -1178,7 +1213,8 @@ If you thought that was too easy, let's make it more challenging.
 Let's prove `syl` using *only* axioms.
 Most people wouldn't create proofs with only axioms,
 but some people find this to be an interesting challenge.
-We're going to do this because it
+
+We're going to create a proof using *only* axioms because this
 will help us illustrate ways you can use metamath-lamp.
 In particular, we'll show you how to work backwards from a step.
 
@@ -1197,11 +1233,11 @@ modus ponens (`ax-mp`) and the propositional logic axioms
 We now see an error after label 1, saying
 "*The label 'imim2i' doesn't refer to any assertion.*"
 
-The problem is that its justification still says
-`syl.2 : imim2i` which means that our claimed justification for
+The problem is that the justification of step 1 still says
+`syl.2 : imim2i` - this means that our claimed justification for
 step 1 was to use assertion `imim2i` with `syl.2` as its hypothesis.
 In our modified context we can't use `imim2i`, in fact, we can't use any
-assertion after `ax-3`.
+assertion after `ax-3`, including `imim2i`.
 
 Let's eliminate this justification:
 
@@ -1220,7 +1256,7 @@ The final `syl` step has a symbol "~"; this means that this particular
 step is justified on its own, but it depends on something else that
 is not transitively justified.
 You can see that `syl` depends
-on two other statements, `syl.1` and `1`, and uses `ax-mp` with
+on two other statements, `syl.1` and `1`, and it uses `ax-mp` with
 those hypotheses to justify this step.
 This is a perfectly fine use of `ax-mp`, and `syl.1` is a hypothesis
 (so it's assumed true for its purposes).
@@ -1242,10 +1278,13 @@ cases where a hypothesis is directly used as one of the claims.
 Sometimes it's not clear which alternative (if any) is worth trying,
 in which case, you may need to try out different approaches to see
 if they lead anywhere.
+It's fine to try out different options; when creating a real proof,
+you often have to try different situations until you find one that works.
+As you do it you'll get a better intuition for what is likely to work.
+
 In this situation the direct applications of the hypothesis
 don't look to me like they're going to lead to a proof.
-
-I'm going to select the option with a work variable &amp;W1
+So I'm going to select the option with a work variable &amp;W1
 because that seems more promising.
 
 > Click on the option that includes &amp;W1 and use "Apply Selected".
@@ -1323,7 +1362,7 @@ Statement 3 looks suspiciously like axiom `ax-2`, which states:
 Unfortunately, metamath-lamp's current unifier doesn't notice that
 these *can* be unified, so the bottom-up prover won't help us here.
 The tool `mmj2` *can* unify this statement
-with `ax-2` (mmj2 has a more powerful unifier).
+with `ax-2` because mmj2 currently has a more powerful unifier.
 Unfortunately, metamath-lamp's current unifier is only unidirectional, that is,
 it can only substitute in one direction to find a match.
 In the technical literature the current metamath-lamp "unification"
@@ -1331,7 +1370,7 @@ algorithm is often called "matching"
 instead of being considered full syntactic unification.
 There are some
 [discussions about removing this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77),
-but for now we'll need to work around this.
+but for now we'll need to work around this limitation.
 
 With a little extra work we can give metamath-lamp the information it needs.
 Let's assume that we know we want to use `ax-2` to prove this.
@@ -1389,18 +1428,31 @@ this process *much* easier.
 
 > Use a click to select, in step *4*, the last `->`.
 
+If you didn't pick the right fragment, click again to get the
+correct selection.
+
 The statement fragment selector dialogue has appeared under step 4 and
 we now have this fragment selected:
+
+~~~~
+( &W3 -> &W2 )
+~~~~
+
+We want a slightly larger expression selected, and we can do that easily.
+
+> Click on the
+> icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection)
+> to expands the selected sequence of symbols.
+
+You should now see this selected:
 
 ~~~~
 ( ( &W3 -> &W4 ) -> ( &W3 -> &W2 ) )
 ~~~~
 
-You could use the dialogue to
-increase or decrease the size of the fragment, but we don't need to.
 Now let's select the equivalent statement fragment in step 3:
 
-> Use a click to select, in step *3*, the third `->`.
+> Use a click to select, in step *3*, the third `->` (out of four).
 
 Another fragment selector dialogue has appeared under step 3 and
 it has this fragment selected:
@@ -1409,7 +1461,7 @@ it has this fragment selected:
 ( ( ph -> ps ) -> ( ph -> ch ) )
 ~~~~
 
-If you didn't pick the right fragment, use alt+click again to get the
+If you didn't pick the right fragment, click again to get the
 correct selection.
 
 **Note**: you *can* select two fragments at the *same* time;
@@ -1420,13 +1472,19 @@ statements simplifies replacement.
 Now we can use replacement:
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (sUbstitution‡).
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
 > The replacement dialogue will appear, with our selections
 > entered as the "Replace what" and "Replace with" entries.
 
 The two selected fragments have been copied into the fields.
-The earliest selected step is the "Replace what" and the
-later step is the "replace with"; in this case that's what we want.
+The earlier selected fragment is the "Replace what" and the
+later selected fragment is the "replace with"
+If they are in the opposition places of what you wanted, you can
+swap them by clicking on the
+icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
+on the right of the "replace what" field.
+In this case we don't need to reverse anything, as
+this is what we want.
 
 > Click on "Find substitution". Notice that it shows a valid substitution‡
 > that replaces multiple work variables.
@@ -1436,7 +1494,7 @@ It can be an expression, one that even includes multiple work variables.
 If there are multiple work variables, and you apply the change, all will be
 replaced as necessary throughout the proof.
 
-> Click on "apply". Notice that multiple work variables have been replaced.
+> Click on "Apply". Notice that multiple work variables have been replaced.
 
 We now have these two statements:
 
@@ -1463,11 +1521,9 @@ Again the two fragments are copied in.
 However, in this case the order is the opposite of what we wanted,
 because we want to replace a work variable with an expression
 (not the other way around).
-The default is to use the earlier step first.
-In this case that's the opposite of what we wanted, so we'll
-swap them by clicking on the
+So we'll swap them by clicking on the
 icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
-to the right of the "replace what" field.
+on the right of the "replace what" field.
 
 > Click on the
 > icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
@@ -1482,7 +1538,7 @@ Now both steps 3 and 4 are the same:
 |- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
 ~~~~
 
-In fact, metamath-lamp is complaining that the two statements are equal!
+In fact, metamath-lamp is complaining that the two statements are the same!
 That's not a problem, that's what we were trying to do.
 Let's merge them.
 
@@ -1503,6 +1559,8 @@ Select step 2, and do a bottom-up proof of it as well.
 > Select step 2, then click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
 > and press "prove".
+> The tool will show various options for proving the result
+> (you may need to scroll down).
 > At the top it will show a use of `ac-mp` that proves all steps;
 > select it and "apply selected".
 
@@ -1516,12 +1574,29 @@ easier to understand if you create theorems of more basic
 claims, and slowly build up from those simpler theorems
 to more complex claims. It's also much easier to create each proof.
 
+You can export this as JSON for later importing.
+
 If you like, you can again extract the final compressed proof:
 
 > Click on the checkbox on the left of the goal step to select it.
 > Click on the
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
 > and select "Show completed proof".
+
+### Screen shot of `syl` with only axioms
+
+Here's a screen shot of `syl` proven with only axioms.
+
+![Theorem `syl` proven with only axioms](syl-axiom-only.png)
+
+For your convenience, here is the
+[axiom-only proof of `syl` in JSON format](syl-axiom-only.lamp.json)
+that you can download.
+
+As noted earlier, there's no mathematical reason you have to prove
+theorems using only axioms.
+But it can be a fun challenge, and this made it easy to demonstrate
+some of metamath-lamp's capabilities.
 
 ### Proof: The reciprocal of the cotangent is tangent (`reccot`)
 
