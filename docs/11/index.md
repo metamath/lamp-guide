@@ -3452,7 +3452,8 @@ Here are some conventions for the source code itself:
 
 1. Where at all possible, please reuse existing functions unless there's
    a strong reason to do otherwise, as this simplifies code review.
-   It's acknowledged that this is challenge when you are new to the code base.
+   It's acknowledged that this is
+   a challenge when you are new to the code base.
 2. Functional style is generally used, e.g., `filter` and `map`.
 3. Like several other languages, many functions return an
    `Option` (which can be `Some('a)` or `None`) or a
