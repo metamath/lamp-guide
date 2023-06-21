@@ -1447,6 +1447,24 @@ This is a perfectly fine use of `ax-mp`, and `syl.1` is a hypothesis
 (so it's assumed true for its purposes).
 However, this justification depends on step `1` which isn't currently proven.
 
+#### What are the axioms?
+
+We can use the explorer to view the axioms that we're allowed to use
+in this "hard mode". We don't have much to work with!
+
+We still have modus ponens (`ax-mp`). Modus ponens (`ax-mp`)
+says that given soe `ph` and `|- ( ph -> ps )` we may conclude `ps`.
+
+We also have axioms `ax-1`, `ax-2`, and `ax-3`:
+
+| Axiom | Statement |
+| ----- | --------- |
+| ax-1  | `|- ( ph -> ( ps -> ph ) )` |
+| ax-2  | `|- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )` |
+| ax-3  | `|- ( ( -. ph -> -. ps ) -> ( ps -> ph ) )` |
+
+We did say this was hard mode. Let's get started.
+
 ##### Working backwards on syl
 
 Let's work on proving step `1`.
