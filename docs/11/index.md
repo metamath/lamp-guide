@@ -3422,7 +3422,7 @@ By default you must specify the full scoped name of a function, e.g.,
 
 Metamath-lamp
 uses the widely-used React library to implement its user interface.
-The Rescript programming languages comes with a robust API
+The ReScript programming languages comes with a robust API
 to use React and JavaScript.
 
 In discussions, metamath-lamp is often abbreviated as `mm-lamp`.
