@@ -1453,15 +1453,15 @@ We can use the explorer to view the axioms that we're allowed to use
 in this "hard mode". We don't have much to work with!
 
 We still have modus ponens (`ax-mp`). Modus ponens (`ax-mp`)
-says that given soe `ph` and `|- ( ph -> ps )` we may conclude `ps`.
+says that given some `ph` and `( ph -> ps )` then we may conclude `ps`.
 
 We also have axioms `ax-1`, `ax-2`, and `ax-3`:
 
 | Axiom | Statement |
 | ----- | --------- |
-| ax-1  | `|- ( ph -> ( ps -> ph ) )` |
-| ax-2  | `|- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )` |
-| ax-3  | `|- ( ( -. ph -> -. ps ) -> ( ps -> ph ) )` |
+| ax-1  | <tt>|- ( ph -> ( ps -> ph ) )</tt> |
+| ax-2  | <tt>|- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )</tt> |
+| ax-3  | <tt>|- ( ( -. ph -> -. ps ) -> ( ps -> ph ) )</tt> |
 
 We did say this was hard mode. Let's get started.
 
