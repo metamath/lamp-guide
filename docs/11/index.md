@@ -1016,19 +1016,23 @@ Let's try out a visualization in `mp2`.
 
 > Click on the icon ⊞ (expand) next to the statement of step 4.
 
-You can now see a visualization of step 4, which is justified
-by `ax-mp` (modus ponens).
-At the center of the visualization is the usual representation
-of modus ponens, showing its preconditions, a horizontal line, and its result.
-Modus ponens has two preconditions: `ph` must be true
-(whatever `ph` is), and `( ph -> ps )` must be true
-(that is, `ph` implies `ps`) If these preconditions are met, then `ps` is true.
+You should now see a visualization of step 4:
 
-The visualization then shows how the symbols flow in.
+[Theorem `mp2` with a visualization of step 4](mp2_visualized.png)
+
+Step 4 is justified by `ax-mp` (modus ponens).
+At the center of the visualization is the usual representation
+of rule: a horizontal line with the preconditions above the result below.
+Modus ponens has two preconditions: some `ph` must be true
+(whatever `ph` is), and some `( ph -> ps )` must be true
+(that is, `ph` implies `ps` whatever `ph` and `ps are).
+If these preconditions are met, then per modus ponens, `ps` is true.
+
+The visualization then shows how the symbols flow in and out of the rule.
 In this use of modus ponens, we'll substitute `ph` with `ph`
 (from step 2), and `ps` will replaced with `( ps -> ch )` (from step 3).
 Given those substitutions, the result of this particular application
-of `ax-mp` is `( ps -> ch )`.
+of `ax-mp` in step 4 is `( ps -> ch )`.
 
 #### Revealing types in the individual assertion tabs
 
