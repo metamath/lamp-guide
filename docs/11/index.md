@@ -785,7 +785,7 @@ Visualizations can help, so let's discuss them.
 Metamath-lamp can provide visualizations to show you what
 a given justification means for a given step.
 This only works when the tool has
-verified the justification and thus shows a green check.
+verified the justification and thus shows a green check (or orange "~")
 So let's first use unify to ensure that we've proven what we
 want to visualize.
 
@@ -1281,7 +1281,7 @@ Let's unify and see what happens:
 > Click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
-The final `syl` step has a symbol "~"; this means that this particular
+The final `syl` step has an orange "~"; this means that this particular
 step is justified on its own, but it depends on something else that
 is not transitively justified.
 You can see that `syl` depends
@@ -2575,23 +2575,28 @@ Each step is presented in the following left-to-right order:
 * Box (step selector): Select this box to select or unselect this step.
   Many commands work on the "currently selected step(s)",
   so it's important to be able to easily select steps.
-  Use the box in the [editor command icon bar](#editor-command-icon-bar)
+  Click on the step's box to select or unselect it.
+  Use the box up in the [editor command icon bar](#editor-command-icon-bar)
   to select or deselect all steps.
-* Proof status (if present): If there's a green checkmark following the
+* Proof readiness status (if present):
+  If there's a green checkmark following the
   step selector box, a recent unification has
-  confirmed that this step is proven given its context and its
-  previous steps.
-  If there's a yellow tilde, that means that it's *partly* but not
-  completely proved.
-  Any modification of a proof removes the checkmarks.
-  To regenerate the checkmarks, press
+  confirmed that this step is completely (transitively)
+  proven given its context, justification, and previous steps.
+  If there's an orange "~" (tilde), the step itself has a valid justification
+  transitively depends on something that is not proven.
+  Any modification of a proof removes the proof readiness status.
+  To regenerate the proof readiness status, press
   the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
   without selecting any particular step; this will
-  re-verify the steps and show checkmarks for the
-  steps that are proven.
-  Once you see a checkmark, you can see a compressed metamath proof of
-  that step by selecting its checkmark (generally you would do this on
-  the goal step). Once there, you can show or hide the proof table,
+  re-verify the steps.
+  If you see a green checkmark or orange "~"
+  you can click on the symbol to show its visualization.
+  If you see a green checkmark you can long-click on it to show
+  its compressed proof (you can also select the step and use
+  the menu option "Show completed proof").
+  One you show a completed compressed proof
+  you can show or hide the proof table,
   as well as showing only essential steps.
   Non-essential steps are the steps showing how to create syntactic structures
   and show that they are of the correct types.
@@ -2613,8 +2618,8 @@ Each step is presented in the following left-to-right order:
   the other labels in the proof are "local labels".
   If you're following the conventions of set.mm, the name of each hypothesis
   is the goal name followed by a period and an integer (starting with 1).
-  For example, the proof of "mp3an3an" might have hypotheses
-  with labels "mp3an3an.1" and "mp3an3an.2". Note that this is different
+  For example, the proof of `mp3an3an` might have hypotheses
+  with labels `mp3an3an.1` and `mp3an3an.2`. Note that this is different
   from the convention of the mmj2 tool,
   where hypotheses have labels of "h1" and so on.
   All other step labels (the "local labels") are typically
@@ -3165,6 +3170,13 @@ and proposed changes are listed in its
 You can follow
 [commits in its `develop` branch](https://github.com/expln/metamath-lamp/commits/develop) and even try out the
 [development version of metamath-lamp application page (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
+
+Here are some likely future capabilities:
+
+* [In the editor, click on a reference in a justification to view its details in a different dynamic tab](https://github.com/expln/metamath-lamp/issues/99)
+* [Use a full unification algorithm](https://github.com/expln/metamath-lamp/issues/77)
+* [Undo/redo](https://github.com/expln/metamath-lamp/issues/33)
+* [Some automation](https://github.com/expln/metamath-lamp/issues/17)
 
 ## Help, feedback, and contributions
 
