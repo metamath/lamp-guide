@@ -944,7 +944,8 @@ Modus ponens has two hypotheses:
 Using axiom `ax-mp`, whenever those two hypotheses are true, you
 can prove "`ps` is true". Note that `ph` and `ps` are variables over
 any well-formed formula (wff) expression, that is, anything that
-is true or false; it's not limited to being replaced by just another variable.
+is true or false; they are not limited to being
+replaced by just another variable.
 The axiom modus ponens can apply to many circumstances.
 
 #### A few set.mm symbols
@@ -966,44 +967,190 @@ See [common set.mm symbols](#common-setmm-symbols) for more.
 
 #### Viewing proof of `mp2`
 
-If you select the label (aka name) of a theorem, a new tab will be created
-that shows details the proof of that theorem:
+If you click on the label (aka name) of a theorem, you'll
+be able to learn more about that theorem.
 
 ![In explorer, expand a label to show its proof](explorer-expand-label.png)
 
 Let's try that out now.
 
-In the explorer view, scroll down to theorem `mp2`, and click on the
-*name* mp2. This will create a *new* tab that shows details about the
-proof of `mp2`.
+> In the explorer view, scroll down to theorem `mp2`.
+> Click on the *name* **mp2** (*not* the "&gt;" next to it).
 
-Many capabilities are available in a displayed proof.
+Clicking on the *name* of an axiom or theorem with switch our
+view to a dynamic tab of that name (creating it if necessary)
+that shows details about it.
+These dynamic tables are called
+[individual assertion tabs](#individual-assertion-tab).
+The tab bar shows all the currently-opened individual assertion tabs
+(you can select the "x" next to the tab name to close an
+individual assertion tab).
 
-Again, you can use the fragment selector to
-copy useful portions of any statement.
+In this case, our individual assertion tab is showing us the proof of `mp2`.
 
-You can also "show types", which shows the proof that a given expression
-has the given correct types.
-Metamath proofs include proofs of the types of each expression;
-you can decide whether or not to see this.
+Each individual assertion table begins with a summary of what ti is,
+including a brief natural language description,
+a list of its hypotheses (if any), and its conclusion.
 
-Clicking on a use of a hypothesis step label will move the display to that step.
+Below that is a table that shows the steps of its proof.
+Steps are numbered (starting from one).
+In each step is a "hyp" (the space-separated list of steps used to justify
+this step) and a reference to the axiom or theorem used to justify this step.
+This is followed by the statement proved by this step.
+From this table:
 
-At the beginning of the statement is a small "+" (reveal/hide),
-where you can reveal or hide a visualization of that step.
-Try that out; the visualizations can make it easier to understand
+* Clicking on a hypothesis step label will move the display to that step
+  (this is helpful in long proofs).
+* Clicking on a reference to an assertion (axiom or theorem)
+  will switch tabs to that assertion (creating a tab if necessary).
+* Clicking on any part of a statement will start the fragment selector there.
+
+At the beginning of each statement (other than the hypotheses)
+is a small icon "+" (reveal/hide).
+Clicking on this icon reveals or hides a visualization of that step.
+These visualizations can make it easier to understand
 how Metamath proofs work.
 
-Clicking on a reference to an assertion will show an individual assertion tab
-of that assertion (creating the tab if necessary). That tab will provide
-detailed information about the assertion.
+Let's try out a visualization in `mp2`.
+
+> Click on the "+" symbol next to the statement of step 4.
+
+You can now see a visualization of step 4, which is justified
+by `ax-mp` (modus ponens).
+At the center of the visualization is the usual representation
+of modus ponens, showing its preconditions, a horizontal line, and its result.
+Modus ponens has two preconditions: `ph` must be true
+(whatever `ph` is), and `( ph -> ps )` must be true
+(that is, `ph` implies `ps`) If these preconditions are met, then `ps` is true.
+
+The visualization then shows how the symbols flow in.
+In this use of modus ponens, we'll substitute `ph` with `ph`
+(from step 2), and `ps` will replaced with `( ps -> ch )` (from step 3).
+Given those substitutions, the result of this particular application
+of `ax-mp` is `( ps -> ch )`.
+
+#### Revealing types in the individual assertion tabs
+
+Metamath proofs include proofs of the type of every expression,
+to ensure that all expressions have valid types.
+This is critical to ensuring that the proofs are correct, but normally
+you never need to see this (the tools handle this type checking for you).
+
+However, we think it's helpful to *understand* types and what the
+tools are doing for you, and metamath-lamp can reveal this
+more detailed view if you wish.
+
+IF you click on "show types" just above a proof table, the
+proof display will include the "syntax" (aka "types" or "inessential")
+proof steps.
+These are steps in a Metamath proof that
+prove that each expression has a valid type.
+
+Staying in the `mp2` individual assertion tab:
+
+> Click on "Show types".
+
+You'll now see far more steps, which reveal how Metamath proves that
+every expression is syntactically legal.
+Step 5 uses reference `wps` to prove that the symbol `ps` is a wff
+(well-formed formula), and step 6 uses reference `wch` to prove that
+`ch` is a `wff`.
+Step 7 then proves that `( ps -> ch )` is a wff, referring to steps 5 and 6
+and a reference called `wi`. We can click on the "+" in step 7 to
+visualize what's going on.
+This reference `wi` asserts that if some `ph` and some `ps` are wffs, then
+its corresponding `( ps -> ps )` must also be a wff.
+In this step, we substitute `ps` and `ch`, producing `( ps -> ch )`.
+
+This reveals how Metamath ensures every expression has the correct type
+in an existing proof.
+
+#### Revealing more about Metamath types in the editor
+
+<!-- https://drive.google.com/file/d/13ihXqjKTab1RAJsr-V70_Pl4oFukdKAl/view -->
+You can also make the editor reveal whether or not
+expression is a given type.
+Simply create a step (e.g., via duplication) and change the first symbol
+(which is typically `|-`) into a typecode
+(for `set.mm` the typecodes are `wff`, `class`, or `setvar`).
+When you ask it to unify, it will show a green checkmark if it was
+able to verify that claim.
+
+Let's go back to the editor and look at our proof that ( 2 + 2 ) = 4
+(if you've lost that, you can can use important from JSON to load in
+[our proof of 2p2e4 in JSON format](./2p2e4.lamp.json").
+
+> Click on the checkbox next to step 7 which uses `oveq1i`.
+> Click on the
+> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
+> In this new step, long-click on the statement, then edit the statement
+> to replace `|-` with `wff`.
+> Click on
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+
+You'll see that this new step is proven, but the justification is different.
+What we are now doing is proving that a given expression is a `wff`, that
+is it's syntactically legal expression that is true or false.
+The tool *was* able to determine that the expression
+`( 3 + 1 ) = ( ( 2 + 1 ) + 1 )` was true or false, and it justified
+that using the reference `wceq`.
+
+We can visualize this step:
+
+> Click on the green checkmark on the new step to reveal its visualization.
+
+![Editor visualization of expression with `( 3 + 1 )`](3p1syntax.png)
+
+What we're seeing is that we can justify that an expression
+is a wff by using the reference `wceq`. This reference requires
+the form `A = B`. In this case, we can see that `A` can be substituted with
+`( 3 + 1 )` while `B` can be substituted with `( ( 2 + 1 ) + 1 )`.
+
+We could use the fragment selector to repeatedly copy portions and visualize
+each one.
+The ability to select parts to create a new statement (above or below)
+could be useful.
+However, that would be tedious for a quick view.
+There's a simpler solution: use the "bottom-up" prover
+with a logging level of 1 (to visualize intermediate steps).
+Let's try that.
+
+> Click on the checkbox of the new statement (1) which uses `oveq1i`.
+> Click on
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+> To let us interactively expand it, select "logging level 1".
+> Press "Prove" and then press "Show proof tree".
+> It will show the justification for the final expression.
+> Repeatedly press the icon ⊞ to expand the visualization.
+> Once you press the icon ⊞ it will become the icon ⊟ which, if clicked,
+> will contract the expression.
+
+As you expand, you'll see a tree emerge. Here's a view at one point:
+
+![Typecode tree of `( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`](typecode-tree.png)
+
+Here's an explanation of what these
+topmost parts of the tree mean (they can be further expanded):
+
+* Step 10: Typecode `wff` applies to `( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
+  * Reference `wceq` justifies this claim, referring to steps 6 and 1.
+    * Step 6: Typecode `class` applies to `( 3 + 1 )`
+      * Reference `co` justifies this claim, referring to steps 7, 3, and 2.
+    * Step 1: Typecode `class` applies to `( ( 2 + 1 ) + 1 )`
+      * Reference `co` justifies this claim, referring to steps 4, 3, and 2.
+
+> Click on "Close" and "Cancel" to end.
+
+Normally you wouldn't need to look at these types.
+But we think it's helpful to understand what the tool is doing
+"under the hood" with types to ensure your proofs are correct.
 
 #### Gaining an understanding on `set.mm`'s beginnings
 
 You can use the explorer to gain many insights into a database
 (and mathematics in general).
 In this section we'll walk through the first few assertions
-of `set.mm` to gain some understanding of it.
+of `set.mm` to gain some understanding of this database.
 If you're already familiar with `set.mm`, you can skip this section.
 
 Let's go back to the explorer tab:
@@ -1081,13 +1228,9 @@ These are very basic beginnings.
 What's extraordinary is that you can build up, assertion by assertion,
 to eventually completely prove complex mathematical ideas.
 
-Let's try to prove something very basic, using only some basic beginnings.
-This will help you learn more about both the metamath-lamp tool and
-the `set.mm` database.
-
 ### Proof: Principle of the syllogism (`syl`)
 
-Let's prove something more basic.
+Let's prove something much more basic.
 Let's prove that if phi implies psi, and psi implies chi, then
 psi implies chi. In short, let's prove that implication is transitive.
 
@@ -1331,7 +1474,7 @@ In cases where metamath-lamp cannot be certain of exactly what you want, it
 will create work variables that you can then replace (substitute)
 with whatever you *do* want (as long as they're the same type).
 
-When using `set.mm` or `iset.mm`, you'll see work variables of certain forms:
+When using `set.mm` or `iset.mm`, you'll see work variables of certain types:
 
 * &amp;W<i>number</i> : an expression that is a well-formed formula (wff),
   in short, some value that is true or false.
