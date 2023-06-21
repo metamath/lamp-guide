@@ -1006,14 +1006,15 @@ From this table:
 * Clicking on any part of a statement will start the fragment selector there.
 
 At the beginning of each statement (other than the hypotheses)
-is a small icon "+" (reveal/hide).
-Clicking on this icon reveals or hides a visualization of that step.
+is the icon ⊞ (expand).
+When a visualization is visible the icon changes into the
+icon ⊟ (collapse) which, if clicked, will contract the expansion.
 These visualizations can make it easier to understand
 how Metamath proofs work.
 
 Let's try out a visualization in `mp2`.
 
-> Click on the "+" symbol next to the statement of step 4.
+> Click on the icon ⊞ (expand) next to the statement of step 4.
 
 You can now see a visualization of step 4, which is justified
 by `ax-mp` (modus ponens).
@@ -1121,9 +1122,9 @@ Let's try that.
 > To let us interactively expand it, select "logging level 1".
 > Press "Prove" and then press "Show proof tree".
 > It will show the justification for the final expression.
-> Repeatedly press the icon ⊞ to expand the visualization.
-> Once you press the icon ⊞ it will become the icon ⊟ which, if clicked,
-> will contract the expression.
+> Repeatedly press the icon ⊞ (expand) to expand the visualization.
+> Once you press the icon ⊞ (expand) it will become the
+> icon ⊟ (collapse) which, if clicked, will contract the expansion.
 
 As you expand, you'll see a tree emerge. Here's a view at one point:
 
