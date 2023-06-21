@@ -1025,7 +1025,7 @@ At the center of the visualization is the usual representation
 of rule: a horizontal line with the preconditions above the result below.
 Modus ponens has two preconditions: some `ph` must be true
 (whatever `ph` is), and some `( ph -> ps )` must be true
-(that is, `ph` implies `ps` whatever `ph` and `ps are).
+(that is, `ph` implies `ps` whatever `ph` and `ps` are).
 If these preconditions are met, then per modus ponens, `ps` is true.
 
 The visualization then shows how the symbols flow in and out of the rule.
