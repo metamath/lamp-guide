@@ -1459,10 +1459,11 @@ We also have axioms `ax-1`, `ax-2`, and `ax-3`:
 
 | Axiom | Statement |
 | ----- | --------- |
-| ax-1  | <tt>|- ( ph -> ( ps -> ph ) )</tt> |
-| ax-2  | <tt>|- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )</tt> |
-| ax-3  | <tt>|- ( ( -. ph -> -. ps ) -> ( ps -> ph ) )</tt> |
+| ax-1  | <tt>&#124;- ( ph -> ( ps -> ph ) )</tt> |
+| ax-2  | <tt>&#124;- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )</tt> |
+| ax-3  | <tt>&#124;- ( ( -. ph -> -. ps ) -> ( ps -> ph ) )</tt> |
 
+That's basically all we have.
 We did say this was hard mode. Let's get started.
 
 ##### Working backwards on syl
