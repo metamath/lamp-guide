@@ -1041,7 +1041,7 @@ However, we think it's helpful to *understand* types and what the
 tools are doing for you, and metamath-lamp can reveal this
 more detailed view if you wish.
 
-IF you click on "show types" just above a proof table, the
+If you click on "show types" just above a proof table, the
 proof display will include the "syntax" (aka "types" or "inessential")
 proof steps.
 These are steps in a Metamath proof that
@@ -1057,7 +1057,8 @@ Step 5 uses reference `wps` to prove that the symbol `ps` is a wff
 (well-formed formula), and step 6 uses reference `wch` to prove that
 `ch` is a `wff`.
 Step 7 then proves that `( ps -> ch )` is a wff, referring to steps 5 and 6
-and a reference called `wi`. We can click on the "+" in step 7 to
+and a reference called `wi`. We can click on the
+icon ⊞ (expand) in step 7 to
 visualize what's going on.
 This reference `wi` asserts that if some `ph` and some `ps` are wffs, then
 its corresponding `( ps -> ps )` must also be a wff.
@@ -1070,7 +1071,7 @@ in an existing proof.
 
 <!-- https://drive.google.com/file/d/13ihXqjKTab1RAJsr-V70_Pl4oFukdKAl/view -->
 You can also make the editor reveal whether or not
-expression is a given type.
+an expression is a given type.
 Simply create a step (e.g., via duplication) and change the first symbol
 (which is typically `|-`) into a typecode
 (for `set.mm` the typecodes are `wff`, `class`, or `setvar`).
@@ -1142,7 +1143,14 @@ topmost parts of the tree mean (they can be further expanded):
 
 > Click on "Close" and "Cancel" to end.
 
+A Metamath proof proves that expressions are of certain types the same way it
+proves that claims are true.
+Metamath requires that there be an existing rule (a *reference*) that
+can use certain hypotheses as steps to justify a claim, going back to
+first principles.
+
 Normally you wouldn't need to look at these types.
+This is normally done automatically for you.
 But we think it's helpful to understand what the tool is doing
 "under the hood" with types to ensure your proofs are correct.
 
