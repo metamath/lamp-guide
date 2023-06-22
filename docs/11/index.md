@@ -7,10 +7,30 @@ a proof assistant for creating formal
 mathematical proofs in the [Metamath system](https://us.metamath.org/).
 Unlike most other Metamath proof systems,
 such as mmj2 or metamath-exe (the first Metamath proof assistant),
-users can use this proof assistant without installing anything.
+users of metamath-lamp can use this proof assistant without installing anything.
 Instead, you can start using metamath-lamp
 by using your web browser, including your smartphone web browser, to view the
 **[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**.
+Since this tool supports Metamath, we should explain what Metamath is.
+
+[Metamath](https://us.metamath.org/) is a "simple and flexible
+computer-processable language that supports rigorously verifying,
+archiving, and presenting mathematical proofs". The underlying
+Metamath language is simple and not tied to any particular set of
+axioms; instead, axioms are defined in a *database* (a text file
+of axioms and theorems).  An *especially*
+unusual trait of Metamath is that its proofs include every step,
+*no exceptions*, where each step is *only* an application of an axiom
+or a previously-proved statement. This is different from almost all
+other computer-verifiable proof systems, which allow statements
+(like "simp", "auto", or "blast") that don't show the proof steps
+but instead ask a computer to try to rediscover the proof steps
+(and often just take the computer's word for it).
+Metamath's unique approach speeds verification, improves archiving,
+and enables *anyone* to follow *every* proof step - from high-level
+math all the way down to fundamental axioms.
+Metamath is one of the
+[top systems in the Formalizing 100 Theorems challenge](https://www.cs.ru.nl/~freek/100/).
 
 This *Metamath-lamp Guide* is both a
 user guide (tutorial) and a reference guide. It includes:
@@ -20,9 +40,11 @@ user guide (tutorial) and a reference guide. It includes:
 2. [Sample Screenshot](#sample-screenshot)
 3. [User guide (tutorial)](#user-guide-tutorial)
    shows how to use the metamath-lamp tool, e.g., proving
-   [2 + 2 = 4 (`2p2e4`)](#proof-2--2--4), the
+   [2 + 2 = 4 (`2p2e4`)](#proof-2--2--4),
+   [a tour using the Explorer tab](#a-tour-using-the-explorer-tab),
+   the
    [principle of the syllogism (`syl`)](#proof-principle-of-the-syllogism-syl),
-   and that the
+   and a proof that the
    [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
 4. [Reference manual](#reference-manual) explains each part of the
    user interface, e.g., the [Editor tab](#editor-tab).
@@ -119,7 +141,11 @@ using metamath-lamp looks like (proving that 2 + 2 = 4):
 You can start using metamath-lamp immediately by visiting the
 [Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html).
 
-You can even start using metamath-lamp preloaded with a proof state,
+You can always start fresh, too:
+
+**[Start up the metamath-lamp application in a completely empty state (erasing whatever you had before in metamath-lamp)](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbXSwiZGVzY3IiOiIiLCJ2YXJzVGV4dCI6IiIsImRpc2pUZXh0IjoiIiwic3RtdHMiOltdfQ==)**
+
+You can also start using metamath-lamp with it preloaded with a proof state,
 for example, that
 [2 + 2 = 4](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbeyJ0eXAiOiJXZWIiLCJmaWxlTmFtZSI6IiIsInVybCI6Imh0dHBzOi8vdXMubWV0YW1hdGgub3JnL21ldGFtYXRoL3NldC5tbSIsInJlYWRJbnN0ciI6IlN0b3BCZWZvcmUiLCJsYWJlbCI6IjJwMmU0In1dLCJkZXNjciI6IlByb3ZlIHRoYXQgMiArIDIgPSA0LiIsInZhcnNUZXh0IjoiIiwiZGlzalRleHQiOiIiLCJzdG10cyI6W3sibGFiZWwiOiI5IiwidHlwIjoicCIsImNvbnQiOiJ8LSAxIGUuIENDIiwianN0ZlRleHQiOiI6IGF4LTFjbiJ9LHsibGFiZWwiOiI4IiwidHlwIjoicCIsImNvbnQiOiJ8LSAyIGUuIENDIiwianN0ZlRleHQiOiI6IDJjbiJ9LHsibGFiZWwiOiI1IiwidHlwIjoicCIsImNvbnQiOiJ8LSAyID0gKCAxICsgMSApIiwianN0ZlRleHQiOiI6IGRmLTIifSx7ImxhYmVsIjoiNiIsInR5cCI6InAiLCJjb250IjoifC0gKCAyICsgMiApID0gKCAyICsgKCAxICsgMSApICkiLCJqc3RmVGV4dCI6IjUgOiBvdmVxMmkifSx7ImxhYmVsIjoiMiIsInR5cCI6InAiLCJjb250IjoifC0gMyA9ICggMiArIDEgKSIsImpzdGZUZXh0IjoiOiBkZi0zIn0seyJsYWJlbCI6IjEiLCJ0eXAiOiJwIiwiY29udCI6InwtIDQgPSAoIDMgKyAxICkiLCJqc3RmVGV4dCI6IjogZGYtNCJ9LHsibGFiZWwiOiIzIiwidHlwIjoicCIsImNvbnQiOiJ8LSAoIDMgKyAxICkgPSAoICggMiArIDEgKSArIDEgKSIsImpzdGZUZXh0IjoiMiA6IG92ZXExaSJ9LHsibGFiZWwiOiI0IiwidHlwIjoicCIsImNvbnQiOiJ8LSA0ID0gKCAoIDIgKyAxICkgKyAxICkiLCJqc3RmVGV4dCI6IjEgMyA6IGVxdHJpIn0seyJsYWJlbCI6IjciLCJ0eXAiOiJwIiwiY29udCI6InwtICggKCAyICsgMSApICsgMSApID0gKCAyICsgKCAxICsgMSApICkiLCJqc3RmVGV4dCI6IjggOSA5IDogYWRkYXNzaSJ9LHsibGFiZWwiOiIycDJlNCIsInR5cCI6InAiLCJjb250IjoifC0gKCAyICsgMiApID0gNCIsImpzdGZUZXh0IjoiNyA0IDYgOiAzZXF0cjRyaSJ9XX0=)
 or
@@ -146,6 +172,12 @@ We'll close with some other topics, such as a discussion on
 Let's show how to use metamath-lamp to create a simple proof, namely,
 that 2 + 2 = 4. This has already been
 [proved in the set.mm database as theorem `2p2e4`](https://us.metamath.org/mpeuni/2p2e4.html).
+
+First, we need to start metamath-lamp. Let's start in an
+empty state (erasing anything you might have done before in
+metamath-lamp) so we know exactly where we're starting from:
+
+**[Start up the metamath-lamp application in a completely empty state (erasing whatever you had before in metamath-lamp)](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbXSwiZGVzY3IiOiIiLCJ2YXJzVGV4dCI6IiIsImRpc2pUZXh0IjoiIiwic3RtdHMiOltdfQ==)**
 
 #### Selecting the proof context for `2p2e4`
 
@@ -176,7 +208,7 @@ We'll also sometimes say "press" to mean the same thing.
 
 > Finally, click on the "Apply Changes" button to accept the selected context.
 
-#### Small display
+#### Small display adjustments
 
 Metamath-lamp works really well on small displays like smartphones.
 However, if you are using a small display, you should
@@ -187,6 +219,9 @@ configure the tool so it uses less display space.
 > and select "View options".
 > Turn on "Compact mode" and "Small buttons".
 > Press Close.
+
+We will later cover
+[more tricks for small displays](#more-tricks-for-small-displays).
 
 #### Setting the goal statement for `2p2e4`
 
@@ -671,11 +706,11 @@ theorem requires showing that `1` and `2` are complex numbers.
 
 Suddenly a lot has happened.
 We now have new steps that have been automatically added to our proof,
-namely that `1 e. CC` (`1` is a complex number) and `2 e. CC`
-(`2` is a complex number).
+namely that `1 e. CC` (`1` is a member of the set of complex numbers)
+and `2 e. CC` (`2` is a member of the set of complex numbers).
 
 We now have a green checkmark next to all our steps, showing
-that all steps are have been proven.
+that all steps have been proven.
 
 Most importantly, the final step `2p2e4` has a green checkmark, which
 means we have proven our goal.
@@ -785,7 +820,7 @@ Visualizations can help, so let's discuss them.
 Metamath-lamp can provide visualizations to show you what
 a given justification means for a given step.
 This only works when the tool has
-verified the justification and thus shows a green check (or orange "~")
+verified the justification and thus shows a green check (or orange "~").
 So let's first use unify to ensure that we've proven what we
 want to visualize.
 
@@ -807,57 +842,60 @@ You should see a visualization like this:
 The top new line is set of labels being used as inputs into
 the justification. In this case there's only one label;
 the label you see may be different than what's shown here.
-Under that is a copy of that statement:
+Under that is a copy of each statement from each label, which in this case
+is one statement:
 
 > `|- 2 = ( 1 + 1 )`
 
 Notice that variable parts of this statement are boxed
 and directed lines connect them to another statement below.
-The statement below is the set of required patterns
-required by `oveq2i`, in this case `|- A = B`.
-The lines show that in this use of `oveq2i`, `A` will be
-`2`, and `B` will be `( 1 + 1 )`.
 
-The result of `oveq2i` are `( C F A ) = ( C F B )`.
+In center of a visualization is always a sequence with zero or more statements
+(the hypotheses of the reference being used), then a horizontal line below it,
+and then the reference's concluding statement below that.
+This is a common mathematical representation of a rule &em;
+a horizontal line with the preconditions above and the postcondition below.
+In this case we're using the reference `oveq2i` as the rule, which requires
+some statement of the form `|- A = B` and can then produce
+`|- ( C F A ) = ( C F B )`.
+
+The small connecting boxes and lines show that in this use of `oveq2i`,
+`A` will be `2`, and `B` will be `( 1 + 1 )`.
+
+The results of `oveq2i` are always in the form `|- ( C F A ) = ( C F B )`.
 Any variable in its output must have the same values as
 this application of its inputs; `C` and `F` have no
 inputs, so they can be anything syntactically valid.
 This means we can use `oveq2i` to justify the final claim,
 `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )`.
 
-We can also hide justifications (including the visualization)
-any time.
+We can also hide the visualization any time.
 
 > Click on the green checkmark or step label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
-> display of its justification; since the justification
-> is currently displayed, this will hide it.
+> display of its visualization; since it is currently displayed,
+> this will hide it.
 
-Let's do the same thing with the statement that
+Let's try out visualization on the statement that
 uses associativity,
 `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`,
 
 > Click on green checkmark or label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
-> display of its justification, revealing it.
-
-You can now see that the justification of this step
-is `addassi` (addition is associative).
-This justification has multiple requirements, which
-as you can see are met.
+> display of its visualization, revealing it.
 
 Let's end its display.
 
 > Click on the green checkmark or step label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
-> display of its justification, hiding it again.
+> display of its visualization, hiding it again.
 
 Please *do* try out visualization of different steps.
 We think seeing several will help better understand how it all works.
 
-#### Reordering steps
+#### Changing the order of steps
 
-You can reorder steps.
+You can change the order of the steps (as opposed to renumbering them).
 Sometimes you *need* to reorder steps, because
 steps can *only* be justified by the context (axioms and proven theorems)
 and previous steps.
@@ -885,6 +923,70 @@ Metamath-lamp will display error messages if steps
 are moved to make them depend on steps that
 have not been proved yet.
 
+#### A brief discussions on settings
+
+The [*Settings* tab](#settings-tab) lets you change
+various configuration options.
+
+You **must** press on *"Apply Changes"* for changes to be applied.
+Any changes you make in the
+Settings tab are *not* applied until you select "Apply Changes".
+If you want to discard changes, select "Discard Changes".
+
+One setting in particular that you might want to change involves
+how to interpret left click.
+Should you edit statements with a *click* or a *long-click*?
+The choice is yours.
+By default, editing statements uses a long-click.
+
+#### More tricks for small displays
+
+Metamath-lamp works well on small displays, such as the
+built-in display of smartphones.
+We already suggested a few
+[small display adjustments](#small-display-adjustments).
+
+If you're still cramped for display space, there are some more
+configuration tricks you can use:
+
+* You can click on the
+  icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
+  and select "View options". Then disable or enable whatever you'd like.
+  On a small display you probably want to at least enable
+  "Compact mode" and "Small buttons". You might want to disable display
+  of information you don't need, for example, you might disable
+  displaying the label or justification.
+  You can always redisplay them later the same way.
+* If you disable display of the justification, you can still reveal the
+  justification and/or visualization for any specific step.
+  Just click on the green checkmark, label, or step type (*not* a long-click)
+  to reveal or hide the justification text.
+  Once revealed, you again click on the
+  icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
+  to delete this justification.
+  You can also click on the
+  icon <img width="16" height="16" src="hide.svg" alt="hide justification"> (hide justification)
+  to hide the justification, or click on the
+  icon <img width="16" height="16" src="visualization.svg" alt="visualization"> (show/hide visualization)
+  to show or hide the visualization.
+* You can click on the
+  icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
+  and select "Hide tabs". This will stop displaying the tab bar;
+  to see it again, click on the
+  icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
+  and select "Show tabs".
+* Click on "Settings" in the tab bar and click on "hide context header".
+  Be sure to "Apply Changes". If you want to change the context, you can
+  change the settings. You might find it easier,
+  from the editor, to just click on the
+  icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
+  and select "Show context" when you want to see the context; collapsing
+  the context will hide it again.
+* In your web browser change the font size (e.g., to something smaller).
+  In Chrome, use Settings / Accessibility and adjust the text scaling.
+  In Firefox, use Settings / Accessibility, disable automatic font sizing,
+  and adjust the font size.
+
 ### A tour using the Explorer tab
 
 The tab bar lets you switch between tabs, and those tabs always include
@@ -892,18 +994,51 @@ The tab bar lets you switch between tabs, and those tabs always include
 [*Explorer*](#explorer-tab).
 The Explorer tab lets us view the assertions (axioms and theorems)
 in the current loaded context.
-Let's try out the Explorer tab.
+
+Of course, if you want to see the "final" rendering of a widely-used
+Metamath database, you can easily go to the
+[Metamath Home Page](https://us.metamath.org/).
+On that website you can see
+nicely rendered versions of the
+[Metamath Proof Explorer (`set.mm`)](https://us.metamath.org/mpeuni/mmset.html),
+[Intuitionistic Logic Explorer (`iset.mm`)](https://us.metamath.org/ileuni/mmil.html),
+[New Foundations Explorer (`nf.mm`)](https://us.metamath.org/nfeuni/mmnf.html),
+and the
+[Higher-Order Logic (HOL) Explorer (hol.mm)](https://us.metamath.org/holuni/mmhol.html).
+Those web pages have many advantages.
+Each assertion has its own URL, loads quickly, and displays well even when
+JavaScript is disabled on the web browser.
+The Metamath home page renderings have also
+been generated in a "pretty" format
+and include a lot information about each assertion
+(such as syntax hints for every symbol used,
+the axioms and definitions it transitively uses, and
+what assertions reference it).
+It also groups the axioms and theorems into chapters and further
+subsections, with descriptions of each section.
+
+However, the built-in metamath-lamp explorer has its own advantages.
+The metamath-lamp explorer will always show you the *current* context.
+This means, for example, you can explore other databases (such as a database
+on local storage or a historical database), as well as
+portions and combinations of databases.
+The metamath-lamp explorer also includes its
+fragment selector (so you can copy fragments found from exploration) and
+visualization mechanism (to help you better understand the database).
+
+Let's try out the Explorer tab so we can *see* the context we're using.
 
 #### Loading a context for the explorer
 
 You need to have a context loaded before the explorer tab is useful.
 For our purposes we'll use the `set.mm` database.
-If you're continuing the tutorial, you've done that.
+If you're continuing the tutorial, you've already done that.
 
 However, if you're starting at this point, first load `set.mm` as the context:
 
 > Make sure we are loading from the web the file "set.mm:latest",
-> You can change the scope or not, your choice.
+> You can change the scope stopping before `2p2e4` or just load
+> the whole database, your choice.
 > Then press "Apply changes" to apply this change.
 
 #### Trying out the explorer tab
@@ -913,30 +1048,38 @@ Let's try out the explorer tab:
 > Click on "Explorer" in the tab bar.
 
 The explorer view lets you see the various assertions
-(axioms and theorems) in the loaded database(s).
+(axioms and theorems) in the current context.
+
 The top of the explorer view lets you select what to view;
 by default all assertions are included.
 There are typically many assertions, so this is a paged view.
 
-After that begin the list of assertions (theorems and axioms).
-Each assertion shows its count, the type of assertion
+Below the selection options is
+a list of assertions (theorems and axioms).
+Each assertion shows its numeric position, the type of assertion
 (theorem or axiom), and the assertion label in bold.
 The rest of the display shows a list of 0 or more hypotheses,
 each prefixed with large black circle "&#x2B24;".
 The final line of an assertion states what can be concluded
 via this assertion when its hypotheses are true.
 
-You can use the fragment selector to copy useful portions of any statement.
-Next to the name of each axiom or theorem is a ">" symbol which lets you
-expand or hide its description.
+The order of assertions is important.
+In particular, a theorem can *only* refer to previous assertions;
+this eliminates the possibility of circular reasoning.
+Also, when you tell metamath-lamp to limit the scope to either before or after
+some assertion, your proof can no longer refer to
+any assertion after that (until you change the context's scope).
 
 Let's look at axiom `ax-mp`, which is probably assertion number 5
 in your display. Axiom `ax-mp` is called *modus ponens* and is well-known.
-Here is what it looks like in the explorer display:
 
-![Axiom ax-5 in the explorer tab](ax-5-explorer.png)
+> Scroll down (if necessary) to see Axiom **ax-mp**.
 
-Modus ponens has two hypotheses:
+Here is what axiom `ax-mp` (modus ponens) looks like in the explorer display:
+
+![Axiom ax-5 (modus ponens) in the explorer tab](ax-5-explorer.png)
+
+Axiom `ax-mp` (Modus ponens) has two hypotheses:
 
 * `|- ph` - that is, "when `ph` is true", and
 * `|- ( ph -> ps )` - that is, "when `ph` implies `ps`"
@@ -947,6 +1090,24 @@ any well-formed formula (wff) expression, that is, anything that
 is true or false; they are not limited to being
 replaced by just another variable.
 The axiom modus ponens can apply to many circumstances.
+
+From the explorer you can use various capabilities.
+You can use the fragment selector to copy useful portions of any statement.
+Next to the name of each axiom or theorem is a ">" symbol which lets you
+expand or hide its description.
+Let's try that out on axiom `ax-mp`.
+
+> Click on the "&gt;" symbol to the *right* of **ax-mp** (don't click
+> on the *name* **ax-mp**, we'll try that out later).
+> Notice that this reveals a description; click on the
+> modified symbol "&#8744;" to the right of **ax-mp** to
+> to hide the description again.
+> Click on the open parentheses "(" in the second hypothesis of
+> `ax-mp`; you'll see that the fragment selector bar has emerged and
+> the expression `( ph -> ps )` has been selected.
+> Click on the
+> icon <img width="16" height="16" src="cancel.svg" alt="unselect"> (unselect)
+> to close it.
 
 #### A few set.mm symbols
 
@@ -1018,7 +1179,7 @@ Let's try out a visualization in `mp2`.
 
 You should now see a visualization of step 4:
 
-[Theorem `mp2` with a visualization of step 4](mp2_visualized.png)
+![Theorem `mp2` with a visualization of step 4](mp2_visualized.png)
 
 Step 4 is justified by `ax-mp` (modus ponens).
 At the center of the visualization is the usual representation
@@ -1083,7 +1244,7 @@ When you ask it to unify, it will show a green checkmark if it was
 able to verify that claim.
 
 Let's go back to the editor and look at our proof that ( 2 + 2 ) = 4
-(if you've lost that, you can use important from JSON to load in
+(if you've lost that, you can use "import from JSON" to load
 [our proof of 2p2e4 in JSON format](./2p2e4.lamp.json").
 
 > Click on the checkbox next to step 7 which uses `oveq1i`.
@@ -1170,41 +1331,88 @@ Let's go back to the explorer tab:
 
 > Click on the "Explorer" text in the tab bar, and scroll to the top.
 
+##### Assertion 1: Theorem `idi`
+
 Let's gain a brief understanding of the first theorems and axioms.
 We are entering the foundations of the foundations - the very basement -
 of the "typical" mathematics of classical logic and ZFC set theory.
 
-The first theorem we have is `a1ii`.
-It has two hypotheses and one conclusion, and
-all the statements begin with `|-` meaning "this is true".
-Theorem `a1ii` can be interpreted as saying that if some `ph` is true,
-and some `ps` is true, then that `ph` is true.
-This simply lets us restate truths; this is only useful in
-special technical situations, but it's hard to argue with the conclusion.
+Assertion 1 is the theorem `idi`.
 
-Theorem `idi` is similar; it says that if some `ph` is true, then that
-`ph` is true.
-This also lets us restate truths; this is again only useful in
-special technical situations, but it's hard to argue with the conclusion.
-This theorem was contributed by Alan Sare, which you can see by clicking
-on the ">" next to the name. The names of people who formalized and
-proposed various statements are included in their description.
+<!-- TBD: Put image of idi here, once it's renumbered -->
 
-Assertion 3 is our first axiom, but it's not an assertion of truth (`|-`),
-it's an assertion that something is a well-formed formula (`wff`).
-It says `wff -. ph`, that is, if some `ph` is a wff
+In `idi` all the statements begin with `|-` meaning "this is true".
+Theorem `idi` says the following: if we assume that some
+statement `ph` is true, then we can conclude that the statement `ph` is true.
+This theorem doesn't let us conclude anything new, so it's normally not useful;
+it's only useful in special technical situations.
+Let's see its description.
+
+> Click on the symbol "&gt;" to the right of the name **idi**.
+
+Every axiom or theorem in `set.mm` has a description.
+In this example, you can see that theorem `idi` was contributed by Alan Sare.
+The names of people who formalized and proposed various statements
+are recorded for all time in these descriptions.
+
+☞ We hope to see *your* name in future database descriptions! ☜
+
+The description of theorem `idi` has a special phrase:
+"(New usage is discouraged.)".
+This tells people and tools that they should *not* use this
+assertion in most circumstances.
+This particular theorem is discouraged because it's normally not useful.
+However, it *is* true, so you can use it if you want to,
+and there are special technical situations here it *is* useful.
+Currently metamath-lamp doesn't exclude discouraged theorems and axioms
+from its automation, but the expectation is that it will
+exclude them by default in the future.
+
+##### Assertion 2: Theorem `a1ii`
+
+Assertion 2 is the theorem is `a1ii`.
+It has two hypotheses and one conclusion.
+All the statements begin with `|-` which again means "this is true".
+Theorem `a1ii` can be interpreted as saying that if we assume
+some `ph` is true,
+and we assume some `ps` is true, then we can conclude that `ph` is true.
+This simply lets us restate one of two accepted truths.
+Again, this is only useful in special technical situations,
+but it's hard to argue with the conclusion.
+This theorem is also discouraged.
+
+##### Assertion 3: Syntax axiom `wn`
+
+Assertion 3 is `wn`.
+This is our first axiom, but it's *not* an assertion of truth (`|-`),
+it's a syntax assertion that a certain pattern
+is a well-formed formula (`wff`).
+In short, it's a "syntax axiom" - a way of asserting that
+a specific pattern is valid syntax.
+This assertion says `wff -. ph`, that is, if some `ph` is a wff
 (an expression that is true or false), then
 `-. ph` is also a wff.
 The sequence `-.` represents "logical not", and this axiom
-allows us to use the sequence `-. ph` as a wff where `ph` is a wff.
+allows us to use the sequence `-. ph` as a wff.
+In short, this axiom permits us to use "not ph" as a syntactically
+legal expression.
+
+##### Assertion 4: Syntax axiom `wi`
 
 Assertion 4 is a similar axiom, stating that
 `( ph -> ps )` is a well-formed formula (`wff`).
 Notice the parentheses; since they are specified as part of the axiom allowing
-the use of `->`, the parentheses are required when using `->`.
+the use of `->`, the parentheses are required when using `->` in the
+`set.mm` database.
+
+##### Assertion 5: Axiom `ax-mp` (modus ponens)
 
 Assertion 5 is axiom `ax-mp`, aka modus ponens.
-If `ph` is true, and `ph` implies `ps`, then `ps` is true.
+This axiom says that
+if `ph` is true, and that `ph` implies `ps`, then `ps` is true
+(whatever `ph` and `ps` are).
+
+###### Assertion 6: Axiom `ax-1`
 
 The next 3 axioms define the axioms of propositional logic, that is,
 the fundamental rules for determining if something is true or false
@@ -1219,18 +1427,30 @@ creator of the Metamath system. As you can see, we try to give credit
 to those who take the time to formalize mathematics; we hope you'll
 eventually create proofs and get credit too!
 
+###### Assertion 7: Axiom `ax-2`
+
 Axiom `ax-2` is also called "Frege".
 It asserts that
 `|- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )`
 This looks more complex than it is; it really just
 "distributes" an antecedent over two consequents.
 
+Remember to open the description using "&gt;" if you are interested.
+
+###### Assertion 8: Axiom `ax-3`
+
 Axiom `ax-3` is also called "Transp".
 It asserts that
 `|- ( ( -. ph -> -. ps ) -> ( ps -> ph ) )`.
 
-Theorem `mp2` then proves a claim
+###### Assertion 9: Theorem `mp2`
+
+Theorem `mp2` our first *useful* theorem
+(that is, a claim proven using axioms).
+It proves a claim
 (a double modus ponens) using only previously-accepted assertions.
+
+###### Going beyond
 
 There are many more theorems of course. We should briefly point out one,
 `syl`. The theorem `syl` proves that if `( ph -> ps )` and
@@ -1240,6 +1460,10 @@ commonly-used theorems in the entire `set.mm` database.
 These are very basic beginnings.
 What's extraordinary is that you can build up, assertion by assertion,
 to eventually completely prove complex mathematical ideas.
+
+If you wish to see other information beyond what the
+metamath-lamp explorer can show you, please look at the
+[Metamath Home Page](https://us.metamath.org).
 
 ### Proof: Principle of the syllogism (`syl`)
 
@@ -1261,16 +1485,17 @@ As always, start up metamath-lamp.
 
 We need to erase any previous materials.
 
-If you have any steps or other information, erase them:
+We *could* click on the
+icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select all)
+of the [editor command icon bar](#editor-command-icon-bar)
+to select all steps, then click on the
+icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
+to delete the old steps.
+We could then erase the basic information and change our context.
+But that would take many steps.
+Let's just start fresh instead:
 
-> Click on the leftmost
-> icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select all)
-> of the [editor command icon bar](#editor-command-icon-bar)
-> so all steps are selected.
-> Click on the
-> icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
-> to delete the old steps.
-> When it asks "Delete all steps?" press on "Delete".
+**[Start up the metamath-lamp application in a completely empty state (erasing whatever you had before in metamath-lamp)](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbXSwiZGVzY3IiOiIiLCJ2YXJzVGV4dCI6IiIsImRpc2pUZXh0IjoiIiwic3RtdHMiOltdfQ==)**
 
 Let's again load the `set.mm` database, and stop before `syl`:
 
@@ -1823,25 +2048,20 @@ common metamath database, `set.mm`. We will again be proving something
 already in the database, so we need to make sure our context does not include
 its proof (of `reccot`) or metamath-lamp will just reuse it.
 
-If you've already been using metamath-lamp to prove something else, that
-means we need to erase the proof steps we have and change the context.
-Here's how to do that:
+Again,
+we *could* click on the
+icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select all)
+of the [editor command icon bar](#editor-command-icon-bar)
+to select all steps, then click on the
+icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
+to delete the old steps.
+We could then erase the basic information and change our context.
+But that would take many steps.
+Let's just start fresh instead:
 
-> Select the checkbox on the
-> [editor command icon bar](#editor-command-icon-bar)
-> above the field name "Description"
-> to select *all* steps. Click on
-> icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete)
-> to delete all the selected steps.
-> At the top of the browser window, select the drop-down arrow with the
-> "Loaded:..." text that hints at the context.
-> Make sure we are loading from the web the file "set.mm:latest",
-> and change the scope to "Stop before" the label `reccot` by typing it in
-> and selecting it.
-> Then press "Apply changes" to apply this change.
+**[Start up the metamath-lamp application in a completely empty state (erasing whatever you had before in metamath-lamp)](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbXSwiZGVzY3IiOiIiLCJ2YXJzVGV4dCI6IiIsImRpc2pUZXh0IjoiIiwic3RtdHMiOltdfQ==)**
 
-If, on the other hand, you're starting from scratch, just set up the
-context as usual. Here's how to do that instead:
+Now let's load the context we want:
 
 > Select Source type "Web", Alias "set.mm:latest"; after confirmation this
 > loads the given database.
@@ -2350,6 +2570,10 @@ If you're intentionally creating an *alternative* proof
 of the same goal, for eventual use in the database,
 then you *do* need to use different labels.
 
+As always, you can start empty:
+
+**[Start up the metamath-lamp application in a completely empty state (erasing whatever you had before in metamath-lamp)](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbXSwiZGVzY3IiOiIiLCJ2YXJzVGV4dCI6IiIsImRpc2pUZXh0IjoiIiwic3RtdHMiOltdfQ==)**
+
 ### Loading existing metamath-lamp proofs
 
 You can use "import to JSON" to load worked examples of metamath-lamp.
@@ -2481,13 +2705,13 @@ statement fragment selection.
 
 Also:
 
-* To save an edit, use the
+* To save an edit, click on the
   icon <img width="16" height="16" src="save.svg" alt="save"> (save)
   or press Enter (Return).
-* To cancel an edit, use the
+* To cancel an edit, click on the
   icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel)
   or press Esc (Escape).
-* To delete something selected, use the
+* To delete something selected, click on the
   icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
 
 ### Loading source Metamath databases to create the proof context
@@ -3352,6 +3576,9 @@ Here are some likely future capabilities:
 * [Use a full unification algorithm](https://github.com/expln/metamath-lamp/issues/77)
 * [Undo/redo](https://github.com/expln/metamath-lamp/issues/33)
 * [Some automation](https://github.com/expln/metamath-lamp/issues/17)
+* Ensuring that [statements marked discouraged are not automatically added by default](https://github.com/expln/metamath-lamp/issues/31)  and [syntax marked discouraged are ignored by default](https://github.com/expln/metamath-lamp/issues/108)
+
+Here are [proposed v12 milestones](https://github.com/expln/metamath-lamp/milestone/2).
 
 ## Help, feedback, and contributions
 
