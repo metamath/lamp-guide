@@ -141,7 +141,11 @@ using metamath-lamp looks like (proving that 2 + 2 = 4):
 You can start using metamath-lamp immediately by visiting the
 [Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html).
 
-You can even start using metamath-lamp preloaded with a proof state,
+You can always start fresh, too:
+
+**[Start up the metamath-lamp application in a completely empty state (erasing whatever you had before in metamath-lamp)](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbXSwiZGVzY3IiOiIiLCJ2YXJzVGV4dCI6IiIsImRpc2pUZXh0IjoiIiwic3RtdHMiOltdfQ==)**
+
+You can also start using metamath-lamp with it preloaded with a proof state,
 for example, that
 [2 + 2 = 4](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbeyJ0eXAiOiJXZWIiLCJmaWxlTmFtZSI6IiIsInVybCI6Imh0dHBzOi8vdXMubWV0YW1hdGgub3JnL21ldGFtYXRoL3NldC5tbSIsInJlYWRJbnN0ciI6IlN0b3BCZWZvcmUiLCJsYWJlbCI6IjJwMmU0In1dLCJkZXNjciI6IlByb3ZlIHRoYXQgMiArIDIgPSA0LiIsInZhcnNUZXh0IjoiIiwiZGlzalRleHQiOiIiLCJzdG10cyI6W3sibGFiZWwiOiI5IiwidHlwIjoicCIsImNvbnQiOiJ8LSAxIGUuIENDIiwianN0ZlRleHQiOiI6IGF4LTFjbiJ9LHsibGFiZWwiOiI4IiwidHlwIjoicCIsImNvbnQiOiJ8LSAyIGUuIENDIiwianN0ZlRleHQiOiI6IDJjbiJ9LHsibGFiZWwiOiI1IiwidHlwIjoicCIsImNvbnQiOiJ8LSAyID0gKCAxICsgMSApIiwianN0ZlRleHQiOiI6IGRmLTIifSx7ImxhYmVsIjoiNiIsInR5cCI6InAiLCJjb250IjoifC0gKCAyICsgMiApID0gKCAyICsgKCAxICsgMSApICkiLCJqc3RmVGV4dCI6IjUgOiBvdmVxMmkifSx7ImxhYmVsIjoiMiIsInR5cCI6InAiLCJjb250IjoifC0gMyA9ICggMiArIDEgKSIsImpzdGZUZXh0IjoiOiBkZi0zIn0seyJsYWJlbCI6IjEiLCJ0eXAiOiJwIiwiY29udCI6InwtIDQgPSAoIDMgKyAxICkiLCJqc3RmVGV4dCI6IjogZGYtNCJ9LHsibGFiZWwiOiIzIiwidHlwIjoicCIsImNvbnQiOiJ8LSAoIDMgKyAxICkgPSAoICggMiArIDEgKSArIDEgKSIsImpzdGZUZXh0IjoiMiA6IG92ZXExaSJ9LHsibGFiZWwiOiI0IiwidHlwIjoicCIsImNvbnQiOiJ8LSA0ID0gKCAoIDIgKyAxICkgKyAxICkiLCJqc3RmVGV4dCI6IjEgMyA6IGVxdHJpIn0seyJsYWJlbCI6IjciLCJ0eXAiOiJwIiwiY29udCI6InwtICggKCAyICsgMSApICsgMSApID0gKCAyICsgKCAxICsgMSApICkiLCJqc3RmVGV4dCI6IjggOSA5IDogYWRkYXNzaSJ9LHsibGFiZWwiOiIycDJlNCIsInR5cCI6InAiLCJjb250IjoifC0gKCAyICsgMiApID0gNCIsImpzdGZUZXh0IjoiNyA0IDYgOiAzZXF0cjRyaSJ9XX0=)
 or
@@ -168,6 +172,12 @@ We'll close with some other topics, such as a discussion on
 Let's show how to use metamath-lamp to create a simple proof, namely,
 that 2 + 2 = 4. This has already been
 [proved in the set.mm database as theorem `2p2e4`](https://us.metamath.org/mpeuni/2p2e4.html).
+
+First, we need to start metamath-lamp. Let's start in an
+empty state (erasing anything you might have done before in
+metamath-lamp) so we know exactly where we're starting from:
+
+**[Start up the metamath-lamp application in a completely empty state (erasing whatever you had before in metamath-lamp)](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbXSwiZGVzY3IiOiIiLCJ2YXJzVGV4dCI6IiIsImRpc2pUZXh0IjoiIiwic3RtdHMiOltdfQ==)**
 
 #### Selecting the proof context for `2p2e4`
 
@@ -1025,7 +1035,8 @@ If you're continuing the tutorial, you've already done that.
 However, if you're starting at this point, first load `set.mm` as the context:
 
 > Make sure we are loading from the web the file "set.mm:latest",
-> You can change the scope or not, your choice.
+> You can change the scope stopping before `2p2e4` or just load
+> the whole database, your choice.
 > Then press "Apply changes" to apply this change.
 
 #### Trying out the explorer tab
@@ -1442,16 +1453,17 @@ As always, start up metamath-lamp.
 
 We need to erase any previous materials.
 
-If you have any steps or other information, erase them:
+We *could* click on the
+icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select all)
+of the [editor command icon bar](#editor-command-icon-bar)
+to select all steps, then click on the
+icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
+to delete the old steps.
+We could then erase the basic information and change our context.
+But that would take many steps.
+Let's just start fresh instead:
 
-> Click on the leftmost
-> icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select all)
-> of the [editor command icon bar](#editor-command-icon-bar)
-> so all steps are selected.
-> Click on the
-> icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
-> to delete the old steps.
-> When it asks "Delete all steps?" press on "Delete".
+**[Start up the metamath-lamp application in a completely empty state (erasing whatever you had before in metamath-lamp)](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbXSwiZGVzY3IiOiIiLCJ2YXJzVGV4dCI6IiIsImRpc2pUZXh0IjoiIiwic3RtdHMiOltdfQ==)**
 
 Let's again load the `set.mm` database, and stop before `syl`:
 
@@ -2004,25 +2016,20 @@ common metamath database, `set.mm`. We will again be proving something
 already in the database, so we need to make sure our context does not include
 its proof (of `reccot`) or metamath-lamp will just reuse it.
 
-If you've already been using metamath-lamp to prove something else, that
-means we need to erase the proof steps we have and change the context.
-Here's how to do that:
+Again,
+we *could* click on the
+icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select all)
+of the [editor command icon bar](#editor-command-icon-bar)
+to select all steps, then click on the
+icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
+to delete the old steps.
+We could then erase the basic information and change our context.
+But that would take many steps.
+Let's just start fresh instead:
 
-> Select the checkbox on the
-> [editor command icon bar](#editor-command-icon-bar)
-> above the field name "Description"
-> to select *all* steps. Click on
-> icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete)
-> to delete all the selected steps.
-> At the top of the browser window, select the drop-down arrow with the
-> "Loaded:..." text that hints at the context.
-> Make sure we are loading from the web the file "set.mm:latest",
-> and change the scope to "Stop before" the label `reccot` by typing it in
-> and selecting it.
-> Then press "Apply changes" to apply this change.
+**[Start up the metamath-lamp application in a completely empty state (erasing whatever you had before in metamath-lamp)](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbXSwiZGVzY3IiOiIiLCJ2YXJzVGV4dCI6IiIsImRpc2pUZXh0IjoiIiwic3RtdHMiOltdfQ==)**
 
-If, on the other hand, you're starting from scratch, just set up the
-context as usual. Here's how to do that instead:
+Now let's load the context we want:
 
 > Select Source type "Web", Alias "set.mm:latest"; after confirmation this
 > loads the given database.
@@ -2530,6 +2537,10 @@ the proof you're recreating, so metamath-lamp won't complain about it.
 If you're intentionally creating an *alternative* proof
 of the same goal, for eventual use in the database,
 then you *do* need to use different labels.
+
+As always, you can start empty:
+
+**[Start up the metamath-lamp application in a completely empty state (erasing whatever you had before in metamath-lamp)](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbXSwiZGVzY3IiOiIiLCJ2YXJzVGV4dCI6IiIsImRpc2pUZXh0IjoiIiwic3RtdHMiOltdfQ==)**
 
 ### Loading existing metamath-lamp proofs
 
