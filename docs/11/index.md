@@ -710,7 +710,7 @@ namely that `1 e. CC` (`1` is a member of the set of complex numbers)
 and `2 e. CC` (`2` is a member of the set of complex numbers).
 
 We now have a green checkmark next to all our steps, showing
-that all steps are have been proven.
+that all steps have been proven.
 
 Most importantly, the final step `2p2e4` has a green checkmark, which
 means we have proven our goal.
@@ -850,7 +850,7 @@ is one statement:
 Notice that variable parts of this statement are boxed
 and directed lines connect them to another statement below.
 
-In center of a visualization is always a sequence with zero or statements
+In center of a visualization is always a sequence with zero or more statements
 (the hypotheses of the reference being used), then a horizontal line below it,
 and then the reference's concluding statement below that.
 This is a common mathematical representation of a rule &em;
@@ -1014,6 +1014,8 @@ and include a lot information about each assertion
 (such as syntax hints for every symbol used,
 the axioms and definitions it transitively uses, and
 what assertions reference it).
+It also groups the axioms and theorems into chapters and further
+subsections, with descriptions of each section.
 
 However, the built-in metamath-lamp explorer has its own advantages.
 The metamath-lamp explorer will always show you the *current* context.
@@ -1329,6 +1331,8 @@ Let's go back to the explorer tab:
 
 > Click on the "Explorer" text in the tab bar, and scroll to the top.
 
+##### Assertion 1: Theorem `idi`
+
 Let's gain a brief understanding of the first theorems and axioms.
 We are entering the foundations of the foundations - the very basement -
 of the "typical" mathematics of classical logic and ZFC set theory.
@@ -1353,16 +1357,18 @@ are recorded for all time in these descriptions.
 
 ☞ We hope to see *your* name in future database descriptions! ☜
 
-You can also see that the description of theorem `idi` says
+The description of theorem `idi` has a special phrase:
 "(New usage is discouraged.)".
-This tells tools (like metamath-lamp) to *not* use this
-theorem unless the human specially directs the tool to use it
-(e.g., by manually entering it as a justification).
-Theorem `idi` doesn't let us determine new truths, so we don't
-normally want to use it.
-Metamath-lamp will not, by default, mention this as an option
-when you're trying to prove something (since it's normally not useful).
-That said, this statement *is* true, and you can use it if you want to.
+This tells people and tools that they should *not* use this
+assertion in most circumstances.
+This particular theorem is discouraged because it's normally not useful.
+However, it *is* true, so you can use it if you want to,
+and there are special technical situations here it *is* useful.
+Currently metamath-lamp doesn't exclude discouraged theorems and axioms
+from its automation, but the expectation is that it will
+exclude them by default in the future.
+
+##### Assertion 2: Theorem `a1ii`
 
 Assertion 2 is the theorem is `a1ii`.
 It has two hypotheses and one conclusion.
@@ -1373,12 +1379,16 @@ and we assume some `ps` is true, then we can conclude that `ph` is true.
 This simply lets us restate one of two accepted truths.
 Again, this is only useful in special technical situations,
 but it's hard to argue with the conclusion.
-This theorem is also discouraged, so again, metamath-lamp will normally
-not try to use it.
+This theorem is also discouraged.
 
-Assertion 3 is our first axiom, but it's not an assertion of truth (`|-`),
-it's an assertion that something is a well-formed formula (`wff`).
-In short, it's a "syntax axiom" - a way of asserting what is valid syntax.
+##### Assertion 3: Syntax axiom `wn`
+
+Assertion 3 is `wn`.
+This is our first axiom, but it's *not* an assertion of truth (`|-`),
+it's a syntax assertion that a certain pattern
+is a well-formed formula (`wff`).
+In short, it's a "syntax axiom" - a way of asserting that
+a specific pattern is valid syntax.
 This assertion says `wff -. ph`, that is, if some `ph` is a wff
 (an expression that is true or false), then
 `-. ph` is also a wff.
@@ -1387,16 +1397,22 @@ allows us to use the sequence `-. ph` as a wff.
 In short, this axiom permits us to use "not ph" as a syntactically
 legal expression.
 
+##### Assertion 4: Syntax axiom `wi`
+
 Assertion 4 is a similar axiom, stating that
 `( ph -> ps )` is a well-formed formula (`wff`).
 Notice the parentheses; since they are specified as part of the axiom allowing
 the use of `->`, the parentheses are required when using `->` in the
 `set.mm` database.
 
+##### Assertion 5: Axiom `ax-mp` (modus ponens)
+
 Assertion 5 is axiom `ax-mp`, aka modus ponens.
 This axiom says that
 if `ph` is true, and that `ph` implies `ps`, then `ps` is true
 (whatever `ph` and `ps` are).
+
+###### Assertion 6: Axiom `ax-1`
 
 The next 3 axioms define the axioms of propositional logic, that is,
 the fundamental rules for determining if something is true or false
@@ -1411,18 +1427,30 @@ creator of the Metamath system. As you can see, we try to give credit
 to those who take the time to formalize mathematics; we hope you'll
 eventually create proofs and get credit too!
 
+###### Assertion 7: Axiom `ax-2`
+
 Axiom `ax-2` is also called "Frege".
 It asserts that
 `|- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )`
 This looks more complex than it is; it really just
 "distributes" an antecedent over two consequents.
 
+Remember to open the description using "&gt;" if you are interested.
+
+###### Assertion 8: Axiom `ax-3`
+
 Axiom `ax-3` is also called "Transp".
 It asserts that
 `|- ( ( -. ph -> -. ps ) -> ( ps -> ph ) )`.
 
-Theorem `mp2` then proves a claim
+###### Assertion 9: Theorem `mp2`
+
+Theorem `mp2` our first *useful* theorem
+(that is, a claim proven using axioms).
+It proves a claim
 (a double modus ponens) using only previously-accepted assertions.
+
+###### Going beyond
 
 There are many more theorems of course. We should briefly point out one,
 `syl`. The theorem `syl` proves that if `( ph -> ps )` and
@@ -1432,6 +1460,10 @@ commonly-used theorems in the entire `set.mm` database.
 These are very basic beginnings.
 What's extraordinary is that you can build up, assertion by assertion,
 to eventually completely prove complex mathematical ideas.
+
+If you wish to see other information beyond what the
+metamath-lamp explorer can show you, please look at the
+[Metamath Home Page](https://us.metamath.org).
 
 ### Proof: Principle of the syllogism (`syl`)
 
