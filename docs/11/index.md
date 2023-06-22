@@ -977,7 +977,7 @@ Let's try that out now.
 > In the explorer view, scroll down to theorem `mp2`.
 > Click on the *name* **mp2** (*not* the "&gt;" next to it).
 
-Clicking on the *name* of an axiom or theorem with switch our
+Clicking on the *name* of an axiom or theorem will switch the
 view to a dynamic tab of that name (creating it if necessary)
 that shows details about it.
 These dynamic tables are called
@@ -988,7 +988,7 @@ individual assertion tab).
 
 In this case, our individual assertion tab is showing us the proof of `mp2`.
 
-Each individual assertion table begins with a summary of what ti is,
+Each individual assertion table begins with a summary of what it is,
 including a brief natural language description,
 a list of its hypotheses (if any), and its conclusion.
 
@@ -1030,7 +1030,7 @@ If these preconditions are met, then per modus ponens, `ps` is true.
 
 The visualization then shows how the symbols flow in and out of the rule.
 In this use of modus ponens, we'll substitute `ph` with `ph`
-(from step 2), and `ps` will replaced with `( ps -> ch )` (from step 3).
+(from step 2), and `ps` will be replaced with `( ps -> ch )` (from step 3).
 Given those substitutions, the result of this particular application
 of `ax-mp` in step 4 is `( ps -> ch )`.
 
@@ -1075,7 +1075,7 @@ in an existing proof.
 
 <!-- https://drive.google.com/file/d/13ihXqjKTab1RAJsr-V70_Pl4oFukdKAl/view -->
 You can also make the editor reveal whether or not
-an expression is a given type.
+an expression is of a given type.
 Simply create a step (e.g., via duplication) and change the first symbol
 (which is typically `|-`) into a typecode
 (for `set.mm` the typecodes are `wff`, `class`, or `setvar`).
@@ -1083,7 +1083,7 @@ When you ask it to unify, it will show a green checkmark if it was
 able to verify that claim.
 
 Let's go back to the editor and look at our proof that ( 2 + 2 ) = 4
-(if you've lost that, you can can use important from JSON to load in
+(if you've lost that, you can use important from JSON to load in
 [our proof of 2p2e4 in JSON format](./2p2e4.lamp.json").
 
 > Click on the checkbox next to step 7 which uses `oveq1i`.
