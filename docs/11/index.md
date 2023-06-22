@@ -188,6 +188,10 @@ configure the tool so it uses less display space.
 > Turn on "Compact mode" and "Small buttons".
 > Press Close.
 
+We will later cover
+[more tricks for small displays](#more-tricks-for-small-displays)
+for dealing with limited screen sizes.
+
 #### Setting the goal statement for `2p2e4`
 
 We need to tell metamath-lamp our goal.
@@ -785,7 +789,7 @@ Visualizations can help, so let's discuss them.
 Metamath-lamp can provide visualizations to show you what
 a given justification means for a given step.
 This only works when the tool has
-verified the justification and thus shows a green check (or orange "~")
+verified the justification and thus shows a green check (or orange "~").
 So let's first use unify to ensure that we've proven what we
 want to visualize.
 
