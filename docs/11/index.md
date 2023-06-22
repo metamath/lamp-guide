@@ -20,9 +20,11 @@ user guide (tutorial) and a reference guide. It includes:
 2. [Sample Screenshot](#sample-screenshot)
 3. [User guide (tutorial)](#user-guide-tutorial)
    shows how to use the metamath-lamp tool, e.g., proving
-   [2 + 2 = 4 (`2p2e4`)](#proof-2--2--4), the
+   [2 + 2 = 4 (`2p2e4`)](#proof-2--2--4),
+   [a tour using the Explorer tab](#a-tour-using-the-explorer-tab),
+   the
    [principle of the syllogism (`syl`)](#proof-principle-of-the-syllogism-syl),
-   and that the
+   and a proof that the
    [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
 4. [Reference manual](#reference-manual) explains each part of the
    user interface, e.g., the [Editor tab](#editor-tab).
@@ -674,8 +676,8 @@ theorem requires showing that `1` and `2` are complex numbers.
 
 Suddenly a lot has happened.
 We now have new steps that have been automatically added to our proof,
-namely that `1 e. CC` (`1` is a complex number) and `2 e. CC`
-(`2` is a complex number).
+namely that `1 e. CC` (`1` is a member of the set of complex numbers)
+and `2 e. CC` (`2` is a member of the set of complex numbers).
 
 We now have a green checkmark next to all our steps, showing
 that all steps are have been proven.
