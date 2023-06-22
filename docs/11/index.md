@@ -974,21 +974,24 @@ nicely rendered versions of the
 [New Foundations Explorer (`nf.mm`)](https://us.metamath.org/nfeuni/mmnf.html),
 and the
 [Higher-Order Logic (HOL) Explorer (hol.mm)](https://us.metamath.org/holuni/mmhol.html).
-Those pages have many advantages.
-The Metamath home page renderings have been generated in a "pretty" format
+Those web pages have many advantages.
+Each assertion has its own URL, loads quickly, and displays well even when
+JavaScript is disabled on the web browser.
+The Metamath home page renderings have also
+been generated in a "pretty" format
 and include a lot information about each assertion
 (such as syntax hints for every symbol used,
 the axioms and definitions it transitively uses, and
 what assertions reference it).
-Each assertion has its own URL, loads quickly, and works when
-JavaScript is disabled.
 
-However, the built-in explorer in metamath-lamp has its own advantages.
-It will always show you the *current* context.
+However, the built-in metamath-lamp explorer has its own advantages.
+The metamath-lamp explorer will always show you the *current* context.
 This means, for example, you can explore other databases (such as a database
-on local storage or historical databases).
-Its fragment selector lets you copy fragments found from exploration.
-You can also use visualization to better understand the database.
+on local storage or a historical database), as well as
+portions and combinations of databases.
+The metamath-lamp explorer also includes its
+fragment selector (so you can copy fragments found from exploration) and
+visualization mechanism (to help you better understand the database).
 
 Let's try out the Explorer tab so we can *see* the context we're using.
 
@@ -1033,17 +1036,16 @@ Also, when you tell metamath-lamp to limit the scope to either before or after
 some assertion, your proof can no longer refer to
 any assertion after that (until you change the context's scope).
 
-You can use the fragment selector to copy useful portions of any statement.
-Next to the name of each axiom or theorem is a ">" symbol which lets you
-expand or hide its description.
-
 Let's look at axiom `ax-mp`, which is probably assertion number 5
 in your display. Axiom `ax-mp` is called *modus ponens* and is well-known.
-Here is what it looks like in the explorer display:
 
-![Axiom ax-5 in the explorer tab](ax-5-explorer.png)
+> Scroll down (if necessary) to see Axiom **ax-mp**.
 
-Modus ponens has two hypotheses:
+Here is what axiom `ax-mp` (modus ponens) looks like in the explorer display:
+
+![Axiom ax-5 (modus ponens) in the explorer tab](ax-5-explorer.png)
+
+Axiom `ax-mp` (Modus ponens) has two hypotheses:
 
 * `|- ph` - that is, "when `ph` is true", and
 * `|- ( ph -> ps )` - that is, "when `ph` implies `ps`"
@@ -1054,6 +1056,24 @@ any well-formed formula (wff) expression, that is, anything that
 is true or false; they are not limited to being
 replaced by just another variable.
 The axiom modus ponens can apply to many circumstances.
+
+From the explorer you can use various capabilities.
+You can use the fragment selector to copy useful portions of any statement.
+Next to the name of each axiom or theorem is a ">" symbol which lets you
+expand or hide its description.
+Let's try that out on axiom `ax-mp`.
+
+> Click on the "&gt;" symbol to the *right* of **ax-mp** (don't click
+> on the *name* **ax-mp**, we'll try that out later).
+> Notice that this reveals a description; click on the
+> modified symbol "&#8744;" to the right of **ax-mp** to
+> to hide the description again.
+> Click on the open parentheses "(" in the second hypothesis of
+> `ax-mp`; you'll see that the fragment selector bar has emerged and
+> the expression `( ph -> ps )` has been selected.
+> Click on the
+> icon <img width="16" height="16" src="cancel.svg" alt="unselect"> (unselect)
+> to close it.
 
 #### A few set.mm symbols
 
@@ -1281,37 +1301,70 @@ Let's gain a brief understanding of the first theorems and axioms.
 We are entering the foundations of the foundations - the very basement -
 of the "typical" mathematics of classical logic and ZFC set theory.
 
-The first theorem we have is `a1ii`.
-It has two hypotheses and one conclusion, and
-all the statements begin with `|-` meaning "this is true".
-Theorem `a1ii` can be interpreted as saying that if some `ph` is true,
-and some `ps` is true, then that `ph` is true.
-This simply lets us restate truths; this is only useful in
-special technical situations, but it's hard to argue with the conclusion.
+Assertion 1 is the theorem `idi`.
 
-Theorem `idi` is similar; it says that if some `ph` is true, then that
-`ph` is true.
-This also lets us restate truths; this is again only useful in
-special technical situations, but it's hard to argue with the conclusion.
-This theorem was contributed by Alan Sare, which you can see by clicking
-on the ">" next to the name. The names of people who formalized and
-proposed various statements are included in their description.
+<!-- TBD: Put image of idi here, once it's renumbered -->
+
+In `idi` all the statements begin with `|-` meaning "this is true".
+Theorem `idi` says the following: if we assume that some
+statement `ph` is true, then we can conclude that the statement `ph` is true.
+This theorem doesn't let us conclude anything new, so it's normally not useful;
+it's only useful in special technical situations.
+Let's see its description.
+
+> Click on the symbol "&gt;" to the right of the name **idi**.
+
+Every axiom or theorem in `set.mm` has a description.
+In this example, you can see that theorem `idi` was contributed by Alan Sare.
+The names of people who formalized and proposed various statements
+are recorded for all time in these descriptions.
+
+☞ We hope to see *your* name in future database descriptions! ☜
+
+You can also see that the description of theorem `idi` says
+"(New usage is discouraged.)".
+This tells tools (like metamath-lamp) to *not* use this
+theorem unless the human specially directs the tool to use it
+(e.g., by manually entering it as a justification).
+Theorem `idi` doesn't let us determine new truths, so we don't
+normally want to use it.
+Metamath-lamp will not, by default, mention this as an option
+when you're trying to prove something (since it's normally not useful).
+That said, this statement *is* true, and you can use it if you want to.
+
+Assertion 2 is the theorem is `a1ii`.
+It has two hypotheses and one conclusion.
+All the statements begin with `|-` which again means "this is true".
+Theorem `a1ii` can be interpreted as saying that if we assume
+some `ph` is true,
+and we assume some `ps` is true, then we can conclude that `ph` is true.
+This simply lets us restate one of two accepted truths.
+Again, this is only useful in special technical situations,
+but it's hard to argue with the conclusion.
+This theorem is also discouraged, so again, metamath-lamp will normally
+not try to use it.
 
 Assertion 3 is our first axiom, but it's not an assertion of truth (`|-`),
 it's an assertion that something is a well-formed formula (`wff`).
-It says `wff -. ph`, that is, if some `ph` is a wff
+In short, it's a "syntax axiom" - a way of asserting what is valid syntax.
+This assertion says `wff -. ph`, that is, if some `ph` is a wff
 (an expression that is true or false), then
 `-. ph` is also a wff.
 The sequence `-.` represents "logical not", and this axiom
-allows us to use the sequence `-. ph` as a wff where `ph` is a wff.
+allows us to use the sequence `-. ph` as a wff.
+In short, this axiom permits us to use "not ph" as a syntactically
+legal expression.
 
 Assertion 4 is a similar axiom, stating that
 `( ph -> ps )` is a well-formed formula (`wff`).
 Notice the parentheses; since they are specified as part of the axiom allowing
-the use of `->`, the parentheses are required when using `->`.
+the use of `->`, the parentheses are required when using `->` in the
+`set.mm` database.
 
 Assertion 5 is axiom `ax-mp`, aka modus ponens.
-If `ph` is true, and `ph` implies `ps`, then `ps` is true.
+This axiom says that
+if `ph` is true, and that `ph` implies `ps`, then `ps` is true
+(whatever `ph` and `ps` are).
 
 The next 3 axioms define the axioms of propositional logic, that is,
 the fundamental rules for determining if something is true or false
@@ -2588,13 +2641,13 @@ statement fragment selection.
 
 Also:
 
-* To save an edit, use the
+* To save an edit, click on the
   icon <img width="16" height="16" src="save.svg" alt="save"> (save)
   or press Enter (Return).
-* To cancel an edit, use the
+* To cancel an edit, click on the
   icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel)
   or press Esc (Escape).
-* To delete something selected, use the
+* To delete something selected, click on the
   icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
 
 ### Loading source Metamath databases to create the proof context
