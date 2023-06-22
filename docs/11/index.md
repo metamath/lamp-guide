@@ -7,10 +7,30 @@ a proof assistant for creating formal
 mathematical proofs in the [Metamath system](https://us.metamath.org/).
 Unlike most other Metamath proof systems,
 such as mmj2 or metamath-exe (the first Metamath proof assistant),
-users can use this proof assistant without installing anything.
+users of metamath-lamp can use this proof assistant without installing anything.
 Instead, you can start using metamath-lamp
 by using your web browser, including your smartphone web browser, to view the
 **[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**.
+Since this tool supports Metamath, we should explain what Metamath is.
+
+[Metamath](https://us.metamath.org/) is a "simple and flexible
+computer-processable language that supports rigorously verifying,
+archiving, and presenting mathematical proofs". The underlying
+Metamath language is simple and not tied to any particular set of
+axioms; instead, axioms are defined in a *database* (a text file
+of axioms and theorems).  An *especially*
+unusual trait of Metamath is that its proofs include every step,
+*no exceptions*, where each step is *only* an application of an axiom
+or a previously-proved statement. This is different from almost all
+other computer-verifiable proof systems, which allow statements
+(like "simp", "auto", or "blast") that don't show the proof steps
+but instead ask a computer to try to rediscover the proof steps
+(and often just take the computer's word for it).
+Metamath's unique approach speeds verification, improves archiving,
+and enables *anyone* to follow *every* proof step - from high-level
+math all the way down to fundamental axioms.
+Metamath is one of the
+[top systems in the Formalizing 100 Theorems challenge](https://www.cs.ru.nl/~freek/100/).
 
 This *Metamath-lamp Guide* is both a
 user guide (tutorial) and a reference guide. It includes:
