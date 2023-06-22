@@ -892,6 +892,22 @@ Metamath-lamp will display error messages if steps
 are moved to make them depend on steps that
 have not been proved yet.
 
+#### A brief discussions on settings
+
+The [*Settings* tab](#settings-tab) lets you change
+various configuration options.
+
+You **must** press on *"Apply Changes"* for changes to be applied.
+Any changes you make in the
+Settings tab are *not* applied until you select "Apply Changes".
+If you want to discard changes, select "Discard Changes".
+
+One setting in particular that you might want to change involves
+how to interpret left click.
+Should you edit statements with a *click* or a *long-click*?
+The choice is yours.
+By default, editing statements uses a long-click.
+
 #### More tricks for small displays
 
 Metamath-lamp works well on small displays, such as the
