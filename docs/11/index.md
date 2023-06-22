@@ -3576,6 +3576,9 @@ Here are some likely future capabilities:
 * [Use a full unification algorithm](https://github.com/expln/metamath-lamp/issues/77)
 * [Undo/redo](https://github.com/expln/metamath-lamp/issues/33)
 * [Some automation](https://github.com/expln/metamath-lamp/issues/17)
+* Ensuring that [statements marked discouraged are not automatically added by default](https://github.com/expln/metamath-lamp/issues/31)  and [syntax marked discouraged are ignored by default](https://github.com/expln/metamath-lamp/issues/108)
+
+Here are [proposed v12 milestones](https://github.com/expln/metamath-lamp/milestone/2).
 
 ## Help, feedback, and contributions
 
