@@ -176,7 +176,7 @@ We'll also sometimes say "press" to mean the same thing.
 
 > Finally, click on the "Apply Changes" button to accept the selected context.
 
-#### Small display
+#### Small display adjustments
 
 Metamath-lamp works really well on small displays like smartphones.
 However, if you are using a small display, you should
@@ -807,57 +807,60 @@ You should see a visualization like this:
 The top new line is set of labels being used as inputs into
 the justification. In this case there's only one label;
 the label you see may be different than what's shown here.
-Under that is a copy of that statement:
+Under that is a copy of each statement from each label, which in this case
+is one statement:
 
 > `|- 2 = ( 1 + 1 )`
 
 Notice that variable parts of this statement are boxed
 and directed lines connect them to another statement below.
-The statement below is the set of required patterns
-required by `oveq2i`, in this case `|- A = B`.
-The lines show that in this use of `oveq2i`, `A` will be
-`2`, and `B` will be `( 1 + 1 )`.
 
-The result of `oveq2i` are `( C F A ) = ( C F B )`.
+In center of a visualization is always a sequence with zero or statements
+(the hypotheses of the reference being used), then a horizontal line below it,
+and then the reference's concluding statement below that.
+This is a common mathematical representation of a rule &em;
+a horizontal line with the preconditions above and the postcondition below.
+In this case we're using the reference `oveq2i` as the rule, which requires
+some statement of the form `|- A = B` and can then produce
+`|- ( C F A ) = ( C F B )`.
+
+The small connecting boxes and lines show that in this use of `oveq2i`,
+`A` will be `2`, and `B` will be `( 1 + 1 )`.
+
+The results of `oveq2i` are always in the form `|- ( C F A ) = ( C F B )`.
 Any variable in its output must have the same values as
 this application of its inputs; `C` and `F` have no
 inputs, so they can be anything syntactically valid.
 This means we can use `oveq2i` to justify the final claim,
 `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )`.
 
-We can also hide justifications (including the visualization)
-any time.
+We can also hide the visualization any time.
 
 > Click on the green checkmark or step label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
-> display of its justification; since the justification
+> display of its visualization; since it is currently
 > is currently displayed, this will hide it.
 
-Let's do the same thing with the statement that
+Let's try out visualization on the statement that
 uses associativity,
 `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`,
 
 > Click on green checkmark or label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
-> display of its justification, revealing it.
-
-You can now see that the justification of this step
-is `addassi` (addition is associative).
-This justification has multiple requirements, which
-as you can see are met.
+> display of its visualization, revealing it.
 
 Let's end its display.
 
 > Click on the green checkmark or step label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
-> display of its justification, hiding it again.
+> display of its visualization, hiding it again.
 
 Please *do* try out visualization of different steps.
 We think seeing several will help better understand how it all works.
 
-#### Reordering steps
+#### Changing the order of steps
 
-You can reorder steps.
+You can change the order of the steps (as opposed to renumbering them).
 Sometimes you *need* to reorder steps, because
 steps can *only* be justified by the context (axioms and proven theorems)
 and previous steps.
@@ -885,6 +888,54 @@ Metamath-lamp will display error messages if steps
 are moved to make them depend on steps that
 have not been proved yet.
 
+#### More tricks for small displays
+
+Metamath-lamp works well on small displays, such as the
+built-in display of smartphones.
+We already suggested a few
+[small display adjustments](#small-display-adjustments).
+
+If you're still cramped for display space, there are some more
+configuration tricks you can use:
+
+* You can click on the
+  icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
+  and select "View options". Then disable or enable whatever you'd like.
+  On a small display you probably want to at least enable
+  "Compact mode" and "Small buttons". You might want to disable display
+  of information you don't need, for example, you might disable
+  displaying the label or justification.
+  You can always redisplay them later the same way.
+* If you disable display of the justification, you can still reveal the
+  justification and/or visualization for any specific step.
+  Just click on the green checkmark, label, or step type (*not* a long-click)
+  to reveal or hide the justification text.
+  Once revealed, you again click on the
+  icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
+  to delete this justification.
+  You can also click on the
+  icon <img width="16" height="16" src="hide.svg" alt="hide justification"> (hide justification)
+  to hide the justification, or click on the
+  icon <img width="16" height="16" src="visualization.svg" alt="visualization"> (show/hide visualization)
+  to show or hide the visualization.
+* You can click on the
+  icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
+  and select "Hide tabs". This will stop displaying the tab bar;
+  to see it again, click on the
+  icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
+  and select "Show tabs".
+* Click on "Settings" in the tab bar and click on "hide context header".
+  Be sure to "Apply Changes". If you want to change the context, you can
+  change the settings. You might find it easier,
+  from the editor, to just click on the
+  icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
+  and select "Show context" when you want to see the context; collapsing
+  the context will hide it again.
+* In your web browser change the font size (e.g., to something smaller).
+  In Chrome, use Settings / Accessibility and adjust the text scaling.
+  In Firefox, use Settings / Accessibility, disable automatic font sizing,
+  and adjust the font size.
+
 ### A tour using the Explorer tab
 
 The tab bar lets you switch between tabs, and those tabs always include
@@ -892,13 +943,14 @@ The tab bar lets you switch between tabs, and those tabs always include
 [*Explorer*](#explorer-tab).
 The Explorer tab lets us view the assertions (axioms and theorems)
 in the current loaded context.
-Let's try out the Explorer tab.
+
+Let's try out the Explorer tab so we can *see* the context we're using.
 
 #### Loading a context for the explorer
 
 You need to have a context loaded before the explorer tab is useful.
 For our purposes we'll use the `set.mm` database.
-If you're continuing the tutorial, you've done that.
+If you're continuing the tutorial, you've already done that.
 
 However, if you're starting at this point, first load `set.mm` as the context:
 
@@ -913,18 +965,27 @@ Let's try out the explorer tab:
 > Click on "Explorer" in the tab bar.
 
 The explorer view lets you see the various assertions
-(axioms and theorems) in the loaded database(s).
+(axioms and theorems) in the current context.
+
 The top of the explorer view lets you select what to view;
 by default all assertions are included.
 There are typically many assertions, so this is a paged view.
 
-After that begin the list of assertions (theorems and axioms).
-Each assertion shows its count, the type of assertion
+Below the selection options is
+a list of assertions (theorems and axioms).
+Each assertion shows its numeric position, the type of assertion
 (theorem or axiom), and the assertion label in bold.
 The rest of the display shows a list of 0 or more hypotheses,
 each prefixed with large black circle "&#x2B24;".
 The final line of an assertion states what can be concluded
 via this assertion when its hypotheses are true.
+
+The order of assertions is important.
+In particular, a theorem can *only* refer to previous assertions;
+this eliminates the possibility of circular reasoning.
+Also, when you tell metamath-lamp to limit the scope to either before or after
+some assertion, your proof can no longer refer to
+any assertion after that (until you change the context's scope).
 
 You can use the fragment selector to copy useful portions of any statement.
 Next to the name of each axiom or theorem is a ">" symbol which lets you
@@ -1018,7 +1079,7 @@ Let's try out a visualization in `mp2`.
 
 You should now see a visualization of step 4:
 
-[Theorem `mp2` with a visualization of step 4](mp2_visualized.png)
+![Theorem `mp2` with a visualization of step 4](mp2_visualized.png)
 
 Step 4 is justified by `ax-mp` (modus ponens).
 At the center of the visualization is the usual representation
