@@ -964,6 +964,32 @@ The tab bar lets you switch between tabs, and those tabs always include
 The Explorer tab lets us view the assertions (axioms and theorems)
 in the current loaded context.
 
+Of course, if you want to see the "final" rendering of a widely-used
+Metamath database, you can easily go to the
+[Metamath Home Page](https://us.metamath.org/).
+On that website you can see
+nicely rendered versions of the
+[Metamath Proof Explorer (`set.mm`)](https://us.metamath.org/mpeuni/mmset.html),
+[Intuitionistic Logic Explorer (`iset.mm`)](https://us.metamath.org/ileuni/mmil.html),
+[New Foundations Explorer (`nf.mm`)](https://us.metamath.org/nfeuni/mmnf.html),
+and the
+[Higher-Order Logic (HOL) Explorer (hol.mm)](https://us.metamath.org/holuni/mmhol.html).
+Those pages have many advantages.
+The Metamath home page renderings have been generated in a "pretty" format
+and include a lot information about each assertion
+(such as syntax hints for every symbol used,
+the axioms and definitions it transitively uses, and
+what assertions reference it).
+Each assertion has its own URL, loads quickly, and works when
+JavaScript is disabled.
+
+However, the built-in explorer in metamath-lamp has its own advantages.
+It will always show you the *current* context.
+This means, for example, you can explore other databases (such as a database
+on local storage or historical databases).
+Its fragment selector lets you copy fragments found from exploration.
+You can also use visualization to better understand the database.
+
 Let's try out the Explorer tab so we can *see* the context we're using.
 
 #### Loading a context for the explorer
