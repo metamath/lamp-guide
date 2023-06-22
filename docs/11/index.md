@@ -1148,7 +1148,7 @@ When you ask it to unify, it will show a green checkmark if it was
 able to verify that claim.
 
 Let's go back to the editor and look at our proof that ( 2 + 2 ) = 4
-(if you've lost that, you can use important from JSON to load in
+(if you've lost that, you can use "import from JSON" to load
 [our proof of 2p2e4 in JSON format](./2p2e4.lamp.json").
 
 > Click on the checkbox next to step 7 which uses `oveq1i`.
