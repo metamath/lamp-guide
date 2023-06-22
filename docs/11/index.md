@@ -841,8 +841,8 @@ We can also hide the visualization any time.
 
 > Click on the green checkmark or step label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
-> display of its visualization; since it is currently
-> is currently displayed, this will hide it.
+> display of its visualization; since it is currently displayed,
+> this will hide it.
 
 Let's try out visualization on the statement that
 uses associativity,
