@@ -189,8 +189,7 @@ configure the tool so it uses less display space.
 > Press Close.
 
 We will later cover
-[more tricks for small displays](#more-tricks-for-small-displays)
-for dealing with limited screen sizes.
+[more tricks for small displays](#more-tricks-for-small-displays).
 
 #### Setting the goal statement for `2p2e4`
 
