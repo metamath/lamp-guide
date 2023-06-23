@@ -1569,11 +1569,15 @@ Now select the new context.
 > and selecting it.
 > Then press "Apply changes" to apply this change.
 
+#### Setting up the description, goal, and hypotheses for `syl`
+
 Let's set the description.
 
-> Click on the field name "Description" to edit the description.
+> Click on the field name "Description" to edit the description
+> (you can also long-click on the area to its right where the text goes).
 > Enter text like `Prove syl.` and press Enter (Return).
-> Erase data for "Variables" and "Disjoints" if there are any.
+> Erase data for "Variables" and "Disjoints" if there are any
+> (there probably aren't).
 
 Now let's add the conclusion:
 
