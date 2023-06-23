@@ -784,7 +784,7 @@ You can save your state for reloading later in a JSON format:
 * "Export to JSON": Provides the current proof assistant
   state as text; you can save this where you wish.
 * "Import from JSON": Allows you to load a state previously
-  exported with "Export to JSON". 
+  exported with "Export to JSON".
 
 If you store this information in a file they conventionally
 have a `.lamp.json` suffix.
@@ -813,11 +813,22 @@ mode will be discarded when you leave the page.
 To reduce the risk of accidentally doing something important
 in TEMP mode, the web page header starts with "TEMP", and
 the first attempt to edit will remind you that you're in TEMP mode
-and that changes will be discarded later.
+and that changes will be discarded later. Here is the message
+you'll see the first time you to edit in TEMP mode:
+
+> Editing in TEMP mode
+>
+> You are about to edit in TEMP mode. All changes you do in TEMP
+> mode will be erased upon closing current browser tab. If you want
+> to continue editing in NORMAL mode, please do the following actions:
+> 1) use "Export to JSON" to copy current editor state to the clipboard;
+> 2) open a new tab (or switch to an already opened tab) with
+> metamath-lamp in NORMAL mode; 3) use "Import from JSON" to load the
+> copied editor state from the clipboard.
 
 There's currently no mechanism to switch from TEMP mode to regular mode.
-If you want to save results from TEMP mode, use
-"Export to JSON" and record the results somewhere.
+As noted in the warning, if you want to save results from TEMP mode, use
+"Export to JSON" to acquire the current state in JSON format.
 You can then use "Import from JSON" to load the results into a normal tab.
 
 #### Looking at proof steps
