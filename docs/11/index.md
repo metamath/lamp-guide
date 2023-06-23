@@ -2650,6 +2650,22 @@ Thus, in set.mm, `nnre` represents "the natural numbers are real numbers",
 `nnge1` represents "the natural numbers are greater than or equal
 to 1", and `2p2e4` represents "two plus two equals four".
 
+If you intend to add theorems to the `set.mm` database, you might find
+it useful to look at the
+[Metamath Proof Explorer (`set.mm`)](https://us.metamath.org/mpeuni/mmset.html),
+including its pages on
+[Real and Complex Numbers](https://us.metamath.org/mpeuni/mmcomplex.html),
+[Algebraic and Topological Structures](https://us.metamath.org/mpeuni/mmtopstr.html),
+and
+[Deduction Format and Natural Deduction](https://us.metamath.org/mpeuni/mmnatded.html).
+There is a
+[Complete symbol to ASCII Correspondance](https://us.metamath.org/mpeuni/mmascii.html) page.
+As explained in [Deduction Format and Natural Deduction](https://us.metamath.org/mpeuni/mmnatded.html),
+many theorems are expressed in "deduction form",
+where all hypotheses (other than definitions) have
+the form `( ph -> ...)` and the conclusion is also in
+the form `( ph -> ...)`.
+
 ### Conclusion of this user guide
 
 This is the end of the user guide / tutorial portion of this guide.
