@@ -1538,7 +1538,9 @@ learn how to create hypotheses in metamath-lamp.
 
 As always, start up metamath-lamp.
 
-We need to erase any previous materials.
+If you've already been using metamath-lamp to prove something else, that
+means we need to erase the proof steps we have.
+Here's how to do that:
 
 > Select the checkbox on the
 > [editor command icon bar](#editor-command-icon-bar)
@@ -1549,21 +1551,23 @@ We need to erase any previous materials.
 > Long-click on the description text, and click on its
 > icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
 
-Now change the context:
+If you already have a context, prepare to change the context.
 
-> At the top of the browser window, select the drop-down arrow with the
-> "Loaded:..." text that hints at the context.
-> Make sure we are loading from the web the file "set.mm:latest",
-> and change the scope to "Stop before" the label `reccot` by typing it in
+> At the top of the browser window, if you've already loaded a context
+> you'll see a
+> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more)
+> drop-down arrow followed by "Loaded:..." text that
+> hints at the current context.
+> Click on that
+> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more).
+
+Now select the new context.
+
+> Select Source type "Web", alias "set.mm:latest", and confirm
+> it if requested.
+> Change the scope to "Stop before" the label `syl` by typing it in
 > and selecting it.
 > Then press "Apply changes" to apply this change.
-
-Let's again load the `set.mm` database, and stop before `syl`:
-
-> Select Source type "Web", Alias "set.mm:latest"; after confirmation this
-> loads the given database.
-> Now under scope select "Stop before" and enter the label `syl`.
-> Finally, apply changes to the context.
 
 Let's set the description.
 
@@ -2122,12 +2126,21 @@ Here's how to do that:
 > Long-click on the description text, and click on its
 > icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
 
-No matter what, we must change the context:
+If you already have a context, prepare to change the context.
 
-> At the top of the browser window, select the drop-down arrow with the
-> "Loaded:..." text that hints at the context.
-> Make sure we are loading from the web the file "set.mm:latest",
-> and change the scope to "Stop before" the label `reccot` by typing it in
+> At the top of the browser window, if you've already loaded a context
+> you'll see a
+> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more)
+> drop-down arrow followed by "Loaded:..." text that
+> hints at the current context.
+> Click on that
+> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more).
+
+Now change the context.
+
+> Select Source type "Web", alias "set.mm:latest", and confirm
+> it if requested.
+> Change the scope to "Stop before" the label `reccot` by typing it in
 > and selecting it.
 > Then press "Apply changes" to apply this change.
 
@@ -2633,7 +2646,9 @@ If you're intentionally creating an *alternative* proof
 of the same goal, for eventual use in the database,
 then you *do* need to use different labels.
 
-Just remember, you first need to erase what you were doing:
+If you've already been using metamath-lamp to prove something else, that
+means we need to erase the proof steps we have.
+Here's how to do that:
 
 > Select the checkbox on the
 > [editor command icon bar](#editor-command-icon-bar)
@@ -2644,12 +2659,22 @@ Just remember, you first need to erase what you were doing:
 > Long-click on the description text, and click on its
 > icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
 
-Then change the context:
+If you already have a context, prepare to change the context.
 
-> At the top of the browser window, select the drop-down arrow with the
-> "Loaded:..." text that hints at the context.
-> Make sure we are loading from the web the file "set.mm:latest",
-> and change the scope to "Stop before" the label of what you're proving.
+> At the top of the browser window, if you've already loaded a context
+> you'll see a
+> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more)
+> drop-down arrow followed by "Loaded:..." text that
+> hints at the current context.
+> Click on that
+> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more).
+
+Now change the context.
+
+> Select Source type "Web", alias "set.mm:latest", and confirm
+> it if requested.
+> Change the scope to "Stop before" the label you are proving by typing it in
+> and selecting it.
 > Then press "Apply changes" to apply this change.
 
 ### Loading existing metamath-lamp proofs
