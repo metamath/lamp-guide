@@ -1416,7 +1416,7 @@ This axiom says that
 if `ph` is true, and that `ph` implies `ps`, then `ps` is true
 (whatever `ph` and `ps` are).
 
-###### Assertion 6: Axiom `ax-1`
+##### Assertion 6: Axiom `ax-1`
 
 The next 3 axioms define the axioms of propositional logic, that is,
 the fundamental rules for determining if something is true or false
@@ -1431,7 +1431,7 @@ creator of the Metamath system. As you can see, we try to give credit
 to those who take the time to formalize mathematics; we hope you'll
 eventually create proofs and get credit too!
 
-###### Assertion 7: Axiom `ax-2`
+##### Assertion 7: Axiom `ax-2`
 
 Axiom `ax-2` is also called "Frege".
 It asserts that
@@ -1441,20 +1441,20 @@ This looks more complex than it is; it really just
 
 Remember to open the description using "&gt;" if you are interested.
 
-###### Assertion 8: Axiom `ax-3`
+##### Assertion 8: Axiom `ax-3`
 
 Axiom `ax-3` is also called "Transp".
 It asserts that
 `|- ( ( -. ph -> -. ps ) -> ( ps -> ph ) )`.
 
-###### Assertion 9: Theorem `mp2`
+##### Assertion 9: Theorem `mp2`
 
 Theorem `mp2` our first *useful* theorem
 (that is, a claim proven using axioms).
 It proves a claim
 (a double modus ponens) using only previously-accepted assertions.
 
-###### Going beyond
+##### Going beyond
 
 There are many more theorems of course. We should briefly point out one,
 `syl`. The theorem `syl` proves that if `( ph -> ps )` and
@@ -1676,7 +1676,7 @@ This is a perfectly fine use of `ax-mp`, and `syl.1` is a hypothesis
 (so it's assumed true for its purposes).
 However, this justification depends on step `1` which isn't currently proven.
 
-#### What are the axioms?
+##### What axioms are available in this situation?
 
 We can use the explorer to view the axioms that we're allowed to use
 in this "hard mode". We don't have much to work with!
@@ -1724,7 +1724,7 @@ because that seems more promising.
 
 We haven't seen work variables before; let's explain them.
 
-#### Interlude: Work variables
+##### Interlude: Work variables
 
 The symbols beginning with "&amp;" are what's called "work variables".
 Work variables often show up when creating proofs.
@@ -1777,7 +1777,7 @@ to replace
 the work variables with symbols or expressions so we can complete
 the proof.
 
-#### Replacing some work variables
+##### Replacing some work variables
 
 We now have these statements:
 
@@ -1963,7 +1963,7 @@ on the right of the "replace what" field.
 > to swap the field contents,
 > press "Find substitution‡", then apply.
 
-#### Handling the duplication in syl
+##### Handling the duplication in syl
 
 Now both steps 3 and 4 are the same:
 
@@ -1983,7 +1983,7 @@ Let's merge them.
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > to see we've fully proven step 4.
 
-#### Completing syl in hard mode
+##### Completing syl in hard mode
 
 We're getting close! Step 4 is proven, using ax-2.
 However, step 2 is not yet proven, so the whole proof isn't done.
@@ -2016,7 +2016,7 @@ If you like, you can again extract the final compressed proof:
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
 > and select "Show completed proof".
 
-#### Screen shot of `syl` with only axioms
+##### Screen shot of `syl` with only axioms
 
 Here's a screen shot of `syl` proven with only axioms.
 
@@ -2190,22 +2190,25 @@ in this case class work variables:
    ( tan ` &C1 ) = ( ( sin ` &C1 ) / ( cos ` &C1 ) ) )
 ~~~~
 
-As we'll see in a moment, we'll use the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
-to replace
-the work variables with symbols or expressions so we can complete
-the proof.
+We'll need to replace the work variables with other
+symbols or expressions to complete the proof.
 
 #### Completing the work to expand the definition of tangent
 
-We need to replace each work variable with an expression of the correct type
-that will help us prove our goal.
+We need to replace each work variable.
+What's more, we need to replace them with an expression of the correct type
+that will help us eventually prove our goal.
 What should we do in this case?
-Well, the goal is going to involve the tangent of `A`, so we know
+
+In this case, the goal is going to involve the tangent of `A`, so we know
 we're going to specifically need the tangent of `A`.
-That means that we need to replace all instances of <tt>&amp;C1</tt>
-with the value `A`. This process of replacing values is called
-applying a substitution‡.
+Since we need <tt>( tan &#96; A )</tt>
+but we currently have <tt>( tan &#96; &amp;C1 )</tt>,
+we should replace all instances of <tt>&amp;C1</tt>
+with the value `A`.
+Metamath-lamp's substitution‡ command, chosen via the
+icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡),
+can help us do just that.
 
 > Select the
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
