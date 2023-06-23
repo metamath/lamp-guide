@@ -360,7 +360,7 @@ and the command each icon performs:
 | <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement | Circles behind "+" | Makes a copy of the selected statement |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
-| <img width="32" height="32" src="replacement.svg" alt="replacement"> | Substitution‡ | A with arrow | Apply a substitution‡ (aka replacement) to all statements; se [replacement](#replacement) |
+| <img width="32" height="32" src="replacement.svg" alt="replacement"> | Substitution<!-- ‡ --> | A with arrow | Apply a substitution<!-- ‡ --> (aka replacement) to all statements; se [replacement](#replacement) |
 | <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all steps or unify selected provable bottom-up.  If no steps are selected, attempt to unify everything.  If one statement is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
 | <img width="32" height="32" src="menu.svg" alt="menu"> | Menu | 3 horizontal lines aka hamburger | Menu of other actions
 
@@ -385,9 +385,14 @@ Each step has a collection of information, shown left-to-right:
 In a completed proof, each step used in a proof must have a justification
 (that is, it's either a hypothesis, or it references
 an axiom or theorem, possibly using previous steps as its hypotheses).
-The term "substitution" also has multiple meanings; we will use
-"substitution‡" when we mean the replacement menu operation
-(instead of the fundamental Metamath operation called substitution).
+<!--
+The markdown text says
+"substitution<\!-\- ‡ -\->" when we mean the menu operation
+that applies to all steps
+(instead of the fundamental Metamath operation called substitution
+when it's applied to produce the results of a single step).
+That will make it easier to change these uses if we want to find them again.
+-->
 
 Now that we've had a brief introduction to the metamath-lamp
 user interface, let's decide how to use it to create our proof.
@@ -1824,7 +1829,7 @@ into a Metamath database, so in most cases you should change work variables
 to something else before exporting a proof.
 
 In many cases you'd use the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
+icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->)
 to replace
 the work variables with symbols or expressions so we can complete
 the proof.
@@ -1867,11 +1872,11 @@ Here's how you could do that, but note that we're going to cancel
 instead of completing this step:
 
 > Click on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->)
 > In "Replace what" use the value &amp;W1 and in
 > "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
-> Click "Find Substitution‡" button; metamath-lamp will
-> show one possible substitution‡.
+> Click "Find Substitution<!-- ‡ -->" button; metamath-lamp will
+> show one possible substitution<!-- ‡ -->.
 > You *could* click on the "Apply button and then unify, but don't;
 > select the "Cancel" button instead.
 
@@ -1883,7 +1888,7 @@ make sure we were connecting them the right way.
 https://drive.google.com/file/d/1KIr0eOEmH4VoIHOHFhqXwBn08h-xGicV/view?usp=sharing -->
 
 A more general approach would be to add the step we want to use, and then
-perform substitutions‡ until we can merge them together.
+perform substitutions<!-- ‡ --> until we can merge them together.
 This is a better approach for more complicated situations, because
 then the tool can help us track what we're trying to accomplish and
 tell us when we succeeded.
@@ -1957,7 +1962,7 @@ statements simplifies replacement.
 Now we can use replacement:
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
 > The replacement dialogue will appear, with our selections
 > entered as the "Replace what" and "Replace with" entries.
 
@@ -1971,7 +1976,7 @@ on the right of the "replace what" field.
 In this case we don't need to reverse anything, as
 this is what we want.
 
-> Click on "Find substitution". Notice that it shows a valid substitution‡
+> Click on "Find substitution". Notice that it shows a valid substitution<!-- ‡ -->
 > that replaces multiple work variables.
 
 Again, notice that "Replace what" doesn't need to be a single work variable.
@@ -2000,7 +2005,7 @@ The second long-click highlighted this fragment in step 4:
 ( ph -> ( ps -> ch ) )
 ~~~~
 
-> Click on "Find substitution‡".
+> Click on "Find substitution<!-- ‡ -->".
 
 Again the two fragments are copied in.
 However, in this case the order is the opposite of what we wanted,
@@ -2013,7 +2018,7 @@ on the right of the "replace what" field.
 > Click on the
 > icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 > to swap the field contents,
-> press "Find substitution‡", then apply.
+> press "Find substitution<!-- ‡ -->", then apply.
 
 ##### Handling the duplication in syl
 
@@ -2260,14 +2265,14 @@ Since we need <tt>( tan &#96; A )</tt>
 but we currently have <tt>( tan &#96; &amp;C1 )</tt>,
 we should replace all instances of <tt>&amp;C1</tt>
 with the value `A`.
-Metamath-lamp's substitution‡ command, chosen via the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡),
+Metamath-lamp's substitution<!-- ‡ --> command, chosen via the
+icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->),
 can help us do just that.
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
-> enter `A` and once that's done, press "Find Substitution‡".
+> enter `A` and once that's done, press "Find Substitution<!-- ‡ -->".
 > The system will check if this is valid; in this case, it determined that
 > there was only 1 way to interpret this command and that the result is valid.
 > As a result, metamath-lamp
@@ -2293,9 +2298,9 @@ We again have a work variable, and we already know what its value
 should be, so let's deal with that now.
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
-> enter `A` and once that's done, press "Find Substitution‡".
+> enter `A` and once that's done, press "Find Substitution<!-- ‡ -->".
 > It will show you that you can change <tt>&amp;C1</tt> to `A` so press
 > `Apply` to apply the change.
 
@@ -2480,20 +2485,20 @@ they will work with this expansion of the reciprocal of the cotangent.
 Let's replace the work variable <tt>&amp;C1</tt>:
 
 > Click on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
 > In "Replace what" enter <tt>&amp;C1</tt> and
 > in "Replace with" enter <tt>( cos &#96; A )</tt> ... Once you're done, press
-> "Find Substitution‡". It will determine that there is 1 valid substitution‡;
+> "Find Substitution<!-- ‡ -->". It will determine that there is 1 valid substitution<!-- ‡ -->;
 > press "Apply".
 
 Let's replace the work variable <tt>&amp;C2</tt>:
 
 > Click on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
 > In "Replace what" enter <tt>&amp;C2</tt> and
 > in "Replace with" enter <tt>( sin &#96; A )</tt> ...
 > once that's done, press
-> "Find Substitution‡". It will determine that there is 1 valid substitution‡;
+> "Find Substitution<!-- ‡ -->". It will determine that there is 1 valid substitution<!-- ‡ -->;
 > press "Apply".
 > Click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
@@ -2523,9 +2528,9 @@ and, if it exists, add it.
 > You'll see a list including `coscl` - select `coscl` and press
 > "Choose Selected".
 > This has a work variable; click on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
+> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->)
 > and substitute <tt>&amp;C1</tt> with `A` (remember to select
-> "Find Substitution‡" and then "Apply").
+> "Find Substitution<!-- ‡ -->" and then "Apply").
 > We now have <tt>|- ( A e. CC -> ( cos &#96; A ) e. CC )</tt> as a
 > statement.
 
@@ -2928,7 +2933,7 @@ Here are their icons and meanings:
 | <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement | Circles behind "+" | Makes a copy of the selected statement |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
-| <img width="32" height="32" src="replacement.svg" alt="replacement"> | Substitution‡ | A with arrow | Apply a substitution‡ (aka replacement) to all statements; se [replacement](#replacement) |
+| <img width="32" height="32" src="replacement.svg" alt="replacement"> | Substitution<!-- ‡ --> | A with arrow | Apply a substitution<!-- ‡ --> (aka replacement) to all statements; se [replacement](#replacement) |
 | <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all steps or unify selected provable bottom-up.  If no steps are selected, attempt to unify everything.  If one statement is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
 | <img width="32" height="32" src="menu.svg" alt="menu"> | Menu | 3 horizontal lines aka hamburger | Menu of other actions
 
@@ -3274,7 +3279,7 @@ because the conclusion has a `0` constant which is later followed by a
 #### Replacement
 
 Click on the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡)
+icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->)
 to replace one
 expression with another expression.
 
@@ -3282,7 +3287,7 @@ This replacement will be applied to **all** statements in **all** proof steps!
 
 After you select this icon
 you'll be presented with a simple dialogue box to describe the
-substitution‡:
+substitution<!-- ‡ -->:
 
 * In the "Replace what" field, enter what expression you want to change,
   (e.g., <tt>&amp;C1</tt> or <tt>( &amp;W1 -> &amp;W2 )</tt>).
@@ -3306,9 +3311,9 @@ The steps selected first will be copied into the "Replace what" field,
 and the step selected second (if any) will be copied into the
 "Replace with" field.
 
-When you press "Find Substitution‡" the tool will determine if it
+When you press "Find Substitution<!-- ‡ -->" the tool will determine if it
 can apply this replacement (that is, if the results are valid types
-everywhere and there are valid substitutions‡).
+everywhere and there are valid substitutions<!-- ‡ -->).
 If it is valid, you may select "Apply" to apply it.
 
 **Important**:
