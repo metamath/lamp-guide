@@ -793,7 +793,7 @@ have a `.lamp.json` suffix.
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
 > to dismiss the menu.
 
-#### Exporting to URL and TEMP mode
+#### Exporting to URL and temporary mode (TEMP mode)
 
 You can also export the current state into a URL:
 
@@ -802,19 +802,23 @@ You can also export the current state into a URL:
 > on the top right of the display.
 
 You can then share this URL, to easily share with others your current state.
+Anyone who opens this URL can see this state.
 
-If you or anyone else opens this URL, Metamath-lamp
-is opened in "TEMP" (temporary) mode.
-TEMP mode is intended to let you view others' work without erasing your own.
-Any changes in TEMP mode won't affect your existing
-work in your "normal" editing page and any changes you make in TEMP
-mode will be discarded when you leave the page.
+**NOTE**: When you open a URL URL exported this way, Metamath-lamp
+is opened in *temporary mode (aka TEMP mode)*.
+Temporary mode is intended to let you view others' work
+*without* erasing your own.
+*Changes in temporary mode will not be stored* in
+the editor's content to the local storage.
+That means closing a browser or any internal error
+will erase the editor's content. That's why it is "temporary".
 
 To reduce the risk of accidentally doing something important
-in TEMP mode, the web page header starts with "TEMP", and
-the first attempt to edit will remind you that you're in TEMP mode
+while in temporary mode, the web page header starts with "TEMP"
+in any tab in temporary mode.
+Also, the first attempt to edit will remind you that you're in temporary mode
 and that changes will be discarded later. Here is the message
-you'll see the first time you to edit in TEMP mode:
+you'll see the first time you try to edit in temporary mode:
 
 > Editing in TEMP mode
 >
@@ -826,7 +830,8 @@ you'll see the first time you to edit in TEMP mode:
 > metamath-lamp in NORMAL mode; 3) use "Import from JSON" to load the
 > copied editor state from the clipboard.
 
-There's currently no mechanism to switch from TEMP mode to regular mode.
+There's currently no mechanism to switch from temporary (TEMP) mode
+to regular mode.
 As noted in the warning, if you want to save results from TEMP mode, use
 "Export to JSON" to acquire the current state in JSON format.
 You can then use "Import from JSON" to load the results into a normal tab.
