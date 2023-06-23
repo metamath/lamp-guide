@@ -1252,12 +1252,18 @@ of `ax-mp` in step 4 is `( ps -> ch )`.
 
 Metamath proofs include proofs of the type of every expression,
 to ensure that all expressions have valid types.
-This is critical to ensuring that the proofs are correct, but normally
-you never need to see this (the tools handle this type checking for you).
+Ensuring that the types are correct
+is critical to ensuring that the proofs are correct.
+Metamath verifies types the way it does everything else - there
+must be axioms that describe valid types, and it must then prove
+that the expressions being used match the required types.
 
+Normally you *never* need to see or deal with types.
+Metamath-lamp will automatically handle type checking for you, and by
+default the proofs that the types are correct are not shown.
 However, we think it's helpful to *understand* types and what the
-tools are doing for you, and metamath-lamp can reveal this
-more detailed view if you wish.
+tools are doing for you. Metamath-lamp can reveal this
+more detailed view about types if you wish to see this information.
 
 If you click on "show types" just above a proof table, the
 proof display will include the "syntax" (aka "types" or "inessential")
@@ -1330,7 +1336,8 @@ We could use the fragment selector to repeatedly copy portions and visualize
 each one.
 The ability to select parts to create a new statement (above or below)
 could be useful.
-However, that would be tedious for a quick view.
+If you wanted something to show others, you could do this.
+However, that would be tedious to do for a quick view.
 There's a simpler solution: use the "bottom-up" prover
 with a logging level of 1 (to visualize intermediate steps).
 Let's try that.
@@ -1367,12 +1374,12 @@ Metamath requires that there be an existing rule (a *reference*) that
 can use certain hypotheses as steps to justify a claim, going back to
 first principles.
 
-Normally you wouldn't need to look at these types.
+Again, normally you do *not* need to look at type information.
 This is normally done automatically for you.
 But we think it's helpful to understand what the tool is doing
-"under the hood" with types to ensure your proofs are correct.
+"under the hood" with types to ensure that your proofs are correct.
 
-#### Gaining an understanding on `set.mm`'s beginnings
+#### Gaining an understanding of `set.mm`'s beginnings
 
 You can use the explorer to gain many insights into a database
 (and mathematics in general).
@@ -1440,7 +1447,7 @@ This theorem is also discouraged.
 
 Assertion 3 is `wn`.
 This is our first axiom, but it's *not* an assertion of truth (`|-`),
-it's a syntax assertion that a certain pattern
+it's an assertion that a certain pattern
 is a well-formed formula (`wff`).
 In short, it's a "syntax axiom" - a way of asserting that
 a specific pattern is valid syntax.
