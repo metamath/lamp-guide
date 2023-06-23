@@ -156,7 +156,7 @@ or
 This is the user guide (tutorial) portion of this overall guide.
 In this section we will explain how to use metamath-lamp to create some
 proofs by creating some example proofs.
-We recommend starting the tool and apply these examples.
+We recommend starting the tool and applying these examples.
 
 We will start with a simple proof that
 [2 + 2 = 4 (`2p2e4`)](proof-2-2-4).
@@ -190,8 +190,9 @@ proof of 2 + 2 = 4, which in this database is named `2p2e4`.
 If we included the existing proof, the prover
 would simply reuse that existing proof.
 
-When to tool starts it will say that
+When the tool starts it will say
 "No Metamath database is loaded, please select a database to load."
+Let's load the `set.mm` database.
 
 > Under "Source type" select "Web", and under
 > Alias select "set.mm:latest".
@@ -307,7 +308,7 @@ So let's rename this goal step to `2p2e4`:
 It's not required, but it's often useful to have a description.
 Let's set one.
 
-> Long-click on box to the right of the word "Description".
+> Long-click on the box to the right of the word "Description".
 > When it opens for editing, enter the text `Prove that 2 + 2 = 4.`
 > Press Enter (Return).
 
@@ -436,7 +437,7 @@ This bold letter **P** is the step type; the **P**
 means that this step is intended to be *provable*.
 In some cases you'll want a step to be a
 *hypothesis* (something assumed) instead being *provable*.
-You can select the **P** with a long-click to change it to
+You can select the **P** with a long-click to change it
 to an **H** (hypothesis) or back to **P** (provable).
 We aren't going to use any hypotheses
 in this proof, so we won't do that for now.
@@ -567,7 +568,7 @@ tool can find a proof for this claim.
 > Click on the
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
-This will produce a green checkmark next our new step.
+This will produce a green checkmark next to our new step.
 We have green checkmarks next to all the steps
 except our final `2p2e4` step.
 
@@ -684,7 +685,7 @@ the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 > A new dialogue will display titled "Proving bottom-up".
 
-This will enable up to search for a solution backwards from our
+This will enable us to search for a solution backwards from our
 currently-selected step using the context and previous
 steps that will help us prove the selected step.
 These dialogue options control how metamath-lamp will search for a proof
@@ -759,9 +760,9 @@ This is the final proof we can add to a Metamath database.
 > and select "Show completed proof".
 
 This shows the compressed proof. You can use checkboxes to
-also show the proof table, or to show the proof tables with just the
-essentials (not showing the syntax proofs that expressions have the
-correct type).
+also show the proof table.
+If you show the proof table, you can also decide if you want it to include
+the proof of the syntax (type) claims as well as the essential steps.
 
 > You can select "Copy" to copy the compressed proof into the clipboard.
 > Press "Close" to dismiss the dialogue box.
@@ -839,7 +840,7 @@ You should see a visualization like this:
 
 ![Visualization of (2+2)=(2+(1+1))](./visual_2p1p1.png)
 
-The top new line is set of labels being used as inputs into
+The top new line is the sequence of labels being used as inputs into
 the justification. In this case there's only one label;
 the label you see may be different than what's shown here.
 Under that is a copy of each statement from each label, which in this case
@@ -850,9 +851,11 @@ is one statement:
 Notice that variable parts of this statement are boxed
 and directed lines connect them to another statement below.
 
-In center of a visualization is always a sequence with zero or more statements
-(the hypotheses of the reference being used), then a horizontal line below it,
-and then the reference's concluding statement below that.
+In the vertical center of a visualization
+is always a sequence with zero or more statements from left to right
+(the hypotheses of the reference being used), below that is a
+a horizontal line,
+and below that is the reference's concluding statement.
 This is a common mathematical representation of a rule &em;
 a horizontal line with the preconditions above and the postcondition below.
 In this case we're using the reference `oveq2i` as the rule, which requires
@@ -880,9 +883,10 @@ Let's try out visualization on the statement that
 uses associativity,
 `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`,
 
-> Click on green checkmark or label for
+> Click on the green checkmark or the label for
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` to toggle the
-> display of its visualization, revealing it.
+> display of its visualization. Since it's not currently revealed,
+> it will be revealed.
 
 Let's end its display.
 
@@ -1010,7 +1014,7 @@ Each assertion has its own URL, loads quickly, and displays well even when
 JavaScript is disabled on the web browser.
 The Metamath home page renderings have also
 been generated in a "pretty" format
-and include a lot information about each assertion
+and include a lot of information about each assertion
 (such as syntax hints for every symbol used,
 the axioms and definitions it transitively uses, and
 what assertions reference it).
@@ -1363,7 +1367,7 @@ This tells people and tools that they should *not* use this
 assertion in most circumstances.
 This particular theorem is discouraged because it's normally not useful.
 However, it *is* true, so you can use it if you want to,
-and there are special technical situations here it *is* useful.
+and there are special technical situations where it *is* useful.
 Currently metamath-lamp doesn't exclude discouraged theorems and axioms
 from its automation, but the expectation is that it will
 exclude them by default in the future.
@@ -1663,8 +1667,8 @@ Let's unify and see what happens:
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 The final `syl` step has an orange "~"; this means that this particular
-step is justified on its own, but it depends on something else that
-is not transitively justified.
+step is justified on its own, but it transitively depends on something else
+that has not been justified.
 You can see that `syl` depends
 on two other statements, `syl.1` and `1`, and it uses `ax-mp` with
 those hypotheses to justify this step.
@@ -1804,7 +1808,7 @@ but for now we'll need to work around this limitation.
 With a little extra work we can give metamath-lamp the information it needs.
 Let's assume that we know we want to use `ax-2` to prove this.
 
-One approach would be replace the
+One approach would be to replace the
 work variable "&amp;W1" with the expression required by `ax-2`, namely,
 `( ph -> ( ps -> ch ) )`.
 Here's how you could do that, but note that we're going to cancel
@@ -1871,7 +1875,7 @@ We want a slightly larger expression selected, and we can do that easily.
 
 > Click on the
 > icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection)
-> to expands the selected sequence of symbols.
+> to expand the selected sequence of symbols.
 
 You should now see this selected:
 
@@ -1996,7 +2000,7 @@ Select step 2, and do a bottom-up proof of it as well.
 Congratulations! We now have a proof of `syl` by *only* using
 axioms directly.
 
-Creating this proof by only using axioms let us try out some features
+Creating this proof by only using axioms lets us experiment with some features
 of metamath-lamp. That said, most of the time you won't want
 to limit yourself to just axioms. Proofs are shorter, clearer, and
 easier to understand if you create theorems of more basic
@@ -2207,9 +2211,10 @@ applying a substitution‡.
 > icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution‡).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
 > enter `A` and once that's done, press "Find Substitution‡".
-> The system will check if this is valid; in this case, it could that
+> The system will check if this is valid; in this case, it determined that
 > there was only 1 way to interpret this command and that the result is valid.
-> It will show you that you can change <tt>&amp;C1</tt> to `A` - press
+> As a result, metamath-lamp
+> will show you that you can change <tt>&amp;C1</tt> to `A` - press
 > `Apply` to apply the change.
 
 #### Expanding the definition of cotangent
@@ -2251,7 +2256,7 @@ which presumably will only be acceptable if `A` isn't zero and `B` isn't zero.
 class =/= 0 /\ class =/= 0 -> 1 /
 ~~~~
 
-> Once done entered, click on Search.
+> Now click on Search.
 
 Searching produces a paged list of results.
 However, by giving a very specific
@@ -2279,7 +2284,7 @@ Now we have two work variables, representing the numerator and
 denominator of the fraction being reciprocated.
 Notice that the "Variables" field lists these two variables.
 
-We'll come back this in a moment.
+We'll come back to this in a moment.
 
 #### Matching the goal's antecedent for tangent
 
@@ -2335,7 +2340,7 @@ valid given the antecedent of our goal:
 It turns out that metamath-lamp can immediately prove this new step.
 
 > Click on the
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
+> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 > in the [editor command icon bar](#editor-command-icon-bar)
 > above the steps. Note that the new
 > step now has a green checkmark.
@@ -2381,10 +2386,6 @@ the value of the reciprocal of the tangent.
 Remember, in algebra you can do what you want on the left-hand-side
 of an equality,
 as long as you do the same thing on the right-hand side.
-
-So create a new step, based on of the value of the cotangent
-that has the same antecedent as our goal, that shows the value of
-the cotangent.
 
 > Select the checkbox on the left for the step with this statement:
 
@@ -2597,7 +2598,7 @@ As noted earlier, a Metamath database is a sequence of axioms
 and their associated proven theorems.
 The most widely supported Metamath database today is set.mm
 (classical logic with ZFC set theory), followed by iset.mm
-(intuitionistic logic witih intuitionistic set theory),
+(intuitionistic logic with intuitionistic set theory),
 and others are available.
 Each database has its own conventions and notations.
 The set.mm and iset.mm databases share many conventions and notations, so we'll
@@ -2629,7 +2630,7 @@ of parentheses. Let's explain the rules in more detail:
 
 The [set.mm label naming conventions](https://us.metamath.org/mpeuni/conventions-labels.html)
 page discusses those conventions in more detail.
-In most cases, the name of a theorem is a concatentation of
+In most cases, the name of a theorem is a concatenation of
 "label fragments" of the important part of its conclusion.
 Each label fragment as a meaning, e.g., "nn" for natural numbers,
 "re" for real numbers, "1" for the number 1, "gt" for "greater than",
@@ -2721,11 +2722,12 @@ first load at least one Metamath database and decide how much of those
 database(s) to use. This creates the context of a proof - that is,
 the set of axioms, proven theorems, and so on that the proof is allowed to use.
 
-One of the powerful benefits of the Metamath system is that it
+One of the powerful benefits of the Metamath system is that it does not
 impose any particular set of axioms (such as those of logic or set theory).
 However, to create a proof, you need to start with *some* set of axioms,
 and typically you'll want to build on other proofs that use those axioms.
-So we must first tell metamath-lamp what this proof is allowed to use.
+So we must first tell metamath-lamp what this proof is allowed to use, aka
+the *context*.
 
 The context is shown at the top of the UI.
 When metamath-lamp starts, it will tell you that no database/context is loaded.
@@ -2921,7 +2923,7 @@ An example would be:
 Notice the ".". The period suppresses automatic deletion of
 the line; without it, if the variable is unused then entry will disappear.
 
-Once local variable is defined, you can use its name instead of the
+Once a local variable is defined, you can use its name instead of the
 global name.
 
 If you generate a proof that uses the local variable name, the local variable
@@ -2983,7 +2985,7 @@ Each step is presented in the following left-to-right order:
   confirmed that this step is completely (transitively)
   proven given its context, justification, and previous steps.
   If there's an orange "~" (tilde), the step itself has a valid justification
-  transitively depends on something that is not proven.
+  but it transitively depends on something that is not proven.
   Any modification of a proof removes the proof readiness status.
   To regenerate the proof readiness status, press
   the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
@@ -2994,9 +2996,10 @@ Each step is presented in the following left-to-right order:
   If you see a green checkmark you can long-click on it to show
   its compressed proof (you can also select the step and use
   the menu option "Show completed proof").
-  One you show a completed compressed proof
-  you can show or hide the proof table,
-  as well as showing only essential steps.
+  Once you view a completed compressed proof
+  you can show or hide the proof table.
+  If you show a proof table you can decide if should
+  only contain essential steps.
   Non-essential steps are the steps showing how to create syntactic structures
   and show that they are of the correct types.
   Metamath-lamp can *export* proofs with work variables
@@ -3032,7 +3035,7 @@ Each step is presented in the following left-to-right order:
   if it's a provable statement (a statement to be proven),
   "**H**" if the statement is a hypothesis, or
   "**G**" if the statement is a goal (a special kind of provable statement).
-  Typically all hypothesis are listed first and the goal is shown last.
+  Typically all hypotheses are listed first and the goal is shown last.
   for the proved step (if any).
   Use click to reveal the justification (if it's hidden).
   Use long-click to change (edit) the step type.
@@ -3080,7 +3083,7 @@ surrounding the infix symbol.
 Once you select a fragment you can change selection.
 Clicking on the
 icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection)
-will expands the selected sequence of symbols, while
+will expand the selected sequence of symbols, while
 the
 icon <img width="16" height="16" src="zoomoutmap.svg" alt="shrink"> (shrink selection)
 will shrink the selected sequence of symbols.
@@ -3135,7 +3138,7 @@ The label cannot match a math symbol token (like `1`), an assertion label,
 or a label of any other hypotheses.
 This is noted in the
 [Metamath book](https://us.metamath.org/index.html#book),
-on the page 114, as it notes that
+page 114, as it notes that
 "each label token must be unique, and no label token may match
 any math symbol token."
 The convention in `set.mm` is for hypotheses to be labelled
@@ -3252,8 +3255,8 @@ stop its attempts to find a proof.
 
 Proving bottom-up can take a long time,
 depending on the problem and the speed of the computer.
-The options selected here will affect whether or not it *can* find a proof,
-and the time it takes to do it,
+The options selected here will affect whether or not it *can* find a proof
+and the time it takes to do it.
 Therefore, selecting the *right* options for your circumstance
 in the proving bottom-up dialogue box can be very important.
 So first, let's understand what it does
@@ -3334,7 +3337,7 @@ bottom-up prover can prove, but this will also increase the time it
 takes to find a proof.
 
 Label: If set, this is the label of the only reference that is allowed
-to be used as a starting when proving bottom-up (backwards).
+to be used as a starting point when proving bottom-up (backwards).
 Note that this value is set to the current justification's reference
 if there is already a justification.
 If blank, any label may be used as the justification reference
@@ -3352,7 +3355,7 @@ Length restriction: This setting restricts what justifications
 are considered based on their length.
 This is a simple heuristic that, when used, can significantly speed up search.
 This setting is not applied to the first depth of the search, only to
-deeper levels, so it has no affect on searches with search depth 1.
+deeper levels, so it has no effect on searches with search depth 1.
 This setting can limit justifications to be considered based on whether
 or not they are less than the length (or less than or equal to the length)
 of the statement being justified.
@@ -3388,7 +3391,7 @@ If such information is recorded, a
 "show proof tree" button appears in the results of the bottom-up prover
 once it's stopped.
 You can then explore the proof tree and see what the prover found.
-In particular,  you may find that prover found a statement that
+In particular,  you may find that the prover found a statement that
 "almost" worked, and then modify the search criteria further.
 If the logging level is 1 or more, you may enter the maximum number
 of branches, which will limit the number of branches checked.
@@ -3650,14 +3653,14 @@ By default you must specify the full scoped name of a function, e.g.,
 
 Metamath-lamp
 uses the widely-used React library to implement its user interface.
-The ReScript programming languages comes with a robust API
+The ReScript programming language comes with a robust API
 to use React and JavaScript.
 
 In discussions, metamath-lamp is often abbreviated as `mm-lamp`.
 
 To simplify things and not have to think about different possible scenarios,
 metamath-lamp tends to use the approach
-*stop if bad data is detected and let the user decide how to correct the data*.
+"<i>stop if bad data is detected and let the user decide how to correct the data</i>".
 
 Here are some conventions for the source code filenames:
 
@@ -3673,7 +3676,7 @@ Here are some conventions for the source code filenames:
   If such a UI related feature appears in a worker thread it
   usually leads to an error (compilation or runtime).
   Where possible, put functionality in `MM_wrk_` files instead of
-  `MM_cmp_` files; this means they can work in worker file *and*
+  `MM_cmp_` files; this means they could be called in worker threads *and*
   makes them much easier to test.
 
 Here are some conventions for the source code itself:
