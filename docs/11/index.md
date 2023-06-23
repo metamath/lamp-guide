@@ -1329,6 +1329,8 @@ You can use the explorer to gain many insights into a database
 (and mathematics in general).
 In this section we'll walk through the first few assertions
 of `set.mm` to gain some understanding of this database.
+(By *assertions* here we means "axioms and theorems".)
+
 If you're already familiar with `set.mm`, you can skip this section.
 
 Let's go back to the explorer tab:
