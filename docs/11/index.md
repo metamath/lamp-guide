@@ -769,26 +769,56 @@ the proof of the syntax (type) claims as well as the essential steps.
 
 #### Exporting and importing your current state
 
-You can only generate a proof once you *have* a proof.
+You can only generate a final proof once you *have* a proof.
 
 Metamath-lamp can export the current state of your efforts,
 whatever they are, and anyone can reload them later.
-This lets you share details of a proof, even one that isn't complete.
+This lets you share your current state, even if that isn't complete.
 
 > Click on the
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
 > on the top right of the display.
 
-This menu includes several ways to export and import your
-current state:
+You can save your state for reloading later in a JSON format:
 
-* "Export to URL": Provides a URL. You or anyone else
-  can use this URL to re-open the proof assistant at
-  this current state.
 * "Export to JSON": Provides the current proof assistant
   state as text; you can save this where you wish.
 * "Import from JSON": Allows you to load a state previously
-  exported with "Export to JSON".
+  exported with "Export to JSON". 
+
+If you store this information in a file they conventionally
+have a `.lamp.json` suffix.
+
+> You can click again on the
+> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
+> to dismiss the menu.
+
+#### Exporting to URL and TEMP mode
+
+You can also export the current state into a URL:
+
+> Click on the
+> icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
+> on the top right of the display.
+
+You can then share this URL, to easily share with others your current state.
+
+If you or anyone else opens this URL, Metamath-lamp
+is opened in "TEMP" (temporary) mode.
+TEMP mode is intended to let you view others' work without erasing your own.
+Any changes in TEMP mode won't affect your existing
+work in your "normal" editing page and any changes you make in TEMP
+mode will be discarded when you leave the page.
+
+To reduce the risk of accidentally doing something important
+in TEMP mode, the web page header starts with "TEMP", and
+the first attempt to edit will remind you that you're in TEMP mode
+and that changes will be discarded later.
+
+There's currently no mechanism to switch from TEMP mode to regular mode.
+If you want to save results from TEMP mode, use
+"Export to JSON" and record the results somewhere.
+You can then use "Import from JSON" to load the results into a normal tab.
 
 #### Looking at proof steps
 
