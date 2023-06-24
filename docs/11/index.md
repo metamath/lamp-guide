@@ -952,7 +952,8 @@ You can change the order of the steps (as opposed to renumbering them).
 Sometimes you *need* to reorder steps, because
 steps can *only* be justified by the context (axioms and proven theorems)
 and previous steps.
-You can't refer to a later step, since that might allow circular reasoning.
+A justification
+can't refer to a later step, since that would allow circular reasoning.
 
 To reorder some steps,
 just select one or more
@@ -969,12 +970,12 @@ to move them down.
 > icon <img width="16" height="16" src="up.svg" alt="up"> (up) -
 > the step will move up.
 > Click on the
-> icon <img width="16" height="16" src="up.svg" alt="up"> (down)
+> icon <img width="16" height="16" src="down.svg" alt="down"> (down)
 > to move it back.
 
-Metamath-lamp will display error messages if steps
-are moved to make them depend on steps that
-have not been proved yet.
+Metamath-lamp will display an error message if a
+justification depends on some other step that
+does not precede that justification.
 
 #### A brief discussions on settings
 
