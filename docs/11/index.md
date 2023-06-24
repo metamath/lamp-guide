@@ -807,7 +807,7 @@ You can also export the current state into a URL:
 You can then share this URL, to easily share with others your current state.
 Anyone who opens this URL can see this state.
 
-**NOTE**: When you open a URL URL exported this way, Metamath-lamp
+**NOTE**: When you open a URL exported this way, Metamath-lamp
 is opened in *temporary mode (aka TEMP mode)*.
 Temporary mode is intended to let you view others' work
 *without* erasing your own.
@@ -2820,6 +2820,7 @@ Here we will discuss:
 * [Settings tab](#settings-tab)
 * [Explorer tab](#explorer-tab)
 * [Individual Assertion tab](#individual-assertion-tab)
+* [Temporary mode (TEMP mode)](#temporary-mode-temp-mode)
 * [Common set.mm symbols](#common-setmm-symbols)
 
 ### Basic UI conventions
@@ -3658,6 +3659,21 @@ where you can reveal or hide a visualization of that step.
 Clicking on a reference to an assertion will show an individual assertion tab
 of that assertion (creating the tab if necessary). That tab will provide
 detailed information about the assertion.
+
+### Temporary mode (TEMP mode)
+
+You can load a pre-existing state by adding `?editorState=...`
+to the end of the URL
+(use "Export to URL" to generate these URLs)..
+
+When you load in such URLs, Metamath-lamp
+is opened in *temporary mode (aka TEMP mode)*.
+*Changes in temporary mode will not be stored* in
+the editor's content to the local storage.
+The web page header starts with "TEMP"
+in any tab in temporary mode.
+Also, the first attempt to edit will remind you that you're in temporary mode
+and that changes will be discarded later.
 
 ### Common set.mm symbols
 
