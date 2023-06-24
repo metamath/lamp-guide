@@ -1090,8 +1090,8 @@ portions and combinations of databases.
 The metamath-lamp explorer also includes its
 fragment selector (so you can copy fragments found from exploration) and
 visualization mechanism (to help you better understand the database).
-As long as you keep the database you're interested loaded, you can
-use the metamath-lamp explorer while disconnected from the internet.
+You can also use the metamath-lamp explorer to explore databases
+while disconnected from the internet.
 In short, the explorer tab lets us see the context we're using.
 
 But before we dive in, let's admire the magic.
