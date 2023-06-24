@@ -703,7 +703,18 @@ steps that will help us prove the selected step.
 These dialogue options control how metamath-lamp will search for a proof
 of the selected step's statement.
 
-For now, we'll just accept the defaults.
+The defaults to make it reasonably likely it will find a proof of that
+step, without taking too long to do.
+When you adjust the parameters you are generally making trade-offs;
+allowing the search to do more will increase the likelihood of finding
+a proof, but will also make the search time take longer.
+Experience will help you learn how to adjust these parameters to find
+proofs with minimal time.
+For now, we'll turn off "Allow new disjoints" and
+turn off "Allow new variables", because I doubt they will help, but I
+will make sure I leave on "Allow new steps" because I expect I will
+need to add new steps.
+Let's let metamath-lamp try to prove this!
 
 > Press the "Prove" button at the bottom of the dialogue.
 
