@@ -1088,8 +1088,35 @@ portions and combinations of databases.
 The metamath-lamp explorer also includes its
 fragment selector (so you can copy fragments found from exploration) and
 visualization mechanism (to help you better understand the database).
+In short, the explorer tab lets us see the context we're using.
 
-Let's try out the Explorer tab so we can *see* the context we're using.
+But before we dive in, let's admire the magic.
+
+#### Warning: Magic here
+
+Truth is precious, because truth is hard to find and harder to confirm.
+One of the beautiful things about mathematics is its potential to achieve
+an eternal kind of truth. Once something is correctly proven
+it will *always* be true (for the assumptions of that proof).
+Sadly, this beauty is sometimes hidden.
+
+<!-- "Magic Hat" image under CC0.
+<https://commons.wikimedia.org/wiki/File:Magic_Hat.svg>
+<https://upload.wikimedia.org/wikipedia/commons/b/b1/Magic_Hat.svg>
+-->
+<img src="Magic_hat.svg" width="150" height="150" alt="Magic Hat image" class="float-left">
+Metamath is in some ways a kind of magic, because with Metamath you can
+view the full chain of logic from high-level proven ideas
+all the way back down to axioms, with no exceptions.
+There is magic in showing that geometry, algebra, calculus, topology,
+and many other mathematical domains can all be built from a few
+very simple axioms. But this is not the kind of magic that creates mystery -
+it's the kind of magic that *reveals* mysteries.
+
+The metamath-lamp explorer, and the explorers on the
+[Metamath Home Page](https://us.metamath.org/), all let you discover
+these truths, including their web of surprising interconnections.
+In this section we'll learn how to use the explorer in metamath-lamp.
 
 #### Loading a context for the explorer
 
