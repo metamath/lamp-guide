@@ -1071,14 +1071,16 @@ and the
 Those web pages have many advantages.
 Each assertion has its own URL, loads quickly, and displays well even when
 JavaScript is disabled on the web browser.
-The Metamath home page renderings have also
+The Metamath home page renderings have
 been generated in a "pretty" format
 and include a lot of information about each assertion
 (such as syntax hints for every symbol used,
 the axioms and definitions it transitively uses, and
 what assertions reference it).
-It also groups the axioms and theorems into chapters and further
+It groups the axioms and theorems into chapters and further
 subsections, with descriptions of each section.
+Finally, those sites come with additional pages of documentation
+that explain various important features.
 
 However, the built-in metamath-lamp explorer has its own advantages.
 The metamath-lamp explorer will always show you the *current* context.
@@ -1088,6 +1090,8 @@ portions and combinations of databases.
 The metamath-lamp explorer also includes its
 fragment selector (so you can copy fragments found from exploration) and
 visualization mechanism (to help you better understand the database).
+As long as you keep the database you're interested loaded, you can
+use the metamath-lamp explorer while disconnected from the internet.
 In short, the explorer tab lets us see the context we're using.
 
 But before we dive in, let's admire the magic.
