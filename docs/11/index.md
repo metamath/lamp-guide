@@ -1234,7 +1234,8 @@ Let's try out a visualization in `mp2`.
 
 You should now see a visualization of step 4:
 
-![Theorem `mp2` with a visualization of step 4](mp2_visualized.png)
+<!-- ![Theorem `mp2` with a visualization of step 4](mp2_visualized.png) -->
+<img src="mp2_visualized.png" width="602" height="384" alt="Theorem mp2 with a visualization of step 4">
 
 Step 4 is justified by `ax-mp` (modus ponens).
 At the center of the visualization is the usual representation
@@ -1327,7 +1328,9 @@ We can visualize this step:
 
 > Click on the green checkmark on the new step to reveal its visualization.
 
-![Editor visualization of expression with `( 3 + 1 )`](3p1syntax.png)
+<!-- ![Editor visualization of expression with `( 3 + 1 )`](3p1syntax.png) -->
+<!-- Halve its visual size -->
+<img src="3p1syntax.png" width="454" height="170" alt="Editor visualization of expression with ( 3 + 1 )">
 
 What we're seeing is that we can justify that an expression
 is a wff by using the reference `wceq`. This reference requires
@@ -1356,7 +1359,8 @@ Let's try that.
 
 As you expand, you'll see a tree emerge. Here's a view at one point:
 
-![Typecode tree of `( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`](typecode-tree.png)
+<!-- ![Typecode tree of `( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`](typecode-tree.png) -->
+<img src="typecode-tree.png"  width="416" height="226" alt="Typecode tree of ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )">
 
 Here's an explanation of what these
 topmost parts of the tree mean (they can be further expanded):
@@ -1403,7 +1407,8 @@ of the "typical" mathematics of classical logic and ZFC set theory.
 
 Assertion 1 is the theorem `idi`. In the explorer it looks like this:
 
-![Representation of assertion 1, `idi`](idi.png)
+<!-- ![Representation of assertion 1, `idi`](idi.png) -->
+<img src="idi.png" width="156" height="92" alt="Representation of assertion 1, idi">
 
 In `idi` all the statements begin with `|-` meaning "this is true".
 Theorem `idi` says the following: if we assume that some
