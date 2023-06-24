@@ -360,7 +360,7 @@ and the command each icon performs:
 | <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement | Circles behind "+" | Makes a copy of the selected statement |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
-| <img width="32" height="32" src="replacement.svg" alt="replacement"> | Substitution<!-- ‡ --> | A with arrow | Apply a substitution<!-- ‡ --> (aka replacement) to all statements; se [replacement](#replacement) |
+| <img width="32" height="32" src="replacement.svg" alt="global substitution"> | Substitution<!-- ‡ --> | A with arrow | Apply a global substitution<!-- ‡ --> (aka replacement) to *all* statements in the proof; see [global substitution](#global-substitution) |
 | <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all steps or unify selected provable bottom-up.  If no steps are selected, attempt to unify everything.  If one statement is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
 | <img width="32" height="32" src="menu.svg" alt="menu"> | Menu | 3 horizontal lines aka hamburger | Menu of other actions
 
@@ -552,7 +552,7 @@ Here is the meaning of each icon in the statement fragment selector:
 
 You can use a fragment selector on *more* than one
 step at the same time; this is useful, for example, when doing a
-*[replacement](#replacement)*.
+*[global substitution](#global-substitution)*.
 
 In this case, we'll change `( 3 + 1 )` to 4:
 
@@ -1826,10 +1826,11 @@ We haven't seen work variables before; let's explain them.
 The symbols beginning with "&amp;" are what's called "work variables".
 Work variables often show up when creating proofs.
 The fundamental issue is that although a theorem or axiom may use a variable
-(such as `A`), those variables can be replaced with other expressions
+(such as `A`), those variables can be substituted for other expressions
 of the same type when they are used.
-In cases where metamath-lamp cannot be certain of exactly what you want, it
-will create work variables that you can then replace (substitute)
+In cases where metamath-lamp cannot be certain of exactly what expression
+you want, it
+will create work variables that you can then substitute
 with whatever you *do* want (as long as they're the same type).
 
 When using `set.mm` or `iset.mm`, you'll see work variables of certain types:
@@ -1869,12 +1870,12 @@ into a Metamath database, so in most cases you should change work variables
 to something else before exporting a proof.
 
 In many cases you'd use the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->)
+icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->)
 to replace
 the work variables with symbols or expressions so we can complete
 the proof.
 
-##### Replacing some work variables
+##### Globally substituting some work variables
 
 We now have these statements:
 
@@ -1905,14 +1906,15 @@ but for now we'll need to work around this limitation.
 With a little extra work we can give metamath-lamp the information it needs.
 Let's assume that we know we want to use `ax-2` to prove this.
 
-One approach would be to replace the
+One approach would be to use global substitution
+to replace the
 work variable "&amp;W1" with the expression required by `ax-2`, namely,
 `( ph -> ( ps -> ch ) )`.
 Here's how you could do that, but note that we're going to cancel
 instead of completing this step:
 
 > Click on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->)
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 > In "Replace what" use the value &amp;W1 and in
 > "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
 > Click "Find Substitution<!-- ‡ -->" button; metamath-lamp will
@@ -1921,18 +1923,19 @@ instead of completing this step:
 > select the "Cancel" button instead.
 
 That would have proven step 3 using ax-2.
-However, if the expressions were more complex it might be hard to
-make sure we were connecting them the right way.
+However, if the expressions were more complex and we had to take multiple
+steps, it might be hard to choose the correct substitutions.
 
 <!-- The following is based on
 https://drive.google.com/file/d/1KIr0eOEmH4VoIHOHFhqXwBn08h-xGicV/view?usp=sharing -->
 
-A more general approach would be to add the step we want to use, and then
-perform substitutions<!-- ‡ --> until we can merge them together.
+A more general approach would be to add the step we want to use,
+so it's easily seen in the editor, and then
+perform global substitutions<!-- ‡ --> until we can merge them together.
 This is a better approach for more complicated situations, because
-then the tool can help us track what we're trying to accomplish and
+then the tool can help us see what we're trying to accomplish and
 tell us when we succeeded.
-So let's see it!
+So let's do it that way.
 
 First, let's bring in a step that uses the assertion we wish to use
 (in this case `ax-2`):
@@ -1953,7 +1956,8 @@ unify them.
 The key feature we're going to use is that you can use the
 statement fragment selectors to *simultaneously* select two fragments,
 which may include *multiple* work variables, and
-then use "replace". Replace will use the two selected fragments, making
+then use global substitution.
+Global substitution will use the two selected fragments, making
 this process *much* easier.
 
 > Use a click to select, in step *4*, the last `->`.
@@ -1997,13 +2001,13 @@ correct selection.
 **Note**: you *can* select two fragments at the *same* time;
 you can also select two multiple statements.
 The ability to select two different fragments or two different
-statements simplifies replacement.
+statements simplifies global substitution.
 
-Now we can use replacement:
+Now we can use global substitution:
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
-> The replacement dialogue will appear, with our selections
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
+> The global substitution dialogue will appear, with our selections
 > entered as the "Replace what" and "Replace with" entries.
 
 The two selected fragments have been copied into the fields.
@@ -2033,7 +2037,8 @@ We now have these two statements:
 3 P |- ( &W1 -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
 ~~~~
 
-Now let's do another replacement to make steps 3 and 4 even more similar.
+Now let's do another global substitution
+to make steps 3 and 4 even more similar.
 
 > Use a click to select, in step *3*, the initial work variable &amp;W1
 > (only that work variable should be selected).
@@ -2298,7 +2303,7 @@ in this case class work variables:
    ( tan ` &C1 ) = ( ( sin ` &C1 ) / ( cos ` &C1 ) ) )
 ~~~~
 
-We'll need to replace the work variables with other
+We'll need to globally substitute the work variables with other
 symbols or expressions to complete the proof.
 
 #### Completing the work to expand the definition of tangent
@@ -2315,11 +2320,11 @@ but we currently have <tt>( tan &#96; &amp;C1 )</tt>,
 we should replace all instances of <tt>&amp;C1</tt>
 with the value `A`.
 Metamath-lamp's substitution<!-- ‡ --> command, chosen via the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->),
+icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->),
 can help us do just that.
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
 > enter `A` and once that's done, press "Find Substitution<!-- ‡ -->".
 > The system will check if this is valid; in this case, it determined that
@@ -2347,7 +2352,7 @@ We again have a work variable, and we already know what its value
 should be, so let's deal with that now.
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
 > enter `A` and once that's done, press "Find Substitution<!-- ‡ -->".
 > It will show you that you can change <tt>&amp;C1</tt> to `A` so press
@@ -2528,13 +2533,14 @@ replace with its new value, and unify.
 Metamath-lamp doesn't support this due to a
 [known current limitation](#unification).
 Instead, metamath-lamp expects you
-to use the "replacement" icon. Let's replace the work values so that
+to use the global substitution command. Let's replace the work values so that
 they will work with this expansion of the reciprocal of the cotangent.
 
 Let's replace the work variable <tt>&amp;C1</tt>:
 
 > Click on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->)
+> to begin a substitution that will occur across the *entire* proof.
 > In "Replace what" enter <tt>&amp;C1</tt> and
 > in "Replace with" enter <tt>( cos &#96; A )</tt> ... Once you're done, press
 > "Find Substitution<!-- ‡ -->". It will determine that there is 1 valid substitution<!-- ‡ -->;
@@ -2543,7 +2549,7 @@ Let's replace the work variable <tt>&amp;C1</tt>:
 Let's replace the work variable <tt>&amp;C2</tt>:
 
 > Click on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 > In "Replace what" enter <tt>&amp;C2</tt> and
 > in "Replace with" enter <tt>( sin &#96; A )</tt> ...
 > once that's done, press
@@ -2577,8 +2583,8 @@ and, if it exists, add it.
 > You'll see a list including `coscl` - select `coscl` and press
 > "Choose Selected".
 > This has a work variable; click on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->)
-> and substitute <tt>&amp;C1</tt> with `A` (remember to select
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->)
+> and replace <tt>&amp;C1</tt> with `A` (remember to select
 > "Find Substitution<!-- ‡ -->" and then "Apply").
 > We now have <tt>|- ( A e. CC -> ( cos &#96; A ) e. CC )</tt> as a
 > statement.
@@ -2972,7 +2978,7 @@ Here is the full list of subsections:
   parts of a statement in the list of statements.
 * [How to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses) - a summary of how to do this.
 * [Search patterns](#search-patterns)
-* [Replacement](#replacement)
+* [Global substitution](#global-substitution)
 * [Proving bottom-up](#proving-bottom-up)
 * [Unification](#unification)
 
@@ -2995,7 +3001,7 @@ Here are their icons and meanings:
 | <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement | Circles behind "+" | Makes a copy of the selected statement |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
-| <img width="32" height="32" src="replacement.svg" alt="replacement"> | Substitution<!-- ‡ --> | A with arrow | Apply a substitution<!-- ‡ --> (aka replacement) to all statements; se [replacement](#replacement) |
+| <img width="32" height="32" src="replacement.svg" alt="global substitution"> | Substitution<!-- ‡ --> | A with arrow | Apply a global substitution<!-- ‡ --> (aka replacement) to *all* statements in the proof; see [global substitution](#global-substitution) |
 | <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all steps or unify selected provable bottom-up.  If no steps are selected, attempt to unify everything.  If one statement is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
 | <img width="32" height="32" src="menu.svg" alt="menu"> | Menu | 3 horizontal lines aka hamburger | Menu of other actions
 
@@ -3010,7 +3016,7 @@ We'll then discuss
 [how to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses).
 This will be followed by detailed discussions about some specific commands
 (how to [specify search patterns](#search-patterns),
-[replacement](#replacement), and
+[global substitution](#global-substitution), and
 [proving bottom-up](#proving-bottom-up)).
 
 #### Fundamental proof information
@@ -3257,8 +3263,8 @@ Here is the full set of icons in the fragment selection bar:
 
 **Important**: You can use a fragment selector on *more* than one
 step at the same time. In particular, you can use the fragment selector
-on two statements and then invoke *[replacement](#replacement)*.
-Both fragments can be complex expressions when replacement
+on two statements and then invoke *[global substitution](#global-substitution)*.
+Both fragments can be complex expressions when global substitution
 occurs (they are not limited to single symbols or only one work variable).
 
 #### How to state the goal and hypotheses
@@ -3338,18 +3344,18 @@ Therefore, a search for `0 ->` will match the conclusion
 because the conclusion has a `0` constant which is later followed by a
 `->` constant.
 
-#### Replacement
+#### Global substitution
 
 Click on the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->)
-to replace one
-expression with another expression.
+icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->)
+to replace one expression with another expression across the *entire* proof.
 
-This replacement will be applied to **all** statements in **all** proof steps!
+This global substitution
+will be applied to **all** statements in **all** proof steps!
 
 After you select this icon
 you'll be presented with a simple dialogue box to describe the
-substitution<!-- ‡ -->:
+global substitution<!-- ‡ -->:
 
 * In the "Replace what" field, enter what expression you want to change,
   (e.g., <tt>&amp;C1</tt> or <tt>( &amp;W1 -> &amp;W2 )</tt>).
@@ -3357,8 +3363,8 @@ substitution<!-- ‡ -->:
   expression to change into (e.g., `A` or `( ph -> ch )`).
 
 You can use fragment selectors to select one or two statement(s)
-before starting a replacement.
-When you press the replacement icon, a copy
+before starting a global substitution.
+When you press the global substitution icon, a copy
 of the first fragment (in displayed order)
 will be placed in the "Replace what" field, while a copy
 of the second fragment (if any)
@@ -3368,22 +3374,22 @@ icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 to swap the field entries.
 
 You can also use the checkboxes on the left to select steps
-before starting a replacement.
+before starting a global substitution.
 The steps selected first will be copied into the "Replace what" field,
 and the step selected second (if any) will be copied into the
 "Replace with" field.
 
 When you press "Find Substitution<!-- ‡ -->" the tool will determine if it
-can apply this replacement (that is, if the results are valid types
-everywhere and there are valid substitutions<!-- ‡ -->).
+can apply this substitution (that is, if the results are valid types
+everywhere and there are valid substitutions<!-- ‡ -->) across the prof.
 If it is valid, you may select "Apply" to apply it.
 
 **Important**:
-Replacements are *not* limited to a single symbol.
+Global substitutions are *not* limited to a single symbol.
 Both fields can be complex expressions, possibly including more than one
 work variable.
 The tool allows you to use fragment selectors to select expressions
-to replace one complex expression with another.
+to easily substitute one complex expression with another.
 
 #### Proving bottom-up
 
