@@ -1534,14 +1534,14 @@ It asserts that
 
 ##### Assertion 9: Theorem `mp2`
 
-Theorem `mp2` our first *useful* theorem
-(that is, a claim proven using axioms).
-It proves a claim
-(a double modus ponens) using only previously-accepted assertions.
+Theorem `mp2` is our first *useful* theorem
+(that is, a claim proven using axioms and/or theorems).
+This theorem proves a claim that involves applying
+modus ponens twice.
 
 ##### Going beyond
 
-There are many more theorems of course. We should briefly point out one,
+There are many more theorems, of course. We should briefly point out one,
 `syl`. The theorem `syl` proves that if `( ph -> ps )` and
 `( ps -> ch )`, then `( ph -> ch )`. This is one of the most
 commonly-used theorems in the entire `set.mm` database.
