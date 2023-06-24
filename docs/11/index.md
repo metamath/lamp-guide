@@ -1104,7 +1104,10 @@ Sadly, this beauty is sometimes hidden.
 <https://commons.wikimedia.org/wiki/File:Magic_Hat.svg>
 <https://upload.wikimedia.org/wikipedia/commons/b/b1/Magic_Hat.svg>
 -->
-<span class="float-left"><img src="Magic_Hat.svg" width="150" height="150" alt="Magic Hat image"></span>
+<div style="width: 100%;">
+<div style="float: left; width: 20%;"><img src="Magic_Hat.svg" width="150" height="150" alt="Magic Hat image"></div>
+<div style="float: left; width:80%;">
+
 Metamath is in some ways a kind of magic, because with Metamath you can
 view the full chain of logic from high-level proven ideas
 all the way back down to axioms, with no exceptions.
@@ -1112,6 +1115,8 @@ There is magic in showing that geometry, algebra, calculus, topology,
 and many other mathematical domains can all be built from a few
 very simple axioms. But this is not the kind of magic that creates mystery -
 it's the kind of magic that *reveals* mysteries.
+
+</div></div>
 
 The metamath-lamp explorer, and the explorers on the
 [Metamath Home Page](https://us.metamath.org/), all let you discover
