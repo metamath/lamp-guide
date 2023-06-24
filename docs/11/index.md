@@ -2702,8 +2702,9 @@ That means closing a browser or any internal error
 will erase the editor's content. That's why it is "temporary".
 
 To reduce the risk of accidentally doing something important
-while in temporary mode, the web page header starts with "TEMP"
-in any tab in temporary mode.
+while in temporary mode, word "Editor" is shaded orange (warning you
+that editing is temporary) and
+the web page header starts with "TEMP".
 Also, the first attempt to edit will remind you that you're in temporary mode
 and that changes will be discarded later. Here is the message
 you'll see the first time you try to edit in temporary mode:
@@ -2723,6 +2724,9 @@ to regular mode.
 As noted in the warning, if you want to save results from TEMP mode, use
 "Export to JSON" to acquire the current state in JSON format.
 You can then use "Import from JSON" to load the results into a normal tab.
+
+You can
+[click on this link to open `2p2e4` in temp mode](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbeyJ0eXAiOiJXZWIiLCJmaWxlTmFtZSI6IiIsInVybCI6Imh0dHBzOi8vdXMubWV0YW1hdGgub3JnL21ldGFtYXRoL3NldC5tbSIsInJlYWRJbnN0ciI6IlN0b3BCZWZvcmUiLCJsYWJlbCI6IjJwMmU0IiwicmVzZXROZXN0aW5nTGV2ZWwiOnRydWUsImFsbExhYmVscyI6W119XSwiZGVzY3IiOiJQcm92ZSB0aGF0IDIgKyAyID0gNC4iLCJ2YXJzVGV4dCI6IiIsImRpc2pUZXh0IjoiIiwic3RtdHMiOlt7ImxhYmVsIjoiMSIsInR5cCI6InAiLCJpc0dvYWwiOmZhbHNlLCJjb250IjoifC0gMSBlLiBDQyIsImpzdGZUZXh0IjoiOiBheC0xY24ifSx7ImxhYmVsIjoiMiIsInR5cCI6InAiLCJpc0dvYWwiOmZhbHNlLCJjb250IjoifC0gMiBlLiBDQyIsImpzdGZUZXh0IjoiOiAyY24ifSx7ImxhYmVsIjoiMyIsInR5cCI6InAiLCJpc0dvYWwiOmZhbHNlLCJjb250IjoifC0gMiA9ICggMSArIDEgKSIsImpzdGZUZXh0IjoiOiBkZi0yIn0seyJsYWJlbCI6IjQiLCJ0eXAiOiJwIiwiaXNHb2FsIjpmYWxzZSwiY29udCI6InwtICggMiArIDIgKSA9ICggMiArICggMSArIDEgKSApIiwianN0ZlRleHQiOiIzIDogb3ZlcTJpIn0seyJsYWJlbCI6IjUiLCJ0eXAiOiJwIiwiaXNHb2FsIjpmYWxzZSwiY29udCI6InwtIDMgPSAoIDIgKyAxICkiLCJqc3RmVGV4dCI6IjogZGYtMyJ9LHsibGFiZWwiOiI2IiwidHlwIjoicCIsImlzR29hbCI6ZmFsc2UsImNvbnQiOiJ8LSA0ID0gKCAzICsgMSApIiwianN0ZlRleHQiOiI6IGRmLTQifSx7ImxhYmVsIjoiNyIsInR5cCI6InAiLCJpc0dvYWwiOmZhbHNlLCJjb250IjoifC0gKCAzICsgMSApID0gKCAoIDIgKyAxICkgKyAxICkiLCJqc3RmVGV4dCI6IjUgOiBvdmVxMWkifSx7ImxhYmVsIjoiOCIsInR5cCI6InAiLCJpc0dvYWwiOmZhbHNlLCJjb250IjoifC0gNCA9ICggKCAyICsgMSApICsgMSApIiwianN0ZlRleHQiOiI2IDcgOiBlcXRyaSJ9LHsibGFiZWwiOiI5IiwidHlwIjoicCIsImlzR29hbCI6ZmFsc2UsImNvbnQiOiJ8LSAoICggMiArIDEgKSArIDEgKSA9ICggMiArICggMSArIDEgKSApIiwianN0ZlRleHQiOiIyIDEgMSA6IGFkZGFzc2kifSx7ImxhYmVsIjoiMnAyZTQiLCJ0eXAiOiJwIiwiaXNHb2FsIjpmYWxzZSwiY29udCI6InwtICggMiArIDIgKSA9IDQiLCJqc3RmVGV4dCI6IjkgOCA0IDogM2VxdHI0cmkifV19).
 
 ### Creating your own examples from existing proofs
 
@@ -3736,8 +3740,11 @@ When you load in such URLs, Metamath-lamp
 is opened in *temporary mode (aka TEMP mode)*.
 *Changes in temporary mode will not be stored* in
 the editor's content to the local storage.
-The web page header starts with "TEMP"
-in any tab in temporary mode.
+
+To reduce the risk of accidentally doing something important
+while in temporary mode, word "Editor" is shaded orange (warning you
+that editing is temporary) and
+the web page header starts with "TEMP".
 Also, the first attempt to edit will remind you that you're in temporary mode
 and that changes will be discarded later.
 
