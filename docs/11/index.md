@@ -207,11 +207,11 @@ We'll also sometimes say "press" to mean the same thing.
 
 > Finally, click on the "Apply Changes" button to accept the selected context.
 
-#### Small display adjustments
+#### Adjustments for small displays
 
 Metamath-lamp works really well on small displays like smartphones.
-However, if you are using a small display, you should
-configure the tool so it uses less display space.
+However, if you are using a small display, you should consider
+configuring the tool so it uses less display space.
 
 > If you're using a small display, click the
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
@@ -807,7 +807,7 @@ You can also export the current state into a URL:
 You can then share this URL, to easily share with others your current state.
 Anyone who opens this URL can see this state.
 
-**NOTE**: When you open a URL URL exported this way, Metamath-lamp
+**NOTE**: When you open a URL exported this way, Metamath-lamp
 is opened in *temporary mode (aka TEMP mode)*.
 Temporary mode is intended to let you view others' work
 *without* erasing your own.
@@ -997,7 +997,7 @@ By default, editing statements uses a long-click.
 Metamath-lamp works well on small displays, such as the
 built-in display of smartphones.
 We already suggested a few
-[small display adjustments](#small-display-adjustments).
+[adjustments for small displays](#adjustments-for-small-displays).
 
 If you're still cramped for display space, there are some more
 configuration tricks you can use:
@@ -1130,7 +1130,9 @@ in your display. Axiom `ax-mp` is called *modus ponens* and is well-known.
 
 Here is what axiom `ax-mp` (modus ponens) looks like in the explorer display:
 
-![Axiom ax-5 (modus ponens) in the explorer tab](ax-5-explorer.png)
+<!-- ![Axiom ax-5 (modus ponens) in the explorer tab](ax-5-explorer.png) -->
+<!-- It's too big without scaling. 386/2 = 193, 188/2 = 94 -->
+<img src="ax-5-explorer.png" width="193" height="94" alt="Axiom ax-5 (modus ponens) in the explorer tab">
 
 Axiom `ax-mp` (Modus ponens) has two hypotheses:
 
@@ -2820,6 +2822,7 @@ Here we will discuss:
 * [Settings tab](#settings-tab)
 * [Explorer tab](#explorer-tab)
 * [Individual Assertion tab](#individual-assertion-tab)
+* [Temporary mode (TEMP mode)](#temporary-mode-temp-mode)
 * [Common set.mm symbols](#common-setmm-symbols)
 
 ### Basic UI conventions
@@ -3658,6 +3661,21 @@ where you can reveal or hide a visualization of that step.
 Clicking on a reference to an assertion will show an individual assertion tab
 of that assertion (creating the tab if necessary). That tab will provide
 detailed information about the assertion.
+
+### Temporary mode (TEMP mode)
+
+You can load a pre-existing state by adding `?editorState=...`
+to the end of the URL
+(use "Export to URL" to generate these URLs)..
+
+When you load in such URLs, Metamath-lamp
+is opened in *temporary mode (aka TEMP mode)*.
+*Changes in temporary mode will not be stored* in
+the editor's content to the local storage.
+The web page header starts with "TEMP"
+in any tab in temporary mode.
+Also, the first attempt to edit will remind you that you're in temporary mode
+and that changes will be discarded later.
 
 ### Common set.mm symbols
 
