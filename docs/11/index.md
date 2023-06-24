@@ -1104,7 +1104,7 @@ Sadly, this beauty is sometimes hidden.
 <https://commons.wikimedia.org/wiki/File:Magic_Hat.svg>
 <https://upload.wikimedia.org/wikipedia/commons/b/b1/Magic_Hat.svg>
 -->
-<img src="Magic_hat.svg" width="150" height="150" alt="Magic Hat image" class="float-left">
+<img src="Magic_Hat.svg" width="150" height="150" alt="Magic Hat image" class="float-left">
 Metamath is in some ways a kind of magic, because with Metamath you can
 view the full chain of logic from high-level proven ideas
 all the way back down to axioms, with no exceptions.
