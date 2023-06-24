@@ -1114,9 +1114,10 @@ all the way back down to axioms, with no exceptions.
 There is magic in showing that geometry, algebra, calculus, topology,
 and many other mathematical domains can all be built from a few
 very simple axioms. But this is not the kind of magic that creates mystery -
-it's the kind of magic that *reveals* mysteries.
+it's the kind of magic that <i>reveals</i> mysteries.
 
 </div></div>
+<div style="clear:both;"></div>
 
 The metamath-lamp explorer, and the explorers on the
 [Metamath Home Page](https://us.metamath.org/), all let you discover
