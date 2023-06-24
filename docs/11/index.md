@@ -207,11 +207,11 @@ We'll also sometimes say "press" to mean the same thing.
 
 > Finally, click on the "Apply Changes" button to accept the selected context.
 
-#### Small display adjustments
+#### Adjustments for small displays
 
 Metamath-lamp works really well on small displays like smartphones.
-However, if you are using a small display, you should
-configure the tool so it uses less display space.
+However, if you are using a small display, you should consider
+configuring the tool so it uses less display space.
 
 > If you're using a small display, click the
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu),
@@ -997,7 +997,7 @@ By default, editing statements uses a long-click.
 Metamath-lamp works well on small displays, such as the
 built-in display of smartphones.
 We already suggested a few
-[small display adjustments](#small-display-adjustments).
+[adjustments for small displays](#adjustments-for-small-displays).
 
 If you're still cramped for display space, there are some more
 configuration tricks you can use:
