@@ -3092,24 +3092,18 @@ You may also click on the *field name* to edit the field.
 ##### Description
 
 This is a description of the proof.
+This description is included as a comment in the generated proof.
 
-*Warning*: At this time the description is *not* copied into
-the generated final (compressed) proof. That is an idea that is
-being considered.
-
-<!--
-Omitted, since description is currently not generated as a comment:
-
-  in the final Metamath database just before the proof.
-  If you are following the conventions of `set.mm`, the first sentence
-  should be an English description of what is proved. Surround
-  Metamath statements with backquotes (so they can be typographically formatted)
-  and precede references to another with an isolated "~".
-  Conventionally this includes, at its end, text like
-  "(Contributed by NAME, DD-MMM-YYYY)" where DD-MMM-YYYY is the date
-  the proof was completed and MMM is the 3-letter English name
-  of the month.
--->
+If you are following the conventions of `set.mm`, the first sentence
+of the description should be an English sentence explaining what
+is being proved.
+Surround Metamath statements with backquotes (so they can be
+typographically formatted) and precede references to another with
+an isolated "~".
+Conventionally the description includes, at its end, text like
+"(Contributed by NAME, DD-MMM-YYYY)" where DD-MMM-YYYY is the date
+the proof was completed and MMM is the 3-letter English name
+of the month.
 
 ##### Work and Local Variables
 
