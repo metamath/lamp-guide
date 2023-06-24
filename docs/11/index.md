@@ -39,13 +39,18 @@ user guide (tutorial) and a reference guide. It includes:
    briefly introduces how to start and use metamath-lamp.
 2. [Sample Screenshot](#sample-screenshot)
 3. [User guide (tutorial)](#user-guide-tutorial)
-   shows how to use the metamath-lamp tool, e.g., proving
+   shows how to use the metamath-lamp tool.
+   It covers proving
    [2 + 2 = 4 (`2p2e4`)](#proof-2--2--4),
    [a tour using the Explorer tab](#a-tour-using-the-explorer-tab),
    the
    [principle of the syllogism (`syl`)](#proof-principle-of-the-syllogism-syl),
-   and a proof that the
-   [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
+   a proof that the
+   [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot),
+   [creating your own examples from existing proofs](#creating-your-own-examples-from-existing-proofs),
+   [loading existing metamath-lamp proofs](#loading-existing-metamath-lamp-proofs),
+   and
+   [notes about Metamath databases](#notes-about-metamath-databases).
 4. [Reference manual](#reference-manual) explains each part of the
    user interface, e.g., the [Editor tab](#editor-tab).
 5. [Future directions](#future-directions) discusses
@@ -181,7 +186,7 @@ First, we need to start metamath-lamp. Just click here:
 
 We first need to decide on the proof context, that is, the database(s)
 of axioms and proven theorems we'll use. In this case we'll use the most
-common metamath database, `set.mm`. This database uses the very common starting
+common Metamath database, `set.mm`. This database uses the very common starting
 points of classical first-order logic and ZFC set theory.
 We'll also tell it to *stop* using the database just before its
 proof of 2 + 2 = 4, which in this database is named `2p2e4`.
@@ -360,7 +365,7 @@ and the command each icon performs:
 | <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement | Circles behind "+" | Makes a copy of the selected statement |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
-| <img width="32" height="32" src="replacement.svg" alt="replacement"> | Substitution<!-- ‡ --> | A with arrow | Apply a substitution<!-- ‡ --> (aka replacement) to all statements; se [replacement](#replacement) |
+| <img width="32" height="32" src="replacement.svg" alt="global substitution"> | Substitution<!-- ‡ --> | A with arrow | Apply a global substitution<!-- ‡ --> (aka replacement) to *all* statements in the proof; see [global substitution](#global-substitution) |
 | <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all steps or unify selected provable bottom-up.  If no steps are selected, attempt to unify everything.  If one statement is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
 | <img width="32" height="32" src="menu.svg" alt="menu"> | Menu | 3 horizontal lines aka hamburger | Menu of other actions
 
@@ -427,9 +432,13 @@ list of steps.
 
 > Click on the
 > icon <img width="16" height="16" src="search.svg" alt="search"> (search);
-> under pattern enter
-> `4 =` and click on Search.
-> Select the step labelled `df-4` and press "Choose Selected".
+> under the field name "Pattern" enter
+> `4 = 3 + 1` and click on Search.
+> Metamath-lamp will produce a list of every assertion where the conclusion
+> has the symbol `4`, then eventually `=`, then
+> eventually `+`, then eventually `1`.
+> Select the step labelled `df-4` and press "Choose Selected"
+> (you may need to scroll down to get to "Choose Selected").
 > You will now have a new step with a label of 1 and this statement:
 > `|- 4 = ( 3 + 1 )`
 
@@ -552,7 +561,7 @@ Here is the meaning of each icon in the statement fragment selector:
 
 You can use a fragment selector on *more* than one
 step at the same time; this is useful, for example, when doing a
-*[replacement](#replacement)*.
+*[global substitution](#global-substitution)*.
 
 In this case, we'll change `( 3 + 1 )` to 4:
 
@@ -1079,8 +1088,40 @@ portions and combinations of databases.
 The metamath-lamp explorer also includes its
 fragment selector (so you can copy fragments found from exploration) and
 visualization mechanism (to help you better understand the database).
+In short, the explorer tab lets us see the context we're using.
 
-Let's try out the Explorer tab so we can *see* the context we're using.
+But before we dive in, let's admire the magic.
+
+#### Warning: Magic here
+
+Truth is precious, because truth is hard to find and harder to confirm.
+One of the beautiful things about mathematics is its potential to achieve
+an eternal kind of truth. Once something is correctly proven
+it will *always* be true (for the assumptions of that proof).
+Sadly, this beauty is sometimes hidden.
+
+<!-- "Magic Hat" image under CC0.
+<https://commons.wikimedia.org/wiki/File:Magic_Hat.svg>
+<https://upload.wikimedia.org/wikipedia/commons/b/b1/Magic_Hat.svg>
+-->
+<div style="width: 100%;">
+<div style="float: left; width: 20%;"><img src="Magic_Hat.svg" width="150" height="150" alt="Magic Hat image"></div>
+<div style="float: left; width:80%;">
+
+Metamath is in some ways a kind of magic, because with Metamath you can
+view the full chain of logic from high-level proven ideas
+all the way back down to axioms, with no exceptions.
+There is magic in showing that geometry, algebra, calculus, topology,
+and many other mathematical domains can all be built from a few
+very simple axioms. But this is not the kind of magic that creates mystery -
+it's the kind of magic that *reveals* mysteries.
+
+</div></div>
+
+The metamath-lamp explorer, and the explorers on the
+[Metamath Home Page](https://us.metamath.org/), all let you discover
+these truths, including their web of surprising interconnections.
+In this section we'll learn how to use the explorer in metamath-lamp.
 
 #### Loading a context for the explorer
 
@@ -1501,11 +1542,15 @@ These are the same as, for example, those of Margaris.
 
 Axiom `ax-1` is also called "Simp" or the "principle of simplification".
 It asserts that `|- ( ph -> ( ps -> ph ) )`.
+
 If you open the description you'll see that this formalization was
 contributed by "NM". "NM" stands for Norman Megill, the original
-creator of the Metamath system. As you can see, we try to give credit
-to those who take the time to formalize mathematics; we hope you'll
-eventually create proofs and get credit too!
+creator of the Metamath system.
+Once again, this shows that we give credit
+to those who take the time to formalize mathematics.
+
+Again, we hope that you'll
+create Metamath proofs and get credit too!
 
 ##### Assertion 7: Axiom `ax-2`
 
@@ -1525,14 +1570,14 @@ It asserts that
 
 ##### Assertion 9: Theorem `mp2`
 
-Theorem `mp2` our first *useful* theorem
-(that is, a claim proven using axioms).
-It proves a claim
-(a double modus ponens) using only previously-accepted assertions.
+Theorem `mp2` is our first *useful* theorem
+(that is, a claim proven using axioms and/or theorems).
+This theorem proves a claim that involves applying
+modus ponens twice.
 
 ##### Going beyond
 
-There are many more theorems of course. We should briefly point out one,
+There are many more theorems, of course. We should briefly point out one,
 `syl`. The theorem `syl` proves that if `( ph -> ps )` and
 `( ps -> ch )`, then `( ph -> ch )`. This is one of the most
 commonly-used theorems in the entire `set.mm` database.
@@ -1826,10 +1871,11 @@ We haven't seen work variables before; let's explain them.
 The symbols beginning with "&amp;" are what's called "work variables".
 Work variables often show up when creating proofs.
 The fundamental issue is that although a theorem or axiom may use a variable
-(such as `A`), those variables can be replaced with other expressions
+(such as `A`), those variables can be substituted for other expressions
 of the same type when they are used.
-In cases where metamath-lamp cannot be certain of exactly what you want, it
-will create work variables that you can then replace (substitute)
+In cases where metamath-lamp cannot be certain of exactly what expression
+you want, it
+will create work variables that you can then substitute
 with whatever you *do* want (as long as they're the same type).
 
 When using `set.mm` or `iset.mm`, you'll see work variables of certain types:
@@ -1869,12 +1915,12 @@ into a Metamath database, so in most cases you should change work variables
 to something else before exporting a proof.
 
 In many cases you'd use the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->)
+icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->)
 to replace
 the work variables with symbols or expressions so we can complete
 the proof.
 
-##### Replacing some work variables
+##### Globally substituting some work variables
 
 We now have these statements:
 
@@ -1905,14 +1951,15 @@ but for now we'll need to work around this limitation.
 With a little extra work we can give metamath-lamp the information it needs.
 Let's assume that we know we want to use `ax-2` to prove this.
 
-One approach would be to replace the
+One approach would be to use global substitution
+to replace the
 work variable "&amp;W1" with the expression required by `ax-2`, namely,
 `( ph -> ( ps -> ch ) )`.
 Here's how you could do that, but note that we're going to cancel
 instead of completing this step:
 
 > Click on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->)
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 > In "Replace what" use the value &amp;W1 and in
 > "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
 > Click "Find Substitution<!-- ‡ -->" button; metamath-lamp will
@@ -1921,18 +1968,19 @@ instead of completing this step:
 > select the "Cancel" button instead.
 
 That would have proven step 3 using ax-2.
-However, if the expressions were more complex it might be hard to
-make sure we were connecting them the right way.
+However, if the expressions were more complex and we had to take multiple
+steps, it might be hard to choose the correct substitutions.
 
 <!-- The following is based on
 https://drive.google.com/file/d/1KIr0eOEmH4VoIHOHFhqXwBn08h-xGicV/view?usp=sharing -->
 
-A more general approach would be to add the step we want to use, and then
-perform substitutions<!-- ‡ --> until we can merge them together.
+A more general approach would be to add the step we want to use,
+so it's easily seen in the editor, and then
+perform global substitutions<!-- ‡ --> until we can merge them together.
 This is a better approach for more complicated situations, because
-then the tool can help us track what we're trying to accomplish and
+then the tool can help us see what we're trying to accomplish and
 tell us when we succeeded.
-So let's see it!
+So let's do it that way.
 
 First, let's bring in a step that uses the assertion we wish to use
 (in this case `ax-2`):
@@ -1953,7 +2001,8 @@ unify them.
 The key feature we're going to use is that you can use the
 statement fragment selectors to *simultaneously* select two fragments,
 which may include *multiple* work variables, and
-then use "replace". Replace will use the two selected fragments, making
+then use global substitution.
+Global substitution will use the two selected fragments, making
 this process *much* easier.
 
 > Use a click to select, in step *4*, the last `->`.
@@ -1997,13 +2046,13 @@ correct selection.
 **Note**: you *can* select two fragments at the *same* time;
 you can also select two multiple statements.
 The ability to select two different fragments or two different
-statements simplifies replacement.
+statements simplifies global substitution.
 
-Now we can use replacement:
+Now we can use global substitution:
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
-> The replacement dialogue will appear, with our selections
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
+> The global substitution dialogue will appear, with our selections
 > entered as the "Replace what" and "Replace with" entries.
 
 The two selected fragments have been copied into the fields.
@@ -2033,7 +2082,8 @@ We now have these two statements:
 3 P |- ( &W1 -> ( ( ph -> ps ) -> ( ph -> ch ) ) )
 ~~~~
 
-Now let's do another replacement to make steps 3 and 4 even more similar.
+Now let's do another global substitution
+to make steps 3 and 4 even more similar.
 
 > Use a click to select, in step *3*, the initial work variable &amp;W1
 > (only that work variable should be selected).
@@ -2145,7 +2195,7 @@ and an earlier video of
 
 We first need to decide on the proof context, that is, the database(s)
 of axioms and proven theorems we'll use. In this case we'll again use the most
-common metamath database, `set.mm`. We will again be proving something
+common Metamath database, `set.mm`. We will again be proving something
 already in the database, so we need to make sure our context does not include
 its proof (of `reccot`) or metamath-lamp will just reuse it.
 
@@ -2298,7 +2348,7 @@ in this case class work variables:
    ( tan ` &C1 ) = ( ( sin ` &C1 ) / ( cos ` &C1 ) ) )
 ~~~~
 
-We'll need to replace the work variables with other
+We'll need to globally substitute the work variables with other
 symbols or expressions to complete the proof.
 
 #### Completing the work to expand the definition of tangent
@@ -2315,11 +2365,11 @@ but we currently have <tt>( tan &#96; &amp;C1 )</tt>,
 we should replace all instances of <tt>&amp;C1</tt>
 with the value `A`.
 Metamath-lamp's substitution<!-- ‡ --> command, chosen via the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->),
+icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->),
 can help us do just that.
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
 > enter `A` and once that's done, press "Find Substitution<!-- ‡ -->".
 > The system will check if this is valid; in this case, it determined that
@@ -2347,7 +2397,7 @@ We again have a work variable, and we already know what its value
 should be, so let's deal with that now.
 
 > Select the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 > In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
 > enter `A` and once that's done, press "Find Substitution<!-- ‡ -->".
 > It will show you that you can change <tt>&amp;C1</tt> to `A` so press
@@ -2528,13 +2578,14 @@ replace with its new value, and unify.
 Metamath-lamp doesn't support this due to a
 [known current limitation](#unification).
 Instead, metamath-lamp expects you
-to use the "replacement" icon. Let's replace the work values so that
+to use the global substitution command. Let's replace the work values so that
 they will work with this expansion of the reciprocal of the cotangent.
 
 Let's replace the work variable <tt>&amp;C1</tt>:
 
 > Click on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->)
+> to begin a substitution that will occur across the *entire* proof.
 > In "Replace what" enter <tt>&amp;C1</tt> and
 > in "Replace with" enter <tt>( cos &#96; A )</tt> ... Once you're done, press
 > "Find Substitution<!-- ‡ -->". It will determine that there is 1 valid substitution<!-- ‡ -->;
@@ -2543,7 +2594,7 @@ Let's replace the work variable <tt>&amp;C1</tt>:
 Let's replace the work variable <tt>&amp;C2</tt>:
 
 > Click on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->).
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 > In "Replace what" enter <tt>&amp;C2</tt> and
 > in "Replace with" enter <tt>( sin &#96; A )</tt> ...
 > once that's done, press
@@ -2577,8 +2628,8 @@ and, if it exists, add it.
 > You'll see a list including `coscl` - select `coscl` and press
 > "Choose Selected".
 > This has a work variable; click on the
-> icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->)
-> and substitute <tt>&amp;C1</tt> with `A` (remember to select
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->)
+> and replace <tt>&amp;C1</tt> with `A` (remember to select
 > "Find Substitution<!-- ‡ -->" and then "Apply").
 > We now have <tt>|- ( A e. CC -> ( cos &#96; A ) e. CC )</tt> as a
 > statement.
@@ -2808,7 +2859,7 @@ If you need more help on using the metamath-lamp tool
 or how to create proofs, the best place to go is probably the
 [Metamath mailing list](https://us.metamath.org/mm-mailing-list.html).
 We'd love to see more people creating proofs and getting them
-into metamath databases! There's a lot to learn, but we would be
+into Metamath databases! There's a lot to learn, but we would be
 delighted to help.
 
 ## Reference manual
@@ -2898,7 +2949,7 @@ current version of set.mm (aka the Metamath Proof Explorer), which is based
 on classical logic and ZFC set theory. This is the largest Metamath database.
 
 Confirm as necessary. Once it's loaded, you'll need to pick a scope.
-A metamath database is a sequence of statements, and metamath-lamp
+A Metamath database is a sequence of statements, and metamath-lamp
 will *only* let you use statements that are in scope. The scope options are:
 
 * "Read all" - use all statements in the source.
@@ -2972,7 +3023,7 @@ Here is the full list of subsections:
   parts of a statement in the list of statements.
 * [How to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses) - a summary of how to do this.
 * [Search patterns](#search-patterns)
-* [Replacement](#replacement)
+* [Global substitution](#global-substitution)
 * [Proving bottom-up](#proving-bottom-up)
 * [Unification](#unification)
 
@@ -2995,7 +3046,7 @@ Here are their icons and meanings:
 | <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement | Circles behind "+" | Makes a copy of the selected statement |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
-| <img width="32" height="32" src="replacement.svg" alt="replacement"> | Substitution<!-- ‡ --> | A with arrow | Apply a substitution<!-- ‡ --> (aka replacement) to all statements; se [replacement](#replacement) |
+| <img width="32" height="32" src="replacement.svg" alt="global substitution"> | Substitution<!-- ‡ --> | A with arrow | Apply a global substitution<!-- ‡ --> (aka replacement) to *all* statements in the proof; see [global substitution](#global-substitution) |
 | <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all steps or unify selected provable bottom-up.  If no steps are selected, attempt to unify everything.  If one statement is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
 | <img width="32" height="32" src="menu.svg" alt="menu"> | Menu | 3 horizontal lines aka hamburger | Menu of other actions
 
@@ -3010,7 +3061,7 @@ We'll then discuss
 [how to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses).
 This will be followed by detailed discussions about some specific commands
 (how to [specify search patterns](#search-patterns),
-[replacement](#replacement), and
+[global substitution](#global-substitution), and
 [proving bottom-up](#proving-bottom-up)).
 
 #### Fundamental proof information
@@ -3257,8 +3308,8 @@ Here is the full set of icons in the fragment selection bar:
 
 **Important**: You can use a fragment selector on *more* than one
 step at the same time. In particular, you can use the fragment selector
-on two statements and then invoke *[replacement](#replacement)*.
-Both fragments can be complex expressions when replacement
+on two statements and then invoke *[global substitution](#global-substitution)*.
+Both fragments can be complex expressions when global substitution
 occurs (they are not limited to single symbols or only one work variable).
 
 #### How to state the goal and hypotheses
@@ -3338,18 +3389,18 @@ Therefore, a search for `0 ->` will match the conclusion
 because the conclusion has a `0` constant which is later followed by a
 `->` constant.
 
-#### Replacement
+#### Global substitution
 
 Click on the
-icon <img width="16" height="16" src="replacement.svg" alt="replacement"> (substitution<!-- ‡ -->)
-to replace one
-expression with another expression.
+icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->)
+to replace one expression with another expression across the *entire* proof.
 
-This replacement will be applied to **all** statements in **all** proof steps!
+This global substitution
+will be applied to **all** statements in **all** proof steps!
 
 After you select this icon
 you'll be presented with a simple dialogue box to describe the
-substitution<!-- ‡ -->:
+global substitution<!-- ‡ -->:
 
 * In the "Replace what" field, enter what expression you want to change,
   (e.g., <tt>&amp;C1</tt> or <tt>( &amp;W1 -> &amp;W2 )</tt>).
@@ -3357,8 +3408,8 @@ substitution<!-- ‡ -->:
   expression to change into (e.g., `A` or `( ph -> ch )`).
 
 You can use fragment selectors to select one or two statement(s)
-before starting a replacement.
-When you press the replacement icon, a copy
+before starting a global substitution.
+When you press the global substitution icon, a copy
 of the first fragment (in displayed order)
 will be placed in the "Replace what" field, while a copy
 of the second fragment (if any)
@@ -3368,22 +3419,22 @@ icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 to swap the field entries.
 
 You can also use the checkboxes on the left to select steps
-before starting a replacement.
+before starting a global substitution.
 The steps selected first will be copied into the "Replace what" field,
 and the step selected second (if any) will be copied into the
 "Replace with" field.
 
 When you press "Find Substitution<!-- ‡ -->" the tool will determine if it
-can apply this replacement (that is, if the results are valid types
-everywhere and there are valid substitutions<!-- ‡ -->).
+can apply this substitution (that is, if the results are valid types
+everywhere and there are valid substitutions<!-- ‡ -->) across the prof.
 If it is valid, you may select "Apply" to apply it.
 
 **Important**:
-Replacements are *not* limited to a single symbol.
+Global substitutions are *not* limited to a single symbol.
 Both fields can be complex expressions, possibly including more than one
 work variable.
 The tool allows you to use fragment selectors to select expressions
-to replace one complex expression with another.
+to easily substitute one complex expression with another.
 
 #### Proving bottom-up
 
