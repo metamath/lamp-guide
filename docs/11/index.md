@@ -50,7 +50,7 @@ user guide (tutorial) and a reference guide. It includes:
    [creating your own examples from existing proofs](#creating-your-own-examples-from-existing-proofs),
    [loading existing metamath-lamp proofs](#loading-existing-metamath-lamp-proofs),
    and
-   [notes about Metamath databases](#notes-about-Metamath-databases).
+   [notes about Metamath databases](#notes-about-metamath-databases).
 4. [Reference manual](#reference-manual) explains each part of the
    user interface, e.g., the [Editor tab](#editor-tab).
 5. [Future directions](#future-directions) discusses
