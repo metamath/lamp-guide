@@ -1252,12 +1252,18 @@ of `ax-mp` in step 4 is `( ps -> ch )`.
 
 Metamath proofs include proofs of the type of every expression,
 to ensure that all expressions have valid types.
-This is critical to ensuring that the proofs are correct, but normally
-you never need to see this (the tools handle this type checking for you).
+Ensuring that the types are correct
+is critical to ensuring that the proofs are correct.
+Metamath verifies types the way it does everything else - there
+must be axioms that describe valid types, and it must then prove
+that the expressions being used match the required types.
 
+Normally you *never* need to see or deal with types.
+Metamath-lamp will automatically handle type checking for you, and by
+default the proofs that the types are correct are not shown.
 However, we think it's helpful to *understand* types and what the
-tools are doing for you, and metamath-lamp can reveal this
-more detailed view if you wish.
+tools are doing for you. Metamath-lamp can reveal this
+more detailed view about types if you wish to see this information.
 
 If you click on "show types" just above a proof table, the
 proof display will include the "syntax" (aka "types" or "inessential")
@@ -1330,7 +1336,8 @@ We could use the fragment selector to repeatedly copy portions and visualize
 each one.
 The ability to select parts to create a new statement (above or below)
 could be useful.
-However, that would be tedious for a quick view.
+If you wanted something to show others, you could do this.
+However, that would be tedious to do for a quick view.
 There's a simpler solution: use the "bottom-up" prover
 with a logging level of 1 (to visualize intermediate steps).
 Let's try that.
@@ -1367,12 +1374,12 @@ Metamath requires that there be an existing rule (a *reference*) that
 can use certain hypotheses as steps to justify a claim, going back to
 first principles.
 
-Normally you wouldn't need to look at these types.
+Again, normally you do *not* need to look at type information.
 This is normally done automatically for you.
 But we think it's helpful to understand what the tool is doing
-"under the hood" with types to ensure your proofs are correct.
+"under the hood" with types to ensure that your proofs are correct.
 
-#### Gaining an understanding on `set.mm`'s beginnings
+#### Gaining an understanding of `set.mm`'s beginnings
 
 You can use the explorer to gain many insights into a database
 (and mathematics in general).
@@ -1392,15 +1399,13 @@ Let's gain a brief understanding of the first theorems and axioms.
 We are entering the foundations of the foundations - the very basement -
 of the "typical" mathematics of classical logic and ZFC set theory.
 
-Assertion 1 is the theorem `idi`.
+Assertion 1 is the theorem `idi`. In the explorer it looks like this:
 
-<!-- TBD: Put image of idi here, once it's renumbered -->
+![Representation of assertion 1, `idi`](idi.png)
 
 In `idi` all the statements begin with `|-` meaning "this is true".
 Theorem `idi` says the following: if we assume that some
-statement `ph` is true, then we can conclude that the statement `ph` is true.
-This theorem doesn't let us conclude anything new, so it's normally not useful;
-it's only useful in special technical situations.
+statement `ph` is true, then we can conclude that this statement `ph` is true.
 Let's see its description.
 
 > Click on the symbol "&gt;" to the right of the name **idi**.
@@ -1410,17 +1415,27 @@ In this example, you can see that theorem `idi` was contributed by Alan Sare.
 The names of people who formalized and proposed various statements
 are recorded for all time in these descriptions.
 
-☞ We hope to see *your* name in future database descriptions! ☜
+☞ We hope to see **your name** in future database descriptions!! ☜
 
-The description of theorem `idi` has a special phrase:
+Theorem `idi` and the next one `a2ii` are very peculiar, because they
+are theorems that can be proved without axioms.
+Metamath verifiers work by using the hypotheses and applying the justifications
+they are given to show that they can produce what is to be proved.
+In this odd case, the hypothesis is what needs to be proved, so
+a metamath verifier is allowed to just use it.
+It's hard to imagine a useful mathematical system where you're not allowed
+to conclude something you assume, so this isn't a weakness of Metamath.
+
+Theorem `idi` doesn't let us conclude anything new, so it's normally not useful.
+It's only useful in special technical situations.
+Notice that the description of `idi` has a special phrase:
 "(New usage is discouraged.)".
-This tells people and tools that they should *not* use this
+This phrase tells people and tools that they should *not* use this
 assertion in most circumstances.
-This particular theorem is discouraged because it's normally not useful.
-However, it *is* true, so you can use it if you want to,
+It *is* true, so you can use it if you want to,
 and there are special technical situations where it *is* useful.
 Currently metamath-lamp doesn't exclude discouraged theorems and axioms
-from its automation, but the expectation is that it will
+from its automation, but we expect it will
 exclude them by default in the future.
 
 ##### Assertion 2: Theorem `a1ii`
@@ -1440,7 +1455,7 @@ This theorem is also discouraged.
 
 Assertion 3 is `wn`.
 This is our first axiom, but it's *not* an assertion of truth (`|-`),
-it's a syntax assertion that a certain pattern
+it's an assertion that a certain pattern
 is a well-formed formula (`wff`).
 In short, it's a "syntax axiom" - a way of asserting that
 a specific pattern is valid syntax.
@@ -1455,7 +1470,8 @@ legal expression.
 ##### Assertion 4: Syntax axiom `wi`
 
 Assertion 4 is a similar axiom, stating that
-`( ph -> ps )` is a well-formed formula (`wff`).
+`( ph -> ps )` is a well-formed formula (`wff`) when `ph` and `ps`
+are wffs.
 Notice the parentheses; since they are specified as part of the axiom allowing
 the use of `->`, the parentheses are required when using `->` in the
 `set.mm` database.
@@ -1466,6 +1482,7 @@ Assertion 5 is axiom `ax-mp`, aka modus ponens.
 This axiom says that
 if `ph` is true, and that `ph` implies `ps`, then `ps` is true
 (whatever `ph` and `ps` are).
+We've seen this one before.
 
 ##### Assertion 6: Axiom `ax-1`
 
@@ -1538,7 +1555,9 @@ learn how to create hypotheses in metamath-lamp.
 
 As always, start up metamath-lamp.
 
-We need to erase any previous materials.
+If you've already been using metamath-lamp to prove something else, that
+means we need to erase the proof steps we have.
+Here's how to do that:
 
 > Select the checkbox on the
 > [editor command icon bar](#editor-command-icon-bar)
@@ -1549,27 +1568,33 @@ We need to erase any previous materials.
 > Long-click on the description text, and click on its
 > icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
 
-Now change the context:
+If you already have a context, prepare to change the context.
 
-> At the top of the browser window, select the drop-down arrow with the
-> "Loaded:..." text that hints at the context.
-> Make sure we are loading from the web the file "set.mm:latest",
-> and change the scope to "Stop before" the label `reccot` by typing it in
+> At the top of the browser window, if you've already loaded a context
+> you'll see a
+> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more)
+> drop-down arrow followed by "Loaded:..." text that
+> hints at the current context.
+> Click on that
+> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more).
+
+Now select the new context.
+
+> Select Source type "Web", alias "set.mm:latest", and confirm
+> it if requested.
+> Change the scope to "Stop before" the label `syl` by typing it in
 > and selecting it.
 > Then press "Apply changes" to apply this change.
 
-Let's again load the `set.mm` database, and stop before `syl`:
-
-> Select Source type "Web", Alias "set.mm:latest"; after confirmation this
-> loads the given database.
-> Now under scope select "Stop before" and enter the label `syl`.
-> Finally, apply changes to the context.
+#### Setting up the description, goal, and hypotheses for `syl`
 
 Let's set the description.
 
-> Click on the field name "Description" to edit the description.
+> Click on the field name "Description" to edit the description
+> (you can also long-click on the area to its right where the text goes).
 > Enter text like `Prove syl.` and press Enter (Return).
-> Erase data for "Variables" and "Disjoints" if there are any.
+> Erase data for "Variables" and "Disjoints" if there are any
+> (there probably aren't).
 
 Now let's add the conclusion:
 
@@ -1738,7 +1763,7 @@ However, this justification depends on step `1` which isn't currently proven.
 We can use the explorer to view the axioms that we're allowed to use
 in this "hard mode". We don't have much to work with!
 
-We still have modus ponens (`ax-mp`). Modus ponens (`ax-mp`)
+We have modus ponens (`ax-mp`). Modus ponens (`ax-mp`)
 says that given some `ph` and `( ph -> ps )` then we may conclude `ps`.
 
 We also have axioms `ax-1`, `ax-2`, and `ax-3`:
@@ -1748,6 +1773,13 @@ We also have axioms `ax-1`, `ax-2`, and `ax-3`:
 | ax-1  | <tt>&#124;- ( ph -> ( ps -> ph ) )</tt> |
 | ax-2  | <tt>&#124;- ( ( ph -> ( ps -> ch ) ) -> ( ( ph -> ps ) -> ( ph -> ch ) ) )</tt> |
 | ax-3  | <tt>&#124;- ( ( -. ph -> -. ps ) -> ( ps -> ph ) )</tt> |
+
+This system of modus ponens plus these three basic axioms is attributed
+to Jan Lukasiewicz (pronounced woo-kah-SHAY-vitch) and was popularized by
+Alonzo Church, who called it system P2.
+These axioms are widely used.
+If you want to know more about these axioms, see the
+<a href="https://us.metamath.org/#book">Metamath book</a> page 62 on.
 
 That's basically all we have.
 We did say this was hard mode. Let's get started.
@@ -2122,12 +2154,21 @@ Here's how to do that:
 > Long-click on the description text, and click on its
 > icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
 
-No matter what, we must change the context:
+If you already have a context, prepare to change the context.
 
-> At the top of the browser window, select the drop-down arrow with the
-> "Loaded:..." text that hints at the context.
-> Make sure we are loading from the web the file "set.mm:latest",
-> and change the scope to "Stop before" the label `reccot` by typing it in
+> At the top of the browser window, if you've already loaded a context
+> you'll see a
+> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more)
+> drop-down arrow followed by "Loaded:..." text that
+> hints at the current context.
+> Click on that
+> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more).
+
+Now change the context.
+
+> Select Source type "Web", alias "set.mm:latest", and confirm
+> it if requested.
+> Change the scope to "Stop before" the label `reccot` by typing it in
 > and selecting it.
 > Then press "Apply changes" to apply this change.
 
@@ -2633,7 +2674,9 @@ If you're intentionally creating an *alternative* proof
 of the same goal, for eventual use in the database,
 then you *do* need to use different labels.
 
-Just remember, you first need to erase what you were doing:
+If you've already been using metamath-lamp to prove something else, that
+means we need to erase the proof steps we have.
+Here's how to do that:
 
 > Select the checkbox on the
 > [editor command icon bar](#editor-command-icon-bar)
@@ -2644,12 +2687,22 @@ Just remember, you first need to erase what you were doing:
 > Long-click on the description text, and click on its
 > icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
 
-Then change the context:
+If you already have a context, prepare to change the context.
 
-> At the top of the browser window, select the drop-down arrow with the
-> "Loaded:..." text that hints at the context.
-> Make sure we are loading from the web the file "set.mm:latest",
-> and change the scope to "Stop before" the label of what you're proving.
+> At the top of the browser window, if you've already loaded a context
+> you'll see a
+> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more)
+> drop-down arrow followed by "Loaded:..." text that
+> hints at the current context.
+> Click on that
+> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more).
+
+Now change the context.
+
+> Select Source type "Web", alias "set.mm:latest", and confirm
+> it if requested.
+> Change the scope to "Stop before" the label you are proving by typing it in
+> and selecting it.
 > Then press "Apply changes" to apply this change.
 
 ### Loading existing metamath-lamp proofs
