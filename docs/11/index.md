@@ -1130,7 +1130,9 @@ in your display. Axiom `ax-mp` is called *modus ponens* and is well-known.
 
 Here is what axiom `ax-mp` (modus ponens) looks like in the explorer display:
 
-![Axiom ax-5 (modus ponens) in the explorer tab](ax-5-explorer.png)
+<!-- ![Axiom ax-5 (modus ponens) in the explorer tab](ax-5-explorer.png) -->
+<!-- It's too big without scaling. 386/2 = 193, 188/2 = 94 -->
+<img src="ax-5-explorer.png" width="193" height="94" alt="Axiom ax-5 (modus ponens) in the explorer tab">
 
 Axiom `ax-mp` (Modus ponens) has two hypotheses:
 
