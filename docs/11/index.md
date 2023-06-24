@@ -1537,11 +1537,15 @@ These are the same as, for example, those of Margaris.
 
 Axiom `ax-1` is also called "Simp" or the "principle of simplification".
 It asserts that `|- ( ph -> ( ps -> ph ) )`.
+
 If you open the description you'll see that this formalization was
 contributed by "NM". "NM" stands for Norman Megill, the original
-creator of the Metamath system. As you can see, we try to give credit
-to those who take the time to formalize mathematics; we hope you'll
-eventually create proofs and get credit too!
+creator of the Metamath system.
+Once again, this shows that we give credit
+to those who take the time to formalize mathematics.
+
+Again, we hope that you'll
+create Metamath proofs and get credit too!
 
 ##### Assertion 7: Axiom `ax-2`
 
