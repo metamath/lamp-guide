@@ -39,13 +39,18 @@ user guide (tutorial) and a reference guide. It includes:
    briefly introduces how to start and use metamath-lamp.
 2. [Sample Screenshot](#sample-screenshot)
 3. [User guide (tutorial)](#user-guide-tutorial)
-   shows how to use the metamath-lamp tool, e.g., proving
+   shows how to use the metamath-lamp tool.
+   It covers proving
    [2 + 2 = 4 (`2p2e4`)](#proof-2--2--4),
    [a tour using the Explorer tab](#a-tour-using-the-explorer-tab),
    the
    [principle of the syllogism (`syl`)](#proof-principle-of-the-syllogism-syl),
-   and a proof that the
-   [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
+   a proof that the
+   [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot),
+   [creating your own examples from existing proofs](#creating-your-own-examples-from-existing-proofs),
+   [loading existing metamath-lamp proofs](#loading-existing-metamath-lamp-proofs),
+   and
+   [notes about Metamath databases](#notes-about-Metamath-databases).
 4. [Reference manual](#reference-manual) explains each part of the
    user interface, e.g., the [Editor tab](#editor-tab).
 5. [Future directions](#future-directions) discusses
@@ -181,7 +186,7 @@ First, we need to start metamath-lamp. Just click here:
 
 We first need to decide on the proof context, that is, the database(s)
 of axioms and proven theorems we'll use. In this case we'll use the most
-common metamath database, `set.mm`. This database uses the very common starting
+common Metamath database, `set.mm`. This database uses the very common starting
 points of classical first-order logic and ZFC set theory.
 We'll also tell it to *stop* using the database just before its
 proof of 2 + 2 = 4, which in this database is named `2p2e4`.
@@ -427,9 +432,13 @@ list of steps.
 
 > Click on the
 > icon <img width="16" height="16" src="search.svg" alt="search"> (search);
-> under pattern enter
-> `4 =` and click on Search.
-> Select the step labelled `df-4` and press "Choose Selected".
+> under the field name "Pattern" enter
+> `4 = 3 + 1` and click on Search.
+> Metamath-lamp will produce a list of every assertion where the conclusion
+> has the symbol `4`, then eventually `=`, then
+> eventually `+`, then eventually `1`.
+> Select the step labelled `df-4` and press "Choose Selected"
+> (you may need to scroll down to get to "Choose Selected").
 > You will now have a new step with a label of 1 and this statement:
 > `|- 4 = ( 3 + 1 )`
 
@@ -2150,7 +2159,7 @@ and an earlier video of
 
 We first need to decide on the proof context, that is, the database(s)
 of axioms and proven theorems we'll use. In this case we'll again use the most
-common metamath database, `set.mm`. We will again be proving something
+common Metamath database, `set.mm`. We will again be proving something
 already in the database, so we need to make sure our context does not include
 its proof (of `reccot`) or metamath-lamp will just reuse it.
 
@@ -2814,7 +2823,7 @@ If you need more help on using the metamath-lamp tool
 or how to create proofs, the best place to go is probably the
 [Metamath mailing list](https://us.metamath.org/mm-mailing-list.html).
 We'd love to see more people creating proofs and getting them
-into metamath databases! There's a lot to learn, but we would be
+into Metamath databases! There's a lot to learn, but we would be
 delighted to help.
 
 ## Reference manual
@@ -2904,7 +2913,7 @@ current version of set.mm (aka the Metamath Proof Explorer), which is based
 on classical logic and ZFC set theory. This is the largest Metamath database.
 
 Confirm as necessary. Once it's loaded, you'll need to pick a scope.
-A metamath database is a sequence of statements, and metamath-lamp
+A Metamath database is a sequence of statements, and metamath-lamp
 will *only* let you use statements that are in scope. The scope options are:
 
 * "Read all" - use all statements in the source.
