@@ -654,8 +654,28 @@ added just before the goal step.
 
 Now let's edit the new statement.
 
+It's usually best, when creating Metamath proofs, to try to minimize the
+differences in statements between each step, such as swapping the
+left-hand-side and right-hand-side of an equality.
+There are other tools that can help you minimize the number of steps in a
+Metamath proof, once you *have* a valid proof.
+So what we *should* do is replace the `( 2 + 2 )` with its
+equivalent `( 2 + ( 1 + 1 ) )`, and replace `4` with its
+equivalent `( ( 2 + 1 ) + 1 )`. That would lead to this final statement:
+
+`( 2 + ( 1 + 1 ) ) = ( ( 2 + 1 ) + 1 )`
+
+However, I've previously searched for the rule in `set.mm`
+proving that addition of complex numbers is associative, and in the
+database the left and right hand sides are swapped.
+So I'm just going to swap the two sides ahead of time, and show that
+we can still end up proving the result.
+(You can do it the other way, too.)
+
 > Long-click on the statement of the new step.
-> Enter the new statement
+> We're going to add as our new statement the required equivalence, but with
+> the left and right hands of the equality swapped compared to the goal.
+> Enter
 > `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`
 > and press Enter (Return).
 > As an experiment, select the
@@ -675,16 +695,30 @@ addition is associative, too.
 However, when you click on
 the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 without selecting any steps,
-metamath-lamp will not automatically prove this new step,
+metamath-lamp will *not* automatically prove this new step,
 even though the Metamath database in this context
-*does* have a proof of this statement.
-The reason is that the rule in this Metamath
-database requires some preconditions that are not currently
+*does* have a proof of this *exact* form of statement.
+As I mentioned a moment ago, I intentionally ordered the statement to
+match the form in the database exactly - so why isn't it showing up?
+
+The reason is that in this Metamath
+database, the using the fact that addition is associative
+requires some additional preconditions that are not currently
 included in our proof.
+In this case, it turns out that
+the set.mm requires first showing that the values being
+added are complex numbers, and none of our current steps prove that.
+There's no need for you to have known that ahead of time.
+I'm simply trying to illustrate a general point:
+sometimes theorems require other information to be proved first, even
+if what you want to prove precisely matches a conclusion in the database.
 
 So we'll instead use a bottom-up search, which will try to find and
 prove any other steps necessary to apply a relevant existing proof.
-A bottom-up search *can* add new steps.
+A bottom-up search *can* add new steps, and it can also find
+multi-step-deep proofs.
+The search will then return various options, preferring options that
+have the fewest unknowns left to prove (ideally none).
 You enable a bottom-up search by selecting the step to be proved
 and then clicking on
 the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
@@ -733,11 +767,13 @@ We now have new steps that have been automatically added to our proof,
 namely that `1 e. CC` (`1` is a member of the set of complex numbers)
 and `2 e. CC` (`2` is a member of the set of complex numbers).
 
+#### We have successfully proved that 2 + 2 = 4 !
+
 We now have a green checkmark next to all our steps, showing
 that all steps have been proven.
 
-Most importantly, the final step `2p2e4` has a green checkmark, which
-means we have proven our goal.
+Most importantly, the *final* step `2p2e4` now has a green checkmark, which
+means we have proven our goal!
 Metamath-lamp automatically unified all the steps,
 and was able to complete the rest of the proof given what we had provided.
 
