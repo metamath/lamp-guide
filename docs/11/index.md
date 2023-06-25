@@ -701,25 +701,40 @@ even though the Metamath database in this context
 As I mentioned a moment ago, I intentionally ordered the statement to
 match the form in the database exactly - so why isn't it showing up?
 
-The reason is that in this Metamath
-database, the using the fact that addition is associative
-requires some additional preconditions that are not currently
-included in our proof.
-In this case, it turns out that
-the set.mm requires first showing that the values being
-added are complex numbers, and none of our current steps prove that.
-There's no need for you to have known that ahead of time.
+This isn't unusual. It often happens that we can't just directly use
+a rule in the database, but in fact we have to prove some *other*
+statements before we *can* use a rule in the database.
+Sometimes we have to this for several layers.
+Metamath-lamp has a tool called "bottom-up search" that will let us
+find such proofs; it can even find proofs with deeper depths.
+Before we use bottom-up search,
+let's explain what's going on in detail in this case,
+as an example of this kind of problem.
+
+This Metamath database *does* already have the fact that addition is
+associative. In fact, it has the rule in *exactly* this order of symbols -
+I specifically rigged it that way.
+So why can't our simple unification work?
+The problem is that
+the rule in `set.mm` requires first showing, as hypotheses,
+that the values being added are complex numbers.
+None of our current steps prove that
+`1` and `2` are complex numbers.
+The database *also* has those facts, but they need to be brought in as
+their own steps before they can be used.
+
+There's no need for you to have known all of that ahead of time.
 I'm simply trying to illustrate a general point:
 sometimes theorems require other information to be proved first, even
 if what you want to prove precisely matches a conclusion in the database.
 
 So we'll instead use a bottom-up search, which will try to find and
-prove any other steps necessary to apply a relevant existing proof.
+prove any other steps necessary to prove a step.
 A bottom-up search *can* add new steps, and it can also find
 multi-step-deep proofs.
 The search will then return various options, preferring options that
-have the fewest unknowns left to prove (ideally none).
-You enable a bottom-up search by selecting the step to be proved
+have the fewest unknowns left to prove (ideally none of course).
+You enable a bottom-up search by selecting the *single* step to be proved
 and then clicking on
 the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
