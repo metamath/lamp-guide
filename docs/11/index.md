@@ -821,60 +821,6 @@ a specific theorem or axiom that justifies the claim
 (as well as recursively all of its justifications), possibly
 using steps previous to that step.
 
-#### There are other (easier) ways
-
-I should note that metamath-lamp *could* have automated more for us.
-In particular, the bottom-up prover can automate more, using its many
-options to control its search.
-We'll briefly discuss that without trying them out.
-
-For example, imagine returning to our earlier situation by
-deleting the steps for `1 e. CC`, `2. CC`, and
-`|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`, and also long-clicking on
-our goals' justification to delete the justification text.
-That would restore our editor to the situation we were in before
-we added the assertion that addition is associative.
-
-We didn't *have* to hunt for the theorem that
-addition is associative. We could have let metamath-lamp do more
-for automatically.
-
-Here's one way.
-We could have selected the goal, and clicked on the
-icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
-to start a bottom-up search.
-
-We will now want to set up the search options to find the proof
-automatically.
-
-Here are some tips.
-I find it helpful to choose several search options,
-starting with ones that will run quickly
-but are less likely to automatically find a proof,
-If those quick approaches don't work, then I'll
-expand the search parameters so they'll take longer but will
-be more likely to be successful.
-Of course, repeatedly using the tool will give you a better sense of what
-is more (or less) likely to work.
-
-In this case,
-just like before, I would enable "Allow new steps" but disable both
-"Allow new disjoints" and "Allow new variables" because I don't expect
-the latter to help me.
-To make sure we find the chain of steps leading to a proof, I'd
-switch the "Statement length restriction" to "Unrestricted", and leave
-the search depth at 4.
-I would then modify the allowed statements
-(both at the first level and other levels) to only enable the
-statements I expect to use:
-`( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` and `4 = ( ( 2 + 1 ) + 1 )`.
-I'd then click on "Prove".
-On my computer it takes 12 seconds to automatically
-find a proof using associativity.
-
-From here on, I'm going to assume that we'll use the previous
-version of the proof that we found.
-
 #### Renumbering steps
 
 Let's briefly clean things up.
@@ -1045,7 +991,9 @@ Let's end its display.
 > display of its visualization, hiding it again.
 
 Please *do* try out visualization of different steps.
-We think seeing several will help better understand how it all works.
+
+We think seeing several visualizations
+will help you better understand how it all works.
 
 #### Changing the order of steps
 
@@ -1077,6 +1025,66 @@ to move them down.
 Metamath-lamp will display an error message if a
 justification depends on some other step that
 does not precede that justification.
+
+#### Another (easier) way
+
+Metamath-lamp's bottom-prover *could* have automated
+more for us when creating this proof.
+
+Let's return to our earlier situation
+before we added statements that used the fact that addition is associative.
+Here's how we could do that:
+
+> Use the checkboxes to select the steps with the statements
+> `1 e. CC`, `2. CC`, and
+> `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`.
+> Click on the
+> icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
+> to delete those steps.
+> Now long-click on the justification for the goal, and select the
+> icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
+> below it to delete its justification.
+
+We're now in the state we were in before
+we added the assertion that addition is associative.
+
+We didn't *have* to hunt for the theorem that
+addition is associative. We could have let metamath-lamp do more
+for automatically.
+
+Here's one way.
+We could have selected the goal, and clicked on the
+icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
+to start a bottom-up search *directly* on the goal.
+
+We will now want to set up the search options to find the proof
+automatically.
+
+> just like before, enable "Allow new steps" and disable both
+> "Allow new disjoints" and "Allow new variables" (because I don't expect
+> the latter to be helpful in this case).
+> Change the "Statement length restriction" to "Unrestricted",
+> while leaving the search depth at 4.
+> Now click on the allowed statements both at the "first level" and
+> "other levels", and enable *only* the
+> statements I expect to use, which are
+> `( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` and `4 = ( ( 2 + 1 ) + 1 )`.
+> Click on "Prove".
+
+Here are some tips about bottom-up searches.
+I find it helpful to choose several search options,
+starting with ones that will run quickly
+but are less likely to automatically find a proof,
+If those quick approaches don't work, then I'll
+expand the search parameters so they'll take longer but will
+be more likely to be successful.
+Of course, repeatedly using the tool will give you a better sense of what
+is more (or less) likely to work.
+
+On my computer it takes 12 seconds to automatically
+find some proofs using associativity.
+Notice that you didn't need to tell it about associativity; given the
+right search criteria, the tool could find these steps all by itself.
 
 #### A brief discussions on settings
 
