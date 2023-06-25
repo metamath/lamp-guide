@@ -704,7 +704,7 @@ match the form in the database exactly - so why isn't it showing up?
 This isn't unusual. It often happens that we can't just directly use
 a rule in the database, but in fact we have to prove some *other*
 statements before we *can* use a rule in the database.
-Sometimes we have to this for several layers.
+Sometimes we have to do this for several layers.
 Metamath-lamp has a tool called "bottom-up search" that will let us
 find such proofs; it can even find proofs with deeper depths.
 Before we use bottom-up search,
@@ -782,7 +782,7 @@ We now have new steps that have been automatically added to our proof,
 namely that `1 e. CC` (`1` is a member of the set of complex numbers)
 and `2 e. CC` (`2` is a member of the set of complex numbers).
 
-#### We have successfully proved that 2 + 2 = 4 !
+#### We have successfully proved that 2 + 2 = 4
 
 We now have a green checkmark next to all our steps, showing
 that all steps have been proven.
