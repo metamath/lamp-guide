@@ -1423,7 +1423,7 @@ of the "typical" mathematics of classical logic and ZFC set theory.
 Assertion 1 is the theorem `idi`. In the explorer it looks like this:
 
 <!-- ![Representation of assertion 1, `idi`](idi.png) -->
-<img src="idi.png" width="156" height="92" alt="Representation of assertion 1, idi">
+<img-src="idi.png" width="156" height="92" alt="Representation of assertion 1, idi">
 
 In `idi` all the statements begin with `|-` meaning "this is true".
 Theorem `idi` says the following: if we assume that some
@@ -1440,13 +1440,17 @@ are recorded for all time in these descriptions.
 ☞ We hope to see **your name** in future database descriptions!! ☜
 
 Theorem `idi` and the next one `a2ii` are very peculiar, because they
-are theorems that can be proved without axioms.
+are theorems that can be proven in Metamath without axioms.
 Metamath verifiers work by using the hypotheses and applying the justifications
 they are given to show that they can produce what is to be proved.
 In this odd case, the hypothesis is what needs to be proved, so
 a metamath verifier is allowed to just use it.
-It's hard to imagine a useful mathematical system where you're not allowed
-to conclude something you assume, so this isn't a weakness of Metamath.
+Both proofs
+have 0 essential steps and 1 if you include syntax proof steps
+(showing that the inputs and outputs match).
+This doesn't hurt Metamath's generality;
+it's hard to imagine a useful mathematical system where you're not allowed
+to conclude something you assume.
 
 Theorem `idi` doesn't let us conclude anything new, so it's normally not useful.
 It's only useful in special technical situations.
