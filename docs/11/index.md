@@ -654,8 +654,52 @@ added just before the goal step.
 
 Now let's edit the new statement.
 
+It's usually best, when creating Metamath proofs, to try to minimize the
+differences in statements between each step, such as swapping the
+left-hand-side and right-hand-side of an equality.
+There are other tools that can help you minimize the number of steps in a
+Metamath proof, once you *have* a valid proof.
+
+So what I would typically do, if I was just entering this by hand,
+is replace the `( 2 + 2 )` with its
+equivalent `( 2 + ( 1 + 1 ) )`, and replace `4` with its
+equivalent `( ( 2 + 1 ) + 1 )`. That would lead to this final statement:
+
+`( 2 + ( 1 + 1 ) ) = ( ( 2 + 1 ) + 1 )`
+
+As humans we know this is true.
+That's because addition is what's called *associative*, that is,
+when two additions occur in a row,
+you can start with either the first or second addition
+and the result will be the same.
+
+Does the Metamath database in our current context have this information?
+Well, I've previously searched for the rule in `set.mm`
+proving that the addition of complex numbers is associative, and
+it *does* have a proof the addition is associative.
+However, in the
+database the left and right hand sides are swapped.
+Normally, if I knew that fact,
+I then add an *additional* step above this one
+with the left and right sides swapped to match the database.
+If you provide many intermediate steps,
+metamath-lamp can often complete the proof more quickly.
+
+However, for demonstration purposes,
+I'm going to swap the two sides ahead of time.
+I want to show that sometimes simple unification doesn't work,
+even when you know you're matching a theorem's pattern exactly.
+I also want to show that while it can be helpful to take small steps, it
+isn't always needed (that is, both the expanded goal and the
+version that matches the database pattern).
+But first, let's try out this sequence that addition is associative,
+and see that simple unification doesn't work:
+
 > Long-click on the statement of the new step.
-> Enter the new statement
+> We're going to add as our new statement the required equivalence, but with
+> the left and right hands of the equality the same as set.mm
+> (and thus swapped compared to the goal).
+> Enter
 > `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`
 > and press Enter (Return).
 > As an experiment, select the
@@ -664,28 +708,55 @@ Now let's edit the new statement.
 > you'll see that in this case it did *not* find a justification
 > for our new step.
 
-It's actually true that
-`( ( 2 + 1 ) + 1 )` is equal to `( 2 + ( 1 + 1 ) )`.
-That's because addition is associative
-(you can start with either the first or second addition
-and the result is the same).
-The Metamath database in this context already has a proof that
-addition is associative, too.
+Yes, it's true that
+`( ( 2 + 1 ) + 1 )` is equal to `( 2 + ( 1 + 1 ) )`,
+the Metamath database in this context already has a proof that
+addition is associative using this specific order.
 
 However, when you click on
 the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
 without selecting any steps,
-metamath-lamp will not automatically prove this new step,
-even though the Metamath database in this context
-*does* have a proof of this statement.
-The reason is that the rule in this Metamath
-database requires some preconditions that are not currently
-included in our proof.
+metamath-lamp will *not* automatically prove this new step.
+As I mentioned a moment ago, I intentionally ordered the statement to
+match the form in the database exactly - so why isn't metamath-lamp
+finding this match and verifying it?
+
+This isn't unusual. It often happens that we can't just directly use
+a rule in the database, but instead we must first prove some *other*
+statements before we can use a rule in the database.
+Sometimes we have to do this for several layers.
+Metamath-lamp has a tool called "bottom-up search" that will let us
+find such proofs; it can even find proofs with deeper depths.
+Before we use bottom-up search,
+let's explain what's going on in detail in this case,
+as an example of this kind of problem.
+
+This Metamath database *does* already have the fact that addition is
+associative. In fact, it has the rule in *exactly* this order of symbols -
+I specifically rigged it that way.
+So why can't our simple unification work?
+The problem is that
+the rule in `set.mm` requires other information.
+In this case, the rule that
+addition is associative requires us to show, as hypotheses,
+that the values being added are complex numbers.
+None of our current steps prove that
+`1` and `2` are complex numbers.
+The database *also* has those facts, but they need to be brought in as
+their own steps before they can be used in this proof.
+
+There's no need for you to have known this ahead of time.
+I'm simply trying to illustrate a general point:
+sometimes theorems require other information to be proved first, even
+if what you want to prove *precisely* matches a conclusion in the database.
 
 So we'll instead use a bottom-up search, which will try to find and
-prove any other steps necessary to apply a relevant existing proof.
-A bottom-up search *can* add new steps.
-You enable a bottom-up search by selecting the step to be proved
+prove any other steps necessary to prove a step.
+A bottom-up search *can* add new steps, and it can also find
+multi-step-deep proofs.
+The search will then return various options, preferring options that
+have the fewest unknowns left to prove (ideally none of course).
+You enable a bottom-up search by selecting the *single* step to be proved
 and then clicking on
 the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
@@ -703,8 +774,6 @@ steps that will help us prove the selected step.
 These dialogue options control how metamath-lamp will search for a proof
 of the selected step's statement.
 
-The defaults to make it reasonably likely it will find a proof of that
-step, without taking too long to do.
 When you adjust the parameters you are generally making trade-offs;
 allowing the search to do more will increase the likelihood of finding
 a proof, but will also make the search time take longer.
@@ -733,11 +802,13 @@ We now have new steps that have been automatically added to our proof,
 namely that `1 e. CC` (`1` is a member of the set of complex numbers)
 and `2 e. CC` (`2` is a member of the set of complex numbers).
 
+#### We have successfully proved that 2 + 2 = 4
+
 We now have a green checkmark next to all our steps, showing
 that all steps have been proven.
 
-Most importantly, the final step `2p2e4` has a green checkmark, which
-means we have proven our goal.
+Most importantly, the *final* step `2p2e4` now has a green checkmark, which
+means we have proven our goal!
 Metamath-lamp automatically unified all the steps,
 and was able to complete the rest of the proof given what we had provided.
 
@@ -749,14 +820,64 @@ metamath-lamp is able to find, for that step,
 a specific theorem or axiom that justifies the claim
 (as well as recursively all of its justifications), possibly
 using steps previous to that step.
-In a moment we will be looking at the proof steps (in more detail) to
-gain a better understanding.
 
-Before we do, let's briefly clean things up, and then
-talk about how to generate and import information.
+#### There are other (easier) ways
+
+I should note that metamath-lamp *could* have automated more for us.
+In particular, the bottom-up prover can automate more, using its many
+options to control its search.
+We'll briefly discuss that without trying them out.
+
+For example, imagine returning to our earlier situation by
+deleting the steps for `1 e. CC`, `2. CC`, and
+`|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`, and also long-clicking on
+our goals' justification to delete the justification text.
+That would restore our editor to the situation we were in before
+we added the assertion that addition is associative.
+
+We didn't *have* to hunt for the theorem that
+addition is associative. We could have let metamath-lamp do more
+for automatically.
+
+Here's one way.
+We could have selected the goal, and clicked on the
+icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
+to start a bottom-up search.
+
+We will now want to set up the search options to find the proof
+automatically.
+
+Here are some tips.
+I find it helpful to choose several search options,
+starting with ones that will run quickly
+but are less likely to automatically find a proof,
+If those quick approaches don't work, then I'll
+expand the search parameters so they'll take longer but will
+be more likely to be successful.
+Of course, repeatedly using the tool will give you a better sense of what
+is more (or less) likely to work.
+
+In this case,
+just like before, I would enable "Allow new steps" but disable both
+"Allow new disjoints" and "Allow new variables" because I don't expect
+the latter to help me.
+To make sure we find the chain of steps leading to a proof, I'd
+switch the "Statement length restriction" to "Unrestricted", and leave
+the search depth at 4.
+I would then modify the allowed statements
+(both at the first level and other levels) to only enable the
+statements I expect to use:
+`( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` and `4 = ( ( 2 + 1 ) + 1 )`.
+I'd then click on "Prove".
+On my computer it takes 12 seconds to automatically
+find a proof using associativity.
+
+From here on, I'm going to assume that we'll use the previous
+version of the proof that we found.
 
 #### Renumbering steps
 
+Let's briefly clean things up.
 The step labels are mostly arbitrary, but it's sometimes
 convenient to have them in order. Let's renumber the numbered steps.
 
@@ -817,6 +938,9 @@ have a `.lamp.json` suffix.
 > to dismiss the menu.
 
 #### Looking at proof steps
+
+Let's look at the proof steps in more detail to
+gain a better understanding.
 
 In Metamath, *every* step of a valid completed proof must be an
 application of an axiom, proven theorem, or previously-proven step.
