@@ -10,6 +10,8 @@
 # Paste into NAME.svg file.
 # Run this as ./fix-icons *.svg
 
+# If you need to rotate the result, here's a useful tool:
+# https://www.svgviewer.dev/
 
 for file; do
 sed -E 's/<svg [^>]*(viewBox="[^"]*") [^>]*>/<svg xmlns="http:\/\/www.w3.org\/2000\/svg" \1>/i' < "$file" > ,1
