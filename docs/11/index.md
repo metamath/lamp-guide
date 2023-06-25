@@ -1067,7 +1067,7 @@ automatically.
 > while leaving the search depth at 4.
 > Now click on the allowed statements both at the "first level" and
 > "other levels", and enable *only* the
-* statements I expect to use, which are
+> statements I expect to use, which are
 > `( 2 + 2 ) = ( 2 + ( 1 + 1 ) )` and `4 = ( ( 2 + 1 ) + 1 )`.
 > Click on "Prove".
 
