@@ -1555,7 +1555,7 @@ of the "typical" mathematics of classical logic and ZFC set theory.
 Assertion 1 is the theorem `idi`. In the explorer it looks like this:
 
 <!-- ![Representation of assertion 1, `idi`](idi.png) -->
-<img-src="idi.png" width="156" height="92" alt="Representation of assertion 1, idi">
+<img src="idi.png" width="156" height="92" alt="Representation of assertion 1, idi">
 
 In `idi` all the statements begin with `|-` meaning "this is true".
 Theorem `idi` says the following: if we assume that some
