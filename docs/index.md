@@ -83,6 +83,11 @@ The latest version of this
 is available at
 &lt;[https://lamp-guide.metamath.org/](https://lamp-guide.metamath.org/)&gt;.
 
+We also have **"Introduction to Metamath-lamp" tutorial videos** available:
+[part 1](https://youtu.be/b-RfoUuQpAQ),
+[part 2](https://youtu.be/WOp2xQ8mEE4),
+[part 3](https://youtu.be/Aqp3jAM2b60).
+
 ## Quick start
 
 You don't need to install anything to run metamath-lamp, and
