@@ -33,7 +33,8 @@ Metamath's unique approach speeds verification, improves archiving,
 and enables *anyone* to follow *every* proof step - from high-level
 math all the way down to fundamental axioms.
 Metamath is one of the
-[top systems in the Formalizing 100 Theorems challenge](https://www.cs.ru.nl/~freek/100/).
+[top systems in the Formalizing 100 Theorems challenge](https://www.cs.ru.nl/~freek/100/); there's a long list of
+[mathematical proofs formally verified by Metamath from that list](https://us.metamath.org/mm_100.html).
 
 This *Metamath-lamp Guide* is both a
 user guide (tutorial) and a reference guide. It includes:
