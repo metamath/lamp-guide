@@ -174,7 +174,7 @@ proofs by creating some example proofs.
 We recommend starting the tool and applying these examples.
 
 We will start with a simple proof that
-[2 + 2 = 4 (`2p2e4`)](#proof-2-2-4).
+[2 + 2 = 4 (`2p2e4`)](#proof-2--2--4),
 We'll then follow that with
 a [tour using the Explorer tab](#a-tour-using-the-explorer-tab),
 a [proof of the principle of the syllogism (`syl`)](#proof-principle-of-the-syllogism-syl), and a
