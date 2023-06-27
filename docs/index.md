@@ -84,7 +84,7 @@ is available at
 &lt;[https://lamp-guide.metamath.org/](https://lamp-guide.metamath.org/)&gt;.
 
 We also have
-[**"Introduction to Metamath-lamp" tutorial videos**](https://www.youtube.com/watch?v=b-RfoUuQpAQ&list=PL1jSu6GGefBk3RhHW5Srpc2qxWMqhga9J) available:
+[**"Introduction to Metamath-lamp" tutorial videos**](https://www.youtube.com/playlist?list=PL1jSu6GGefBk3RhHW5Srpc2qxWMqhga9J) available:
 [part 1](https://youtu.be/b-RfoUuQpAQ),
 [part 2](https://youtu.be/WOp2xQ8mEE4),
 [part 3](https://youtu.be/Aqp3jAM2b60).
