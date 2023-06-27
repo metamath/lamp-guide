@@ -9,10 +9,13 @@ Unlike most other Metamath proof systems,
 such as mmj2 or metamath-exe (the first Metamath proof assistant),
 users of metamath-lamp can use this proof assistant without installing anything.
 Instead, you can start using metamath-lamp
-by using your web browser, including your smartphone web browser, to view the
-**[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**.
-Since this tool supports Metamath, we should explain what Metamath is.
+by using your web browser, including your smartphone web browser,
+by viewing its application page:
 
+**[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**
+
+Since the metamath-lamp tool supports [Metamath](https://us.metamath.org/),
+we should explain what Metamath is.
 [Metamath](https://us.metamath.org/) is a "simple and flexible
 computer-processable language that supports rigorously verifying,
 archiving, and presenting mathematical proofs". The underlying
