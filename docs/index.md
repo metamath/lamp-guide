@@ -2864,18 +2864,19 @@ while in temporary mode, word "Editor" is shaded orange (warning you
 that editing is temporary) and
 the web page header starts with "TEMP".
 Also, the first attempt to edit will remind you that you're in temporary mode
-and that changes will be discarded later. Here is the message
-you'll see the first time you try to edit in temporary mode:
+and that changes will be discarded later. You'll see a message like this
+the first time you try to edit in temporary mode:
 
 > Editing in TEMP mode
 >
 > You are about to edit in TEMP mode. All changes you do in TEMP
 > mode will be erased upon closing current browser tab. If you want
 > to continue editing in NORMAL mode, please do the following actions:
-> \1) use "Export to JSON" to copy current editor state to the clipboard;
-> \2) open a new tab (or switch to an already opened tab) with
-> metamath-lamp in NORMAL mode; 3) use "Import from JSON" to load the
-> copied editor state from the clipboard.
+>
+> 1. use "Export to JSON" to copy current editor state to the clipboard;
+> 2. open a new tab (or switch to an already opened tab) with
+>    metamath-lamp in NORMAL mode;
+> 3. use "Import from JSON" to load the copied editor state from the clipboard.
 
 There's currently no mechanism to switch from temporary (TEMP) mode
 to regular mode.
