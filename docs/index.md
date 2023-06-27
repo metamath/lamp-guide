@@ -12,7 +12,7 @@ Instead, you can start using metamath-lamp
 by using your web browser, including your smartphone web browser,
 by viewing its application page:
 
-**[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**
+<b><a href="https://expln.github.io/lamp/latest/index.html" target="_blank" rel="noopener noreferrer">Metamath-lamp application page</a></b>
 
 Since the metamath-lamp tool supports [Metamath](https://us.metamath.org/),
 we should explain what Metamath is.
@@ -98,7 +98,7 @@ We also have
 You don't need to install anything to run metamath-lamp, and
 it works on personal computers and smartphones.
 To start metamath-lamp, use your web browser to view the
-**[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**.
+<b><a href="https://expln.github.io/lamp/latest/index.html" target="_blank" rel="noopener noreferrer">Metamath-lamp application page</a></b>
 
 To use metamath-lamp, do the following:
 
@@ -154,7 +154,7 @@ using metamath-lamp looks like (proving that 2 + 2 = 4):
 ![Screenshot of 2 + 2 = 4](./metamath-lamp-example.png)
 
 You can start using metamath-lamp immediately by visiting the
-[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html), which can import this [JSON file proving `2p2e4`](./2p2e4.lamp.json).
+<a href="https://expln.github.io/lamp/latest/index.html" target="_blank" rel="noopener noreferrer">Metamath-lamp application page</a>, which can import this [JSON file proving `2p2e4`](./2p2e4.lamp.json).
 
 <!-- This would start us in TEMP mode which we haven't explained yet.
 Let's avoid problems by not mentioning it.
@@ -190,7 +190,7 @@ that 2 + 2 = 4. This has already been
 
 First, we need to start metamath-lamp. Just click here:
 
-**[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html)**.
+<b><a href="https://expln.github.io/lamp/latest/index.html" target="_blank" rel="noopener noreferrer">Metamath-lamp application page</a></b>
 
 #### Selecting the proof context for `2p2e4`
 
@@ -328,6 +328,31 @@ Let's set one.
 Metamath-lamp has many shortcuts.
 For example, you can also edit fields by clicking on the name of the
 field (e.g., by clicking on "Description").
+
+By the way, did you notice something about when we set the description?
+The [quick start](#quick-start)
+said that you can set the description first and later add the goal.
+You can, of course, do that.
+Yet in this tutorial we added the goal first and *later*
+we added the description, which is in the opposite order.
+We did that to prove a point.
+
+Final Metamath proofs must adhere to extremely rigorous standards.
+In particular, every step must be justified by an axiom or proven theorem
+and can only use previous steps as their hypotheses.
+
+However, metamath-lamp is flexible in supporting how you *reach*
+this rigorous objective.
+You can generally provide information in whatever order you prefer.
+In some cases metamath-lamp will warn you that there's a problem
+via error messages, but you can then correct the error.
+You can work backwards from a goal, work forwards from what you know, or
+even just record what you know that you think might be useful.
+In some cases it's more convenient if you do things a certain way.
+For example, the first step you add will be marked as the goal,
+so it's convenient if you describe the goal as your first step.
+However, this is just a convenience; you can change what the goal is
+at any time.
 
 #### Interlude: Brief review of metamath-lamp user interface
 
@@ -3982,7 +4007,7 @@ No matter how you decide to contribute, we thank you for your time.
 
 As noted earlier, if you want to run the metamath-lamp application
 to create proofs, view the
-[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html).
+<a href="https://expln.github.io/lamp/latest/index.html" target="_blank" rel="noopener noreferrer">Metamath-lamp application page</a><
 
 If you need help on how to create Metamath proofs,
 or on how to use the metamath-lamp tool to create Metamath proofs,
