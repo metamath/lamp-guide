@@ -4116,18 +4116,31 @@ Here are some conventions for the source code itself:
    to JavaScript, and `Belt` which provides more sophisticated collection
    handling. When either works, prefer the `Js` interfaces which are simpler
    and map directly to JavaScript, but *do* use Belt when it helps.
-6. Use the `->` (pipe) construct as is now conventional in ReScript.
+6. Use the `->` (pipe) construct as is now conventional in ReScript,
+   especially in a function chain.
    The `->` is syntactic sugar that allows you to call a function
    but with the parameter to the left of `->` becoming the first (or specified)
-   parameter of the function. For example, function call
-   `myData->MyModule.myFunction` means the same thing as
-   `MyModule.myFunction(myData)`, and function call
-   `myData->MyModule.myFunction(fooData)` means the same thing as
-   `MyModule.myfunction(myData, fooData)`.
+   parameter of the function. For example:
+
+   | Expression | Means |
+   | ---------- | ----- |
+   | <tt>myData->MyModule.myFunction</tt> | <tt>MyModule.myFunction(myData)</tt> |
+   | <tt>myData&#45;></tt>&ZeroWidthSpace;<tt>MyModule.myFunction(fooData)</tt> | <tt>MyModule.myfunction(</tt>&ZeroWidthSpace;<tt>myData, fooData)</tt> |
+   | <tt>myData&#45;></tt>&ZeroWidthSpace;<tt>MyModule.myFunction(fooData, _)</tt> | <tt>MyModule.myfunction(</tt>&ZeroWidthSpace;<tt>fooData, myData)</t> |
+
    See [ReScript pipe](https://rescript-lang.org/docs/manual/latest/pipe)
    for more information.
    This implies preferring the newer "data-first" ReScript interfaces,
    for example, you should prefer `Array2` over `Array`.
+   Please note that using the pipe construct is not obligatory
+   if you want to contribute to the codebase -
+   you may still use conventional function application like
+   <tt>func(arg1,&nbsp;arg2)</tt> if you prefer.
+   However, during the pull request review, you may be asked to
+   use the pipe construct in some places,
+   especially where there are function chains (deeply nested function calls).
+   For example, instead of `func1(func2(func3(arg)))` the preferred construct
+   is `arg->func1->func2->func3`.
 7. If you add/modify functionality, please add/modify tests.
    The source code for tests is in `*_test.res` files.
    RSpec-style tests are created using `describe({... it({... )} ..})`.
