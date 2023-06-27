@@ -4090,11 +4090,14 @@ Here are some conventions for the source code itself:
 6. Use the `->` (pipe) construct as is now conventional in ReScript.
    The `->` is syntactic sugar that allows you to call a function
    but with the parameter to the left of `->` becoming the first (or specified)
-   parameter of the function. For example, function call
-   `myData->MyModule.myFunction` means the same thing as
-   `MyModule.myFunction(myData)`, and function call
-   `myData->MyModule.myFunction(fooData)` means the same thing as
-   `MyModule.myfunction(myData, fooData)`.
+   parameter of the function. For example:
+
+   | Expression | Means |
+   | ---------- | ----- |
+   | <tt>myData->MyModule.myFunction</tt> | <tt>MyModule.myFunction(myData)</tt> |
+   | <tt>myData&#45;></tt>&ZeroWidthSpace;<tt>MyModule.myFunction(fooData)</tt> | <tt>MyModule.myfunction(</tt>&ZeroWidthSpace;<tt>myData, fooData)</tt> |
+   | <tt>myData&#45;></tt>&ZeroWidthSpace;<tt>MyModule.myFunction(fooData, _)</tt> | <tt>MyModule.myfunction(</tt>&ZeroWidthSpace;<tt>fooData, myData)</t> |
+
    See [ReScript pipe](https://rescript-lang.org/docs/manual/latest/pipe)
    for more information.
    This implies preferring the newer "data-first" ReScript interfaces,
