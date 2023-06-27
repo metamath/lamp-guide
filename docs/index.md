@@ -154,7 +154,7 @@ using metamath-lamp looks like (proving that 2 + 2 = 4):
 ![Screenshot of 2 + 2 = 4](./metamath-lamp-example.png)
 
 You can start using metamath-lamp immediately by visiting the
-[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html).
+[Metamath-lamp application page](https://expln.github.io/lamp/latest/index.html), which can import this [JSON file proving `2p2e4`](./2p2e4.lamp.json).
 
 <!-- This would start us in TEMP mode which we haven't explained yet.
 Let's avoid problems by not mentioning it.
@@ -174,7 +174,7 @@ proofs by creating some example proofs.
 We recommend starting the tool and applying these examples.
 
 We will start with a simple proof that
-[2 + 2 = 4 (`2p2e4`)](proof-2-2-4).
+[2 + 2 = 4 (`2p2e4`)](#proof-2-2-4).
 We'll then follow that with
 a [tour using the Explorer tab](#a-tour-using-the-explorer-tab),
 a [proof of the principle of the syllogism (`syl`)](#proof-principle-of-the-syllogism-syl), and a
@@ -887,7 +887,8 @@ You can save your state for reloading later in a JSON format:
   exported with "Export to JSON".
 
 If you store this information in a file they conventionally
-have a `.lamp.json` suffix.
+have a `.lamp.json` suffix
+(e.g., here's our [JSON file proving `2p2e4`](./2p2e4.lamp.json)).
 
 > You can click again on the
 > icon <img width="16" height="16" src="menu.svg" alt="menu"> (menu)
@@ -1464,7 +1465,7 @@ able to verify that claim.
 
 Let's go back to the editor and look at our proof that ( 2 + 2 ) = 4
 (if you've lost that, you can use "import from JSON" to load
-[our proof of 2p2e4 in JSON format](./2p2e4.lamp.json").
+[our proof of 2p2e4 in JSON format](./2p2e4.lamp.json).
 
 > Click on the checkbox next to step 7 which uses `oveq1i`.
 > Click on the
