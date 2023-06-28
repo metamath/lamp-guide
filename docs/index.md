@@ -4141,7 +4141,7 @@ Here are some conventions for the source code itself:
    use the pipe construct in some places,
    especially where there are function chains (deeply nested function calls).
    For example, instead of `func1(func2(func3(arg)))` the preferred construct
-   is `arg->func1->func2->func3`.
+   is `arg->func3->func2->func1`.
 7. If you add/modify functionality, please add/modify tests.
    The source code for tests is in `*_test.res` files.
    RSpec-style tests are created using `describe({... it({... )} ..})`.
