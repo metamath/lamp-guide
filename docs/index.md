@@ -4126,8 +4126,8 @@ Here are some conventions for the source code itself:
    | Expression | Means |
    | ---------- | ----- |
    | <tt>myData&#45;&gt;MyModule.myFunction</tt> | <tt>MyModule.myFunction(myData)</tt> |
-   | <tt>myData&#45;&gt;</tt>&#8203;<tt>MyModule.myFunction(fooData)</tt> | <tt>MyModule.myfunction(</tt>&#8203;<tt>myData, fooData)</tt> |
-   | <tt>myData&#45;&gt;</tt>&#8203;<tt>MyModule.myFunction(fooData,&nbsp;&#95;)</tt> | <tt>MyModule.myfunction(</tt>&#8203;<tt>fooData,&nbsp;myData)</t> |
+   | <tt>myData&#45;&gt;</tt><wbr><tt>MyModule.myFunction(fooData)</tt> | <tt>MyModule.myfunction(</tt><wbr><tt>myData, fooData)</tt> |
+   | <tt>myData&#45;&gt;</tt><wbr><tt>MyModule.myFunction(fooData,&nbsp;&#95;)</tt> | <tt>MyModule.myfunction(</tt><wbr><tt>fooData,&nbsp;myData)</t> |
 
    See [ReScript pipe](https://rescript-lang.org/docs/manual/latest/pipe)
    for more information.
