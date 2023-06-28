@@ -4127,7 +4127,7 @@ Here are some conventions for the source code itself:
    | ---------- | ----- |
    | <tt>myData&#45;&gt;MyModule.myFunction</tt> | <tt>MyModule.myFunction(myData)</tt> |
    | <tt>myData&#45;&gt;<wbr>MyModule.myFunction(fooData)</tt> | <tt>MyModule.myfunction(<wbr>myData, fooData)</tt> |
-   | <tt>myData&#45;&gt;<wbr>MyModule.myFunction(<wbr>fooData,&nbsp;&#95;)</tt> | <tt>MyModule.myfunction(<wbr>fooData,&nbsp;myData)</t> |
+   | <tt>myData&#45;&gt;<wbr>MyModule.myFunction(<wbr>fooData,&nbsp;&#95;)</tt> | <tt>MyModule.myfunction(<wbr>fooData,&nbsp;myData)</tt> |
 
    See [ReScript pipe](https://rescript-lang.org/docs/manual/latest/pipe)
    for more information.
