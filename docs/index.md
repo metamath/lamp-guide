@@ -1763,8 +1763,8 @@ Here's how to do that:
 > to select *all* steps. Click on
 > icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete)
 > to delete all the selected steps.
-> Long-click on the description text, and click on its
-> icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
+> Long-click on the description text, delete all the text and click on save
+> icon <img width="16" height="16" src="save.svg" alt="save"> (save).
 
 If you already have a context, prepare to change the context.
 
