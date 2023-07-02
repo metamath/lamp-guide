@@ -1763,8 +1763,8 @@ Here's how to do that:
 > to select *all* steps. Click on
 > icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete)
 > to delete all the selected steps.
-> Long-click on the description text, and click on its
-> icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
+> Long-click on the description text, delete all the text and click on save
+> icon <img width="16" height="16" src="save.svg" alt="save"> (save).
 
 If you already have a context, prepare to change the context.
 
@@ -1850,7 +1850,7 @@ or hypothesis label.
 The convention in `set.mm`, as shown above, is for hypotheses to be labelled
 as the name of the goal + `.` + an integer starting from 1.
 Metamath-lamp validates labels you use
-(it currently hypotheses and
+(it currently validates hypotheses and
 [will soon validate goals](https://github.com/expln/metamath-lamp/issues/81)),
 and it will show an error message if the label
 is already in use in the current context.
@@ -1941,7 +1941,7 @@ Let's eliminate this justification:
 > icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
 > to delete the justification.
 
-Let's unify and see what happens:
+Let's unify and see what happens (make sure all the steps are unselected before proceeding):
 
 > Click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
@@ -2045,7 +2045,7 @@ When using `set.mm` or `iset.mm`, you'll see work variables of certain types:
   to be a variable ensures that they are syntactically valid.
 
 In work variables the number will increase from 1 as needed to keep
-different work variables distinct..
+different work variables distinct.
 
 If you look carefully you'll see that the "Variables" field in the
 proof display has new information once work variables are added.
@@ -2105,9 +2105,9 @@ instead of completing this step:
 
 > Click on the
 > icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
-> In "Replace what" use the value &amp;W1 and in
-> "replace with" use the value `( ph -> ( ps -> ch ) )` and then press Return.
-> Click "Find Substitution<!-- ‡ -->" button; metamath-lamp will
+> In "Match what" use the value &amp;W1 and in
+> "Match with" use the value `( ph -> ( ps -> ch ) )` and then press Return
+> (or click the "Find Substitution<!-- ‡ -->" button). Metamath-lamp will
 > show one possible substitution<!-- ‡ -->.
 > You *could* click on the "Apply button and then unify, but don't;
 > select the "Cancel" button instead.
@@ -2198,22 +2198,22 @@ Now we can use global substitution:
 > Select the
 > icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 > The global substitution dialogue will appear, with our selections
-> entered as the "Replace what" and "Replace with" entries.
+> entered as the "Match what" and "Match with" entries.
 
 The two selected fragments have been copied into the fields.
-The earlier selected fragment is the "Replace what" and the
-later selected fragment is the "replace with"
+The earlier selected fragment is the "Match what" and the
+later selected fragment is the "Match with"
 If they are in the opposition places of what you wanted, you can
 swap them by clicking on the
 icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
-on the right of the "replace what" field.
+on the right of the "Match what" field.
 In this case we don't need to reverse anything, as
 this is what we want.
 
 > Click on "Find substitution". Notice that it shows a valid substitution<!-- ‡ -->
 > that replaces multiple work variables.
 
-Again, notice that "Replace what" doesn't need to be a single work variable.
+Again, notice that "Match what" doesn't need to be a single work variable.
 It can be an expression, one that even includes multiple work variables.
 If there are multiple work variables, and you apply the change, all will be
 replaced as necessary throughout the proof.
@@ -2240,7 +2240,8 @@ The second long-click highlighted this fragment in step 4:
 ( ph -> ( ps -> ch ) )
 ~~~~
 
-> Click on "Find substitution<!-- ‡ -->".
+> Click on the
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 
 Again the two fragments are copied in.
 However, in this case the order is the opposite of what we wanted,
@@ -2248,7 +2249,7 @@ because we want to replace a work variable with an expression
 (not the other way around).
 So we'll swap them by clicking on the
 icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
-on the right of the "replace what" field.
+on the right of the "match what" field.
 
 > Click on the
 > icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
@@ -2286,7 +2287,7 @@ Select step 2, and do a bottom-up proof of it as well.
 > and press "prove".
 > The tool will show various options for proving the result
 > (you may need to scroll down).
-> At the top it will show a use of `ac-mp` that proves all steps;
+> At the top it will show a use of `ax-mp` that proves all steps;
 > select it and "apply selected".
 
 Congratulations! We now have a proof of `syl` by *only* using
@@ -2515,7 +2516,7 @@ can help us do just that.
 
 > Select the
 > icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
-> In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
+> In "Match what" enter <tt>&amp;C1</tt> and in "Match with"
 > enter `A` and once that's done, press "Find Substitution<!-- ‡ -->".
 > The system will check if this is valid; in this case, it determined that
 > there was only 1 way to interpret this command and that the result is valid.
@@ -2543,7 +2544,7 @@ should be, so let's deal with that now.
 
 > Select the
 > icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
-> In "Replace what" enter <tt>&amp;C1</tt> and in "Replace with"
+> In "Match what" enter <tt>&amp;C1</tt> and in "Match with"
 > enter `A` and once that's done, press "Find Substitution<!-- ‡ -->".
 > It will show you that you can change <tt>&amp;C1</tt> to `A` so press
 > `Apply` to apply the change.
@@ -2731,8 +2732,8 @@ Let's replace the work variable <tt>&amp;C1</tt>:
 > Click on the
 > icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->)
 > to begin a substitution that will occur across the *entire* proof.
-> In "Replace what" enter <tt>&amp;C1</tt> and
-> in "Replace with" enter <tt>( cos &#96; A )</tt> ... Once you're done, press
+> In "Match what" enter <tt>&amp;C1</tt> and
+> in "Match with" enter <tt>( cos &#96; A )</tt> ... Once you're done, press
 > "Find Substitution<!-- ‡ -->". It will determine that there is 1 valid substitution<!-- ‡ -->;
 > press "Apply".
 
@@ -2740,8 +2741,8 @@ Let's replace the work variable <tt>&amp;C2</tt>:
 
 > Click on the
 > icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
-> In "Replace what" enter <tt>&amp;C2</tt> and
-> in "Replace with" enter <tt>( sin &#96; A )</tt> ...
+> In "Match what" enter <tt>&amp;C2</tt> and
+> in "Match with" enter <tt>( sin &#96; A )</tt> ...
 > once that's done, press
 > "Find Substitution<!-- ‡ -->". It will determine that there is 1 valid substitution<!-- ‡ -->;
 > press "Apply".
@@ -3594,27 +3595,27 @@ After you select this icon
 you'll be presented with a simple dialogue box to describe the
 global substitution<!-- ‡ -->:
 
-* In the "Replace what" field, enter what expression you want to change,
+* In the "Match what" field, enter what expression you want to change,
   (e.g., <tt>&amp;C1</tt> or <tt>( &amp;W1 -> &amp;W2 )</tt>).
-* In the "Replace with" field, enter what expression you want the first
+* In the "Match with" field, enter what expression you want the first
   expression to change into (e.g., `A` or `( ph -> ch )`).
 
 You can use fragment selectors to select one or two statement(s)
 before starting a global substitution.
 When you press the global substitution icon, a copy
 of the first fragment (in displayed order)
-will be placed in the "Replace what" field, while a copy
+will be placed in the "Match what" field, while a copy
 of the second fragment (if any)
-will be placed in the "Replace with" field.
+will be placed in the "Match with" field.
 You can use the
 icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 to swap the field entries.
 
 You can also use the checkboxes on the left to select steps
 before starting a global substitution.
-The steps selected first will be copied into the "Replace what" field,
+The steps selected first will be copied into the "Match what" field,
 and the step selected second (if any) will be copied into the
-"Replace with" field.
+"Match with" field.
 
 When you press "Find Substitution<!-- ‡ -->" the tool will determine if it
 can apply this substitution (that is, if the results are valid types
