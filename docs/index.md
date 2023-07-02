@@ -2107,7 +2107,7 @@ instead of completing this step:
 > icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 > In "Match what" use the value &amp;W1 and in
 > "Match with" use the value `( ph -> ( ps -> ch ) )` and then press Return
-> (or click "Find Substitution<!-- ‡ -->" button). Metamath-lamp will
+> (or click the "Find Substitution<!-- ‡ -->" button). Metamath-lamp will
 > show one possible substitution<!-- ‡ -->.
 > You *could* click on the "Apply button and then unify, but don't;
 > select the "Cancel" button instead.
