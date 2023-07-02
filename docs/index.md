@@ -1941,7 +1941,7 @@ Let's eliminate this justification:
 > icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
 > to delete the justification.
 
-Let's unify and see what happens:
+Let's unify and see what happens (make sure all the steps are unselected before proceeding):
 
 > Click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
