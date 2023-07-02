@@ -2045,7 +2045,7 @@ When using `set.mm` or `iset.mm`, you'll see work variables of certain types:
   to be a variable ensures that they are syntactically valid.
 
 In work variables the number will increase from 1 as needed to keep
-different work variables distinct..
+different work variables distinct.
 
 If you look carefully you'll see that the "Variables" field in the
 proof display has new information once work variables are added.
