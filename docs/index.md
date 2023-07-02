@@ -2240,7 +2240,8 @@ The second long-click highlighted this fragment in step 4:
 ( ph -> ( ps -> ch ) )
 ~~~~
 
-> Click on "Find substitution<!-- ‡ -->".
+> Click on the
+> icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 
 Again the two fragments are copied in.
 However, in this case the order is the opposite of what we wanted,
