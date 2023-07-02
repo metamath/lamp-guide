@@ -1850,7 +1850,7 @@ or hypothesis label.
 The convention in `set.mm`, as shown above, is for hypotheses to be labelled
 as the name of the goal + `.` + an integer starting from 1.
 Metamath-lamp validates labels you use
-(it currently hypotheses and
+(it currently validates hypotheses and
 [will soon validate goals](https://github.com/expln/metamath-lamp/issues/81)),
 and it will show an error message if the label
 is already in use in the current context.
