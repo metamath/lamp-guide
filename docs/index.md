@@ -2287,7 +2287,7 @@ Select step 2, and do a bottom-up proof of it as well.
 > and press "prove".
 > The tool will show various options for proving the result
 > (you may need to scroll down).
-> At the top it will show a use of `ac-mp` that proves all steps;
+> At the top it will show a use of `ax-mp` that proves all steps;
 > select it and "apply selected".
 
 Congratulations! We now have a proof of `syl` by *only* using
