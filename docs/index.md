@@ -2202,7 +2202,7 @@ Now we can use global substitution:
 
 The two selected fragments have been copied into the fields.
 The earlier selected fragment is the "Match what" and the
-later selected fragment is the "match with"
+later selected fragment is the "Match with"
 If they are in the opposition places of what you wanted, you can
 swap them by clicking on the
 icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
