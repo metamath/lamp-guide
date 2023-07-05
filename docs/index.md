@@ -3080,6 +3080,7 @@ Here we will discuss:
 * [Individual Assertion tab](#individual-assertion-tab)
 * [Temporary mode (TEMP mode)](#temporary-mode-temp-mode)
 * [Common set.mm symbols](#common-setmm-symbols)
+* [Metamath-lamp update history](#metamath-lamp-update-history)
 
 ### Basic UI conventions
 
@@ -3978,6 +3979,21 @@ Here are some common symbols defined in `set.mm`.
   This notation means the same thing as
   the <tt>tan(A)</tt> notation used by others
   but without context-dependent notational ambiguity.
+
+### Metamath-lamp update history
+
+#### Version 11
+
+Major additions in version 11:
+
+* Added an "explorer tab" and dynamic tabs for existing proofs,
+   enabling users to examine the current context at any time.
+* Works well on smartphones (e.g., supports "long-click" or "long-tap").
+* More unified UI - all edits by default use a "long-click".
+* Supports identifying one provable statement as the "goal statement"
+   and treats it specially, making the UI easier to use.
+* Visualization can be enabled or disabled per justification.
+* More control over which fields are displayed during editing.
 
 ## Future directions
 
