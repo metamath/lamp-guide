@@ -4014,6 +4014,28 @@ Here are some likely future capabilities:
 * [Some automation](https://github.com/expln/metamath-lamp/issues/17)
 * Ensuring that [statements marked discouraged are not automatically added by default](https://github.com/expln/metamath-lamp/issues/31)  and [syntax marked discouraged are ignored by default](https://github.com/expln/metamath-lamp/issues/108)
 
+One planned new capability is paste in the fragment selector:
+
+| Icon | Meaning | Visual Description | Additional information |
+| ---- | ------- | ------------------ | ---------------------- |
+| <img width="32" height="32" src="paste.svg" alt="paste"> | Paste | Clipboard | Paste the clipboard contents onto the current selected fragment |
+
+In the statement fragment selector icon bar, the
+icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste)
+will paste the clipboard's current contents onto the current selected
+fragment.
+The expected use is that you'll select a fragment in one area, click on the
+icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy to clipboard),
+select another fragment you want to replace, and then click on the
+icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste).
+Copy and paste work well within the application, however, note that the
+browser may request additional permissions if you try to paste data from
+outside the current application.
+NB: In Firefox copy to clipboard works as expected, but the
+icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste)
+will currently *only* paste from the current metamath-lamp application,
+and never from a different browser origin or a different application.
+
 Here are [proposed v12 milestones](https://github.com/expln/metamath-lamp/milestone/2).
 
 ## Help, feedback, and contributions
