@@ -105,7 +105,7 @@ To use metamath-lamp, do the following:
 1. Load the proof context (the databases you'll use and their scope).
 2. Set the fundamental proof information where desired (its
    description, variables, and disjoints).
-3. Add the goal (`qed`) and any hypotheses to the list of steps.
+3. Add the goal (`qed`) and any (essential) hypotheses to the list of steps.
    Set their labels to what you want them to be in the final database.
 4. Now create the proof.
    To do this, you add other steps and repeatedly unify them
@@ -339,7 +339,7 @@ We did that to prove a point.
 
 Final Metamath proofs must adhere to extremely rigorous standards.
 In particular, every step must be justified by an axiom or proven theorem
-and can only use previous steps as their hypotheses.
+and can only use previous steps as their (essential) hypotheses.
 
 However, metamath-lamp is flexible in supporting how you *reach*
 this rigorous objective.
@@ -417,8 +417,10 @@ Each step has a collection of information, shown left-to-right:
 * *Checkbox* to show if the step is selected.
 * *Label* (to identify it).
   A step label is sometimes informally called a step id or step name.
-* *Step type* (a goal **G**, hypothesis **H**, or
-  another provable statement **P**).
+* *Step type* (a goal **G**, an (essential) hypothesis **H**, or
+  another provable statement **P**). A goal is a special kind of
+  provable statement. (When we say "hypothesis" in this document we mean
+  a Metamath "essential hypothesis" unless we specifically say otherwise.)
 * *Justification* (if any) - the reason the statement is true.
 * *Statement* (a claim, typically beginning with `|-`).
 
@@ -482,7 +484,7 @@ to the right of the label and the left of the statement
 (starting with `|-`), there is a bold letter **P**.
 This bold letter **P** is the step type; the **P**
 means that this step is intended to be *provable*.
-In some cases you'll want a step to be a
+In some cases you'll want a step to be an (essential)
 *hypothesis* (something assumed) instead being *provable*.
 You can select the **P** with a long-click to change it
 to an **H** (hypothesis) or back to **P** (provable).
@@ -1317,7 +1319,7 @@ Here is what axiom `ax-mp` (modus ponens) looks like in the explorer display:
 <!-- It's too big without scaling. 386/2 = 193, 188/2 = 94 -->
 <img src="ax-5-explorer.png" width="193" height="94" alt="Axiom ax-5 (modus ponens) in the explorer tab">
 
-Axiom `ax-mp` (Modus ponens) has two hypotheses:
+Axiom `ax-mp` (Modus ponens) has two (essential) hypotheses:
 
 * `|- ph` - that is, "when `ph` is true", and
 * `|- ( ph -> ps )` - that is, "when `ph` implies `ps`"
@@ -3433,7 +3435,7 @@ Each step is presented in the following left-to-right order:
   refer to a statement.
 * Step type (**P**/**H**/**G**): The step type is "**P**"
   if it's a provable statement (a statement to be proven),
-  "**H**" if the statement is a hypothesis, or
+  "**H**" if the statement is an (essential) hypothesis, or
   "**G**" if the statement is a goal (a special kind of provable statement).
   Typically all hypotheses are listed first and the goal is shown last.
   for the proved step (if any).
@@ -3521,11 +3523,13 @@ any special hypotheses to use. To do that:
   By default the step added when there are currently no steps
   is assigned the step type **G** (goal) - a special kind of provable
   statement that by default is kept at the end of the list of steps.
-* If there are hypotheses, click on the
+* If there are (essential) hypotheses, click on the
   icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement),
   enter the statement text, and then long-click on the **P**.
-  Change "**P**" (provable assertion)
-  into "**H**" (hypothesis). Put them in the intended order by selecting them
+  Change "**P**" (provable assertion) into "**H**" (hypothesis).
+  (Note: In this document, unless we specifically say otherwise, when we
+  say "hypothesis" we mean a Metamath essential hypothesis).
+  Put them in the intended order by selecting them
   (the box on the left) and clicking on the up and down icons.
   You may want to rename the labels of the hypotheses.
 
