@@ -3984,6 +3984,116 @@ Here are some common symbols defined in `set.mm`.
   the <tt>tan(A)</tt> notation used by others
   but without context-dependent notational ambiguity.
 
+#### JSON format
+
+Metamath-lamp exports proofs in JSON format, which you can later
+import later to restore the current state.
+We recommend using the `.lamp.json` extension if you store them
+in a file.
+
+##### JSON format specification
+
+The JSON format has a single object at its root, with the
+following keys and values:
+
+* "srcs": Array of source objects (see below).
+  This array collectively defines the proof context.
+* "descr": String. The description.
+* "varsText": String. The text of the variables.
+* "disjText": String. The text of the disjunctions.
+* "stmts": Array of step objects (see below).
+
+A source object has the following keys and values:
+
+* "typ": String. It should be "Web" (load from the web) or "Local".
+* "fileName": String. The filename (if "typ" is "Local").
+* "url": String. The URL (if "typ" is "Web").
+* "readInstr": String. This can be "StopBefore", "StopAfter", or "ReadAll".
+* "label": String. This is the label to "StopBefore" or "StopAfter".
+* "resetNestingLevel": Boolean.
+* "allLabels": Array.
+
+A step object has the following keys and values:
+
+* "label": String. The label for this step.
+  Every label should be unique in a proof.
+  Labels for the goal and hypotheses should not have any other use in the
+  context (it can't be a symbol or label in use).
+* "typ": String. This is "e" for an (essential) hypothesis or "p" for
+  a provable statement. Note that a goal statement has a "typ" of "p"
+  with "isGoal" is set to true.
+* "isGoal": Boolean. This is true if this step is a goal, else it is false.
+  There should be at most one step that is a goal.
+* "cont": String. This is the text of the step's statement, including
+  the prefix typecode (such as `|-`). E.g., "|- ( ph -> ps )" is
+  an example of such a string,
+* "jstfText": String. This the justification text.
+  Note that the metamath-lamp tool will always show `HYP` for a step
+  that is an essential hypothesis ("typ" of "e"), regardless of the value
+  stored. If the justification text is not empty, it should be of the form
+  HYPS&nbsp;:&nbsp;REF
+  where HYPS is a space-separated sequence of zero or more step
+  labels, and the REF is the label of a statement available in the context.
+  There is normally a space on either side of the colon.
+
+##### JSON Example
+
+Here's an example of the JSON format. Here's the
+[easy proof of syl](syl-easy.lamp.json):
+
+![Screenshot of syl (easy proof)](./syl-easy.png)
+
+Here is the equivalent JSON for it:
+
+~~~~
+{
+  "srcs": [
+    {
+      "typ": "Web",
+      "fileName": "",
+      "url": "https://us.metamath.org/metamath/set.mm",
+      "readInstr": "StopBefore",
+      "label": "syl",
+      "resetNestingLevel": true,
+      "allLabels": []
+    }
+  ],
+  "descr": "Reprove syllogism (\"syl\"), using only axioms.",
+  "varsText": "",
+  "disjText": "",
+  "stmts": [
+    {
+      "label": "syl.1",
+      "typ": "e",
+      "isGoal": false,
+      "cont": "|- ( ph -> ps )",
+      "jstfText": ""
+    },
+    {
+      "label": "syl.2",
+      "typ": "e",
+      "isGoal": false,
+      "cont": "|- ( ps -> ch )",
+      "jstfText": ""
+    },
+    {
+      "label": "1",
+      "typ": "p",
+      "isGoal": false,
+      "cont": "|- ( ( ph -> ps ) -> ( ph -> ch ) )",
+      "jstfText": "syl.2 : imim2i"
+    },
+    {
+      "label": "syl",
+      "typ": "p",
+      "isGoal": true,
+      "cont": "|- ( ph -> ch )",
+      "jstfText": "syl.1 1 : ax-mp"
+    }
+  ]
+}
+~~~~
+
 ### Metamath-lamp update history
 
 #### Version 11
