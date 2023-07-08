@@ -3989,7 +3989,7 @@ Here are some common symbols defined in `set.mm`.
 ### JSON format
 
 Metamath-lamp exports proofs in JSON format, which you can later
-import later to restore the current state.
+import to restore the current state.
 We recommend using the `.lamp.json` extension if you store them
 in a file.
 
