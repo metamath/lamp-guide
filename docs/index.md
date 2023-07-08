@@ -1892,7 +1892,9 @@ Also, note that this new step *and* the final goal
 `syl` have green checkmarks.
 
 The most important thing is that our final goal has a green checkmark,
-meaning the goal is fully proved!
+meaning the goal is fully proved! Here's what the result looks like:
+
+![Screenshot of syl (easy proof)](./syl-easy.png)
 
 If you like, you can again extract the final compressed proof:
 
