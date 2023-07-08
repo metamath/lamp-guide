@@ -3984,14 +3984,14 @@ Here are some common symbols defined in `set.mm`.
   the <tt>tan(A)</tt> notation used by others
   but without context-dependent notational ambiguity.
 
-#### JSON format
+### JSON format
 
 Metamath-lamp exports proofs in JSON format, which you can later
 import later to restore the current state.
 We recommend using the `.lamp.json` extension if you store them
 in a file.
 
-##### JSON format specification
+#### JSON format specification
 
 The JSON format has a single object at its root, with the
 following keys and values:
@@ -4036,7 +4036,7 @@ A step object has the following keys and values:
   labels, and the REF is the label of a statement available in the context.
   There is normally a space on either side of the colon.
 
-##### JSON Example
+#### JSON Example
 
 Here's an example of the JSON format. Here's the
 [easy proof of syl](syl-easy.lamp.json):
