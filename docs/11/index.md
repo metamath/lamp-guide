@@ -79,9 +79,8 @@ We hope you'll find it useful.
 Metamath-lamp improves over time, so some of this guide
 may not exactly match what you see. If you see a difference, please
 let us know so we can fix this guide.
-This guide was written for release version 13.
-You can also see the guide for [version 10](10/index.html) and
-[version 11](11/index.html).
+This guide was written for release version 11.
+You can also see the guide for [version 10](10/index.html).
 
 The latest version of this
 [*Metamath-lamp guide*](https://lamp-guide.metamath.org/)
@@ -594,7 +593,6 @@ Here is the meaning of each icon in the statement fragment selector:
 | <img width="32" height="32" src="addabove.svg" alt="add above"> | Add new statement above | Arrow up from box | Create a new step above the current step with the selected statement fragment |
 | <img width="32" height="32" src="addbelow.svg" alt="add below"> | Add new statement below | Arrow down from box | Create a new step below the current step with the selected statement fragment |
 | <img width="32" height="32" src="copy.svg" alt="copy"> | Copy to clipboard | | Copy the fragment into the clipboard |
-| <img width="32" height="32" src="paste.svg" alt="paste"> | Paste | Clipboard | Paste the clipboard contents onto the current selected fragment |
 | <img width="32" height="32" src="edit.svg" alt="edit"> | Edit | Pencil | Start editing with current text selected |
 | <img width="32" height="32" src="cancel.svg" alt="cancel"> | Cancel| Circled X | Cancel (and close) this statement fragment dialogue |
 
@@ -602,23 +600,7 @@ You can use a fragment selector on *more* than one
 step at the same time; this is useful, for example, when doing a
 *[global substitution](#global-substitution)*.
 
-In the statement fragment selector icon bar, the
-icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste)
-will paste the clipboard's current contents onto the current selected
-fragment.
-The expected use is that you'll select a fragment in one area, click on the
-icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy to clipboard),
-select another fragment you want to replace, and then click on the
-icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste).
-Copy and paste work well within the application, however, note that the
-browser may request additional permissions if you try to paste data from
-outside the current application.
-In Firefox copy to clipboard works as expected, but the
-icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste)
-will currently *only* paste from the current metamath-lamp application,
-and never from a different browser origin or a different application.
-
-In this case, we'll use the fragment selector to change `( 3 + 1 )` to 4:
+In this case, we'll change `( 3 + 1 )` to 4:
 
 > Click on the
 > icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit)
@@ -2647,35 +2629,16 @@ the relevant section of the new statement.
 
 > Click on the
 > icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy to clipboard)
-> under the goal statement, so that the selected text will be
-> copied to the clipboard.
-> click on the *second* parenthesis of the new statement,
-> to open its fragment selector and select that portion of the statement.
+> under the goal statement.
+> Long-click on the second parenthesis of the new statement
+> we just created, selecting its antecedent.
 > Click on the
-> icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste)
-> in the corresponding new fragment selector icon bar of the new statement.
-> Notice that the selected fragment has now been replaced by the text that
-> was previously copied into the clipboard.
-
-You can also use your system's paste command, though it's typically
-less convenient than the built-in paste command provided by metamath-lamp
-(though there's no need to do that here).
-
-You could have done that via a
-long-click on the second parenthesis of the new statement
-we just created (selecting its antecedent),
-clicking on the
-icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit)
-to edit the text directly but with the selected text highlighted.
-You could then use your system's paste command to overwrite
-the selected text with the text in the clipboard.
-The system's paste command is
-"control-V" on most computers, "command-V" on Macintoshes, and
-on smartphones you'd use a long-click in the selected edit region
-and then select paste.
-Press Enter (Return) or the click the
-icon <img width="16" height="16" src="save.svg" alt="save"> (save)
-to save the modified statement.
+> icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit),
+> then use your system's paste command
+> ("control-V" on most computers, "command-V" on Macintoshes) to overwrite
+> the selected text with the text in the clipboard.
+> On smartphones use a long-click in the selected edit region and select paste.
+> Press Enter (Return) to save the modified statement.
 
 We now have a new statement, showing value of a tangent is still
 valid given the antecedent of our goal:
@@ -2684,9 +2647,6 @@ valid given the antecedent of our goal:
 |- ( ( A e. CC /\ ( sin ` A ) =/= 0 /\ ( cos ` A ) =/= 0 ) ->
      ( tan ` A ) = ( ( sin ` A ) / ( cos ` A ) ) )
 ~~~~
-
-If you don't have this statement, use a long-click and then edit the
-statement to fix it.
 
 It turns out that metamath-lamp can immediately prove this new step.
 
@@ -3541,7 +3501,6 @@ Here is the full set of icons in the fragment selection bar:
 | <img width="32" height="32" src="addabove.svg" alt="add above"> | Add new statement above | Arrow up from box | Create a new step above the current step with the selected statement fragment |
 | <img width="32" height="32" src="addbelow.svg" alt="add below"> | Add new statement below | Arrow down from box | Create a new step below the current step with the selected statement fragment |
 | <img width="32" height="32" src="copy.svg" alt="copy"> | Copy to clipboard | | Copy the fragment into the clipboard |
-| <img width="32" height="32" src="paste.svg" alt="paste"> | Paste | Clipboard | Paste the clipboard contents onto the current selected fragment |
 | <img width="32" height="32" src="edit.svg" alt="edit"> | Edit | Pencil | Start editing with current text selected |
 | <img width="32" height="32" src="cancel.svg" alt="cancel"> | Cancel| Circled X | Cancel (and close) this statement fragment dialogue |
 
@@ -3550,14 +3509,6 @@ step at the same time. In particular, you can use the fragment selector
 on two statements and then invoke *[global substitution](#global-substitution)*.
 Both fragments can be complex expressions when global substitution
 occurs (they are not limited to single symbols or only one work variable).
-
-Copy and paste work well within the application, however, note that the
-browser may request additional permissions if you try to paste data from
-outside the current application.
-In Firefox the copy to clipboard functionality works as expected, but the
-icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste)
-will currently *only* paste from the current metamath-lamp application,
-and never from a different browser origin or a different application.
 
 #### How to state the goal and hypotheses
 
@@ -4158,18 +4109,6 @@ Here is the equivalent JSON for it:
 
 ### Metamath-lamp update history
 
-This is a summary of the metamath-lamp update history in
-reverse chronological order. We'll emphasize user-visible changes.
-
-#### Version 13
-
-Major additions in version 13 (released 2023-07-08):
-
-* Added the
-  icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste)
-  to the statement fragment selector icon bar, enabling syntax-aware
-  pasting as well as copying. It's been tested on Chrome, Firefox, and Safari.
-
 #### Version 11
 
 Major additions in version 11:
@@ -4201,6 +4140,28 @@ Here are some likely future capabilities:
 * [Undo/redo](https://github.com/expln/metamath-lamp/issues/33)
 * [Some automation](https://github.com/expln/metamath-lamp/issues/17)
 * Ensuring that [statements marked discouraged are not automatically added by default](https://github.com/expln/metamath-lamp/issues/31)  and [syntax marked discouraged are ignored by default](https://github.com/expln/metamath-lamp/issues/108)
+
+One planned new capability is paste in the fragment selector:
+
+| Icon | Meaning | Visual Description | Additional information |
+| ---- | ------- | ------------------ | ---------------------- |
+| <img width="32" height="32" src="paste.svg" alt="paste"> | Paste | Clipboard | Paste the clipboard contents onto the current selected fragment |
+
+In the statement fragment selector icon bar, the
+icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste)
+will paste the clipboard's current contents onto the current selected
+fragment.
+The expected use is that you'll select a fragment in one area, click on the
+icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy to clipboard),
+select another fragment you want to replace, and then click on the
+icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste).
+Copy and paste work well within the application, however, note that the
+browser may request additional permissions if you try to paste data from
+outside the current application.
+NB: In Firefox copy to clipboard works as expected, but the
+icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste)
+will currently *only* paste from the current metamath-lamp application,
+and never from a different browser origin or a different application.
 
 Here are [proposed v12 milestones](https://github.com/expln/metamath-lamp/milestone/2).
 
