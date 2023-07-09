@@ -4283,6 +4283,14 @@ To simplify things and not have to think about different possible scenarios,
 metamath-lamp tends to use the approach
 "<i>stop if bad data is detected and let the user decide how to correct the data</i>".
 
+There are a few terminology differences in the UI/documentation
+versus the source code:
+
+| UI/Documentation term | Source code term            |
+| --------------------- | --------------------------- |
+| Step                  | Statement (`stmt`, `stmts`) |
+| (MM-lamp) Statement   | Statement contents (`cont`) |
+
 Here are some conventions for the source code filenames:
 
 * Filenames beginning with `MM_cmp_*.res` (meaning "component")
