@@ -4012,8 +4012,19 @@ A source object has the following keys and values:
 * "url": String. The URL (if "typ" is "Web").
 * "readInstr": String. This can be "StopBefore", "StopAfter", or "ReadAll".
 * "label": String. This is the label to "StopBefore" or "StopAfter".
-* "resetNestingLevel": Boolean.
-* "allLabels": Array.
+* "resetNestingLevel": Boolean. If true, all the inner blocks are
+   automatically closed.
+   The result will be similar to the situation
+   if immediately after this source was read there were closing `$}`
+   added to match all already read and currently open blocks that were
+   opened with `${`.
+   Blocks are defined in the Metamath book in "4.2.8 Scoping Statements".
+* "allLabels": Optional empty Array.
+  Internally this is not empty and is used to speed up some parts
+  of the application.
+  When exported to JSON this is always exported as an empty array.
+  It is not required when importing from JSON; if you remove it,
+  the import will still work.
 
 A step object has the following keys and values:
 
@@ -4029,7 +4040,7 @@ A step object has the following keys and values:
 * "cont": String. This is the text of the step's statement, including
   the prefix typecode (such as `|-`). E.g., "|- ( ph -> ps )" is
   an example of such a string,
-* "jstfText": String. This the justification text.
+* "jstfText": String. This is the justification text.
   Note that the metamath-lamp tool will always show `HYP` for a step
   that is an essential hypothesis ("typ" of "e"), regardless of the value
   stored. If the justification text is not empty, it should be of the form
