@@ -4198,9 +4198,59 @@ Here are some likely future capabilities:
 
 * [In the editor, click on a reference in a justification to view its details in a different dynamic tab](https://github.com/expln/metamath-lamp/issues/99)
 * [Use a full unification algorithm](https://github.com/expln/metamath-lamp/issues/77)
-* [Undo/redo](https://github.com/expln/metamath-lamp/issues/33)
 * [Some automation](https://github.com/expln/metamath-lamp/issues/17)
 * Ensuring that [statements marked discouraged are not automatically added by default](https://github.com/expln/metamath-lamp/issues/31)  and [syntax marked discouraged are ignored by default](https://github.com/expln/metamath-lamp/issues/108)
+
+Here's draft text describing
+[Undo/redo](https://github.com/expln/metamath-lamp/issues/33)
+and other added functionality.
+
+| Icon | Meaning | Visual Description | Additional information |
+| ---- | ------- | ------------------ | ---------------------- |
+| <img width="32" height="32" src="time.svg" alt="restore/undo"> | Restore | Clock | Restore to a previous state (aka undo) |
+
+> icon <img width="16" height="16" src="time.svg" alt="restore/undo"> (restore/undo)
+
+Here is a short description:
+
+The
+icon <img width="16" height="16" src="time.svg" alt="restore or undo/redo"> (restore or undo/redo)
+launches the ability to restore some previous state (aka "undo/redo").
+When you press the
+icon <img width="16" height="16" src="time.svg" alt="restore/undo"> (restore or undo/redo)
+you'll see a full screen dialogue showing a potential state that you can
+switch to.
+You may click the "&lt; PREV" button to go to the previous state
+and "NEXT &gt;" button to go to the next state.
+Click the "Restore this" button to load the currently shown state
+to the editor.
+Click the "Close" button to close the undo/redo dialog.
+When the "Restore this" button is disabled that means the current state
+is shown, so there is nothing to restore.
+The undo/redo dialog always begins on the state previous to the current state.
+Note that you can visually see the potential new state before you accept it.
+
+The change history is stored to the local storage upon each change
+in the editor.
+Therefore, a too long history may affect performance.
+There is a setting "Max length of editor history".
+By default, its value is 20.
+The main purpose of the current implementation of the undo/redo functionality
+is to recover from accidental unwanted changes.
+For storing some key states of the editor
+please use the export to JSON and save the JSON results
+somewhere in a text file.
+
+A new text field "Notes" is added to the "Export to JSON" dialog.
+This allows you to write some short notes about the state being exported.
+Pressing Enter in this field copies the state to the clipboard and
+closes the dialog.
+
+Change histories for the regular mode and the TEMP mode are stored
+separately.
+
+Note that you currently cannot undo a change by pressing
+Ctrl+Z. That is an intended future change.
 
 Here are [proposed v12 milestones](https://github.com/expln/metamath-lamp/milestone/2).
 
