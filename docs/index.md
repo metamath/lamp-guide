@@ -3617,7 +3617,7 @@ are local to the proof.
 Let's now look at details of some of the more complex dialogues
 in the tools.
 
-### Restore previous state (aka undo/redo)
+#### Restore previous state (aka undo/redo)
 
 The
 icon <img width="16" height="16" src="time.svg" alt="restore or undo/redo"> (restore previous state, aka undo/redo)
