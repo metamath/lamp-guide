@@ -4209,7 +4209,9 @@ and other added functionality.
 | ---- | ------- | ------------------ | ---------------------- |
 | <img width="32" height="32" src="time.svg" alt="restore/undo"> | Restore | Clock | Restore to a previous state (aka undo) |
 
+<!--
 > icon <img width="16" height="16" src="time.svg" alt="restore/undo"> (restore/undo)
+-->
 
 Here is a short description:
 
