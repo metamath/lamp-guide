@@ -2967,7 +2967,7 @@ You can
 The metamath-lamp tool has other capabilities we haven't covered.
 For example:
 
-* The icon <img width="16" height="16" src="time.svg" alt="restore/undo/redo"> (restore/undo) will let you undo to a previous state. See [Restore previous state (aka undo/redo)](#restor-prevoius-state-aka-undo-redo) for more.
+* The icon <img width="16" height="16" src="time.svg" alt="restore/undo/redo"> (restore/undo) will let you undo to a previous state. See [Restore previous state (aka undo/redo)](#restore-previous-state-aka-undoredo) for more.
 
 ### Creating your own examples from existing proofs
 
@@ -3275,7 +3275,7 @@ Here is the full list of subsections:
 * [Fragment selectors](#fragment-selectors) - for selecting
   parts of a statement in the list of statements.
 * [How to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses) - a summary of how to do this.
-* [Restore previous state (aka undo/redo)](#restore-previous-state-aka-undo-redo)
+* [Restore previous state (aka undo/redo)](#restore-previous-state-aka-undoredo)
 * [Search patterns](#search-patterns)
 * [Global substitution](#global-substitution)
 * [Proving bottom-up](#proving-bottom-up)
