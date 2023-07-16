@@ -4262,7 +4262,8 @@ Here are some likely future capabilities:
 * [Some automation](https://github.com/expln/metamath-lamp/issues/17)
 * Ensuring that [statements marked discouraged are not automatically added by default](https://github.com/expln/metamath-lamp/issues/31)  and [syntax marked discouraged are ignored by default](https://github.com/expln/metamath-lamp/issues/108)
 
-Here are [proposed v12 milestones](https://github.com/expln/metamath-lamp/milestone/2).
+Here is [milestone next](https://github.com/expln/metamath-lamp/milestone/2)
+which identifies the next intended actions.
 
 ## Help, feedback, and contributions
 
