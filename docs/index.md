@@ -3528,14 +3528,43 @@ of parentheses-like constructs. This mechanism is called a
 By default, clicking on a symbol in a statement causes a fragment selector
 dialogue to appear and makes a selection based on the selected symbol.
 
-Exactly what fragment is selected depends on the symbol you choose.
-If you select a parentheses-like symbol, it selects the expression
-that begins or ends with that symbol.
-If you select an infix relationship symbol,
-it selects the expression immediately
-surrounding the infix symbol.
+Exactly what fragment is selected depends on the symbol you choose and
+the current context.
+For example, if you select a parentheses-like symbol, it will generally
+select the expression that begins or ends with that symbol.
 
-Once you select a fragment you can change selection.
+Here is the algorithm for what fragment is initially selected.
+The system first parses the entire statement, resulting in some
+internal syntax tree.
+When you click on a symbol, the system will choose the *smallest* syntactically
+valid sequence in the tree that includes the symbol.
+By "syntactically valid" we mean a sequence defined in some syntax expression
+using `$a` statements in the underlying database.
+For example, when using the `set.mm` database:
+
+* Selecting a `(` or `)` will select an expression that completes with
+  its matching symbol. That's because there is no rule that defines the
+  syntax for one isolated parenthesis.
+  There is a syntax rule `co` that says that a `class` can have
+  the form `( A F B )` and there is a syntax rule `wi` that says that
+  a `wff` can have the form `( ph -> ps )`
+  (when we say "syntax rule" we mean an axiom with a typecode other than
+  `|-`).
+  Since there is no syntax rule for an isolated `(` or `)` we use the
+  smallest syntactically-meaningful sequence in the tree that includes
+  the selected symbol.
+* Selecting a symbol that represents a class will select just that symbol,
+  e.g., `4`, `A`, and `+`.
+* Selecting a symbol that represents a wff will select just that symbol,
+  e.g., `ph`.
+* Selecting a symbol that represents a binary relationship will select
+  just that symbol, e.g., `<`.
+* Selecting a symbol where only specific sequences of symbols are defined,
+  such as equality (`=`), infix boolean operations
+  (such as `->`), and negation (`-.`), will select the expression.
+  Note that in some cases this will include a pair of parentheses
+
+Once you select a fragment you can change the selection.
 Clicking on the
 icon <img width="16" height="16" src="zoominmap.svg" alt="expand"> (expand selection)
 will expand the selected sequence of symbols, while
