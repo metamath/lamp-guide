@@ -681,6 +681,15 @@ but sometimes when editing it doesn't help.
 Please remove unwanted parentheses and make sure the statement
 looks exactly as in the example.
 
+Under the edit field you'll notice the
+icon <img width="16" height="16" src="parens.svg" alt="parentheses enabled"> (parentheses enabled),
+which means the editor will automatically insert
+pairs symbols like parentheses.
+You can click on this icon to toggle between this state and
+icon <img width="16" height="16" src="parens_disabled.svg" alt="parentheses disabled"> (parentheses disabled);
+if parentheses are disabled, nothing will happen when you type a paired
+symbol.
+
 Feel free to use statement fragment selectors instead to make this change.
 
 > Now click on the
@@ -1055,6 +1064,11 @@ Let's end its display.
 > display of its visualization, hiding it again.
 
 Please *do* try out visualization of different steps.
+
+In visualizations, if the concluding justification is all constants,
+then the resulting statement isn't repeated because
+it adds no new information. You can see this, for example, by
+doing a visualization of the use of `df-2`.
 
 We think seeing several visualizations
 will help you better understand how it all works.
@@ -1846,10 +1860,12 @@ Let's add some hypotheses.
 > On the drop-down drag down and
 > select "**H**" (hypothesis) to change this step to a hypothesis.
 > Notice that its justification is now "HYP" (it's justified because
-> it's a hypothesis).
-> Long-click on its label and rename it to `syl.1`.
+> it's a hypothesis), and its label will be automatically renamed
+> to `syl.1` (the goal name, ".", and an integer).
 
-We now have a hypothesis! Let's add the other one:
+We now have a hypothesis! You could long-click on the step label and
+rename it to something else, but its detault name is fine.
+Let's add the other one:
 
 > In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 > Enter
@@ -1857,8 +1873,8 @@ We now have a hypothesis! Let's add the other one:
 > and press Enter.
 > Long-click on the **P** on that line;
 > on the drop-down list again select "**H**" (hypothesis).
-> Again, its justification becomes "HYP".
-> Long-click on its label and rename it to `syl.2`.
+> Again, its justification becomes "HYP", and the step label is renamed to
+> `syl.2`.
 
 Notice that it's already ordered in a reasonable way.
 If you ever wanted to change the order of statements, you can select
@@ -3315,9 +3331,11 @@ Under the editor command icon bar is the
 [fundamental proof information](#fundamental-proof-information) followed by
 the
 [list of steps in the proof](#list-of-steps-in-the-proof).
-After discussing the list of steps in the proof we'll discuss
+Unsurprisingly the tool supports
+[editing a statement](#editing-a-statement).
+After discussing the list of steps in the proof and basic editing we'll discuss
 [fragment selectors](#fragment-selectors), which let us
-easily select parts of a statement.
+easily select and modify parts of a statement.
 We'll then discuss
 [how to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses).
 This will be followed by detailed discussions about some specific commands
@@ -3500,6 +3518,12 @@ Each step is presented in the following left-to-right order:
   for the proved step (if any).
   Use click to reveal the justification (if it's hidden).
   Use long-click to change (edit) the step type.
+  If you change the step type to **H** (hypothesis), the step name
+  may be changed. If there is a G step,
+  then the new label will be G step name + "." + integer.
+  If there is no G step, then the tool checks if the currently
+  assigned label is valid. If it is valid, then nothing is changed;
+  if it is invalid, then a different valid numeric label is generated.
 * Justification: This justifies why some statement is true.
   For hypotheses this is "HYP".
   For provable and goal statements, this has the form "*hyps*:*ref*",
@@ -3515,16 +3539,29 @@ Each step is presented in the following left-to-right order:
   with `|-` (meaning "it is true that..."), followed by a space-separated
   sequence of symbols of the statement to be proved. An example of a statement
   is `|- ( 2 + 2 ) = 4` (two plus two equals four).
-  You can edit the statement. By default, you can do this by clicking
-  on the text with the mouse left button or by touching it
-  using a touchscreen.
-  Once you're done, press the
-  icon <img width="16" height="16" src="save.svg" alt="save"> (save)
-  to save the edited statement, or the
-  icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel)
-  to not change the statement.
-  You can also select *parts* of a statement;
-  see the next section on [fragment selectors](#fragment-selectors).
+
+#### Editing a statement
+
+You can edit the statement. By default, you can do this by clicking
+on the text with the mouse left button or by touching it
+using a touchscreen.
+Once you're done, press the
+icon <img width="16" height="16" src="save.svg" alt="save"> (save)
+to save the edited statement, or the
+icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel)
+to not change the statement.
+
+Under the edit field you'll notice the
+icon <img width="16" height="16" src="parens.svg" alt="parentheses enabled"> (parentheses enabled),
+which means the editor will automatically insert
+pairs symbols like parentheses.
+You can click on this icon to toggle between this state and
+icon <img width="16" height="16" src="parens_disabled.svg" alt="parentheses disabled"> (parentheses disabled);
+if parentheses are disabled, nothing will happen when you type a paired
+symbol.
+
+You can also select *parts* of a statement;
+see the next section on [fragment selectors](#fragment-selectors).
 
 #### Fragment selectors
 
