@@ -932,8 +932,7 @@ You can save your state for reloading later in a JSON format:
 
 * "Export to JSON": Provides the current proof assistant
   state as text; you can save this where you wish.
-  You can add optional notes about this specific state if you wish;
-  these notes are prepended, and not incorporated in JSON format.
+  You can add optional notes about this specific state if you wish.
 * "Import from JSON": Allows you to load a state previously
   exported with "Export to JSON".
 
@@ -965,8 +964,6 @@ step is justified (proven) by using the already
 accepted theorem `oveq2i` when applied to that labelled step.
 Advanced users can edit this (with a long-click) to force metamath-lamp to
 try to use a different justification.
-You can also click on the reference in the justification to create
-a new tab showing that theorem/axiom in more detail.
 While editing you can click on the
 icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
 next to the justification
@@ -3506,9 +3503,6 @@ Each step is presented in the following left-to-right order:
   where *hyps* is a space-separated list of previous step's labels that
   are being used in the justification and *ref* is a reference to an
   axiom or theorem in the current context.
-  You can click on the reference, which will create a new tab to show
-  more information about that reference.
-  You can long-click on the justification and edit the justification.
 * Statement: This is the statement to be proven or is being
   accepted as a hypothesis.
   In most cases this statement will start
