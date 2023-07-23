@@ -79,12 +79,13 @@ We hope you'll find it useful.
 Metamath-lamp improves over time, so some of this guide
 may not exactly match what you see. If you see a difference, please
 let us know so we can fix this guide.
-This guide was written for release version 14.
+This guide was written for release version 15.
 You can also see the guide for other versions:
 [version 10](10/index.html),
 [version 11](11/index.html),
+[version 13](13/index.html),
 and
-[version 13](13/index.html).
+[version 14](14/index.html),
 
 The latest version of this
 [*Metamath-lamp guide*](https://lamp-guide.metamath.org/)
@@ -4296,6 +4297,36 @@ Major additions in version 14 (released 2023-07-14):
 
 The addition of "restore previous state" was considered especially important,
 because it enables users to experiment without fear of losing their work.
+
+#### Version 15
+
+Version 15 was released on 2023-07-22.
+It added many small improvements to the Metamath-lamp tool:
+
+* Allow shrinking to a single symbol in fragment selector.
+  Previously it was not possible to shrink selection to a single
+  symbol in some cases. Now it's always possible.
+  [Issue 112](https://github.com/expln/metamath-lamp/issues/112)
+
+* In visualizations, don't repeat if conclusion is all constants.
+  [Issue 115](https://github.com/expln/metamath-lamp/issues/115)
+
+* Add delete (trash can) when editing Description, Variables, and Disjoints
+  [Issue 123](https://github.com/expln/metamath-lamp/issues/123)
+
+* Bug fix: Alt+click doesn't edit label and step type when
+  "long click" is enabled
+  [Issue 138](https://github.com/expln/metamath-lamp/issues/138)
+
+* Automate creating of labels for hypotheses
+  [Issue 32](https://github.com/expln/metamath-lamp/issues/32)
+
+* Now it is possible to switch the parentheses
+  autocompletion on and off depending on needs.
+  [Issue 64](https://github.com/expln/metamath-lamp/issues/64)
+
+* Open proof explorer by clicking refs in justifications in the editor.
+  [Issue 99](https://github.com/expln/metamath-lamp/issues/99)
 
 #### Version 13
 
