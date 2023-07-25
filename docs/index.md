@@ -3543,9 +3543,8 @@ Each step is presented in the following left-to-right order:
 
 #### Editing a statement
 
-You can edit the statement. By default, you can do this by clicking
-on the text with the mouse left button or by touching it
-using a touchscreen.
+You can edit the statement.
+By default, you can do this by long-clicking on the statement text.
 Once you're done, press the
 icon <img width="16" height="16" src="save.svg" alt="save"> (save)
 to save the edited statement, or the
