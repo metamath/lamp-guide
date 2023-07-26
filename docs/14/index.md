@@ -79,13 +79,12 @@ We hope you'll find it useful.
 Metamath-lamp improves over time, so some of this guide
 may not exactly match what you see. If you see a difference, please
 let us know so we can fix this guide.
-This guide was written for release version 15.
+This guide was written for release version 14.
 You can also see the guide for other versions:
 [version 10](10/index.html),
 [version 11](11/index.html),
-[version 13](13/index.html),
 and
-[version 14](14/index.html),
+[version 13](13/index.html).
 
 The latest version of this
 [*Metamath-lamp guide*](https://lamp-guide.metamath.org/)
@@ -682,15 +681,6 @@ but sometimes when editing it doesn't help.
 Please remove unwanted parentheses and make sure the statement
 looks exactly as in the example.
 
-Under the edit field you'll notice the
-icon <img width="16" height="16" src="parens.svg" alt="parentheses enabled"> (parentheses enabled),
-which means the editor will automatically insert
-pairs symbols like parentheses.
-You can click on this icon to toggle between this state and
-icon <img width="16" height="16" src="parens_disabled.svg" alt="parentheses disabled"> (parentheses disabled);
-if parentheses are disabled, nothing will happen when you type a paired
-symbol.
-
 Feel free to use statement fragment selectors instead to make this change.
 
 > Now click on the
@@ -942,8 +932,7 @@ You can save your state for reloading later in a JSON format:
 
 * "Export to JSON": Provides the current proof assistant
   state as text; you can save this where you wish.
-  You can add optional notes about this specific state if you wish;
-  these notes are prepended, and not incorporated in JSON format.
+  You can add optional notes about this specific state if you wish.
 * "Import from JSON": Allows you to load a state previously
   exported with "Export to JSON".
 
@@ -975,8 +964,6 @@ step is justified (proven) by using the already
 accepted theorem `oveq2i` when applied to that labelled step.
 Advanced users can edit this (with a long-click) to force metamath-lamp to
 try to use a different justification.
-You can also click on the reference in the justification to create
-a new tab showing that theorem/axiom in more detail.
 While editing you can click on the
 icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
 next to the justification
@@ -1065,11 +1052,6 @@ Let's end its display.
 > display of its visualization, hiding it again.
 
 Please *do* try out visualization of different steps.
-
-In visualizations, if the concluding justification is all constants,
-then the resulting statement isn't repeated because
-it adds no new information. You can see this, for example, by
-doing a visualization of the use of `df-2`.
 
 We think seeing several visualizations
 will help you better understand how it all works.
@@ -1861,12 +1843,10 @@ Let's add some hypotheses.
 > On the drop-down drag down and
 > select "**H**" (hypothesis) to change this step to a hypothesis.
 > Notice that its justification is now "HYP" (it's justified because
-> it's a hypothesis), and its label will be automatically renamed
-> to `syl.1` (the goal name, ".", and an integer).
+> it's a hypothesis).
+> Long-click on its label and rename it to `syl.1`.
 
-We now have a hypothesis! You could long-click on the step label and
-rename it to something else, but its detault name is fine.
-Let's add the other one:
+We now have a hypothesis! Let's add the other one:
 
 > In the Editor select the icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
 > Enter
@@ -1874,8 +1854,8 @@ Let's add the other one:
 > and press Enter.
 > Long-click on the **P** on that line;
 > on the drop-down list again select "**H**" (hypothesis).
-> Again, its justification becomes "HYP", and the step label is renamed to
-> `syl.2`.
+> Again, its justification becomes "HYP".
+> Long-click on its label and rename it to `syl.2`.
 
 Notice that it's already ordered in a reasonable way.
 If you ever wanted to change the order of statements, you can select
@@ -3332,11 +3312,9 @@ Under the editor command icon bar is the
 [fundamental proof information](#fundamental-proof-information) followed by
 the
 [list of steps in the proof](#list-of-steps-in-the-proof).
-Unsurprisingly the tool supports
-[editing a statement](#editing-a-statement).
-After discussing the list of steps in the proof and basic editing we'll discuss
+After discussing the list of steps in the proof we'll discuss
 [fragment selectors](#fragment-selectors), which let us
-easily select and modify parts of a statement.
+easily select parts of a statement.
 We'll then discuss
 [how to state the goal and hypotheses](#how-to-state-the-goal-and-hypotheses).
 This will be followed by detailed discussions about some specific commands
@@ -3519,49 +3497,28 @@ Each step is presented in the following left-to-right order:
   for the proved step (if any).
   Use click to reveal the justification (if it's hidden).
   Use long-click to change (edit) the step type.
-  If you change the step type to **H** (hypothesis), the step name
-  may be changed. If there is a G step,
-  then the new label will be G step name + "." + integer.
-  If there is no G step, then the tool checks if the currently
-  assigned label is valid. If it is valid, then nothing is changed;
-  if it is invalid, then a different valid numeric label is generated.
 * Justification: This justifies why some statement is true.
   For hypotheses this is "HYP".
   For provable and goal statements, this has the form "*hyps*:*ref*",
   where *hyps* is a space-separated list of previous step's labels that
   are being used in the justification and *ref* is a reference to an
   axiom or theorem in the current context.
-  You can click on the reference, which will create a new tab to show
-  more information about that reference.
-  You can long-click on the justification and edit the justification.
 * Statement: This is the statement to be proven or is being
   accepted as a hypothesis.
   In most cases this statement will start
   with `|-` (meaning "it is true that..."), followed by a space-separated
   sequence of symbols of the statement to be proved. An example of a statement
   is `|- ( 2 + 2 ) = 4` (two plus two equals four).
-
-#### Editing a statement
-
-You can edit the statement.
-By default, you can do this by long-clicking on the statement text.
-Once you're done, press the
-icon <img width="16" height="16" src="save.svg" alt="save"> (save)
-to save the edited statement, or the
-icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel)
-to not change the statement.
-
-Under the edit field you'll notice the
-icon <img width="16" height="16" src="parens.svg" alt="parentheses enabled"> (parentheses enabled),
-which means the editor will automatically insert
-pairs symbols like parentheses.
-You can click on this icon to toggle between this state and
-icon <img width="16" height="16" src="parens_disabled.svg" alt="parentheses disabled"> (parentheses disabled);
-if parentheses are disabled, nothing will happen when you type a paired
-symbol.
-
-You can also select *parts* of a statement;
-see the next section on [fragment selectors](#fragment-selectors).
+  You can edit the statement. By default, you can do this by clicking
+  on the text with the mouse left button or by touching it
+  using a touchscreen.
+  Once you're done, press the
+  icon <img width="16" height="16" src="save.svg" alt="save"> (save)
+  to save the edited statement, or the
+  icon <img width="16" height="16" src="cancel.svg" alt="cancel"> (cancel)
+  to not change the statement.
+  You can also select *parts* of a statement;
+  see the next section on [fragment selectors](#fragment-selectors).
 
 #### Fragment selectors
 
@@ -4296,36 +4253,6 @@ Major additions in version 14 (released 2023-07-14):
 
 The addition of "restore previous state" was considered especially important,
 because it enables users to experiment without fear of losing their work.
-
-#### Version 15
-
-Version 15 was released on 2023-07-22.
-It added many small improvements to the Metamath-lamp tool:
-
-* Allow shrinking to a single symbol in fragment selector.
-  Previously it was not possible to shrink selection to a single
-  symbol in some cases. Now it's always possible.
-  [Issue 112](https://github.com/expln/metamath-lamp/issues/112)
-
-* In visualizations, don't repeat if conclusion is all constants.
-  [Issue 115](https://github.com/expln/metamath-lamp/issues/115)
-
-* Add delete (trash can) when editing Description, Variables, and Disjoints
-  [Issue 123](https://github.com/expln/metamath-lamp/issues/123)
-
-* Bug fix: Alt+click doesn't edit label and step type when
-  "long click" is enabled
-  [Issue 138](https://github.com/expln/metamath-lamp/issues/138)
-
-* Automate creating of labels for hypotheses
-  [Issue 32](https://github.com/expln/metamath-lamp/issues/32)
-
-* Now it is possible to switch the parentheses
-  autocompletion on and off depending on needs.
-  [Issue 64](https://github.com/expln/metamath-lamp/issues/64)
-
-* Open proof explorer by clicking refs in justifications in the editor.
-  [Issue 99](https://github.com/expln/metamath-lamp/issues/99)
 
 #### Version 13
 
