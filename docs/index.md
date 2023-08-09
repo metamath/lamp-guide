@@ -888,7 +888,8 @@ elsewhere).
 This highlighted box was added in version 16, as it makes it easy
 to export final results *and* makes it immediately obvious that you've
 proven the goal.
-You can click on "Close" to close the highlighted box.
+
+> Click on "Close" to close the highlighted box.
 
 If you are new to Metamath and not familiar with formal systems,
 you may probably not understand how the program knows when to
@@ -917,7 +918,10 @@ Step labels don't need to be non-negative integers
 
 #### Getting the completed proof
 
-We can now show the compressed proof.
+When the goal is first proved we're shown a box with the
+completed proof (which we closed earlier).
+
+We can always re-show the compressed proof.
 This is the final proof we can add to a Metamath database.
 
 > Select the goal step by clicking on the checkbox
