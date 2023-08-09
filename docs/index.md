@@ -4366,7 +4366,7 @@ Features currently implemented in the development version include:
 * [Adding a "reset" option](https://github.com/expln/metamath-lamp/issues/21)
 * [Consistently determining replacement fields](https://github.com/expln/metamath-lamp/issues/82#issuecomment-1666603023)
 * [Make it more obvious how to get a completed proof](https://github.com/expln/metamath-lamp/issues/11#issuecomment-1666023918)
-* [Enable easily preloading an existing proof](https://github.com/expln/metamath-lamp/issues/8). Note that this automatically merges duplicate statements (just like metamath.org view does).
+* [Enable easily preloading an existing proof](https://github.com/expln/metamath-lamp/issues/8).
 
 Here's how to preload an existing proof:
 
@@ -4375,7 +4375,7 @@ Here's how to preload an existing proof:
 3. In that new tab, open the "hamburger" menu and select "Load this proof to the editor". This will open a dialog window.
 4. The dialog window shows two parameters:
     * "Adjust the context" - If this parameter is checked then mm-lamp will change the context to include everything up to the theorem but not more. If this parameter is unchecked then the context will not be changed.
-    * "Load proof steps" - If this parameter is checked then mm-lamp will load all the steps of the proof. If this parameter is unchecked then mm-lamp will not load proof steps; only hypothesis steps and the goal step will be loaded. This may be used to try to prove an existing theorem from the scratch for learning purposes.
+    * "Load intermediate steps" - If this parameter is checked then mm-lamp will load all the steps of the proof. If this parameter is unchecked then mm-lamp will not load proof steps; only hypothesis steps and the goal step will be loaded. This may be used to try to prove an existing theorem from the scratch for learning purposes.
 5. Select/unselect these two parameters depending on your needs and click the "Load" button. The proof should be loaded to the editor tab.
 
 Here are some likely future capabilities:
