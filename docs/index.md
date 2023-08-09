@@ -883,13 +883,17 @@ Metamath-lamp automatically unified all the steps,
 and was able to complete the rest of the proof given what we had provided.
 
 You'll also see something else: a highlighted box showing the final
-generated proof. You can copy text to the clipboard (to export it
-elsewhere).
-This highlighted box was added in version 16, as it makes it easy
-to export final results *and* makes it immediately obvious that you've
-proven the goal.
+generated proof.
+As of version 16, whenever you complete the proof of the goal
+this highlighted box will appear.
+You can copy text to the clipboard (to export it elsewhere).
+This highlighted box makes it easy to export final results *and*
+makes it immediately obvious that you've proven the goal.
+We can show it again later using the menu option "Show completed proof"
+as discussed in [getting the completed proof](#getting-the-completed-proof).
+For now, we'll close this box of the generated proof.
 
-> Click on "Close" to close the highlighted box.
+> Click on "Close" to close the highlighted box with the completed proof.
 
 If you are new to Metamath and not familiar with formal systems,
 you may probably not understand how the program knows when to
