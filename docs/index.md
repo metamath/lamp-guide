@@ -4360,6 +4360,24 @@ You can follow
 [commits in its `develop` branch](https://github.com/expln/metamath-lamp/commits/develop) and even try out the
 [development version of metamath-lamp application page (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
 
+Features currently implemented in the development version include:
+
+* [Goal labels are validated as strictly as hypothesis labels](https://github.com/expln/metamath-lamp/issues/81)
+* [Adding a "reset" option](https://github.com/expln/metamath-lamp/issues/21)
+* [Consistently determining replacement fields](https://github.com/expln/metamath-lamp/issues/82#issuecomment-1666603023)
+* [Make it more obvious how to get a completed proof](https://github.com/expln/metamath-lamp/issues/11#issuecomment-1666023918)
+* [Enable easily preloading an existing proof](https://github.com/expln/metamath-lamp/issues/8).
+
+Here's how to preload an existing proof:
+
+1. Open the Explorer tab and find a theorem.
+2. Click the theorem name, so it opens in a new tab.
+3. In that new tab, open the "hamburger" menu and select "Load this proof to the editor". This will open a dialog window.
+4. The dialog window shows two parameters:
+    * "Adjust the context" - If this parameter is checked then mm-lamp will change the context to include everything up to the theorem but not more. If this parameter is unchecked then the context will not be changed.
+    * "Load intermediate steps" - If this parameter is checked then mm-lamp will load all the steps of the proof. If this parameter is unchecked then mm-lamp will not load proof steps; only hypothesis steps and the goal step will be loaded. This may be used to try to prove an existing theorem from the scratch for learning purposes.
+5. Select/unselect these two parameters depending on your needs and click the "Load" button. The proof should be loaded to the editor tab.
+
 Here are some likely future capabilities:
 
 * [In the editor, click on a reference in a justification to view its details in a different dynamic tab](https://github.com/expln/metamath-lamp/issues/99)
