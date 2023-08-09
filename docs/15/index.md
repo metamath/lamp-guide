@@ -79,13 +79,14 @@ We hope you'll find it useful.
 Metamath-lamp improves over time, so some of this guide
 may not exactly match what you see. If you see a difference, please
 let us know so we can fix this guide.
-This guide was written for release version 15.
+This guide was written for release version 16.
 You can also see the guide for other versions:
 [version 10](10/index.html),
 [version 11](11/index.html),
 [version 13](13/index.html),
-and
 [version 14](14/index.html),
+and
+[version 15](15/index.html).
 
 The latest version of this
 [*Metamath-lamp guide*](https://lamp-guide.metamath.org/)
