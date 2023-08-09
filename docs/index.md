@@ -79,13 +79,14 @@ We hope you'll find it useful.
 Metamath-lamp improves over time, so some of this guide
 may not exactly match what you see. If you see a difference, please
 let us know so we can fix this guide.
-This guide was written for release version 15.
+This guide was written for release version 16.
 You can also see the guide for other versions:
 [version 10](10/index.html),
 [version 11](11/index.html),
 [version 13](13/index.html),
-and
 [version 14](14/index.html),
+and
+[version 15](15/index.html).
 
 The latest version of this
 [*Metamath-lamp guide*](https://lamp-guide.metamath.org/)
@@ -880,6 +881,14 @@ Most importantly, the *final* step `2p2e4` now has a green checkmark, which
 means we have proven our goal!
 Metamath-lamp automatically unified all the steps,
 and was able to complete the rest of the proof given what we had provided.
+
+You'll also see something else: a highlighted box showing the final
+generated proof. You can copy text to the clipboard (to export it
+elsewhere).
+This highlighted box was added in version 16, as it makes it easy
+to export final results *and* makes it immediately obvious that you've
+proven the goal.
+You can click on "Close" to close the highlighted box.
 
 If you are new to Metamath and not familiar with formal systems,
 you may probably not understand how the program knows when to
@@ -1894,10 +1903,8 @@ These labels cannot match a math symbol token (like `1`), assertion label,
 or hypothesis label.
 The convention in `set.mm`, as shown above, is for hypotheses to be labelled
 as the name of the goal + `.` + an integer starting from 1.
-Metamath-lamp validates labels you use
-(it currently validates hypotheses and
-[will soon validate goals](https://github.com/expln/metamath-lamp/issues/81)),
-and it will show an error message if the label
+Metamath-lamp will show an error message
+if a hypothesis or goal label
 is already in use in the current context.
 
 #### Starting situation for `syl`
@@ -3008,36 +3015,15 @@ If you're intentionally creating an *alternative* proof
 of the same goal, for eventual use in the database,
 then you *do* need to use different labels.
 
-If you've already been using metamath-lamp to prove something else, that
-means we need to erase the proof steps we have.
-Here's how to do that:
+Here's how to preload an existing proof:
 
-> Select the checkbox on the
-> [editor command icon bar](#editor-command-icon-bar)
-> above the field name "Description"
-> to select *all* steps. Click on
-> icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete)
-> to delete all the selected steps.
-> Long-click on the description text, and click on its
-> icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete).
-
-If you already have a context, prepare to change the context.
-
-> At the top of the browser window, if you've already loaded a context
-> you'll see a
-> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more)
-> drop-down arrow followed by "Loaded:..." text that
-> hints at the current context.
-> Click on that
-> icon <img width="16" height="16" src="expandmore.svg" alt="expand more"> (expand more).
-
-Now change the context.
-
-> Select Source type "Web", alias "set.mm:latest", and confirm
-> it if requested.
-> Change the scope to "Stop before" the label you are proving by typing it in
-> and selecting it.
-> Then press "Apply changes" to apply this change.
+1. Open the Explorer tab and find a theorem.
+2. Click the theorem name, so it opens in a new tab.
+3. In that new tab, open the "hamburger" menu and select "Load this proof to the editor". This will open a dialog window.
+4. The dialog window shows two parameters:
+    * "Adjust the context" - If this parameter is checked then mm-lamp will change the context to include everything up to the theorem but not more. If this parameter is unchecked then the context will not be changed.
+    * "Load intermediate steps" - If this parameter is checked then mm-lamp will load all the steps of the proof. If this parameter is unchecked then mm-lamp will not load proof steps; only hypothesis steps and the goal step will be loaded. This may be used to try to prove an existing theorem from the scratch for learning purposes.
+5. Select/unselect these two parameters depending on your needs and click the "Load" button. The proof should be loaded to the editor tab.
 
 ### Loading existing metamath-lamp proofs
 
@@ -3493,11 +3479,13 @@ Each step is presented in the following left-to-right order:
   of what you intend to name it.
   Consider using the label "qed" for the goal step
   if you don't know what name to use.
-  Each hypothesis and the goal needs to have a unique label
+  Each hypothesis and the goal must have a unique label
   that isn't already in the context being used (it can't be a math symbol,
   label, or anything else).
   These labels (of the hypotheses and goal) are called "global labels";
   the other labels in the proof are "local labels".
+  Metamath-lamp will show an error if a global label is already used
+  in the current context.
   If you're following the conventions of set.mm, the name of each hypothesis
   is the goal name followed by a period and an integer (starting with 1).
   For example, the proof of `mp3an3an` might have hypotheses
@@ -3783,9 +3771,9 @@ global substitution<!-- ‡ -->:
 You can use fragment selectors to select one or two statement(s)
 before starting a global substitution.
 When you press the global substitution icon, a copy
-of the first fragment (in displayed order)
+of the first fragment selected
 will be placed in the "Match what" field, while a copy
-of the second fragment (if any)
+of the second fragment selected (if any)
 will be placed in the "Match with" field.
 You can use the
 icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
@@ -3793,7 +3781,7 @@ to swap the field entries.
 
 You can also use the checkboxes on the left to select steps
 before starting a global substitution.
-The steps selected first will be copied into the "Match what" field,
+The step selected first will be copied into the "Match what" field,
 and the step selected second (if any) will be copied into the
 "Match with" field.
 
@@ -4005,6 +3993,12 @@ certain functions of the mmj2 tool:
 Metamath-lamp's current unification algorithm is only unidirectional, that is, it can only substitute in one direction to find a match. In the technical literature this algorithm is often described as "matching" as compared to full syntactic unification. This is in contrast to other tools, like mmj2, which implement full syntactic unification.
 
 There are [some discussions about removing this limitation in metamath-lamp](https://github.com/expln/metamath-lamp/issues/77). There's nothing fundamental to metamath-lamp about this limitation; the issue is that it takes time to write a performant implementation of unification. We hope that future versions of the tool will remove this limitation. However, current users must work around this limitation.
+
+#### Other capabilities
+
+The menu also includes the item
+"Reset editor content" which resets editing.
+You can use undo to undo this.
 
 ### Settings tab
 
@@ -4285,17 +4279,13 @@ Here is the equivalent JSON for it:
 This is a summary of the metamath-lamp update history in
 reverse chronological order. We'll emphasize user-visible changes.
 
-#### Version 14
+#### Version 16
 
-Major additions in version 14 (released 2023-07-14):
-
-* [Restore previous state (aka Undo/redo)](https://github.com/expln/metamath-lamp/issues/33)
-* "Export to JSON" now has an optional "notes" field.
-  This allows you to write some short notes about the specific state
-  being exported.
-
-The addition of "restore previous state" was considered especially important,
-because it enables users to experiment without fear of losing their work.
+* [Goal labels are validated as strictly as hypothesis labels](https://github.com/expln/metamath-lamp/issues/81)
+* [Adding a "reset" option](https://github.com/expln/metamath-lamp/issues/21)
+* [Consistently determining replacement fields](https://github.com/expln/metamath-lamp/issues/82)
+* [Make it more obvious how to get a completed proof](https://github.com/expln/metamath-lamp/issues/11)
+* [Enable easily preloading an existing proof](https://github.com/expln/metamath-lamp/issues/8).
 
 #### Version 15
 
@@ -4326,6 +4316,18 @@ It added many small improvements to the Metamath-lamp tool:
 
 * Open proof explorer by clicking refs in justifications in the editor.
   [Issue 99](https://github.com/expln/metamath-lamp/issues/99)
+
+#### Version 14
+
+Major additions in version 14 (released 2023-07-14):
+
+* [Restore previous state (aka Undo/redo)](https://github.com/expln/metamath-lamp/issues/33)
+* "Export to JSON" now has an optional "notes" field.
+  This allows you to write some short notes about the specific state
+  being exported.
+
+The addition of "restore previous state" was considered especially important,
+because it enables users to experiment without fear of losing their work.
 
 #### Version 13
 
@@ -4362,25 +4364,8 @@ You can follow
 
 Features currently implemented in the development version include:
 
-* [Goal labels are validated as strictly as hypothesis labels](https://github.com/expln/metamath-lamp/issues/81)
-* [Adding a "reset" option](https://github.com/expln/metamath-lamp/issues/21)
-* [Consistently determining replacement fields](https://github.com/expln/metamath-lamp/issues/82#issuecomment-1666603023)
-* [Make it more obvious how to get a completed proof](https://github.com/expln/metamath-lamp/issues/11#issuecomment-1666023918)
-* [Enable easily preloading an existing proof](https://github.com/expln/metamath-lamp/issues/8).
-
-Here's how to preload an existing proof:
-
-1. Open the Explorer tab and find a theorem.
-2. Click the theorem name, so it opens in a new tab.
-3. In that new tab, open the "hamburger" menu and select "Load this proof to the editor". This will open a dialog window.
-4. The dialog window shows two parameters:
-    * "Adjust the context" - If this parameter is checked then mm-lamp will change the context to include everything up to the theorem but not more. If this parameter is unchecked then the context will not be changed.
-    * "Load intermediate steps" - If this parameter is checked then mm-lamp will load all the steps of the proof. If this parameter is unchecked then mm-lamp will not load proof steps; only hypothesis steps and the goal step will be loaded. This may be used to try to prove an existing theorem from the scratch for learning purposes.
-5. Select/unselect these two parameters depending on your needs and click the "Load" button. The proof should be loaded to the editor tab.
-
 Here are some likely future capabilities:
 
-* [In the editor, click on a reference in a justification to view its details in a different dynamic tab](https://github.com/expln/metamath-lamp/issues/99)
 * [Use a full unification algorithm](https://github.com/expln/metamath-lamp/issues/77)
 * [Some automation](https://github.com/expln/metamath-lamp/issues/17)
 * Ensuring that [statements marked discouraged are not automatically added by default](https://github.com/expln/metamath-lamp/issues/31)  and [syntax marked discouraged are ignored by default](https://github.com/expln/metamath-lamp/issues/108)
