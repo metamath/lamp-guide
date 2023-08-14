@@ -2477,8 +2477,8 @@ It illustrates several symbols in the set.mm database:
 * `CC` represents the set of all complex numbers.
 * `e.` represents "is a member of"; so `A e. B` is how we write
   "A &isin; B". The expression <tt>A e. CC</tt> means "A is a complex number".
-* <tt>&#92;/</tt> represent "and". It's not used here, but
-  <tt>/&#92;</tt> represents "or".
+* <tt>/&#92;</tt> represent "and". It's not used here, but
+  <tt>&#92;/</tt> represents "or".
 * `=/=` represents "not equal to".
 * `->` represents "implies". The left-hand-side of an implication is called
   the antecedent; the right-hand-side of an implication is called the
@@ -4134,10 +4134,10 @@ Here are some common symbols defined in `set.mm`.
   consequent.
 * <tt>-.</tt> means logical not; if what follows is true then the result
   is false, if what follows is false then the result is true.
-* <tt>&#92;/</tt> represents logical "and".
+* <tt>/&#92;</tt> represents logical "and".
   If both sides of it are true
   then the result is true (otherwise it's false).
-* <tt>/&#92;</tt> represents logical "or". If either side of it is true
+* <tt>&#92;/</tt> represents logical "or". If either side of it is true
   then the result is true (otherwise it's false).
 
 #### Relations
