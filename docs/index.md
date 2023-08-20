@@ -4374,6 +4374,15 @@ Features currently implemented in the development version include:
 
 * [Avoids using discouraged syntax](https://github.com/expln/metamath-lamp/issues/108)
 
+(This is to be added in the tutorial on the Explorer:)
+
+Some of the assertion names have special colors.
+In particular, if the name is red, that means its use is discouraged.
+The use of theorems `idi` and `a1ii` are discouraged because they can't
+help solve a proof (they're only useful in special contexts), while
+`ax-3` is discouraged because in proofs
+we prefer to use the synonym `con4` instead (it's a preferred style choice).
+
 (This is to be added the "Settings" tab description:)
 
 There are several regular expression (regex) settings that impact
