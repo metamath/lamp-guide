@@ -4374,7 +4374,6 @@ Features currently implemented in the development version include:
 
 * [Avoids using discouraged syntax](https://github.com/expln/metamath-lamp/issues/108)
 
-
 (This is to be added the "Settings" tab description:)
 
 There are several regular expression (regex) settings that impact
