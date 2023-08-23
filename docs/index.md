@@ -4302,7 +4302,8 @@ reverse chronological order. We'll emphasize user-visible changes.
 * The algorithm for creating proof tables was changed a bit, so now
   it should produce same proof tables as on metamath.org. (If you
   find a discrepancy between proofs tables on metamath.org and mm-lamp
-  for the same proof, then please feel free to let me know.)
+  for the same proof, then please
+  [file an issue in the metamath-lamp repository](https://github.com/expln/metamath-lamp/issues).
 
 ##### Automate merging of statements
 
