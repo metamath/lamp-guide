@@ -4404,6 +4404,58 @@ You can follow
 
 Features currently implemented in the development version include:
 
+* [Avoids using discouraged syntax](https://github.com/expln/metamath-lamp/issues/108)
+
+(This is to be added in the tutorial on the Explorer:)
+
+Some of the assertion names have special colors.
+In particular, if the name is red, that means its use is discouraged.
+The use of theorems `idi` and `a1ii` are discouraged because they can't
+help solve a proof (they're only useful in special contexts), while
+`ax-3` is discouraged because in proofs
+we prefer to use the synonym `con4` instead (it's a preferred style choice).
+
+(This is to be added the "Settings" tab description:)
+
+There are several regular expression (regex) settings that impact
+handling of assertions:
+
+1. Regex to determine discouraged assertions by description
+2. Regex to determine discouraged assertions by label
+3. Regex to determine deprecated assertions by description
+4. Regex to determine deprecated assertions by label
+
+The first two settings are discouraged assertions, the latter two
+specify deprecated assertions.
+
+If any of these regex settings is empty then the setting is considered
+not set and is therefore not used.
+
+Based on these four settings, each assertion gets assigned three boolean flags:
+
+* discouraged - all assertions which match the first or the second regex;
+* deprecated - all assertions which match the third or the fourth regex;
+* transitively deprecated - all theorems which depend on any of deprecated assertions;
+
+The Settings tab includes a table with 6 checkboxes which define
+which kinds of assertions are allowed to be used in which kinds of proofs.
+This table also contains colors to highlight assertions of
+corresponding types in proofs.
+
+If metamath-lamp finds that some assertion is used in a proof, but it is
+not allowed by these new settings then metamath-lamp will not fail, neither
+block the UI. It will continue working as usually. However, all
+such assertions are highlighted with different colors, so users can
+notice them. This is up to the user to eliminate unwanted assertions
+from existing proofs. But in new proofs found by metamath-lamp, unwanted
+assertions will not be used.
+
+These settings on the Settings tab define defaults.
+But it is possible to overwrite them in the bottom-up prover dialog.
+
+The Explorer tab allows users to find assertions of all
+three kinds mentioned above.
+
 Here are some likely future capabilities:
 
 * [Use a full unification algorithm](https://github.com/expln/metamath-lamp/issues/77)
