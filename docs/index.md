@@ -4289,11 +4289,43 @@ reverse chronological order. We'll emphasize user-visible changes.
 
 #### Version 16
 
-* [Goal labels are validated as strictly as hypothesis labels](https://github.com/expln/metamath-lamp/issues/81)
-* [Adding a "reset" option](https://github.com/expln/metamath-lamp/issues/21)
-* [Consistently determining replacement fields](https://github.com/expln/metamath-lamp/issues/82)
-* [Make it more obvious how to get a completed proof](https://github.com/expln/metamath-lamp/issues/11)
-* [Enable easily preloading an existing proof](https://github.com/expln/metamath-lamp/issues/8).
+* [Issue 8](https://github.com/expln/metamath-lamp/issues/8) Possibility to preload an existing proof (see more details below)
+* [Issue 77](https://github.com/expln/metamath-lamp/issues/77) Use the unification algorithm to find substitutions (see more details below)
+* [Issue 81](https://github.com/expln/metamath-lamp/issues/81) For goal labels, apply same strict label validation rules as for hypotheses
+* [Issue 21](https://github.com/expln/metamath-lamp/issues/21) Add a "reset" option
+* [Issue 82](https://github.com/expln/metamath-lamp/issues/82) Replacement fields should use selections consistently
+* [Issue 11](https://github.com/expln/metamath-lamp/issues/11) When the goal statement is proved then the completed proof is shown automatically.
+* [Issue 47](https://github.com/expln/metamath-lamp/issues/47) Automate merging of statements (see more details below)
+* [Issue 149](https://github.com/expln/metamath-lamp/issues/149) Allow merging multiple statements with one merge button click
+* The Ability to specify number of assertions per page on the
+  proof explorer tab.
+* The algorithm for creating proof tables was changed a bit, so now
+  it should produce same proof tables as on metamath.org. (If you
+  find a discrepancy between proofs tables on metamath.org and mm-lamp
+  for the same proof, then please
+  [file an issue in the metamath-lamp repository](https://github.com/expln/metamath-lamp/issues).
+
+##### Automate merging of statements
+
+Automatic merging of similar steps is optional. There is a global setting "Merge similar steps automatically". It is Off by default. It can merge only in simple cases:
+
+* Case 1: both similar steps must be P or G (not H) and one of them must have a non-empty justification and another must have an empty justification. In that case, the one with an empty justification will be removed and all references to it will be replaced with the label of the remaining step.
+* Case 2: if both statements have same justification. In that case the upper one will remain and the lower one will be removed.
+If automatic merging is not possible then the manual merging is still available and works as before (the Merge icon).
+
+##### Possibility to preload an existing proof
+
+1. Open the Explorer tab and find a theorem.
+2. Click the theorem name, so it opens in a new tab.
+3. In that new tab, open the "hamburger" menu and select "Load this proof to the editor". This will open a dialog window.
+4. The dialog window shows two parameters:
+    * "Adjust the context" - If this parameter is checked then mm-lamp will change the context to include everything up to the theorem but not more. If this parameter is unchecked then the context will not be changed.
+    * "Load intermediate steps" - If this parameter is checked then mm-lamp will load all the steps of the proof. If this parameter is unchecked then mm-lamp will not load proof steps; only hypothesis steps and the goal step will be loaded. This may be used to try to prove an existing theorem from the scratch for learning purposes.
+5. Select/unselect these two parameters depending on your needs and click the "Load" button. The proof should be loaded to the editor tab.
+
+##### Use the unification algorithm to find substitutions
+
+This is an initial change towards making mm-lamp capable to find proofs similar to how mmj2 does. In [GitHub issue #77](https://github.com/expln/metamath-lamp/issues/77) "David and Mario are helping me to understand how mmj2 unification works and why it is so efficient. I was not aware of some specifics of mmj2 approach to unify statements, so I implemented mm-lamp differently. Mm-lamp uses [mainly the matching algorithm in the "Unify" phase](https://github.com/expln/metamath-lamp/issues/77#issuecomment-1577419582), whereas [mmj2 uses the full unification algorithm](https://github.com/expln/metamath-lamp/issues/77#issuecomment-1577804381). Implementing the full unification in mm-lamp requires some time. But, as a first step, I have added the ability to use the full unification in the "Substitute" dialog. A [short instruction and a few examples are available](https://github.com/expln/metamath-lamp/issues/77#issuecomment-1657206623). Also there is a [short video demo](https://drive.google.com/file/d/1YM3EAbJeWJglWITkEZ-FxCJpDgnbkzt1/view?usp=sharing).
 
 #### Version 15
 
