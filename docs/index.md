@@ -4397,7 +4397,7 @@ The first two settings are discouraged assertions, the latter two
 specify deprecated assertions.
 
 If any of these regex settings is empty then the setting is considered
-not set and is is therefor not used.
+not set and is therefore not used.
 
 Based on these four settings, each assertion gets assigned three boolean flags:
 
