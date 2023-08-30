@@ -4,7 +4,7 @@ This is the
 [**Metamath-lamp Guide Source markdown repository**](https://lamp-guide.metamath.org/).
 If you just want to *read* the guide, please view the
 [**Metamath-lamp Guide site**](https://lamp-guide.metamath.org/) instead.
-This guide was primarily authored by [David A. Wheeler](https://dwheeler.com),
+This guide was primarily authored by [David A. Wheeler](https://dwheeler.com).
 
 Metamath-lamp ("Lite Assistant for [Metamath](https://us.metamath.org)
 is a proof assistant for creating formal
