@@ -1359,6 +1359,13 @@ each prefixed with large black circle "&#x2B24;".
 The final line of an assertion states what can be concluded
 via this assertion when its hypotheses are true.
 
+Some of the assertion names have special colors.
+In particular, if the name is red, that means its use is discouraged.
+The use of theorems `idi` and `a1ii` are discouraged because they can't
+help solve a proof (they're only useful in special contexts), while
+`ax-3` is discouraged because in proofs
+we prefer to use the synonym `con4` instead (it's a preferred style choice).
+
 The order of assertions is important.
 In particular, a theorem can *only* refer to previous assertions;
 this eliminates the possibility of circular reasoning.
@@ -4030,6 +4037,48 @@ If you don't see the name of a database in the context dropdown,
 open the settings tab and check your settings.
 You may need to click on "Restore default URLs" and "apply changes".
 
+#### Settings for discouraged and deprecated assertions
+
+There are several regular expression (regex) settings that impact
+handling of assertions:
+
+1. Regex to determine discouraged assertions by description
+2. Regex to determine discouraged assertions by label
+3. Regex to determine deprecated assertions by description
+4. Regex to determine deprecated assertions by label
+
+The first two settings are discouraged assertions, the latter two
+specify deprecated assertions.
+
+If any of these regex settings is empty then the setting is considered
+not set and is therefore not used.
+
+Based on these four settings, each assertion gets assigned three boolean flags:
+
+* discouraged - all assertions which match the first or the second regex;
+* deprecated - all assertions which match the third or the fourth regex;
+* transitively deprecated - all theorems which depend on any of deprecated assertions;
+
+The Settings tab includes a table with 6 checkboxes which define
+which kinds of assertions are allowed to be used in which kinds of proofs.
+This table also contains colors to highlight assertions of
+corresponding types in proofs.
+
+If metamath-lamp finds that some assertion is used in a proof, but it is
+not allowed by these new settings then metamath-lamp will not fail, neither
+block the UI. It will continue working as usually. However, all
+such assertions are highlighted with different colors, so users can
+notice them. This is up to the user to eliminate unwanted assertions
+from existing proofs. But in new proofs found by metamath-lamp, unwanted
+assertions will not be used.
+
+These settings on the Settings tab define defaults.
+But it is possible to override them in the bottom-up prover dialog.
+
+The Explorer tab allows users to find assertions of all
+three kinds mentioned above (discouraged, deprecated, and transitively
+deprecated).
+
 ### Explorer tab
 
 The explorer view lets you see the various assertions
@@ -4287,6 +4336,20 @@ Here is the equivalent JSON for it:
 This is a summary of the metamath-lamp update history in
 reverse chronological order. We'll emphasize user-visible changes.
 
+#### Version 17
+
+The major update in version 17 is how metamath-lamp (mm-lamp) handles discouraged assertions. Discouraged assertions were supported in the previous versions too, but in version 17 it became more convenient. Also, assertions can be marked as "deprecated". This allows you to exclude them from proofs independently of the "discouraged" ones. More details on this may be found in these issues:
+
+* [By default ignore any statements marked (New usage is discouraged.)](https://github.com/expln/metamath-lamp/issues/31#issuecomment-1682725469)
+* [By default don't use discouraged syntax nor later syntax](https://github.com/expln/metamath-lamp/issues/108)
+* [Add transitively skipped assertions option](https://github.com/expln/metamath-lamp/issues/152)
+
+It also includes a few minor changes:
+
+* [In explorer allow selection of final type](https://github.com/expln/metamath-lamp/issues/111)
+* [Duplicate up button](https://github.com/expln/metamath-lamp/issues/154)
+* [When substituting, always use the most recent selections](https://github.com/expln/metamath-lamp/issues/155)
+
 #### Version 16
 
 * [Issue 8](https://github.com/expln/metamath-lamp/issues/8) Possibility to preload an existing proof (see more details below)
@@ -4402,61 +4465,37 @@ You can follow
 [commits in its `develop` branch](https://github.com/expln/metamath-lamp/commits/develop) and even try out the
 [development version of metamath-lamp application page (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
 
-Features currently implemented in the development version include:
+### Features currently implemented in the development version
 
-* [Avoids using discouraged syntax](https://github.com/expln/metamath-lamp/issues/108)
+* [New fragment selector to insert and elide statements](https://github.com/expln/metamath-lamp/issues/121#issuecomment-1697997262)
 
-(This is to be added in the tutorial on the Explorer:)
+In many cases one statement is a common transformation of another
+statement. To make this easier to do (and more likely to be correct),
+a new fragment selector has been created to let you apply simple
+transforms to insert and elide statements.
+Some small changes are expected to occur still.
 
-Some of the assertion names have special colors.
-In particular, if the name is red, that means its use is discouraged.
-The use of theorems `idi` and `a1ii` are discouraged because they can't
-help solve a proof (they're only useful in special contexts), while
-`ax-3` is discouraged because in proofs
-we prefer to use the synonym `con4` instead (it's a preferred style choice).
+The icon <img width="16" height="16" src="transform.svg" alt="save"> (transform)
+has a circle and a square; you can interpret it as "changing shape".
+Once selected,
+there is a list of available transforms. Just select a transform,
+configure it with its specific parameters, and see the result.
 
-(This is to be added the "Settings" tab description:)
+There are two new settings on the Settings tab:
 
-There are several regular expression (regex) settings that impact
-handling of assertions:
+* "Use default transforms". A set of default transforms. These are read-only.
+* "Use custom transforms". This allows you to write custom transforms
+  on JavaScript. This is currently *intentionally* undocumented because
+  the API is still unstable. However, the default transforms can be
+  used as examples of how to write them, and once the API stabilizes
+  we plan to document how to create them.
 
-1. Regex to determine discouraged assertions by description
-2. Regex to determine discouraged assertions by label
-3. Regex to determine deprecated assertions by description
-4. Regex to determine deprecated assertions by label
+The transform process
+highlights the added/removed text and/or of the parts being moved.
 
-The first two settings are discouraged assertions, the latter two
-specify deprecated assertions.
+The whole new expression is added as a new step.
 
-If any of these regex settings is empty then the setting is considered
-not set and is therefore not used.
-
-Based on these four settings, each assertion gets assigned three boolean flags:
-
-* discouraged - all assertions which match the first or the second regex;
-* deprecated - all assertions which match the third or the fourth regex;
-* transitively deprecated - all theorems which depend on any of deprecated assertions;
-
-The Settings tab includes a table with 6 checkboxes which define
-which kinds of assertions are allowed to be used in which kinds of proofs.
-This table also contains colors to highlight assertions of
-corresponding types in proofs.
-
-If metamath-lamp finds that some assertion is used in a proof, but it is
-not allowed by these new settings then metamath-lamp will not fail, neither
-block the UI. It will continue working as usually. However, all
-such assertions are highlighted with different colors, so users can
-notice them. This is up to the user to eliminate unwanted assertions
-from existing proofs. But in new proofs found by metamath-lamp, unwanted
-assertions will not be used.
-
-These settings on the Settings tab define defaults.
-But it is possible to overwrite them in the bottom-up prover dialog.
-
-The Explorer tab allows users to find assertions of all
-three kinds mentioned above.
-
-Here are some likely future capabilities:
+### Likely future capabilities
 
 * [Use a full unification algorithm](https://github.com/expln/metamath-lamp/issues/77)
 * [Some automation](https://github.com/expln/metamath-lamp/issues/17)
