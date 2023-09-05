@@ -4473,7 +4473,7 @@ In many cases one statement is a common transformation of another
 statement. To make this easier to do (and more likely to be correct),
 a new fragment selector has been created to let you apply simple
 transforms to insert and elide statements.
-Some small changes are expected to occur still.
+Some small changes are expected to occur in this before a release.
 
 The icon <img width="16" height="16" src="transform.svg" alt="save"> (transform)
 has a circle and a square; you can interpret it as "changing shape".
@@ -4495,6 +4495,39 @@ highlights the added/removed text and/or of the parts being moved.
 
 The whole new expression is added as a new step.
 
+### Transformers: More than meets the eye (draft tutorial section)
+
+In many cases a statement is a common transformation of another statement.
+You don't *have* to use transformers; you can always create and modify
+statements using statement copying, copy/paste, and editing.
+However, the "transform" fragment selector makes
+these transformations easier to do and more likely to be correct.
+
+In the fragment selector icon bar
+the icon <img width="16" height="16" src="transform.svg" alt="save"> (transform)
+has a circle and a square.
+You can interpret its symbol as "changing shape".
+Once selected, there is a list of available transforms.
+To use a transform:
+
+1. Select the transform (e.g., "swap" or "insert").
+2. If relevant, configure it with parameters. For example, "insert"
+   needs to know what to insert. Some transforms don't have anything to
+   configure, e.g., "swap" doesn't need anything else.
+3. Select what to do with the result (e.g., change the existing statement,
+   copy to the clipboard, or create a new statement).
+
+Metamath-lamp comes with default transforms.
+In the future we hope to support specialized transforms.
+
+Larger proofs tend to involve many steps, each with statements that
+a sequence of symbols (aka icons).
+It's easy to be confused by complex sequences, and end up accidentally
+making changes that are *almost* right such as moving parentheses
+in the wrong place.
+Transformers - automated bots to battle and destroy the courses
+of the deceptive icons.
+
 ### Likely future capabilities
 
 * [Use a full unification algorithm](https://github.com/expln/metamath-lamp/issues/77)
@@ -4515,7 +4548,7 @@ No matter how you decide to contribute, we thank you for your time.
 
 As noted earlier, if you want to run the metamath-lamp application
 to create proofs, view the
-<a href="https://expln.github.io/lamp/latest/index.html" target="_blank" rel="noopener noreferrer">Metamath-lamp application page</a><
+<a href="https://expln.github.io/lamp/latest/index.html" target="_blank" rel="noopener noreferrer">Metamath-lamp application page</a>.
 
 If you need help on how to create Metamath proofs,
 or on how to use the metamath-lamp tool to create Metamath proofs,
