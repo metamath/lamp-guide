@@ -4504,6 +4504,9 @@ You don't *have* to use transformers; you can always create and modify
 statements using statement copying, copy/paste, and editing.
 However, transformers simplify making such changes and the
 results are more likely to be correct.
+Transformers are syntax-aware, so transformers
+automatically add or remove parentheses (and parentheses-like symbols) as pairs,
+add spaces around symbols, and in other ways simplify making changes.
 
 You can select a transform by selecting any part of a statement to open
 the fragment selector icon bar, then select the
@@ -4594,16 +4597,16 @@ let's select the entire expression `3 = ( 2 + 1 )`:
 > `3 = ( 2 + 1 )`.
 > Click on the icon transform, and select "insert".
 
-The initial expression is > `3 = ( 2 + 1 )`.
-However, insert has more configuration options we can select to
-produce the final result.
+The initial expression is `3 = ( 2 + 1 )`.
+Notice that the insert transform has more configuration options we can select
+to produce the final result.
 
 The option to select a "Two-sided" insert is probably the most important.
 Do we want to insert the same thing on both sides? If we do, then we
 want "two-sided"; otherwise we don't.
-In this case, we'll add `+ 1` to both sides, so we'll want two-sided.
+In this case, we'll add `+ 1` to both sides, so we'll want a two-sided insert.
 We'll want to insert information on the right side of both sides, so
-we'll select "Right side".
+we'll select "Right side" (instead of "Left side").
 
 The row starting with "no parentheses" lets you select what
 parentheses-like pair of symbols to insert.
