@@ -4619,7 +4619,8 @@ result:
 `(  3  + 1  )  =  (  ( 2 + 1 )  + 1  )`
 
 The "elide" transform is similar; it *removes* symbols instead of
-inserting them.
+inserting them. Its options shows "Keep left" and "keep right", because
+it's easier to show and explain what you *keep* after eliding some symbols.
 
 #### Summary of transformers
 
