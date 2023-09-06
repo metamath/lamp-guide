@@ -4498,16 +4498,20 @@ The whole new expression is added as a new step.
 ### Transformers: More than meets the eye (draft tutorial section)
 
 In many cases a statement is a common transformation of another statement.
+Metamath-lamp includes transformers, that is,
+a set of transforms to automatically modify a statement in some common ways.
 You don't *have* to use transformers; you can always create and modify
 statements using statement copying, copy/paste, and editing.
-However, the "transform" fragment selector makes
-these transformations easier to do and more likely to be correct.
+However, transformers simplify making such changes and the
+results are more likely to be correct.
 
-In the fragment selector icon bar
-the icon <img width="16" height="16" src="transform.svg" alt="save"> (transform)
-has a circle and a square.
-You can interpret its symbol as "changing shape".
+You can select a transform by selecting any part of a statement to open
+the fragment selector icon bar, then select the
+icon <img width="16" height="16" src="transform.svg" alt="save"> (transform).
+The transform icon has a circle and a square;
+you can interpret its symbol as "changing shape".
 Once selected, there is a list of available transforms.
+
 To use a transform:
 
 1. Select the transform (e.g., "swap" or "insert").
@@ -4519,6 +4523,105 @@ To use a transform:
 
 Metamath-lamp comes with default transforms.
 In the future we hope to support specialized transforms.
+You can (eventually) enable specialized transforms through
+the Settings tab. For now, we'll discuss the default transforms
+by trying them out.
+
+#### Trying out transformers
+
+To try out transformers, let's use the proof of `2 + 2 = 4`.
+For context, load the `set.mm` database and read all.
+Go to "Explorer" and search for label `2p2e4` (press Enter aka Return
+to apply the search). Click on the word Theorem of `2p2e4` to display
+the proof. In its hamburger menu, select "Load this proof to the editor".
+
+Now click on the leftmost opening parentheses of the expression
+`( ( 2 + 1 ) + 1 )` - this selects a *part* of the full statement.
+A fragment selector icon bar will appear beneath the statement.
+Select the
+icon <img width="16" height="16" src="transform.svg" alt="save"> (transform).
+
+You will see various transforms, depending on the version of the tool
+and its configuration settings. However, that list is likely to include
+insert, elide, swap, and associate. Let's start with swap, which is
+a simple transform and thus makes a good starting point.
+
+> Select Swap: X = Y => Y = X
+
+You'll now see a simple dialogue box. At the top is the name of the
+currently-selected transform.
+You'll see `Initial:` followed by the initial selected expression,
+`(  ( 2 + 1 )  +  1  )`.
+Below that you'll see `Result:` and the current
+result of the selected transform on the selected expression if it were accepted.
+In this case the current result is `(  1  +  ( 2 + 1 )  )`.
+Notice that "Swap" causes the "topmost" left and right values to swap
+places in the selected expression.
+Swap doesn't have any configuration parameters, making swap an
+especially easy transform to understand.
+
+We are then presented with options of what to do with the result
+of the transform:
+
+* Back: Go back to the transform selection menu
+* Copy to the clipboard: Copy to clipboard. Note: *Only* the result is
+  copied, *not* the entire statement the initial selected
+  expression comes from.
+* Add new step above: Copy the entire statement with the resulting transform
+  into a new step above the current one.
+* Add new step below: Copy the entire statement with the resulting transform
+  into a new step below the current one.
+* Update current step: Modify the current step by replacing the initial
+  selected expression with the resulting expression.
+* Cancel: Cancel the entire transform process.
+
+We can select "Back" to go back. Let's try "associate", another simple
+transform.
+
+> Select Back, then select "associate".
+
+Now we see that associate can take the initial expression
+`(  ( 2 + 1 )  +  1  )`
+and convert it to
+`(  2 + ( 1  +  1  ) )`.
+
+Let's try a more complex transform, "insert".
+A different expression would probably be a better example, so
+let's select the entire expression `3 = ( 2 + 1 )`:
+
+> Select Cancel.
+> Click on the `=` of the use of `df-3`, selecting the fragment
+> `3 = ( 2 + 1 )`.
+> Click on the icon transform, and select "insert".
+
+The initial expression is > `3 = ( 2 + 1 )`.
+However, insert has more configuration options we can select to
+produce the final result.
+
+The option to select a "Two-sided" insert is probably the most important.
+Do we want to insert the same thing on both sides? If we do, then we
+want "two-sided"; otherwise we don't.
+In this case, we'll add `+ 1` to both sides, so we'll want two-sided.
+We'll want to insert information on the right side of both sides, so
+we'll select "Right side".
+
+The row starting with "no parentheses" lets you select what
+parentheses-like pair of symbols to insert.
+You often want "no parentheses" when two-sided is off, and you often want
+"()" when two-sided is on. We'll be using two-sided in this example,
+so select "()".
+
+Finally, the box labelled "Insert text" lets you type the text to insert;
+let's enter `+ 1` and see what happens.
+In this case, a `+ 1` has been correctly added to both sides, with this
+result:
+
+`(  3  + 1  )  =  (  ( 2 + 1 )  + 1  )`
+
+The "elide" transform is similar; it *removes* symbols instead of
+inserting them.
+
+#### Summary of transformers
 
 Larger proofs tend to involve many steps, each with statements that
 a sequence of symbols (aka icons).
