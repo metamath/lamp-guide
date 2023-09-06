@@ -4605,7 +4605,10 @@ to produce the final result.
 The option to select a "Two-sided" insert is probably the most important.
 Do we want to insert the same thing on both sides? If we do, then we
 want "two-sided"; otherwise we don't.
-In this case, we'll add `+ 1` to both sides, so we'll want a two-sided insert.
+Typically you only select "two-sided" when the top-most operation is
+normal equality (`=`), boolean equality (`<->`), or similar kinds of equality.
+In this case, we'll add `+ 1` to both sides of an equality,
+so we'll want a two-sided insert.
 We'll want to insert information on the right side of both sides, so
 we'll select "Right side" (instead of "Left side").
 
