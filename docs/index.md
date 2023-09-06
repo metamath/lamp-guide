@@ -4504,9 +4504,10 @@ You don't *have* to use transformers; you can always create and modify
 statements using statement copying, copy/paste, and editing.
 However, transformers simplify making such changes and the
 results are more likely to be correct.
-Transformers are syntax-aware, so transformers
-automatically add or remove parentheses (and parentheses-like symbols) as pairs,
-add spaces around symbols, and in other ways simplify making changes.
+Transformers simplify making changes by doing things such as
+automatically adding or removing parentheses
+(and parentheses-like symbols) as pairs,
+adding spaces around symbols, and so on.
 
 You can select a transform by selecting any part of a statement to open
 the fragment selector icon bar, then select the
@@ -4632,8 +4633,9 @@ a sequence of symbols (aka icons).
 It's easy to be confused by complex sequences, and end up accidentally
 making changes that are *almost* right such as moving parentheses
 in the wrong place.
-Transformers - automated bots to battle and destroy the courses
-of the deceptive icons.
+[Transformers](https://www.youtube.com/watch?v=rZjoB0pfq6A) -
+automated bots to battle and destroy the courses
+of the [deceptive icons](https://tfwiki.net/wiki/Decepticon).
 
 ### Likely future capabilities
 
