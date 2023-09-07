@@ -4547,7 +4547,11 @@ icon <img width="16" height="16" src="transform.svg" alt="save"> (transform).
 
 You will see various transforms, depending on the version of the tool
 and its configuration settings. However, that list is likely to include
-insert, elide, swap, and associate. Let's start with swap, which is
+insert, elide, swap, and associate.
+
+##### Trying out the swap transform
+
+Let's start with swap, which is
 a simple transform and thus makes a good starting point.
 
 > Select Swap: X = Y => Y = X
@@ -4564,36 +4568,57 @@ places in the selected expression.
 Swap doesn't have any configuration parameters, making swap an
 especially easy transform to understand.
 
+##### Selecting what to do with transform results in our example
+
 We are then presented with options of what to do with the result
 of the transform:
 
-* Back: Go back to the transform selection menu
-* Copy to the clipboard: Copy to clipboard. Note: *Only* the result is
+* Icon <img width="16" height="16" src="back.svg" alt="back"> (back):
+  Go back to the transform selection menu.
+* Icon <img width="16" height="16" src="copy.svg" alt="copy">
+  (copy to clipboard):
+  Copy to clipboard. Note: *Only* the result is
   copied, *not* the entire statement the initial selected
   expression comes from.
-* Add new step above: Copy the entire statement with the resulting transform
+* Icon <img width="16" height="16" src="addabove.svg" alt="add above">
+  (add new step above):
+  Copy the entire statement, including the transform result,
   into a new step above the current one.
-* Add new step below: Copy the entire statement with the resulting transform
+* Icon <img width="16" height="16" src="addbelow.svg" alt="add below">
+  (add new step below):
+  Copy the entire statement, including the transform result,
   into a new step below the current one.
-* Update current step: Modify the current step by replacing the initial
-  selected expression with the resulting expression.
+* Icon <img width="16" height="16" src="update_current.svg" alt="update current">
+  (update current step): Modify the current step by replacing the initial
+  selected expression with the resulting transformed expression.
 * Cancel: Cancel the entire transform process.
 
-We can select "Back" to go back. Let's try "associate", another simple
-transform.
+We can select "Back" to go back and choose a different transform.
 
-> Select Back, then select "associate".
+> Select the icon <img width="16" height="16" src="back.svg" alt="back"> (back)
+> so we can try a different transform.
+
+##### Trying out the associate transform
+
+Let's try out the associate transform, another simple transform.
+
+> Select "associate".
 
 Now we see that associate can take the initial expression
 `(  ( 2 + 1 )  +  1  )`
 and convert it to
 `(  2 + ( 1  +  1  ) )`.
 
+Let's select a different fragment and look at other transforms.
+
+> Select Cancel.
+
+##### Trying out the insert transform
+
 Let's try a more complex transform, "insert".
 A different expression would probably be a better example, so
 let's select the entire expression `3 = ( 2 + 1 )`:
 
-> Select Cancel.
 > Click on the `=` of the use of `df-3`, selecting the fragment
 > `3 = ( 2 + 1 )`.
 > Click on the icon transform, and select "insert".
@@ -4639,6 +4664,55 @@ in the wrong place.
 [Transformers](https://www.youtube.com/watch?v=rZjoB0pfq6A) -
 automated bots to battle and destroy the courses
 of the [deceptive icons](https://tfwiki.net/wiki/Decepticon).
+
+### Transformers (Reference manual section)
+
+In many cases a statement is a common transformation of another statement.
+Metamath-lamp includes transformers, that is,
+a set of transforms to automatically modify a statement in some common ways.
+
+You can select a transform by selecting any part of a statement to open
+the fragment selector icon bar, then select the
+icon <img width="16" height="16" src="transform.svg" alt="save"> (transform).
+The transform icon has a circle and a square;
+you can interpret its symbol as "changing shape".
+Once selected, there is a list of available transforms.
+
+Metamath-lamp comes with default transforms.
+In the future we hope to support specialized transforms.
+You can (eventually) enable specialized transforms through
+the Settings tab.
+
+To use a transform:
+
+1. Select the transform (e.g., "swap" or "insert").
+2. If relevant, configure it with parameters. For example, "insert"
+   needs to know what to insert. Some transforms don't have anything to
+   configure, e.g., "swap" doesn't need anything else.
+3. Select what to do with the result (e.g., change the existing statement,
+   copy to the clipboard, or create a new statement).
+
+Here are the options of what to do with the result:
+
+* Icon <img width="16" height="16" src="back.svg" alt="back"> (back):
+  Go back to the transform selection menu.
+* Icon <img width="16" height="16" src="copy.svg" alt="copy">
+  (copy to clipboard):
+  Copy to clipboard. Note: *Only* the result is
+  copied, *not* the entire statement the initial selected
+  expression comes from.
+* Icon <img width="16" height="16" src="addabove.svg" alt="add above">
+  (add new step above):
+  Copy the entire statement, including the transform result,
+  into a new step above the current one.
+* Icon <img width="16" height="16" src="addbelow.svg" alt="add below">
+  (add new step below):
+  Copy the entire statement, including the transform result,
+  into a new step below the current one.
+* Icon <img width="16" height="16" src="update_current.svg" alt="update current">
+  (update current step): Modify the current step by replacing the initial
+  selected expression with the resulting transformed expression.
+* Cancel: Cancel the entire transform process.
 
 ### Likely future capabilities
 
