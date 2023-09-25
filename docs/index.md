@@ -85,8 +85,8 @@ You can also see the guide for other versions:
 [version 11](11/index.html),
 [version 13](13/index.html),
 [version 14](14/index.html),
-and
-[version 15](15/index.html).
+[version 15](15/index.html), and
+[version 17](17/index.html).
 
 The latest version of this
 [*Metamath-lamp guide*](https://lamp-guide.metamath.org/)
@@ -185,7 +185,8 @@ We'll then follow that with
 a [tour using the Explorer tab](#a-tour-using-the-explorer-tab),
 a [proof of the principle of the syllogism (`syl`)](#proof-principle-of-the-syllogism-syl), and a
 [proof that the reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot).
-We'll close with some other topics, such as a discussion on
+We'll close with some other topics, such as discussions on
+[transformers](#transformers-more-than-meets-the-eye) and
 [creating your own examples from existing proofs](#creating-your-own-examples-from-existing-proofs).
 
 ### Proof: 2 + 2 = 4
@@ -599,6 +600,7 @@ Here is the meaning of each icon in the statement fragment selector:
 | <img width="32" height="32" src="zoomoutmap.svg" alt="shrink"> | Shrink selection | Zoom out | Reduce the selection to the next smaller syntactic unit |
 | <img width="32" height="32" src="addabove.svg" alt="add above"> | Add new statement above | Arrow up from box | Create a new step above the current step with the selected statement fragment |
 | <img width="32" height="32" src="addbelow.svg" alt="add below"> | Add new statement below | Arrow down from box | Create a new step below the current step with the selected statement fragment |
+| <img width="32" height="32" src="transform.svg" alt="transform"> | Transform | | Transform the selected fragment |
 | <img width="32" height="32" src="copy.svg" alt="copy"> | Copy to clipboard | | Copy the fragment into the clipboard |
 | <img width="32" height="32" src="paste.svg" alt="paste"> | Paste | Clipboard | Paste the clipboard contents onto the current selected fragment |
 | <img width="32" height="32" src="edit.svg" alt="edit"> | Edit | Pencil | Start editing with current text selected |
@@ -3007,6 +3009,177 @@ You can then use "Import from JSON" to load the results into a normal tab.
 You can
 [click on this link to open `2p2e4` in temp mode](https://expln.github.io/lamp/latest/index.html?editorState=eyJzcmNzIjpbeyJ0eXAiOiJXZWIiLCJmaWxlTmFtZSI6IiIsInVybCI6Imh0dHBzOi8vdXMubWV0YW1hdGgub3JnL21ldGFtYXRoL3NldC5tbSIsInJlYWRJbnN0ciI6IlN0b3BCZWZvcmUiLCJsYWJlbCI6IjJwMmU0IiwicmVzZXROZXN0aW5nTGV2ZWwiOnRydWUsImFsbExhYmVscyI6W119XSwiZGVzY3IiOiJQcm92ZSB0aGF0IDIgKyAyID0gNC4iLCJ2YXJzVGV4dCI6IiIsImRpc2pUZXh0IjoiIiwic3RtdHMiOlt7ImxhYmVsIjoiMSIsInR5cCI6InAiLCJpc0dvYWwiOmZhbHNlLCJjb250IjoifC0gMSBlLiBDQyIsImpzdGZUZXh0IjoiOiBheC0xY24ifSx7ImxhYmVsIjoiMiIsInR5cCI6InAiLCJpc0dvYWwiOmZhbHNlLCJjb250IjoifC0gMiBlLiBDQyIsImpzdGZUZXh0IjoiOiAyY24ifSx7ImxhYmVsIjoiMyIsInR5cCI6InAiLCJpc0dvYWwiOmZhbHNlLCJjb250IjoifC0gMiA9ICggMSArIDEgKSIsImpzdGZUZXh0IjoiOiBkZi0yIn0seyJsYWJlbCI6IjQiLCJ0eXAiOiJwIiwiaXNHb2FsIjpmYWxzZSwiY29udCI6InwtICggMiArIDIgKSA9ICggMiArICggMSArIDEgKSApIiwianN0ZlRleHQiOiIzIDogb3ZlcTJpIn0seyJsYWJlbCI6IjUiLCJ0eXAiOiJwIiwiaXNHb2FsIjpmYWxzZSwiY29udCI6InwtIDMgPSAoIDIgKyAxICkiLCJqc3RmVGV4dCI6IjogZGYtMyJ9LHsibGFiZWwiOiI2IiwidHlwIjoicCIsImlzR29hbCI6ZmFsc2UsImNvbnQiOiJ8LSA0ID0gKCAzICsgMSApIiwianN0ZlRleHQiOiI6IGRmLTQifSx7ImxhYmVsIjoiNyIsInR5cCI6InAiLCJpc0dvYWwiOmZhbHNlLCJjb250IjoifC0gKCAzICsgMSApID0gKCAoIDIgKyAxICkgKyAxICkiLCJqc3RmVGV4dCI6IjUgOiBvdmVxMWkifSx7ImxhYmVsIjoiOCIsInR5cCI6InAiLCJpc0dvYWwiOmZhbHNlLCJjb250IjoifC0gNCA9ICggKCAyICsgMSApICsgMSApIiwianN0ZlRleHQiOiI2IDcgOiBlcXRyaSJ9LHsibGFiZWwiOiI5IiwidHlwIjoicCIsImlzR29hbCI6ZmFsc2UsImNvbnQiOiJ8LSAoICggMiArIDEgKSArIDEgKSA9ICggMiArICggMSArIDEgKSApIiwianN0ZlRleHQiOiIyIDEgMSA6IGFkZGFzc2kifSx7ImxhYmVsIjoiMnAyZTQiLCJ0eXAiOiJwIiwiaXNHb2FsIjpmYWxzZSwiY29udCI6InwtICggMiArIDIgKSA9IDQiLCJqc3RmVGV4dCI6IjkgOCA0IDogM2VxdHI0cmkifV19).
 
+### Transformers: More than meets the eye
+
+In many cases a statement is a common transformation of another statement.
+Metamath-lamp includes transformers, that is,
+a set of transforms to automatically modify a statement in some common ways.
+
+You don't *have* to use transformers; you can always create and modify
+statements using statement copying, copy/paste, and editing.
+However, transformers simplify making such changes and the
+results are more likely to be correct.
+Transformers simplify making changes by doing things such as
+automatically adding or removing parentheses
+(and parentheses-like symbols) as pairs,
+adding spaces around symbols, and so on.
+
+You can select a transform by selecting any part of a statement to open
+the fragment selector icon bar, then select the
+icon <img width="16" height="16" src="transform.svg" alt="save"> (transform).
+The transform icon has a circle and a square;
+you can interpret its symbol as "changing shape".
+Once selected, there is a list of available transforms.
+
+To use a transform:
+
+1. Select the transform (e.g., "swap" or "insert").
+2. If relevant, configure it with parameters. For example, "insert"
+   needs to know what to insert. Some transforms don't have anything to
+   configure, e.g., "swap" doesn't need anything else.
+3. Select what to do with the result (e.g., change the existing statement,
+   copy to the clipboard, or create a new statement).
+
+Metamath-lamp comes with default transforms.
+In the future we hope to support specialized transforms.
+You can (eventually) enable specialized transforms through
+the Settings tab. For now, we'll discuss the default transforms
+by trying them out.
+
+#### Trying out transformers
+
+To try out transformers, let's use the proof of `2 + 2 = 4`.
+For context, load the `set.mm` database and read all.
+Go to "Explorer" and search for label `2p2e4` (press Enter aka Return
+to apply the search). Click on the word Theorem of `2p2e4` to display
+the proof. In its hamburger menu, select "Load this proof to the editor".
+
+Now click on the leftmost opening parentheses of the expression
+`( ( 2 + 1 ) + 1 )` - this selects a *part* of the full statement.
+A fragment selector icon bar will appear beneath the statement.
+Select the
+icon <img width="16" height="16" src="transform.svg" alt="save"> (transform).
+
+You will see various transforms, depending on the version of the tool
+and its configuration settings. However, that list is likely to include
+insert, elide, swap, and associate.
+
+##### Trying out the swap transform
+
+Let's start with swap, which is
+a simple transform and thus makes a good starting point.
+
+> Select Swap: X = Y => Y = X
+
+You'll now see a simple dialogue box. At the top is the name of the
+currently-selected transform.
+You'll see `Initial:` followed by the initial selected expression,
+`(  ( 2 + 1 )  +  1  )`.
+Below that you'll see `Result:` and the current
+result of the selected transform on the selected expression if it were accepted.
+In this case the current result is `(  1  +  ( 2 + 1 )  )`.
+Notice that "Swap" causes the "topmost" left and right values to swap
+places in the selected expression.
+Swap doesn't have any configuration parameters, making swap an
+especially easy transform to understand.
+
+##### Selecting what to do with transform results in our example
+
+We are then presented with options of what to do with the result
+of the transform:
+
+* Icon <img width="16" height="16" src="back.svg" alt="back"> (back):
+  Go back to the transform selection menu.
+* Icon <img width="16" height="16" src="copy.svg" alt="copy">
+  (copy to clipboard):
+  Copy to clipboard. Note: *Only* the result is
+  copied, *not* the entire statement the initial selected
+  expression comes from.
+* Icon <img width="16" height="16" src="addabove.svg" alt="add above">
+  (add new step above):
+  Copy the entire statement, including the transform result,
+  into a new step above the current one.
+* Icon <img width="16" height="16" src="addbelow.svg" alt="add below">
+  (add new step below):
+  Copy the entire statement, including the transform result,
+  into a new step below the current one.
+* Icon <img width="16" height="16" src="update_current.svg" alt="update current">
+  (update current step): Modify the current step by replacing the initial
+  selected expression with the resulting transformed expression.
+* Cancel: Cancel the entire transform process.
+
+We can select "Back" to go back and choose a different transform.
+
+> Select the icon <img width="16" height="16" src="back.svg" alt="back"> (back)
+> so we can try a different transform.
+
+##### Trying out the associate transform
+
+Let's try out the associate transform, another simple transform.
+
+> Select "associate".
+
+Now we see that associate can take the initial expression
+`(  ( 2 + 1 )  +  1  )`
+and convert it to
+`(  2 + ( 1  +  1  ) )`.
+
+Let's select a different fragment and look at other transforms.
+
+> Select Cancel.
+
+##### Trying out the insert transform
+
+Let's try a more complex transform, "insert".
+A different expression would probably be a better example, so
+let's select the entire expression `3 = ( 2 + 1 )`:
+
+> Click on the `=` of the use of `df-3`, selecting the fragment
+> `3 = ( 2 + 1 )`.
+> Click on the icon transform, and select "insert".
+
+The initial expression is `3 = ( 2 + 1 )`.
+Notice that the insert transform has more configuration options we can select
+to produce the final result.
+
+The option to select a "Two-sided" insert is probably the most important.
+Do we want to insert the same thing on both sides? If we do, then we
+want "two-sided"; otherwise we don't.
+Typically you only select "two-sided" when the top-most operation is
+normal equality (`=`), boolean equality (`<->`), or similar kinds of equality.
+In this case, we'll add `+ 1` to both sides of an equality,
+so we'll want a two-sided insert.
+We'll want to insert information on the right side of both sides, so
+we'll select "Right side" (instead of "Left side").
+
+The row starting with "no parentheses" lets you select what
+parentheses-like pair of symbols to insert.
+You often want "no parentheses" when two-sided is off, and you often want
+"()" when two-sided is on. We'll be using two-sided in this example,
+so select "()".
+
+Finally, the box labelled "Insert text" lets you type the text to insert;
+let's enter `+ 1` and see what happens.
+In this case, a `+ 1` has been correctly added to both sides, with this
+result:
+
+`(  3  + 1  )  =  (  ( 2 + 1 )  + 1  )`
+
+The "elide" transform is similar; it *removes* symbols instead of
+inserting them. Its options shows "Keep left" and "keep right", because
+it's easier to show and explain what you *keep* after eliding some symbols.
+
+#### Summary of transformers
+
+Larger proofs tend to involve many steps, each with statements that
+a sequence of symbols (aka icons).
+It's easy to be confused by complex sequences, and end up accidentally
+making changes that are *almost* right such as moving parentheses
+in the wrong place.
+[Transformers](https://www.youtube.com/watch?v=rZjoB0pfq6A) -
+automated bots to battle and destroy the courses
+of the [deceptive icons](https://tfwiki.net/wiki/Decepticon).
+
 ### Notes about other capabilities
 
 The metamath-lamp tool has other capabilities we haven't covered.
@@ -3630,6 +3803,7 @@ Here is the full set of icons in the fragment selection bar:
 | <img width="32" height="32" src="addabove.svg" alt="add above"> | Add new statement above | Arrow up from box | Create a new step above the current step with the selected statement fragment |
 | <img width="32" height="32" src="addbelow.svg" alt="add below"> | Add new statement below | Arrow down from box | Create a new step below the current step with the selected statement fragment |
 | <img width="32" height="32" src="copy.svg" alt="copy"> | Copy to clipboard | | Copy the fragment into the clipboard |
+| <img width="32" height="32" src="transform.svg" alt="transform"> | Transform | | Transform the selected fragment |
 | <img width="32" height="32" src="paste.svg" alt="paste"> | Paste | Clipboard | Paste the clipboard contents onto the current selected fragment |
 | <img width="32" height="32" src="edit.svg" alt="edit"> | Edit | Pencil | Start editing with current text selected |
 | <img width="32" height="32" src="cancel.svg" alt="cancel"> | Cancel| Circled X | Cancel (and close) this statement fragment dialogue |
@@ -3647,6 +3821,55 @@ In Firefox the copy to clipboard functionality works as expected, but the
 icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste)
 will currently *only* paste from the current metamath-lamp application,
 and never from a different browser origin or a different application.
+
+#### Transformers
+
+In many cases a statement is a common transformation of another statement.
+Metamath-lamp includes transformers, that is,
+a set of transforms to automatically modify a statement in some common ways.
+
+You can select a transform by selecting any part of a statement to open
+the fragment selector icon bar, then select the
+icon <img width="16" height="16" src="transform.svg" alt="save"> (transform).
+The transform icon has a circle and a square;
+you can interpret its symbol as "changing shape".
+Once selected, there is a list of available transforms.
+
+Metamath-lamp comes with default transforms.
+In the future we hope to support specialized transforms.
+You can (eventually) enable specialized transforms through
+the Settings tab.
+
+To use a transform:
+
+1. Select the transform (e.g., "swap" or "insert").
+2. If relevant, configure it with parameters. For example, "insert"
+   needs to know what to insert. Some transforms don't have anything to
+   configure, e.g., "swap" doesn't need anything else.
+3. Select what to do with the result (e.g., change the existing statement,
+   copy to the clipboard, or create a new statement).
+
+Here are the options of what to do with the result:
+
+* Icon <img width="16" height="16" src="back.svg" alt="back"> (back):
+  Go back to the transform selection menu.
+* Icon <img width="16" height="16" src="copy.svg" alt="copy">
+  (copy to clipboard):
+  Copy to clipboard. Note: *Only* the result is
+  copied, *not* the entire statement the initial selected
+  expression comes from.
+* Icon <img width="16" height="16" src="addabove.svg" alt="add above">
+  (add new step above):
+  Copy the entire statement, including the transform result,
+  into a new step above the current one.
+* Icon <img width="16" height="16" src="addbelow.svg" alt="add below">
+  (add new step below):
+  Copy the entire statement, including the transform result,
+  into a new step below the current one.
+* Icon <img width="16" height="16" src="update_current.svg" alt="update current">
+  (update current step): Modify the current step by replacing the initial
+  selected expression with the resulting transformed expression.
+* Cancel: Cancel the entire transform process.
 
 #### How to state the goal and hypotheses
 
@@ -4336,6 +4559,35 @@ Here is the equivalent JSON for it:
 This is a summary of the metamath-lamp update history in
 reverse chronological order. We'll emphasize user-visible changes.
 
+#### Version 18
+
+This version added [transformers (was: New fragment selector to insert and elide statements)](https://github.com/expln/metamath-lamp/issues/121#issuecomment-1697997262)
+
+In many cases one statement is a common transformation of another
+statement. To make this easier to do (and more likely to be correct),
+a new fragment selector has been created to let you apply simple
+transforms to insert and elide statements.
+Some small changes are expected to occur in this before a release.
+
+The icon <img width="16" height="16" src="transform.svg" alt="save"> (transform)
+has a circle and a square; you can interpret it as "changing shape".
+Once selected,
+there is a list of available transforms. Just select a transform,
+configure it with its specific parameters, and see the result.
+
+There are two new settings on the Settings tab:
+
+* "Use default transforms". A set of default transforms. These are read-only.
+* "Use custom transforms". This allows you to write custom transforms
+  on JavaScript. This is currently *intentionally* undocumented because
+  the API is still unstable. However, the default transforms can be
+  used as examples of how to write them, and once the API stabilizes
+  we plan to document how to create them.
+
+The transform process
+highlights the added/removed text and/or of the parts being moved.
+The whole new expression is added as a new step.
+
 #### Version 17
 
 The major update in version 17 is how metamath-lamp (mm-lamp) handles discouraged assertions. Discouraged assertions were supported in the previous versions too, but in version 17 it became more convenient. Also, assertions can be marked as "deprecated". This allows you to exclude them from proofs independently of the "discouraged" ones. More details on this may be found in these issues:
@@ -4464,255 +4716,6 @@ and proposed changes are listed in its
 You can follow
 [commits in its `develop` branch](https://github.com/expln/metamath-lamp/commits/develop) and even try out the
 [development version of metamath-lamp application page (but this may not work as expected)](https://expln.github.io/lamp/dev/index.html).
-
-### Features currently implemented in the development version
-
-* [New fragment selector to insert and elide statements](https://github.com/expln/metamath-lamp/issues/121#issuecomment-1697997262)
-
-In many cases one statement is a common transformation of another
-statement. To make this easier to do (and more likely to be correct),
-a new fragment selector has been created to let you apply simple
-transforms to insert and elide statements.
-Some small changes are expected to occur in this before a release.
-
-The icon <img width="16" height="16" src="transform.svg" alt="save"> (transform)
-has a circle and a square; you can interpret it as "changing shape".
-Once selected,
-there is a list of available transforms. Just select a transform,
-configure it with its specific parameters, and see the result.
-
-There are two new settings on the Settings tab:
-
-* "Use default transforms". A set of default transforms. These are read-only.
-* "Use custom transforms". This allows you to write custom transforms
-  on JavaScript. This is currently *intentionally* undocumented because
-  the API is still unstable. However, the default transforms can be
-  used as examples of how to write them, and once the API stabilizes
-  we plan to document how to create them.
-
-The transform process
-highlights the added/removed text and/or of the parts being moved.
-
-The whole new expression is added as a new step.
-
-### Transformers: More than meets the eye (draft tutorial section)
-
-In many cases a statement is a common transformation of another statement.
-Metamath-lamp includes transformers, that is,
-a set of transforms to automatically modify a statement in some common ways.
-You don't *have* to use transformers; you can always create and modify
-statements using statement copying, copy/paste, and editing.
-However, transformers simplify making such changes and the
-results are more likely to be correct.
-Transformers simplify making changes by doing things such as
-automatically adding or removing parentheses
-(and parentheses-like symbols) as pairs,
-adding spaces around symbols, and so on.
-
-You can select a transform by selecting any part of a statement to open
-the fragment selector icon bar, then select the
-icon <img width="16" height="16" src="transform.svg" alt="save"> (transform).
-The transform icon has a circle and a square;
-you can interpret its symbol as "changing shape".
-Once selected, there is a list of available transforms.
-
-To use a transform:
-
-1. Select the transform (e.g., "swap" or "insert").
-2. If relevant, configure it with parameters. For example, "insert"
-   needs to know what to insert. Some transforms don't have anything to
-   configure, e.g., "swap" doesn't need anything else.
-3. Select what to do with the result (e.g., change the existing statement,
-   copy to the clipboard, or create a new statement).
-
-Metamath-lamp comes with default transforms.
-In the future we hope to support specialized transforms.
-You can (eventually) enable specialized transforms through
-the Settings tab. For now, we'll discuss the default transforms
-by trying them out.
-
-#### Trying out transformers
-
-To try out transformers, let's use the proof of `2 + 2 = 4`.
-For context, load the `set.mm` database and read all.
-Go to "Explorer" and search for label `2p2e4` (press Enter aka Return
-to apply the search). Click on the word Theorem of `2p2e4` to display
-the proof. In its hamburger menu, select "Load this proof to the editor".
-
-Now click on the leftmost opening parentheses of the expression
-`( ( 2 + 1 ) + 1 )` - this selects a *part* of the full statement.
-A fragment selector icon bar will appear beneath the statement.
-Select the
-icon <img width="16" height="16" src="transform.svg" alt="save"> (transform).
-
-You will see various transforms, depending on the version of the tool
-and its configuration settings. However, that list is likely to include
-insert, elide, swap, and associate.
-
-##### Trying out the swap transform
-
-Let's start with swap, which is
-a simple transform and thus makes a good starting point.
-
-> Select Swap: X = Y => Y = X
-
-You'll now see a simple dialogue box. At the top is the name of the
-currently-selected transform.
-You'll see `Initial:` followed by the initial selected expression,
-`(  ( 2 + 1 )  +  1  )`.
-Below that you'll see `Result:` and the current
-result of the selected transform on the selected expression if it were accepted.
-In this case the current result is `(  1  +  ( 2 + 1 )  )`.
-Notice that "Swap" causes the "topmost" left and right values to swap
-places in the selected expression.
-Swap doesn't have any configuration parameters, making swap an
-especially easy transform to understand.
-
-##### Selecting what to do with transform results in our example
-
-We are then presented with options of what to do with the result
-of the transform:
-
-* Icon <img width="16" height="16" src="back.svg" alt="back"> (back):
-  Go back to the transform selection menu.
-* Icon <img width="16" height="16" src="copy.svg" alt="copy">
-  (copy to clipboard):
-  Copy to clipboard. Note: *Only* the result is
-  copied, *not* the entire statement the initial selected
-  expression comes from.
-* Icon <img width="16" height="16" src="addabove.svg" alt="add above">
-  (add new step above):
-  Copy the entire statement, including the transform result,
-  into a new step above the current one.
-* Icon <img width="16" height="16" src="addbelow.svg" alt="add below">
-  (add new step below):
-  Copy the entire statement, including the transform result,
-  into a new step below the current one.
-* Icon <img width="16" height="16" src="update_current.svg" alt="update current">
-  (update current step): Modify the current step by replacing the initial
-  selected expression with the resulting transformed expression.
-* Cancel: Cancel the entire transform process.
-
-We can select "Back" to go back and choose a different transform.
-
-> Select the icon <img width="16" height="16" src="back.svg" alt="back"> (back)
-> so we can try a different transform.
-
-##### Trying out the associate transform
-
-Let's try out the associate transform, another simple transform.
-
-> Select "associate".
-
-Now we see that associate can take the initial expression
-`(  ( 2 + 1 )  +  1  )`
-and convert it to
-`(  2 + ( 1  +  1  ) )`.
-
-Let's select a different fragment and look at other transforms.
-
-> Select Cancel.
-
-##### Trying out the insert transform
-
-Let's try a more complex transform, "insert".
-A different expression would probably be a better example, so
-let's select the entire expression `3 = ( 2 + 1 )`:
-
-> Click on the `=` of the use of `df-3`, selecting the fragment
-> `3 = ( 2 + 1 )`.
-> Click on the icon transform, and select "insert".
-
-The initial expression is `3 = ( 2 + 1 )`.
-Notice that the insert transform has more configuration options we can select
-to produce the final result.
-
-The option to select a "Two-sided" insert is probably the most important.
-Do we want to insert the same thing on both sides? If we do, then we
-want "two-sided"; otherwise we don't.
-Typically you only select "two-sided" when the top-most operation is
-normal equality (`=`), boolean equality (`<->`), or similar kinds of equality.
-In this case, we'll add `+ 1` to both sides of an equality,
-so we'll want a two-sided insert.
-We'll want to insert information on the right side of both sides, so
-we'll select "Right side" (instead of "Left side").
-
-The row starting with "no parentheses" lets you select what
-parentheses-like pair of symbols to insert.
-You often want "no parentheses" when two-sided is off, and you often want
-"()" when two-sided is on. We'll be using two-sided in this example,
-so select "()".
-
-Finally, the box labelled "Insert text" lets you type the text to insert;
-let's enter `+ 1` and see what happens.
-In this case, a `+ 1` has been correctly added to both sides, with this
-result:
-
-`(  3  + 1  )  =  (  ( 2 + 1 )  + 1  )`
-
-The "elide" transform is similar; it *removes* symbols instead of
-inserting them. Its options shows "Keep left" and "keep right", because
-it's easier to show and explain what you *keep* after eliding some symbols.
-
-#### Summary of transformers
-
-Larger proofs tend to involve many steps, each with statements that
-a sequence of symbols (aka icons).
-It's easy to be confused by complex sequences, and end up accidentally
-making changes that are *almost* right such as moving parentheses
-in the wrong place.
-[Transformers](https://www.youtube.com/watch?v=rZjoB0pfq6A) -
-automated bots to battle and destroy the courses
-of the [deceptive icons](https://tfwiki.net/wiki/Decepticon).
-
-### Transformers (Reference manual section)
-
-In many cases a statement is a common transformation of another statement.
-Metamath-lamp includes transformers, that is,
-a set of transforms to automatically modify a statement in some common ways.
-
-You can select a transform by selecting any part of a statement to open
-the fragment selector icon bar, then select the
-icon <img width="16" height="16" src="transform.svg" alt="save"> (transform).
-The transform icon has a circle and a square;
-you can interpret its symbol as "changing shape".
-Once selected, there is a list of available transforms.
-
-Metamath-lamp comes with default transforms.
-In the future we hope to support specialized transforms.
-You can (eventually) enable specialized transforms through
-the Settings tab.
-
-To use a transform:
-
-1. Select the transform (e.g., "swap" or "insert").
-2. If relevant, configure it with parameters. For example, "insert"
-   needs to know what to insert. Some transforms don't have anything to
-   configure, e.g., "swap" doesn't need anything else.
-3. Select what to do with the result (e.g., change the existing statement,
-   copy to the clipboard, or create a new statement).
-
-Here are the options of what to do with the result:
-
-* Icon <img width="16" height="16" src="back.svg" alt="back"> (back):
-  Go back to the transform selection menu.
-* Icon <img width="16" height="16" src="copy.svg" alt="copy">
-  (copy to clipboard):
-  Copy to clipboard. Note: *Only* the result is
-  copied, *not* the entire statement the initial selected
-  expression comes from.
-* Icon <img width="16" height="16" src="addabove.svg" alt="add above">
-  (add new step above):
-  Copy the entire statement, including the transform result,
-  into a new step above the current one.
-* Icon <img width="16" height="16" src="addbelow.svg" alt="add below">
-  (add new step below):
-  Copy the entire statement, including the transform result,
-  into a new step below the current one.
-* Icon <img width="16" height="16" src="update_current.svg" alt="update current">
-  (update current step): Modify the current step by replacing the initial
-  selected expression with the resulting transformed expression.
-* Cancel: Cancel the entire transform process.
 
 ### Likely future capabilities
 
