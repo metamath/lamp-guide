@@ -4567,7 +4567,6 @@ In many cases one statement is a common transformation of another
 statement. To make this easier to do (and more likely to be correct),
 a new fragment selector has been created to let you apply simple
 transforms to insert and elide statements.
-Some small changes are expected to occur in this before a release.
 
 The icon <img width="16" height="16" src="transform.svg" alt="save"> (transform)
 has a circle and a square; you can interpret it as "changing shape".
