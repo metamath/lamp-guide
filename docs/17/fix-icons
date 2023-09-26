@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Fix SVGs so they can be displayed using <img>.
+#
+# First, start up metamath-lamp in Firefox. Select
+# Menu > More Tools > Web Development Tools.
+# Select "Pick an Element" (leftmost in tab bar, left of Inspector).
+# Select desired item (should start <svg ...).
+# Right-click > Copy > Outer HTML
+# Paste into NAME.svg file.
+# Run this as ./fix-icons *.svg
+
+# If you need to rotate the result, here's a useful tool:
+# https://www.svgviewer.dev/
+
+for file; do
+sed -E 's/<svg [^>]*(viewBox="[^"]*") [^>]*>/<svg xmlns="http:\/\/www.w3.org\/2000\/svg" \1>/i' < "$file" > ,1
+mv ,1 "$file"
+done

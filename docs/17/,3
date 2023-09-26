@@ -1,0 +1,26 @@
+HTTP/2 302 
+server: Cowboy
+location: https://staging.bestpractices.coreinfrastructure.org/en
+content-type: text/html; charset=utf-8
+cache-control: no-cache
+x-request-id: 8d6de663-6327-49f0-bd11-4025c4dc9eb5
+x-runtime: 0.009666
+x-frame-options: DENY
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+x-download-options: noopen
+x-permitted-cross-domain-policies: none
+referrer-policy: no-referrer-when-downgrade
+content-security-policy: default-src 'self' staging.bestpractices.dev.global.ssl.fastly.net staging.bestpractices.coreinfrastructure.org.global.ssl.fastly.net staging.bestpractices.coreinfrastructure.org staging.bestpractices.dev; base-uri 'self'; block-all-mixed-content; form-action 'self'; frame-ancestors 'none'; img-src 'self' staging.bestpractices.dev.global.ssl.fastly.net staging.bestpractices.coreinfrastructure.org.global.ssl.fastly.net staging.bestpractices.coreinfrastructure.org staging.bestpractices.dev secure.gravatar.com avatars.githubusercontent.com; object-src 'none'; script-src 'self' staging.bestpractices.dev.global.ssl.fastly.net staging.bestpractices.coreinfrastructure.org.global.ssl.fastly.net staging.bestpractices.coreinfrastructure.org staging.bestpractices.dev; style-src 'self' staging.bestpractices.dev.global.ssl.fastly.net staging.bestpractices.coreinfrastructure.org.global.ssl.fastly.net staging.bestpractices.coreinfrastructure.org staging.bestpractices.dev
+via: 1.1 vegur, 1.1 varnish
+accept-ranges: bytes
+date: Wed, 09 Aug 2023 20:20:58 GMT
+age: 0
+x-served-by: cache-iad-kiad7000158-IAD
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1691612458.207757,VS0,VE152
+vary: Accept-Encoding
+strict-transport-security: max-age=300
+content-length: 121
+
