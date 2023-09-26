@@ -51,6 +51,7 @@ user guide (tutorial) and a reference guide. It includes:
    [principle of the syllogism (`syl`)](#proof-principle-of-the-syllogism-syl),
    a proof that the
    [reciprocal of the cotangent is tangent (`reccot`)](#proof-the-reciprocal-of-the-cotangent-is-tangent-reccot),
+   [transformers](#transformers-more-than-meets-the-eye), and
    [creating your own examples from existing proofs](#creating-your-own-examples-from-existing-proofs),
    [loading existing metamath-lamp proofs](#loading-existing-metamath-lamp-proofs),
    and
