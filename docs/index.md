@@ -252,9 +252,6 @@ So we're going to add a statement and type in our goal statement.
 
 > In the Editor click on the
 > icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
-> Don't try to click on the similar
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> as
-> that would try to create a duplicate (the tool won't let you do that anyway).
 > Enter
 > `|- ( 2 + 2 ) = 4`
 > and press Enter (Return) to save the result.
@@ -405,7 +402,8 @@ and the command each icon performs:
 | <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected steps up the list |
 | <img width="32" height="32" src="add.svg" alt="add"> | Add new statement | Plus sign | Type in the new statement |
 | <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected steps | Trash can | |
-| <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement | Circles behind "+" | Makes a copy of the selected statement |
+| <img width="32" height="32" src="addabove.svg" alt="add above"> | Duplicate selected step up   | Arrow up from box                | Make a copy of the selected step and place it above the original step                                                                                                                              |
+| <img width="32" height="32" src="addbelow.svg" alt="add below"> | Duplicate selected step down | Arrow down from box              | Make a copy of the selected step and place it below the original step                                                                                                                              |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
 | <img width="32" height="32" src="time.svg" alt="restore/undo"> | Restore previous state | Rewinding Clock | Restore previous state (aka undo/redo) |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
@@ -558,7 +556,7 @@ use the "duplicate" command to get us started:
 > Step 3 is the step with
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )` as the statement.
 > Click on the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate).
 
 This will create a duplicate step (labelled 4)
 below the selected step (labelled 3).
@@ -673,7 +671,7 @@ Let's try that.
 > icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select step)
 > to the left of the new statement
 > `|- 2 = ( 1 + 1 )` to select that step, then press the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate).
 > Use long-click on the new statement and modify it so that it is
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )`
 > and press Enter (Return).
@@ -1564,7 +1562,7 @@ Let's go back to the editor and look at our proof that ( 2 + 2 ) = 4
 
 > Click on the checkbox next to step 7 which uses `oveq1i`.
 > Click on the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected step down).
 > In this new step, long-click on the statement, then edit the statement
 > to replace `|-` with `wff`.
 > Click on
