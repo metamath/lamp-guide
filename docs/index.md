@@ -402,8 +402,8 @@ and the command each icon performs:
 | <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected steps up the list |
 | <img width="32" height="32" src="add.svg" alt="add"> | Add new statement | Plus sign | Type in the new statement |
 | <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected steps | Trash can | |
-| <img width="32" height="32" src="addabove.svg" alt="add above"> | Duplicate selected step up   | Arrow up from box                | Make a copy of the selected step and place it above the original step                                                                                                                              |
-| <img width="32" height="32" src="addbelow.svg" alt="add below"> | Duplicate selected step down | Arrow down from box              | Make a copy of the selected step and place it below the original step                                                                                                                              |
+| <img width="32" height="32" src="addabove.svg" alt="add above"> | Duplicate selected step up   | Arrow up from box | Make a copy of the selected step and place it above the original step |
+| <img width="32" height="32" src="addbelow.svg" alt="add below"> | Duplicate selected step down | Arrow down from box | Make a copy of the selected step and place it below the original step |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
 | <img width="32" height="32" src="time.svg" alt="restore/undo"> | Restore previous state | Rewinding Clock | Restore previous state (aka undo/redo) |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
@@ -2754,7 +2754,7 @@ antecedent of the goal.
 
 > Click on the checkbox to the left of the expression using `cot`.
 > Click on the
-> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected statement down).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected step down).
 > Click on the *second* parenthesis of the *goal*
 > statement to select the antecedent of the goal.
 
@@ -2796,7 +2796,7 @@ as long as you do the same thing on the right-hand side.
 ~~~~
 
 > Let's duplicate this step. Click on the
-> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected statement down).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected step down).
 > Long-click to edit it, and surround the left and right
 > sides of its equality with `( 1 / ... )` resulting in:
 
@@ -3495,8 +3495,8 @@ Here are their icons and meanings:
 | <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected steps up the list |
 | <img width="32" height="32" src="add.svg" alt="add"> | Add new statement | Plus sign | Type in the new statement |
 | <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected steps | Trash can | |
-| <img width="32" height="32" src="addabove.svg" alt="add above"> | Duplicate selected step up   | Arrow up from box                | Make a copy of the selected step and place it above the original step                                                                                                                              |
-| <img width="32" height="32" src="addbelow.svg" alt="add below"> | Duplicate selected step down | Arrow down from box              | Make a copy of the selected step and place it below the original step                                                                                                                              |
+| <img width="32" height="32" src="addabove.svg" alt="add above"> | Duplicate selected step up   | Arrow up from box | Make a copy of the selected step and place it above the original step |
+| <img width="32" height="32" src="addbelow.svg" alt="add below"> | Duplicate selected step down | Arrow down from box | Make a copy of the selected step and place it below the original step |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
 | <img width="32" height="32" src="time.svg" alt="restore/undo"> | Restore previous state | Rewinding Clock | Restore previous state (aka undo/redo) |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
