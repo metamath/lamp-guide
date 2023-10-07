@@ -2899,7 +2899,7 @@ Now we can start simplifying the reciprocal of the division.
 ~~~~
 
 > Duplicate this step by clicking on the
-> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected statement down).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected step down).
 > In the duplicate, change <tt>( cos &#96; A) e. CC</tt> to `A e. CC`
 > and once that's done press Enter (Return).
 > Click on
