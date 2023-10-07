@@ -2522,7 +2522,7 @@ cotangent. So let's retrieve their definitions.
 Let's first find the definition of the tangent.
 
 > Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search).
-> In the pattern enter <tt>( tan &#96;</tt>, change type to <tt>|-</tt> if needed, 
+> In the pattern enter <tt>( tan &#96;</tt>, change type to <tt>|-</tt> if needed,
 > and click on Search.
 
 That produces a huge number of results. We could scroll through many pages
@@ -2678,7 +2678,7 @@ modify it.
 
 > Select the checkbox to the left of the expression using `tan`.
 > Click on the
-> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> 
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below">
 > (duplicate selected step down).
 > This will create a copy of the selected step below the current step.
 
