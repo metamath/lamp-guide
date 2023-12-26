@@ -252,9 +252,6 @@ So we're going to add a statement and type in our goal statement.
 
 > In the Editor click on the
 > icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
-> Don't try to click on the similar
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> as
-> that would try to create a duplicate (the tool won't let you do that anyway).
 > Enter
 > `|- ( 2 + 2 ) = 4`
 > and press Enter (Return) to save the result.
@@ -405,7 +402,8 @@ and the command each icon performs:
 | <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected steps up the list |
 | <img width="32" height="32" src="add.svg" alt="add"> | Add new statement | Plus sign | Type in the new statement |
 | <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected steps | Trash can | |
-| <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement | Circles behind "+" | Makes a copy of the selected statement |
+| <img width="32" height="32" src="addabove.svg" alt="add above"> | Duplicate selected step up   | Arrow up from box | Make a copy of the selected step and place it above the original step |
+| <img width="32" height="32" src="addbelow.svg" alt="add below"> | Duplicate selected step down | Arrow down from box | Make a copy of the selected step and place it below the original step |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
 | <img width="32" height="32" src="time.svg" alt="restore/undo"> | Restore previous state | Rewinding Clock | Restore previous state (aka undo/redo) |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
@@ -558,7 +556,7 @@ use the "duplicate" command to get us started:
 > Step 3 is the step with
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )` as the statement.
 > Click on the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate).
 
 This will create a duplicate step (labelled 4)
 below the selected step (labelled 3).
@@ -673,7 +671,7 @@ Let's try that.
 > icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select step)
 > to the left of the new statement
 > `|- 2 = ( 1 + 1 )` to select that step, then press the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate).
 > Use long-click on the new statement and modify it so that it is
 > `|- ( 2 + 2 ) = ( 2 + ( 1 + 1 ) )`
 > and press Enter (Return).
@@ -1564,7 +1562,7 @@ Let's go back to the editor and look at our proof that ( 2 + 2 ) = 4
 
 > Click on the checkbox next to step 7 which uses `oveq1i`.
 > Click on the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected step down).
 > In this new step, long-click on the statement, then edit the statement
 > to replace `|-` with `wff`.
 > Click on
@@ -2476,7 +2474,7 @@ about where the parenthesis go.
 
 Now modify the label of this goal to `reccot`.
 
-> Select the step label (1) using the left mouse button.
+> Select the step label (qed) using the left mouse button.
 > Change the step label to `reccot` and press Enter (Return).
 
 Let's take a brief look at this goal.
@@ -2524,7 +2522,8 @@ cotangent. So let's retrieve their definitions.
 Let's first find the definition of the tangent.
 
 > Select the icon <img width="16" height="16" src="search.svg" alt="search"> (search).
-> In the pattern enter <tt>( tan &#96;</tt> and click on Search.
+> In the pattern enter <tt>( tan &#96;</tt>, change type to <tt>|-</tt> if needed,
+> and click on Search.
 
 That produces a huge number of results. We could scroll through many pages
 to find what we want and select it.
@@ -2679,7 +2678,8 @@ modify it.
 
 > Select the checkbox to the left of the expression using `tan`.
 > Click on the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below">
+> (duplicate selected step down).
 > This will create a copy of the selected step below the current step.
 
 An easy way to modify the new step's statement is to
@@ -2699,7 +2699,7 @@ the relevant section of the new statement.
 > icon <img width="16" height="16" src="copy.svg" alt="copy"> (copy to clipboard)
 > under the goal statement, so that the selected text will be
 > copied to the clipboard.
-> click on the *second* parenthesis of the new statement,
+> Click on the *second* parenthesis of the new statement,
 > to open its fragment selector and select that portion of the statement.
 > Click on the
 > icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste)
@@ -2712,7 +2712,7 @@ less convenient than the built-in paste command provided by metamath-lamp
 (though there's no need to do that here).
 
 You could have done that via a
-long-click on the second parenthesis of the new statement
+click on the second parenthesis of the new statement
 we just created (selecting its antecedent),
 clicking on the
 icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit)
@@ -2754,7 +2754,7 @@ antecedent of the goal.
 
 > Click on the checkbox to the left of the expression using `cot`.
 > Click on the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected step down).
 > Click on the *second* parenthesis of the *goal*
 > statement to select the antecedent of the goal.
 
@@ -2796,9 +2796,9 @@ as long as you do the same thing on the right-hand side.
 ~~~~
 
 > Let's duplicate this step. Click on the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected step down).
 > Long-click to edit it, and surround the left and right
-> and sides of its equality with `( 1 / ... )` resulting in:
+> sides of its equality with `( 1 / ... )` resulting in:
 
 ~~~~metamath
 |- ( ( A e. CC /\ ( sin ` A ) =/= 0 /\ ( cos ` A ) =/= 0 ) ->
@@ -2827,7 +2827,7 @@ Let's replace the work variable <tt>&amp;C1</tt>:
 > icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->)
 > to begin a substitution that will occur across the *entire* proof.
 > In "Match what" enter <tt>&amp;C1</tt> and
-> in "Match with" enter <tt>( cos &#96; A )</tt> ... Once you're done, press
+> in "Match with" enter <tt>( cos &#96; A )</tt> . Once you're done, press
 > "Find Substitution<!-- ‡ -->". It will determine that there is 1 valid substitution<!-- ‡ -->;
 > press "Apply".
 
@@ -2836,7 +2836,7 @@ Let's replace the work variable <tt>&amp;C2</tt>:
 > Click on the
 > icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 > In "Match what" enter <tt>&amp;C2</tt> and
-> in "Match with" enter <tt>( sin &#96; A )</tt> ...
+> in "Match with" enter <tt>( sin &#96; A )</tt> .
 > once that's done, press
 > "Find Substitution<!-- ‡ -->". It will determine that there is 1 valid substitution<!-- ‡ -->;
 > press "Apply".
@@ -2899,7 +2899,7 @@ Now we can start simplifying the reciprocal of the division.
 ~~~~
 
 > Duplicate this step by clicking on the
-> icon <img width="16" height="16" src="duplicate.svg" alt="duplicate"> (duplicate selected statement).
+> icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected step down).
 > In the duplicate, change <tt>( cos &#96; A) e. CC</tt> to `A e. CC`
 > and once that's done press Enter (Return).
 > Click on
@@ -3495,7 +3495,8 @@ Here are their icons and meanings:
 | <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected steps up the list |
 | <img width="32" height="32" src="add.svg" alt="add"> | Add new statement | Plus sign | Type in the new statement |
 | <img width="32" height="32" src="delete.svg" alt="add"> | Delete selected steps | Trash can | |
-| <img width="32" height="32" src="duplicate.svg" alt="duplicate"> | Duplicate selected statement | Circles behind "+" | Makes a copy of the selected statement |
+| <img width="32" height="32" src="addabove.svg" alt="add above"> | Duplicate selected step up   | Arrow up from box | Make a copy of the selected step and place it above the original step |
+| <img width="32" height="32" src="addbelow.svg" alt="add below"> | Duplicate selected step down | Arrow down from box | Make a copy of the selected step and place it below the original step |
 | <img width="32" height="32" src="merge.svg" alt="merge"> | Merge similar steps | Merge | Select one statement |
 | <img width="32" height="32" src="time.svg" alt="restore/undo"> | Restore previous state | Rewinding Clock | Restore previous state (aka undo/redo) |
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
