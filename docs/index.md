@@ -1656,7 +1656,7 @@ You can use the explorer to gain many insights into a database
 (and mathematics in general).
 In this section we'll walk through the first few assertions
 of `set.mm` to gain some understanding of this database.
-(By *assertions* here we means "axioms and theorems".)
+(By *assertions* here we mean "axioms and theorems".)
 
 If you're already familiar with `set.mm`, you can skip this section.
 
@@ -1710,9 +1710,10 @@ This phrase tells people and tools that they should *not* use this
 assertion in most circumstances.
 It *is* true, so you can use it if you want to,
 and there are special technical situations where it *is* useful.
-Currently metamath-lamp doesn't exclude discouraged theorems and axioms
-from its automation, but we expect it will
-exclude them by default in the future.
+By default metamath-lamp ignores discouraged theorems and axioms
+when it tries to automatically find justifications.
+You can always override this by expressly adding them as a justification
+or changing an editor setting.
 
 ##### Assertion 2: Theorem `a1ii`
 
