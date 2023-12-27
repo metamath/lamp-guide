@@ -2018,7 +2018,8 @@ step 1 was to use assertion `imim2i` with `syl.2` as its hypothesis.
 In our modified context we can't use `imim2i`, in fact, we can't use any
 assertion after `ax-3`, including `imim2i`.
 
-Let's eliminate this justification:
+Let's eliminate this justification for the step
+while retaining the intermediate step:
 
 > Long-click on the now-invalid justification
 > `syl.2 : imim2i` so that we can change it.
@@ -2026,14 +2027,11 @@ Let's eliminate this justification:
 > icon <img width="16" height="16" src="delete.svg" alt="delete"> (delete)
 > to delete the justification.
 
-Let's unify and see what happens (make sure all the steps are unselected before proceeding):
-
-> Click on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
-
-The final `syl` step has an orange "~"; this means that this particular
+Metamath-lamp automatically does a simple unify on all steps.
+Once that completes,
+the final `syl` step has an orange "~"; this symbol means that this particular
 step is justified on its own, but it transitively depends on something else
-that has not been justified.
+that has not been fully justified.
 You can see that `syl` depends
 on two other statements, `syl.1` and `1`, and it uses `ax-mp` with
 those hypotheses to justify this step.
@@ -2075,6 +2073,7 @@ Let's try backwards proof.
 > Select step 1 by clicking the checkbox to its left.
 > To start a backwards proof, click on
 > the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+> Make sure "Allow new variables" and "allow new steps" are selected.
 > Click on "Prove".
 
 The bottom-up prover will show us some options.
@@ -2196,6 +2195,8 @@ instead of completing this step:
 > show one possible substitution<!-- ‡ -->.
 > You *could* click on the "Apply button and then unify, but don't;
 > select the "Cancel" button instead.
+> (You could also apply, click on undo, and select "Restore this" to
+> undo the application.)
 
 That would have proven step 3 using ax-2.
 However, if the expressions were more complex and we had to take multiple
@@ -2329,17 +2330,17 @@ The second long-click highlighted this fragment in step 4:
 > icon <img width="16" height="16" src="replacement.svg" alt="global substitution"> (global substitution<!-- ‡ -->).
 
 Again the two fragments are copied in.
-However, in this case the order is the opposite of what we wanted,
-because we want to replace a work variable with an expression
-(not the other way around).
-So we'll swap them by clicking on the
+If the order wasn't the order we wanted,
+we could swap them in the substitution dialogue by clicking on the
 icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 on the right of the "match what" field.
 
+<!--
 > Click on the
 > icon <img width="16" height="16" src="reverse.svg" alt="reverse"> (reverse)
 > to swap the field contents,
-> press "Find substitution<!-- ‡ -->", then apply.
+> press "Find substitution", then apply.
+-->
 
 ##### Handling the duplication in syl
 
@@ -2356,10 +2357,7 @@ Let's merge them.
 > Select step 3 and click on the "merge" icon.
 > Among the "use" options select using 4 (which uses `ax-2`), so we can
 > keep the connection to `ax-2`.
-> Step 3 is gone, now it's all step 4.
-> Click on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
-> to see we've fully proven step 4.
+> Once we select it, step 3 is gone, now it's all step 4.
 
 ##### Completing syl in hard mode
 
