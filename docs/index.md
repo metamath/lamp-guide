@@ -255,6 +255,7 @@ So we're going to add a statement and type in our goal statement.
 > Enter
 > `|- ( 2 + 2 ) = 4`
 > and press Enter (Return) to save the result.
+> Note that the `|-` at the beginning is automatically entered for you.
 
 After editing, instead of pressing Enter (Return), you could also click on the
 icon <img width="16" height="16" src="save.svg" alt="save"> (save) or the
@@ -525,16 +526,27 @@ sometimes prove many statements automatically.
 > Enter, for this new step, the statement
 > `|- ( 3 + 1 ) = ( ( 2 + 1 ) + 1 )`
 > and press Enter (Return).
-> Now, while no steps are selected, click on the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
-> Since there
-> was no specific step selected, it will try to justify all steps.
 
-Metamath-lamp will succeed in finding a justification for our new step,
+By default Metamath-lamp automatically runs a simple unification process
+to justify any steps that aren't yet justified.
+Though this process,
+Metamath-lamp will succeed in finding a justification for this new step,
 so it will show a green checkmark next to our new step.
 The justification it will show is `2 : oveq1i`, which means that it can
 justify this new statement by applying theorem `oveq1i` and providing step 2
 as the hypothesis required by `oveq1i`.
+
+Note: older versions of Metamath-lamp didn't automatically run a simple
+unification process. You can also disable this automatic execution of the
+unification process after each change in a step
+(go to and unselect *Automatically "Unify All"*).
+If you're running an old version of Metamath-lamp, or you've changed the
+setting, you can still run this simple unification process.
+To run the simple unification process, don't select any specific steps, and
+click on the
+icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+Since there
+was no specific step selected, it will try to justify all steps.
 
 #### Using statement fragments to connect 3 + 1 with 4
 
@@ -636,15 +648,14 @@ In this case, we'll use the fragment selector to change `( 3 + 1 )` to 4:
 > Now press Enter (Return).
 
 We now have a new step with the statement
-`|- 4 = ( ( 2 + 1 ) + 1 )`. Let's unify to see if the
-tool can find a proof for this claim.
+`|- 4 = ( ( 2 + 1 ) + 1 )`.
 
-> Click on the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
-
-This will produce a green checkmark next to our new step.
-We have green checkmarks next to all the steps
-except our final `2p2e4` step.
+Metamath-lamp automatically unifies unproven statements by default.
+As a result, Metamath-lamp will automatically find a justification
+for our new step, and produce a green checkmark next to our new step
+showing that it is fully justified.
+As a result, we have green checkmarks next to all the steps
+except our final `2p2e4` goal step.
 
 #### Expanding the meaning of ( 2 + 2 )
 
@@ -681,9 +692,11 @@ automatically in unwanted places.
 This is intended to be a handy feature
 when writing new statements,
 but sometimes when editing it doesn't help.
-Please remove unwanted parentheses and make sure the statement
+For the moment, please remove unwanted parentheses and make sure the statement
 looks exactly as in the example.
 
+Metamath-lamp has
+options for controlling how to handle parentheses.
 Under the edit field you'll notice the
 icon <img width="16" height="16" src="parens.svg" alt="parentheses enabled"> (parentheses enabled),
 which means the editor will automatically insert
@@ -692,14 +705,12 @@ You can click on this icon to toggle between this state and
 icon <img width="16" height="16" src="parens_disabled.svg" alt="parentheses disabled"> (parentheses disabled);
 if parentheses are disabled, nothing will happen when you type a paired
 symbol.
+Metamath-lamp also has a mechanism called
+*transformers" that automate much more that we'll cover later.
 
 Feel free to use statement fragment selectors instead to make this change.
 
-> Now click on the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
-> Since there
-> was no specific step selected, it will try to justify all steps.
-
+Again, Metamath-lamp will automatically unify by default.
 Metamath-lamp will succeed in finding a justification for our new step,
 so it will show a green checkmark next to our new statement
 and its justification (`5 : oveq2i` in this case).
@@ -715,7 +726,8 @@ Let's try to do that.
 > icon <img width="16" height="16" src="checkbox.svg" alt="checkbox"> (select step)
 > of the `2p2e4` goal step.
 > Click on the
-> icon <img width="16" height="16" src="add.svg" alt="add"> (add new statement).
+> icon <img width="16" height="16" src="addabove.svg" alt="add above">
+> (add new step above).
 
 We're duplicating a goal step.
 The tool knows there's only one goal, so in the duplicate the
@@ -723,15 +735,13 @@ step type will be turned into a provable (**P**) step type.
 By default the goal is kept at the end, so this new statement will be
 added just before the goal step.
 
-Now let's edit the new statement.
-
-It's usually best, when creating Metamath proofs, to try to minimize the
+Now it's usually best, when creating Metamath proofs, to try to minimize the
 differences in statements between each step, such as swapping the
 left-hand-side and right-hand-side of an equality.
 There are other tools that can help you minimize the number of steps in a
 Metamath proof, once you *have* a valid proof.
 
-So what I would typically do, if I was just entering this by hand,
+What I would typically do, if I was creating this proof,
 is replace the `( 2 + 2 )` with its
 equivalent `( 2 + ( 1 + 1 ) )`, and replace `4` with its
 equivalent `( ( 2 + 1 ) + 1 )`. That would lead to this final statement:
@@ -758,39 +768,31 @@ metamath-lamp can often complete the proof more quickly.
 
 However, for demonstration purposes,
 I'm going to swap the two sides ahead of time.
-I want to show that sometimes simple unification doesn't work,
-even when you know you're matching a theorem's pattern exactly.
-I also want to show that while it can be helpful to take small steps, it
-isn't always needed (that is, both the expanded goal and the
-version that matches the database pattern).
-But first, let's try out this sequence that addition is associative,
-and see that simple unification doesn't work:
 
 > Long-click on the statement of the new step.
-> We're going to add as our new statement the required equivalence, but with
+> We're going to modify our new statement as the required equivalence, but with
 > the left and right hands of the equality the same as set.mm
 > (and thus swapped compared to the goal).
 > Enter
 > `|- ( ( 2 + 1 ) + 1 ) = ( 2 + ( 1 + 1 ) )`
 > and press Enter (Return).
-> As an experiment, select the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
-> while there's no step selected;
-> you'll see that in this case it did *not* find a justification
-> for our new step.
+
+Metamath-lamp will automatically do a simple unification, but because
+we've expressed them in a reversed order it won't find a trivial match.
 
 Yes, it's true that
 `( ( 2 + 1 ) + 1 )` is equal to `( 2 + ( 1 + 1 ) )`,
-the Metamath database in this context already has a proof that
+and the Metamath database in this context already has a proof that
 addition is associative using this specific order.
 
-However, when you click on
+However, when Metamath-lamp does a simple unification (by default or
+by clicking on
 the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
-without selecting any steps,
+without selecting any steps),
 metamath-lamp will *not* automatically prove this new step.
-As I mentioned a moment ago, I intentionally ordered the statement to
-match the form in the database exactly - so why isn't metamath-lamp
-finding this match and verifying it?
+I intentionally ordered the statement to
+match the form in the database exactly, and it *still* is not justified.
+Why isn't metamath-lamp finding this match and verifying it?
 
 This isn't unusual. It often happens that we can't just directly use
 a rule in the database, but instead we must first prove some *other*
@@ -863,15 +865,20 @@ After a moment it will present a list, and one of the first options
 The theorem `addassi` is a pre-existing theorem showing that
 addition is associative.
 This requires multiple lines, because using this associativity
-theorem requires showing that `1` and `2` are complex numbers.
+theorem requires showing that `1` and `2` are complex numbers
+(`2 e. CC` means "two is a member of the set of complex numbers").
 
 > Use the checkbox to its
-> left to select that one, then press the "Apply Selected" button.
+> left to select the set of steps using `addassi`,
+> then press the "Apply Selected" button.
 
 Suddenly a lot has happened.
 We now have new steps that have been automatically added to our proof,
 namely that `1 e. CC` (`1` is a member of the set of complex numbers)
 and `2 e. CC` (`2` is a member of the set of complex numbers).
+
+In fact, the display has changed completely, because we now have
+complete success!
 
 #### We have successfully proved that 2 + 2 = 4
 
@@ -887,7 +894,15 @@ You'll also see something else: a highlighted box showing the final
 generated proof.
 As of version 16, whenever you complete the proof of the goal
 this highlighted box will appear.
-You can copy text to the clipboard (to export it elsewhere).
+Depending on your window size, this highlighted box may fill your screen.
+
+By default the box shows a proof table with both the "essential" steps
+as well as steps that prove the types of various expressions.
+You can select "essentials only" to show the proof steps with only the
+essential steps.
+
+If you lick on the "Copy" button" you can
+copy the text to the clipboard (to export it elsewhere).
 This highlighted box makes it easy to export final results *and*
 makes it immediately obvious that you've proven the goal.
 We can show it again later using the menu option "Show completed proof"
@@ -1010,11 +1025,6 @@ Metamath-lamp can provide visualizations to show you what
 a given justification means for a given step.
 This only works when the tool has
 verified the justification and thus shows a green check (or orange "~").
-So let's first use unify to ensure that we've proven what we
-want to visualize.
-
-> While no step is selected, click on the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
 All steps have green checkmarks, which means all steps are proven.
 Let's visualize a step:
@@ -1178,10 +1188,14 @@ be more likely to be successful.
 Of course, repeatedly using the tool will give you a better sense of what
 is more (or less) likely to work.
 
-On my computer it takes 12 seconds to automatically
+On my computer it takes 24 seconds to automatically
 find some proofs using associativity.
 Notice that you didn't need to tell it about associativity; given the
 right search criteria, the tool could find these steps all by itself.
+
+You can simply select the proof it found (now it uses `3eqtr4ri`) and click
+on "apply selected" to use it.
+This will show the completed proof; select "Close" to close it.
 
 #### A brief discussions on settings
 
@@ -4560,6 +4574,14 @@ Here is the equivalent JSON for it:
 
 This is a summary of the metamath-lamp update history in
 reverse chronological order. We'll emphasize user-visible changes.
+
+#### Version 22
+
+Version 22 includes many bugfixes over version 18. In addition it:
+
+* Supports Shift-Enter when editing a description (to enter blank lines)
+* By default causes unification on all statements after editing a
+  statement. This is a setting and can be disabled.
 
 #### Version 18
 
