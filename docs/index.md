@@ -2689,7 +2689,8 @@ with the exact antecedents in our goal.
 This will be easier to do if we duplicate an existing step and
 modify it.
 
-> Select the checkbox to the left of the expression using `tan`.
+> Select the checkbox to the left of the expression using
+> justification `tanval`.
 > Click on the
 > icon <img width="16" height="16" src="addbelow.svg" alt="add below">
 > (duplicate selected step down).
@@ -2719,15 +2720,17 @@ the relevant section of the new statement.
 > in the corresponding new fragment selector icon bar of the new statement.
 > Notice that the selected fragment has now been replaced by the text that
 > was previously copied into the clipboard.
+> It will then be automatically justified using `3adant2`.
+
+Depending on your browser and its security settings,
+you may have needed to approve pasting.
 
 You can also use your system's paste command, though it's typically
-less convenient than the built-in paste command provided by metamath-lamp
-(though there's no need to do that here).
-
-You could have done that via a
-click on the second parenthesis of the new statement
-we just created (selecting its antecedent),
-clicking on the
+less convenient than the built-in paste command provided by metamath-lamp.
+Here's how, in case you want to ever do that.
+You'd still click on the second parenthesis of the new statement
+we just created (selecting its antecedent).
+Then click on the
 icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit)
 to edit the text directly but with the selected text highlighted.
 You could then use your system's paste command to overwrite
@@ -2740,7 +2743,7 @@ Press Enter (Return) or the click the
 icon <img width="16" height="16" src="save.svg" alt="save"> (save)
 to save the modified statement.
 
-We now have a new statement, showing value of a tangent is still
+We now have a new proven statement, showing value of a tangent is still
 valid given the antecedent of our goal:
 
 ~~~~metamath
@@ -2751,21 +2754,14 @@ valid given the antecedent of our goal:
 If you don't have this statement, use a long-click and then edit the
 statement to fix it.
 
-It turns out that metamath-lamp can immediately prove this new step.
-
-> Click on the
-> icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
-> in the [editor command icon bar](#editor-command-icon-bar)
-> above the steps. Note that the new
-> step now has a green checkmark.
-
 #### Matching the goal's antecedent for cotangent
 
 Let's do the same thing with the definition of the value of the
 cotangent, showing we can use this definition even given the
 antecedent of the goal.
 
-> Click on the checkbox to the left of the expression using `cot`.
+> Click on the checkbox to the left of the expression using `cotval`
+> in its justification.
 > Click on the
 > icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected step down).
 > Click on the *second* parenthesis of the *goal*
@@ -2779,14 +2775,16 @@ Let's copy this statement fragment into the clipboard.
 > Now click on the second parenthesis of the new statement
 > we just created, selecting its antecedent.
 > Click on the
-> icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit),
-> then use your system's paste command
-> ("control-V" on most computers, "command-V" on Macintoshes) to overwrite
-> the selected text with the text in the clipboard.
-> Press Enter (Return) to save the modified statement.
-> Click on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify)
-> to unify everything so far.
+> icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste)
+> in the corresponding new fragment selector icon bar of the new statement.
+
+This is automatically justified using `3adant3`.
+
+We could have, instead of pasting, clicked on the
+icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit),
+and then used the system's paste command
+("control-V" on most computers, "command-V" on Macintoshes).
+However, using the built-in metamath-lamp copy/paste icons is easier.
 
 We now have several steps. All the steps are proved
 (have green checkmarks) except the goal statement.
@@ -2818,8 +2816,8 @@ as long as you do the same thing on the right-hand side.
      ( 1 / ( cot ` A ) ) = ( 1 / ( ( cos ` A ) / ( sin ` A ) ) ) )
 ~~~~
 
-> When you're done, click on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+Metamath-lamp will automatically determine that this is justified by
+`oveq2d`.
 
 Clearly we're going to need to simplify the reciprocal of the cosine
 over the sine.
@@ -2853,10 +2851,8 @@ Let's replace the work variable <tt>&amp;C2</tt>:
 > once that's done, press
 > "Find Substitution<!-- ‡ -->". It will determine that there is 1 valid substitution<!-- ‡ -->;
 > press "Apply".
-> Click on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
 
-Again, all but the goal steps are proven.
+Notice that all steps, other than the goal steps, are proven.
 
 #### Proving the preconditions we need
 
@@ -2902,7 +2898,8 @@ statement.
 
 Now we can start simplifying the reciprocal of the division.
 
-> Select the step involving the reciprocal which has this long statement:
+> Select the step justified by `recdiv` involving the reciprocal
+> which has this long statement:
 
 ~~~~ metamath
 |- ( ( ( ( cos ` A ) e. CC /\ ( cos ` A ) =/= 0 ) /\
@@ -2915,19 +2912,24 @@ Now we can start simplifying the reciprocal of the division.
 > icon <img width="16" height="16" src="addbelow.svg" alt="add below"> (duplicate selected step down).
 > In the duplicate, change <tt>( cos &#96; A) e. CC</tt> to `A e. CC`
 > and once that's done press Enter (Return).
-> Click on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
-> Select that new step and duplicate it. In the duplicate step change its
+
+Notice that metamath-lamp quickly justifies this using `sylanl1`.
+Let's follow the same process.
+
+> Select that new step and duplicate it below.
+> In the duplicate step change its
 > statement
-> <tt>( sin &#96; A ) e. CC</tt> to `A e. CC`, Press Enter, and click on
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+> <tt>( sin &#96; A ) e. CC</tt> to `A e. CC`, Press Enter.
+
+Metamath-lamp has automatically proved this using `sylanr1`.
 
 This antecedent of this latest new statement is still not exactly the same as
 the goal antecedent, but it's very close. It's likely the tool can
 easily complete that, so let's create a new statement based on the
 one we just created but it has the *exact* same antecedent as the goal.
 
-> Select the latest new step with this (long) statement:
+> Select the latest new step (justified with `sylanr1`).
+> It has this (long) statement:
 
 ~~~~metamath
 |- ( ( ( A e. CC /\ ( cos ` A ) =/= 0 ) /\
@@ -2936,21 +2938,26 @@ one we just created but it has the *exact* same antecedent as the goal.
        ( ( sin ` A ) / ( cos ` A ) ) )
 ~~~~
 
-> Duplicate the step.
+> Duplicate the step below.
 > Click on the *second* parentheses of the goal statement
 > (so we can duplicate its antecedent) and click on the "copy" icon.
-> Now click on the second parenthesis of our new statement,
+> Now click on the second parenthesis of our new statement, selecting
+> its antecedent, and
 > click on the
-> icon <img width="16" height="16" src="edit.svg" alt="edit"> (edit)
-> below it,
-> and paste with control-V (or command-V).
-> Enter, then press
-> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
+> icon <img width="16" height="16" src="paste.svg" alt="paste"> (paste).
 
-The unification worked!
+Metamath-lamp doesn't find an easy match, so we'll need to do a
+bottom-up proof.
 
-In fact, that proved more than the new step.
-Now label `reccot` shows a green checkmark, which means we've
+> Select the step we just edited, then click on
+> the icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify),
+> and press "prove".
+> Select the option using `3simpb`, `3simpa`, and `syl2anc`, and
+> follow that up with "Apply selected".
+
+We're done!
+You'll see the final proof display. If you close it, you can see that
+label `reccot` shows a green checkmark, which means we've
 completed the proof.
 
 If you like, you can again extract the final compressed proof:
