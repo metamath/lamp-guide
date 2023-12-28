@@ -80,7 +80,7 @@ We hope you'll find it useful.
 Metamath-lamp improves over time, so some of this guide
 may not exactly match what you see. If you see a difference, please
 let us know so we can fix this guide.
-This guide was written for release version 18.
+This guide was written for release version 22.
 You can also see the guide for other versions:
 [version 10](10/index.html),
 [version 11](11/index.html),
@@ -3558,6 +3558,9 @@ You may also click on the *field name* to edit the field.
 
 This is a description of the proof.
 This description is included as a comment in the generated proof.
+
+Use Enter to save the modified description, Shift+Enter to
+start a new line, or Esc to cancel.
 
 If you are following the conventions of `set.mm`, the first sentence
 of the description should be an English sentence explaining what
