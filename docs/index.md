@@ -529,7 +529,7 @@ sometimes prove many statements automatically.
 
 By default Metamath-lamp automatically runs a simple unification process
 to justify any steps that aren't yet justified.
-Though this process,
+Through this process,
 Metamath-lamp will succeed in finding a justification for this new step,
 so it will show a green checkmark next to our new step.
 The justification it will show is `2 : oveq1i`, which means that it can
@@ -537,11 +537,11 @@ justify this new statement by applying theorem `oveq1i` and providing step 2
 as the hypothesis required by `oveq1i`.
 
 Note: older versions of Metamath-lamp didn't automatically run a simple
-unification process. You can also disable this automatic execution of the
-unification process after each change in a step
-(go to and unselect *Automatically "Unify All"*).
-If you're running an old version of Metamath-lamp, or you've changed the
-setting, you can still run this simple unification process.
+unification process after a change to a proof step.
+You can also disable automatic unification
+(go to Settings and unselect *Automatically "Unify All"*).
+So if you're running an old version of Metamath-lamp, or you've changed the
+setting, you need to manually invoke the simple unification process.
 To run the simple unification process, don't select any specific steps, and
 click on the
 icon <img width="16" height="16" src="hub.svg" alt="Unify"> (unify).
