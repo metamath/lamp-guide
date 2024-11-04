@@ -4002,10 +4002,10 @@ A search pattern must be a space-separated sequence of zero or
 more sub-patterns, as defined here:
 
 ~~~~bnf
-search-pattern ::= sub-pattern*
-sub-pattern ::= ['$'modifiers] MATH-SYMBOL*
-modifiers ::= modifier*
-modifier := '+' | '!' | 'h' | 'a'
+search-pattern ::= sub-pattern+
+sub-pattern ::= ['$'modifiers] MATH-SYMBOL+
+modifiers ::= modifier+
+modifier ::= '+' | '!' | 'h' | 'a'
 ~~~~
 
 A MATH-SYMBOL must be one of:
