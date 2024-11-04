@@ -80,14 +80,15 @@ We hope you'll find it useful.
 Metamath-lamp improves over time, so some of this guide
 may not exactly match what you see. If you see a difference, please
 let us know so we can fix this guide.
-This guide was written for release version 22.
+This guide was written for release version 25.
 You can also see the guide for other versions:
 [version 10](10/index.html),
 [version 11](11/index.html),
 [version 13](13/index.html),
 [version 14](14/index.html),
-[version 15](15/index.html), and
-[version 17](17/index.html).
+[version 15](15/index.html),
+[version 17](17/index.html), and
+[version 22](22/index.html).
 
 The latest version of this
 [*Metamath-lamp guide*](https://lamp-guide.metamath.org/)
@@ -399,6 +400,9 @@ and the command each icon performs:
 | Icon | Meaning | Visual Description | Additional information |
 | ---- | ------- | ------------------ | ---------------------- |
 | <img width="32" height="32" src="checkbox.svg" alt="checkbox"> | Select all | Checkbox | Select or deselect all current steps |
+| <img width="32" height="32" src="bookmark-selected.svg" alt="bookmark-selected"> | Bookmark selected | Bookmark with + | Bookmark selected steps
+| <img width="32" height="32" src="unbookmark-selected.svg" alt="bookmark-unselected"> | Unbookmark selected | Bookmark with - | Unbookmark selected steps
+| <img width="32" height="32" src="show-bookmark.svg" alt="show-bookmark"> | Toggle showing bookmarked steps | Bookmark | Toggle between showing only bookmarked steps and showing all steps
 | <img width="32" height="32" src="down.svg" alt="down"> | Down | Down arrow | Move the selected steps down the list |
 | <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected steps up the list |
 | <img width="32" height="32" src="add.svg" alt="add"> | Add new statement | Plus sign | Type in the new statement |
@@ -410,6 +414,7 @@ and the command each icon performs:
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
 | <img width="32" height="32" src="replacement.svg" alt="global substitution"> | Substitution<!-- ‡ --> | A with arrow | Apply a global substitution<!-- ‡ --> (aka replacement) to *all* statements in the proof; see [global substitution](#global-substitution) |
 | <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all steps or unify selected provable bottom-up.  If no steps are selected, attempt to unify everything.  If one statement is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
+| <img width="32" height="32" src="run-macro.svg" alt="run-macro"> | Run macro | Play button | Run a macro
 | <img width="32" height="32" src="menu.svg" alt="menu"> | Menu | 3 horizontal lines aka hamburger | Menu of other actions
 
 Under the editor command icon bar is basic information about the proof
@@ -3207,6 +3212,7 @@ The metamath-lamp tool has other capabilities we haven't covered.
 For example:
 
 * The icon <img width="16" height="16" src="time.svg" alt="restore/undo/redo"> (restore/undo) will let you undo to a previous state. See [Restore previous state (aka undo/redo)](#restore-previous-state-aka-undoredo) for more.
+* The bookmark icons lets you limit what steps are displayed. You can add or remove bookmarks on steps, then select the bookmark icon to toggle between showing only bookmarked steps and showing all steps.
 
 ### Creating your own examples from existing proofs
 
@@ -3615,22 +3621,22 @@ local variables with global variables before generating a proof.
 The disjoints field
 presents a list of disjoint variables, one disjoint expression per line.
 A disjoint expression (a text line) must be a list of two or more
-variables separated by commas.
+variables separated by spaces (older versions of metamath-lamp used commas).
 Disjoint variables are also called *distinct* variables.
 
 An example of a disjoint field's contents might be this list, representing
 three disjoint expressions:
 
 ~~~~metamath
-x,y,F
-x,y,u,v
+x y F
+x y u v
 ~~~~
 
-The disjoint expression `x,y` simply means that
+The disjoint expression `x y` simply means that
 `x` and `y` must be disjoint variables (aka distinct variables).
 This means that they may not be simultaneously
 substituted with the same variable.
-The disjoint expression `x,ph` means
+The disjoint expression `x ph` means
 variable `x` must not occur in the wff `ph`.
 
 For more information, see the [Metamath book](https://us.metamath.org/index.html#book).
@@ -3992,11 +3998,21 @@ The search pattern language is very simple,
 Note that search will *only* match on the conclusion part
 of an axiom or theorem (there is currently no mechanism to search hypotheses).
 
-A pattern must be a space-separated sequence of one or more items.
-Each item must be a constant or a typecode that is valid in the database:
+A search pattern must be a space-separated sequence of zero or
+more sub-patterns, as defined here:
 
-* A constant pattern only matches the same constant.
-* A typecode pattern matches any variable with that typecode.
+~~~~bnf
+search-pattern ::= sub-pattern+
+sub-pattern ::= ['$'modifiers] MATH-SYMBOL+
+modifiers ::= modifier+
+modifier ::= '+' | '!' | 'h' | 'a'
+~~~~
+
+A MATH-SYMBOL must be one of:
+
+* A syntactic constant pattern only matches the same syntactic constant.
+  E.g., `->` only matches `->`.
+* A typecode matches any variable with that typecode.
   For example, in the `set.mm` database, the valid typecodes you can use
   in a pattern are `wff` (which will match variables like `ph` and `ps`),
   `class` (which will match variables like `A` and `B`), or `setvar`
@@ -4004,14 +4020,46 @@ Each item must be a constant or a typecode that is valid in the database:
 
 Statements will only be considered matches if their conclusion part has
 the same matching symbols in the same order.
-There may be 1 or more other
+By default there may be 1 or more other
 symbols before the pattern, 1 or more symbols between the requested items,
 and 1 or more symbols after the last matched item.
 
 Therefore, a search for `0 ->` will match the conclusion
 `|- ( ( 0 <_ A /\ 0 <_ B ) -> 0 <_ ( A + B ) )`
-because the conclusion has a `0` constant which is later followed by a
-`->` constant.
+because the conclusion has a `0` syntactic constant which is later followed by a
+`->` syntactic constant.
+
+Here are the modifiers:
+
+* `+` - match adjacent symbols
+* `!` - exact match (identical length)
+* `a` - match only the assertion of a frame
+* `h` - match any hypotheses of a frame
+
+Here are some examples:
+
+* `( -> )` would match `|- ( ph -> ps )` and `|- ( x = A -> ph )`
+  but not `|- ( x = A ) -> ph`.
+
+* `wff -> wff` would match `|- ( ph -> ps )` and
+  `|- ( ps -> ( x = A -> ph ) )`,
+  but not `|- ( x = A -> ph )` because
+  this expression includes only one wff variable, whereas the pattern
+  expects two; `x = A` is a wff but the matching algorithm compares
+  only individual symbols.
+
+* `ph -> ps` - this pattern contains variables. Each variable will
+  match a variable of the same type. If each variable appears only
+  once in a pattern, then names of variables don't matter.
+
+* `ph -> ps -> ph` - this pattern contains repeating variables.
+  This means that when the first ph matches a variable, then the
+  second ph should match the same variable. But this doesn't work in
+  the opposite direction - if a pattern contains different variables
+  this doesn't mean they should match different content
+
+* `$+ ph -> ps` - this pattern uses the modifier +. It requires the
+  symbols to be adjacent in the matching expression.
 
 #### Global substitution
 
@@ -4583,6 +4631,15 @@ Here is the equivalent JSON for it:
 
 This is a summary of the metamath-lamp update history in
 reverse chronological order. We'll emphasize user-visible changes.
+
+For more information, see the
+[Metamath-lamp CHANGELOG](https://github.com/expln/metamath-lamp/blob/master/CHANGELOG.md) and
+[metamath-lamp-docs](https://github.com/expln/metamath-lamp-docs/tree/master).
+
+#### Version 25
+
+* Added support for bookmarking steps
+* Extended pattern search functionality
 
 #### Version 22
 
