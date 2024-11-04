@@ -4031,10 +4031,10 @@ because the conclusion has a `0` syntactic constant which is later followed by a
 
 Here are the modifiers:
 
-* + - match adjacent symbols
-* ! - exact match (identical length)
-* a - match only the assertion of a frame
-* h - match any hypotheses of a frame
+* + : match adjacent symbols
+* ! : exact match (identical length)
+* a : match only the assertion of a frame
+* h : match any hypotheses of a frame
 
 Here are some examples:
 
