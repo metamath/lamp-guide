@@ -3517,6 +3517,9 @@ Here are their icons and meanings:
 | Icon | Meaning | Visual Description | Additional information |
 | ---- | ------- | ------------------ | ---------------------- |
 | <img width="32" height="32" src="checkbox.svg" alt="checkbox"> | Select all | Checkbox | Select or deselect all current steps |
+| <img width="32" height="32" src="bookmark-selected.svg" alt="bookmark-selected"> | Bookmark selected | Bookmark with + | Bookmark selected steps
+| <img width="32" height="32" src="unbookmark-selected.svg" alt="bookmark-unselected"> | Unbookmark selected | Bookmark with - | Unbookmark selected steps
+| <img width="32" height="32" src="show-bookmark.svg" alt="show-bookmark"> | Toggle showing bookmarked steps | Bookmark | Toggle between showing only bookmarked steps and showing all steps
 | <img width="32" height="32" src="down.svg" alt="down"> | Down | Down arrow | Move the selected steps down the list |
 | <img width="32" height="32" src="up.svg" alt="up"> | Up | Up arrow | Move the selected steps up the list |
 | <img width="32" height="32" src="add.svg" alt="add"> | Add new statement | Plus sign | Type in the new statement |
@@ -3528,6 +3531,7 @@ Here are their icons and meanings:
 | <img width="32" height="32" src="search.svg" alt="search"> | Search | Magnifying glass | Add new steps by searching for a pattern; see [search patterns](#search-patterns) |
 | <img width="32" height="32" src="replacement.svg" alt="global substitution"> | Substitution<!-- ‡ --> | A with arrow | Apply a global substitution<!-- ‡ --> (aka replacement) to *all* statements in the proof; see [global substitution](#global-substitution) |
 | <img width="32" height="32" src="hub.svg" alt="Unify"> | Unify | Hub | Unify all steps or unify selected provable bottom-up.  If no steps are selected, attempt to unify everything.  If one statement is selected, open [proving bottom-up](#proving-bottom-up) dialogue |
+| <img width="32" height="32" src="run-macro.svg" alt="run-macro"> | Run macro | Play button | Run a macro
 | <img width="32" height="32" src="menu.svg" alt="menu"> | Menu | 3 horizontal lines aka hamburger | Menu of other actions
 
 Under the editor command icon bar is the
