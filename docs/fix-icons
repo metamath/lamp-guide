@@ -8,12 +8,22 @@
 # Select desired item (should start <svg ...).
 # Right-click > Copy > Outer HTML
 # Paste into NAME.svg file.
+
 # Run this as ./fix-icons *.svg
 
 # If you need to rotate the result, here's a useful tool:
 # https://www.svgviewer.dev/
 
+# Example that needs fixing:
+# <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="BookmarkAddOutlinedIcon">
+
+if [ $# -eq 0 ]; then
+  echo "Error: Must list at least one file to convert" >&2
+  exit 1
+fi
+
 for file; do
-sed -E 's/<svg [^>]*(viewBox="[^"]*") [^>]*>/<svg xmlns="http:\/\/www.w3.org\/2000\/svg" \1>/i' < "$file" > ,1
-mv ,1 "$file"
+  echo "Fixing $file"
+  sed -E 's/<svg [^>]*(viewBox="[^"]*")[^>]*>/<svg xmlns="http:\/\/www.w3.org\/2000\/svg" \1>/i' < "$file" > ,1
+  mv ,1 "$file"
 done
