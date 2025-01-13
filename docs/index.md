@@ -3443,14 +3443,21 @@ You can select the
 icon <img width="16" height="16" src="add.svg" alt="add"> (add)
 to add another source, and the adjacent
 icon <img width="16" height="16" src="trashcanbasic.svg" alt="delete"> (delete)
-to remove a source. In most cases you won't load another source.
-A common use for adding another source
+to remove a source.
+If more than one source is selected, they will be loaded in the order shown.
+In many cases you won't select more than one source to be loaded.
+
+A common reason to load two or more sources
 is if you're using a public Metamath database as a starting
-point, but have your own private collection of definitions and proofs
-in your local file storage.
+point, but you have your own private collection of axioms, definitions, and/or proofs.
+Typically that private collection is
+in your local file storage. In that case, a typical approach is to
+load the "main" source (possibly stopping at some point) as the first source.
+Then add your local file(s) with your private additions as your later sources.
 
 Once you've selected all sources, select "Apply changes" to process these
-source databases. After it's applied, the source selection section
+source databases. This will load the sources in the order listed.
+After it's applied, the source selection section
 is hidden and you can start creating a proof with the proof editor.
 
 ### Main tabs: Settings, Editor, and Explorer
